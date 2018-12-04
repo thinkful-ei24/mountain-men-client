@@ -2,6 +2,8 @@ import React from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
 import {Redirect} from 'react-router-dom';
+import {registerUser} from '../actions/auth.js';
+import Input from './input.js';
 
 export class RegisterForm extends React.Component {
   constructor(props) {
@@ -27,15 +29,15 @@ export class RegisterForm extends React.Component {
       <div id='form-container'>
         <div id='register-form'>
           <form className='register-form'
-            // onSubmit={this.props.handleSubmit(values => {
-            //   this.props.dispatch(register(values));
-            //   })}
-            >
+            onSubmit={this.props.handleSubmit(values => {
+              this.props.dispatch(registerUser(values))
+            })
+            }>
             <div>
               <label>First Name</label>
               <Field
                 name='firstName'
-                component='input'
+                component={Input}
                 type='text'
                 placeholder='First Name'
               />
@@ -44,7 +46,7 @@ export class RegisterForm extends React.Component {
               <label>Last Name</label>
               <Field
                 name='lastName'
-                component='input'
+                component={Input}
                 type='text'
                 placeholder='Last Name'
               />
@@ -52,8 +54,8 @@ export class RegisterForm extends React.Component {
             <div>
               <label>Email</label>
               <Field
-                name='firstName'
-                component='input'
+                name='email'
+                component={Input}
                 type='email'
                 placeholder='Email'
               />
@@ -61,8 +63,8 @@ export class RegisterForm extends React.Component {
             <div>
               <label>Password</label>
               <Field
-                name='firstName'
-                component='input'
+                name='password'
+                component={Input}
                 type='password'
                 placeholder='Password'
               />
@@ -71,27 +73,18 @@ export class RegisterForm extends React.Component {
               <label>Phone</label>
               <Field
                 name='phoneNumber'
-                component={'Input'}
+                component={Input}
                 // TODO - is there a phone number input?
                 type='tel'
                 pattern='[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}'
                 placeholder='ex. 303-303-3030'
               />
-               OR
-              (<Field
-                name='phoneNumber'
-                component={'Input'} type='tel' size='3' />)
-              <Field
-                name='phoneNumber'
-                component={'Input'} type='tel' size='3' /> - <Field
-                name='phoneNumber'
-                component={'Input'} type='tel' size='4' />
             </div>
             <div>
               <label>Address</label>
               <Field
-                name='firstName'
-                component='input'
+                name='address'
+                component={Input}
                 type='text'
                 placeholder='ex. 123 Main St, Littleton, CO 80120'
               />
@@ -99,19 +92,19 @@ export class RegisterForm extends React.Component {
             <div>
               <label id="radio-user ">User</label>
               <Field
-                name='firstName'
-                component='input'
+                name='type'
+                component={Input}
                 type='radio'
-                value='user'
+                value='USER'
                 checked={this.state.selectedRole === 'user'}
                 onChange={this.setUserRole}
               />
               <label id="radio-driver">Driver</label>
               <Field
-                name='firstName'
-                component='input'
+                name='type'
+                component={Input}
                 type='radio'
-                value='driver'
+                value='DRIVER'
                 checked={this.state.selectedRole === 'driver'}
                 onChange={this.setUserRole}
               />
