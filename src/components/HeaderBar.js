@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ShowNav from "./ShowNav";
+import "./styles/HeaderBar.css";
 
 export default class HeaderBar extends React.Component {
   constructor(props) {
@@ -16,27 +17,29 @@ export default class HeaderBar extends React.Component {
 
     return (
       <header>
-        <button
-          onClick={e => {
-            this.setState({ click: !this.state.click });
-          }}
-        >
-          Show Nav
-        </button>
-        {show}
-        <ul>
-          <li>
+        <ul className="header">
+          <li className="show-nav">
+            <button
+              onClick={e => {
+                this.setState({ click: !this.state.click });
+              }}
+            >
+              Show Nav
+            </button>
+          </li>
+          <li className="logo">
             <Link to="/">
-              <span>App Name</span>
+              <h3>Trucks R Us</h3>
             </Link>
           </li>
-          <li>
+          <li className="sign-up">
             <button>Sign Up</button>
           </li>
           <li>
             <button>Log In</button>
           </li>
         </ul>
+        {show}
       </header>
     );
   }

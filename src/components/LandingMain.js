@@ -1,7 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 export default function LandingMain(props) {
+
+  if(props.isLoggedIn) {
+    return <Redirect to='/dashboard' />;
+  }
+
   return (
     <main>
       <div>
@@ -24,3 +29,8 @@ export default function LandingMain(props) {
     </main>
   )
 }
+
+const mapStateToProps = state => ({
+  isLoggedIn: false // state.auth.user !== null
+})
+
