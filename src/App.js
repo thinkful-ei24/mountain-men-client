@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import LandingPage from "./pages/landingPage.js";
-import {RegisterForm as Register} from './components/RegisterForm.js';
-import {LoginForm as Login} from './components/LoginForm.js';
+import RegistrationForm from './components/RegisterForm.js';
+import LogForm from './components/LoginForm.js';
 import logo from "./logo.svg";
 import "./App.css";
 import { Route, BrowserRouter } from "react-router-dom";
@@ -13,8 +13,8 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <Route path="/" component={LandingPage} />
-            <Route exact path='/login' component={Login} />
-            <Route exact path='/register' component={Register} />
+            <Route exact path='/login' component={LogForm} />
+            <Route exact path='/register' component={RegistrationForm} />
           </div>
         </BrowserRouter>
       </div>

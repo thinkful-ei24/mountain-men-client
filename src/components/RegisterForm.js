@@ -116,6 +116,7 @@ export class RegisterForm extends React.Component {
                 onChange={this.setUserRole}
               />
             </div>
+            <button>Submit</button>
           </form>
         </div>
       </div>
@@ -128,6 +129,8 @@ const mapStateToProps = state => ({
   isLoggedIn: false // state.auth.user !== null
 })
 
-export default reduxForm({
-  form: 'login'
+const RegistrationForm = reduxForm({
+  form: 'register'
 })(connect(mapStateToProps)(RegisterForm))
+
+export default RegistrationForm;
