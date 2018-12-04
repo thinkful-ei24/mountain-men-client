@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import LandingPage from "./pages/landingPage.js";
-import {LoginRegisterForm as Login} from './components/LoginRegisterForm.js';
+import {RegisterForm as Register} from './components/RegisterForm.js';
 import logo from "./logo.svg";
 import "./App.css";
 import { Route, BrowserRouter } from "react-router-dom";
@@ -11,7 +11,7 @@ class App extends Component {
       <div className="App">
         <BrowserRouter>
           <Route exact path="/" component={LandingPage} />
-          <Route exact path='/login' component={Login} />
+          <Route exact path='/login' component={Register} />
         </BrowserRouter>
       </div>
     );
