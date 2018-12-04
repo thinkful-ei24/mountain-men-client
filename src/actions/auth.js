@@ -1,5 +1,5 @@
 import jwtDecode from 'jwt-decode';
-import {Submission Error} from 'redux-form';
+import {SubmissionError} from 'redux-form';
 
 import {API_BASE_URL} from '../config.js';
 import {saveAuthToken, clearAuthToken} from '../local-storage.js';
@@ -28,7 +28,7 @@ export const authSuccess = (currentUser) => ({
 });
 
 export const AUTH_ERROR = 'AUTH_ERROR';
-export const AuthError = (error) => ({
+export const authError = (error) => ({
   type: AUTH_ERROR,
   error
 })
@@ -36,7 +36,7 @@ export const AuthError = (error) => ({
 const storeAuthInfo = (authToken, dispatch) => {
   const decodeToken = jwtDecode(authToken);
   dispatch(setAuthToken(authToken));
-  dispatch(authSuccess(decodedToken.user));
+  dispatch(authSuccess(decodeToken.user));
   saveAuthToken(authToken);
 };
 
@@ -90,6 +90,7 @@ export const refreshAuthToken = () => (dispatch, getState) => {
 };
 
 export const registerUser = user => dispatch => {
+  console.log(user)
   return fetch(`${API_BASE_URL}/register`, {
     method: 'POST',
     headers: {
