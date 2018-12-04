@@ -40,15 +40,16 @@ const storeAuthInfo = (authToken, dispatch) => {
   saveAuthToken(authToken);
 };
 
-export const login = (username, password) => dispatch => {
+export const login = (email, password) => dispatch => {
+  console.log(email, password)
   dispatch(authRequest());
   return fetch(`${API_BASE_URL}/login`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    bosy: JSON.stringify({
-      username,
+    body: JSON.stringify({
+      email,
       password
     })
   })
@@ -90,7 +91,6 @@ export const refreshAuthToken = () => (dispatch, getState) => {
 };
 
 export const registerUser = user => dispatch => {
-  console.log(user)
   return fetch(`${API_BASE_URL}/register`, {
     method: 'POST',
     headers: {

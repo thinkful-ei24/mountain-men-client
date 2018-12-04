@@ -2,6 +2,7 @@ import React from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
 import {Redirect} from 'react-router-dom';
+import {login} from '../actions/auth.js';
 
 export class LoginForm extends React.Component {
   constructor(props) {
@@ -26,11 +27,15 @@ export class LoginForm extends React.Component {
     return(
       <div id='form-container'>
         <div id='login-form'>
-          <form className='login-form'>
+          <form className='login-form'
+            onSubmit={this.props.handleSubmit(values => {
+              this.props.dispatch(login(values))
+            })}
+          >
             <div>
               <label>Email</label>
               <Field
-                name='firstName'
+                name='email'
                 component='input'
                 type='email'
                 placeholder='Email'
@@ -39,7 +44,7 @@ export class LoginForm extends React.Component {
             <div>
               <label>Password</label>
               <Field
-                name='firstName'
+                name='password'
                 component='input'
                 type='password'
                 placeholder='Password'
