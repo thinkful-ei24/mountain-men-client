@@ -8,7 +8,7 @@ export default function LandingMain(props) {
         <h2>Need a Truck?</h2>
         <p>Log in to find a truck and driver to help you with your move</p>
         {/*TODO make button its own component */}
-        <Link ro='/login'>>
+        <Link to='/login'>
           <button type="button">Find a Truck</button>
         </Link>
       </div>
