@@ -12,11 +12,24 @@ class App extends Component {
     return (
       <div className="App">
         <BrowserRouter>
-          <div>
-            <Route path="/" component={LandingPage} />
-            <Route exact path='/login' component={LogForm} />
-            <Route exact path='/register' component={RegistrationForm} />
-            <Route exact path='/dashboard' component={Dashboard} />
+          <div className='body'>
+            <div className='header'>
+
+            </div>
+
+            <div className='main'>
+              {/* Landing Page */}
+              <Route path="/" component={LandingPage} />
+              <Route exact path='/login' component={LogForm} />
+              <Route exact path='/register' component={RegistrationForm} />
+              {/* Dashboards */}
+              <Route exact path='/dashboard' component={Dashboard} />
+            </div>
+
+            <div className='footer'>
+
+            </div>
+
           </div>
         </BrowserRouter>
       </div>
