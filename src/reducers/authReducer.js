@@ -13,7 +13,7 @@ const initialState = {
   error: null
 };
 
-export const authReducer = (state = initialState, action) => {
+const authReducer = (state = initialState, action) => {
   if (action.type === SET_AUTH_TOKEN) {
     // should assign the auth token from setAuthToken to state
     return Object.assign({}, state, {
@@ -33,7 +33,7 @@ export const authReducer = (state = initialState, action) => {
     })
   } else if (action.type === AUTH_SUCCESS) {
     console.log('success', action.currentUser)
-    return Object.assign(state, {
+    return Object.assign({}, state, {
       currentUser: action.currentUser,
       loading: false
     })
