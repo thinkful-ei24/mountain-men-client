@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import LandingPage from "./pages/landingPage.js";
 import RegistrationForm from './components/RegisterForm.js';
 import LogForm from './components/LoginForm.js';
-import logo from "./logo.svg";
+import { connect } from 'react-redux';
 import "./App.css";
 import { Route, BrowserRouter } from "react-router-dom";
 
@@ -22,4 +22,10 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    state
+  };
+}
+
+export default connect(mapStateToProps)(App);

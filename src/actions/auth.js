@@ -37,6 +37,7 @@ const storeAuthInfo = (authToken, dispatch) => {
   const decodeToken = jwtDecode(authToken);
   dispatch(setAuthToken(authToken));
   dispatch(authSuccess(decodeToken.user));
+  console.log(decodeToken.user);
   saveAuthToken(authToken);
 };
 
@@ -57,6 +58,7 @@ export const login = (input) => dispatch => {
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
     .then(({authToken}) => {
+      console.log(authToken);
       storeAuthInfo(authToken, dispatch)
     })
     .catch(err => {

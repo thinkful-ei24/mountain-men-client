@@ -31,6 +31,7 @@ export class RegisterForm extends React.Component {
           <form className='register-form'
             onSubmit={this.props.handleSubmit(values => {
               this.props.dispatch(registerUser(values))
+              console.log(this.props.currentUser);
             })
             }>
             <div>
@@ -115,7 +116,6 @@ export class RegisterForm extends React.Component {
       </div>
     )
   }
-
 }
 
 const mapStateToProps = state => ({

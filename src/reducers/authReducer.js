@@ -26,11 +26,13 @@ export default function reducer(state = initialState, action) {
       currentUser: null
     })
   } else if (action.type === AUTH_REQUEST) {
+    console.log('request');
     return Object.assign({}, state, {
       loading: true,
       error: null
     })
   } else if (action.type === AUTH_SUCCESS) {
+    console.log('success', action.currentUser);
     return Object.assign({}, state, {
       currentUser: action.currentUser,
       loading: false
