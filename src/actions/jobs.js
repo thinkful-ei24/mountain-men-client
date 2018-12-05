@@ -18,13 +18,12 @@ export const fetchJobsError = (error) => ({
 });
 
 export const getUserJobs = () => (dispatch, getState) => {
-  const authToken = getState().auth.aithToken;
+  const userId = getState().auth.currentUser.id;
   dispatch(fetchJobsRequest());
-  return fetch(`${API_BASE_URL}/api/jobs`, {
+  return fetch(`${API_BASE_URL}/api/jobs/${userId}`, {
     method: 'GET',
     headers: {
       'Content-Type: 'application/json',
-      authorization: `Bearer ${authToken}`
     },
   })
     .then(res => res.json())
