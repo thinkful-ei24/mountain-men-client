@@ -9,6 +9,7 @@ export function LandingPage(props) {
   if(props.loggedIn) {
     return <Redirect to='/dashboard' />
   }
+  console.log(props.anything)
   return (
     <div>
       <HeaderBar />
@@ -19,7 +20,8 @@ export function LandingPage(props) {
 
 const mapStateToProps = (state) => {
   return {
-    loggedIn: state.auth.user !== null,
+    loggedIn: state.auth.currentUser !== null,
+    anything: state,
   }
 }
 

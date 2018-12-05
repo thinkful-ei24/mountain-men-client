@@ -23,8 +23,8 @@ class App extends Component {
             <div className='main'>
               {/* Landing Page */}
               <Route path="/" component={LandingPage} />
-              <Route exact path='/login' component={LogForm} />
-              <Route exact path='/register' component={RegistrationForm} />
+              <Route path='/login' component={LoginPage} />
+              <Route path='/register' component={RegisterPage} />
               {/* Dashboards */}
               <Route exact path='/dashboard' component={Dashboard} />
             </div>
