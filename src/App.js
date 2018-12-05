@@ -5,6 +5,7 @@ import LogForm from './components/LoginForm.js';
 import { connect } from 'react-redux';
 import "./App.css";
 import { Route, BrowserRouter } from "react-router-dom";
+import { Dashboard } from './pages/dashboard.js';
 
 class App extends Component {
   render() {
@@ -15,6 +16,7 @@ class App extends Component {
             <Route path="/" component={LandingPage} />
             <Route exact path='/login' component={LogForm} />
             <Route exact path='/register' component={RegistrationForm} />
+            <Route exact path='/dashboard' component={Dashboard} />
           </div>
         </BrowserRouter>
       </div>
