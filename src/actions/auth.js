@@ -91,6 +91,7 @@ export const refreshAuthToken = () => (dispatch, getState) => {
 };
 
 export const registerUser = user => dispatch => {
+  const {password} = user
   return fetch(`${API_BASE_URL}/register`, {
     method: 'POST',
     headers: {
@@ -101,7 +102,7 @@ export const registerUser = user => dispatch => {
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
     .then(res => {
-      dispatch(login({email: res.email, password: res.password}))
+      dispatch(login({email: res.email, password}))
     })
     .catch(err => {
       dispatch(authError(err));
