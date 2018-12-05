@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import LandingPage from "./pages/landingPage.js";
-import RegistrationForm from './components/RegisterForm.js';
-import LogForm from './components/LoginForm.js';
-import { connect } from 'react-redux';
+
+import { connect } from "react-redux";
+import LoginPage from "./pages/LoginPage.js";
+import RegisterPage from "./pages/RegisterPage.js";
+import HeaderBar from "./components/HeaderBar.js";
+
 import "./App.css";
 import { Route, BrowserRouter } from "react-router-dom";
 import { Dashboard } from './pages/dashboard.js';
@@ -29,7 +32,6 @@ class App extends Component {
             <div className='footer'>
 
             </div>
-
           </div>
         </BrowserRouter>
       </div>
