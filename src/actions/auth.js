@@ -100,6 +100,9 @@ export const registerUser = user => dispatch => {
   })
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
+    .then(res => {
+      dispatch(login({email: res.email, password: res.password}))
+    });
     .catch(err => {
       dispatch(authError(err));
       const {reason, message, location} = err;
