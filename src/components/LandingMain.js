@@ -17,9 +17,6 @@ export function LandingMain(props) {
             <button type="button">Find a Truck</button>
           </Link>
         </div>
-        <button onClick={() => {
-          console.log(props)
-        }}>Test</button>
         <div>
           <h2>Have a Truck?</h2>
           <p>
