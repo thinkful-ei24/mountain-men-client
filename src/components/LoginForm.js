@@ -1,70 +1,70 @@
-import React from 'react';
-import { reduxForm, Field } from 'redux-form';
-import { connect } from 'react-redux';
-import {Redirect} from 'react-router-dom';
-import {login} from '../actions/auth.js';
+import React from "react";
+import { reduxForm, Field } from "redux-form";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
+import { login } from "../actions/auth.js";
 
 export class LoginForm extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
-      selectedRole: 'driver',
-    }
+      selectedRole: "driver"
+    };
   }
 
-  setUserRole = (changeEvent) => {
+  setUserRole = changeEvent => {
     this.setState({
-      selectedRole: changeEvent.target.value,
-    })
-  }
+      selectedRole: changeEvent.target.value
+    });
+  };
 
   render() {
-    if(this.props.isLoggedIn) {
-      return <Redirect to='/dashboard' />;
+    if (this.props.isLoggedIn) {
+      return <Redirect to="/dashboard" />;
     }
 
-    return(
-      <div id='form-container'>
-        <div id='login-form'>
-          <form className='login-form'
+    return (
+      <div id="form-container">
+        <div id="login-form">
+          <form
+            className="login-form"
             onSubmit={this.props.handleSubmit(values => {
-              this.props.dispatch(login(values))
+              this.props.dispatch(login(values));
             })}
           >
             <div>
               <label>Email</label>
               <Field
-                name='email'
-                component='input'
-                type='email'
-                placeholder='Email'
+                name="email"
+                component="input"
+                type="email"
+                placeholder="Email"
               />
             </div>
             <div>
               <label>Password</label>
               <Field
-                name='password'
-                component='input'
-                type='password'
-                placeholder='Password'
+                name="password"
+                component="input"
+                type="password"
+                placeholder="Password"
               />
             </div>
             <button>Log in</button>
           </form>
         </div>
       </div>
-    )
+    );
   }
-
 }
 
 const mapStateToProps = state => ({
-  isLoggedIn: false // state.auth.user !== null
-})
+  isLoggedIn: state.auth.currentUser !== null
+});
 
 const logForm = reduxForm({
-  form: 'login'
-})(connect(mapStateToProps)(LoginForm))
+  form: "login"
+})(connect(mapStateToProps)(LoginForm));
 
 export default logForm;
