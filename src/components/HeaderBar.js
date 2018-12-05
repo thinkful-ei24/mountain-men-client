@@ -1,18 +1,56 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { clearAuth } from "../actions/auth";
+import { clearAuthToken } from "../local-storage";
 import ShowNav from "./ShowNav";
 import "./styles/HeaderBar.css";
 
-export default class HeaderBar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { click: false };
-  }
+export class HeaderBar extends React.Component {
+  state = { click: false };
 
   render() {
-    let show;
+    let logout = () => {
+      this.props.dispatch(clearAuth());
+      clearAuthToken();
+      console.log(this.props);
+    };
+    let showNav;
     if (this.state.click) {
-      show = <ShowNav />;
+      showNav = <ShowNav />;
+    }
+    let showButtons;
+    if (this.props.loggedIn) {
+      showButtons = (
+        <li className="logout">
+          <Link to="/">
+            <button
+              type="button"
+              onClick={() => {
+                logout();
+                console.log("logout");
+              }}
+            >
+              Log out
+            </button>
+          </Link>
+        </li>
+      );
+    } else {
+      showButtons = (
+        <>
+          <li className="sign-up">
+            <Link to="/register">
+              <button>Sign Up</button>
+            </Link>
+          </li>
+          <li>
+            <Link to="/login">
+              <button>Log In</button>
+            </Link>
+          </li>
+        </>
+      );
     }
 
     return (
@@ -32,15 +70,16 @@ export default class HeaderBar extends React.Component {
               <h3>Trucks R Us</h3>
             </Link>
           </li>
-          <li className="sign-up">
-            <button>Sign Up</button>
-          </li>
-          <li>
-            <button>Log In</button>
-          </li>
+          {showButtons}
         </ul>
-        {show}
+        {showNav}
       </header>
     );
   }
 }
+
+const mapStateToProps = state => ({
+  loggedIn: state.auth.currentUser !== null
+});
+
+export default connect(mapStateToProps)(HeaderBar);
