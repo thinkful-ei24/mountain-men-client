@@ -1,11 +1,12 @@
 import React from "react";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import Dashboard from '../pages/dashboard.js';
 
 export function LandingMain(props) {
   console.log(props.currentUser);
   if (props.currentUser !== null) {
-    return <Redirect to="/dashboard" />;
+    return <Redirect to="/dashboard" component={Dashboard} />;
   } else {
     return (
       <main>
