@@ -4,6 +4,11 @@ import { connect } from "react-redux";
 import HeaderBar from "../components/HeaderBar.js";
 import LandingMain from "../components/LandingMain.js";
 import Dashboard from "../pages/dashboard";
+import styled from 'styled-components';
+
+const Landing = styled.div`
+
+`;
 
 export function LandingPage(props) {
   if (props.loggedIn) {
@@ -11,9 +16,9 @@ export function LandingPage(props) {
   }
 
   return (
-    <div>
+    <Landing>
       <LandingMain />
-    </div>
+    </Landing>
   );
 }
 

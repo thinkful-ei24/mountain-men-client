@@ -4,6 +4,13 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import {required, nonEmpty} from '../validators.js';
 import { login } from "../actions/auth.js";
+import styled from 'styled-components';
+
+const Button = styled.button`
+  background-color: #ff7f40;
+  color: white;
+  margin-top: 15px;
+`;
 
 export class LoginForm extends React.Component {
   constructor(props) {
@@ -44,6 +51,7 @@ export class LoginForm extends React.Component {
             })}
           >
             <div>
+              {error}
               <label>Email</label>
               <Field
                 name="email"
@@ -61,7 +69,7 @@ export class LoginForm extends React.Component {
                 placeholder="Password"
               />
             </div>
-            <button>Log in</button>
+            <Button>Log in</Button>
           </form>
         </div>
       </div>

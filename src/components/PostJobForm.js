@@ -3,10 +3,18 @@ import { reduxForm, Field } from "redux-form";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import Input from "./input.js";
+import { postJobs } from "../actions/postJobs";
 
 export class PostJob extends React.Component {
   constructor(props) {
     super(props);
+  }
+
+  onSubmit(values) {
+    console.log(this.props);
+    values.id = this.props.currentUser.id;
+    values.authToken = this.props.authToken;
+    return this.props.dispatch(postJobs(values));
   }
 
   render() {
@@ -20,14 +28,14 @@ export class PostJob extends React.Component {
         <div id="register-form">
           <form
             className="register-form"
-            onSubmit={() => {
-              console.log("hello");
-            }}
+            onSubmit={this.props.handleSubmit(values => {
+              return this.onSubmit(values);
+            })}
           >
             <div>
               <label>Job Title</label>
               <Field
-                name="jobTitle"
+                name="title"
                 component={Input}
                 type="text"
                 placeholder="I.e. I have a couch I need moved"
@@ -36,7 +44,7 @@ export class PostJob extends React.Component {
             <div>
               <label>Job Description</label>
               <Field
-                name="jobDescription"
+                name="description"
                 component={Input}
                 type="text"
                 placeholder="Job Description"
@@ -60,7 +68,9 @@ export class PostJob extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  isLoggedIn: state.auth.currentUser !== null
+  isLoggedIn: state.auth.currentUser !== null,
+  currentUser: state.auth.currentUser,
+  authToken: state.auth.authToken
 });
 
 const PostJobForm = reduxForm({

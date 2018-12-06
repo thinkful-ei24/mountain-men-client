@@ -5,7 +5,14 @@ import { clearAuth } from "../actions/auth";
 import { clearAuthToken } from "../local-storage";
 import ShowNav from "./ShowNav";
 import "./styles/HeaderBar.css";
+import styled from 'styled-components';
 
+const Button = styled.button`
+  background-color: #3DC182;
+  color: white;
+  margin-top: 15px;
+  font-size: 18px;
+`;
 export class HeaderBar extends React.Component {
   state = { click: false };
 
@@ -23,19 +30,19 @@ export class HeaderBar extends React.Component {
     if (this.props.loggedIn) {
       showNavButton = (
         <li className="show-nav">
-          <button
+          <Button
             onClick={e => {
               this.setState({ click: !this.state.click });
             }}
           >
             Show Nav
-          </button>
+          </Button>
         </li>
       );
       showButtons = (
         <li className="logout">
           <Link to="/">
-            <button
+            <Button
               type="button"
               onClick={() => {
                 logout();
@@ -43,7 +50,7 @@ export class HeaderBar extends React.Component {
               }}
             >
               Log out
-            </button>
+            </Button>
           </Link>
         </li>
       );
@@ -52,12 +59,12 @@ export class HeaderBar extends React.Component {
         <>
           <li className="sign-up">
             <Link to="/register">
-              <button>Sign Up</button>
+              <Button>Sign Up</Button>
             </Link>
           </li>
           <li>
             <Link to="/login">
-              <button>Log In</button>
+              <Button>Log In</Button>
             </Link>
           </li>
         </>
