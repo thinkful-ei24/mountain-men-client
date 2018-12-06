@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import LandingPage from "./pages/landingPage.js";
 
-import { connect } from "react-redux";
 import LoginPage from "./pages/LoginPage.js";
 import RegisterPage from "./pages/RegisterPage.js";
 import HeaderBar from "./components/HeaderBar.js";

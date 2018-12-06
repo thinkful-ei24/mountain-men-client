@@ -4,7 +4,6 @@ import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import HeaderBar from '../components/HeaderBar.js';
 import LandingMain from '../components/LandingMain.js';
-import Dashboard from '../pages/dashboard';
 
 export function LandingPage(props) {
   if(props.loggedIn) {

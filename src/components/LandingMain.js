@@ -29,7 +29,7 @@ export function LandingMain(props) {
             <button type="button">Find a Truck</button>
           </Link>
         </div>
-        <img src="http://cars.typepad.com/.a/6a00d83451b3c669e2014e86ba94f4970d-800wi" />
+        <img src="http://cars.typepad.com/.a/6a00d83451b3c669e2014e86ba94f4970d-800wi" alt='truck'/>
       </main>
     );
   }
