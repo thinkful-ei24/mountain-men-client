@@ -57,7 +57,6 @@ export const login = (input) => dispatch => {
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
     .then(({authToken}) => {
-      console.log(authToken);
       storeAuthInfo(authToken, dispatch)
     })
     .catch(err => {
@@ -103,7 +102,6 @@ export const registerUser = user => dispatch => {
   })
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
-    .then(res => dispatch(login({email, password})))
     .catch(err => {
       const {reason, message, location} = err;
       if (reason === 'ValidationError') {
@@ -115,7 +113,7 @@ export const registerUser = user => dispatch => {
       }else{
         return Promise.reject(
           new SubmissionError({
-            username: message
+            email: message
           })
         )
       }
