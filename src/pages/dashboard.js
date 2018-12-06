@@ -1,12 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import BidComponent from "../components/BidComponent";
 import Profile from '../components/userProfileComponent';
 import { Redirect } from "react-router-dom";
-import React from 'react';
-import { connect } from 'react-redux';
 import Job from '../components/JobCard';
-import { Redirect } from 'react-router-dom';
 
 function Dashboard(props) {
   if (!props.loggedIn) {
@@ -22,7 +18,7 @@ function Dashboard(props) {
           {props.currentUser.lastName}!
         </h1>
         <ul>
-          <BidComponent name={props.currentUser.firstName} />
+          <Job name={props.currentUser.firstName} />
         </ul>
       </div>
     );
