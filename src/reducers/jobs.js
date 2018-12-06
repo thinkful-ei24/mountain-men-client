@@ -17,8 +17,9 @@ export const jobsReducer = (state = initialState, action) => {
       error: null
     })
   } else if (action.type === FETCH_JOBS_SUCCESS) {
+    console.log('IN REDUCER', action.jobs)
     return Object.assign({}, state, {
-      jobs: [...this.state.jobs, action.jobs],
+      jobs: [...action.jobs, ...state.jobs],
       loading: false
     })
   } else if( action.type === FETCH_JOBS_ERROR ) {
