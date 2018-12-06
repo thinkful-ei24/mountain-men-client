@@ -8,7 +8,7 @@ import HeaderBar from "./components/HeaderBar.js";
 
 import "./App.css";
 import { Route, withRouter } from "react-router-dom";
-import { Dashboard } from './pages/dashboard.js';
+import Dashboard from './pages/dashboard.js';
 
 class App extends Component {
   render() {
@@ -20,7 +20,7 @@ class App extends Component {
             </div>
 
             <div className='main'>
-      
+
               {/* Landing Page */}
               <Route path="/" component={LandingPage} />
               <Route path='/login' component={LoginPage} />
@@ -28,7 +28,7 @@ class App extends Component {
 
               {/* Dashboards */}
               <Route exact path='/dashboard' component={Dashboard} />
-      
+
             </div>
 
             <div className='footer'>
