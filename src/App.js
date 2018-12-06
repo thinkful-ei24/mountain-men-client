@@ -20,12 +20,15 @@ class App extends Component {
             </div>
 
             <div className='main'>
+      
               {/* Landing Page */}
               <Route path="/" component={LandingPage} />
               <Route path='/login' component={LoginPage} />
               <Route path='/register' component={RegisterPage} />
+
               {/* Dashboards */}
               <Route exact path='/dashboard' component={Dashboard} />
+      
             </div>
 
             <div className='footer'>
