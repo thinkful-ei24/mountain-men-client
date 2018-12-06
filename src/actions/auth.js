@@ -37,7 +37,6 @@ const storeAuthInfo = (authToken, dispatch) => {
   const decodeToken = jwtDecode(authToken);
   dispatch(setAuthToken(authToken));
   dispatch(authSuccess(decodeToken.user));
-  console.log('decoded', decodeToken.user);
   saveAuthToken(authToken);
 };
 
@@ -62,9 +61,9 @@ export const login = (input) => dispatch => {
       storeAuthInfo(authToken, dispatch)
     })
     .catch(err => {
-      const {code} = err;
+      const {status} = err;
       const message =
-        code === 401 ? 'Incorrect username or password' : 'Unable to login, please try again';
+        status === 401 ? 'Incorrect username or password' : 'Unable to login, please try again';
       dispatch(authError(err));
       return Promise.reject(
         new SubmissionError({
@@ -77,7 +76,7 @@ export const login = (input) => dispatch => {
 export const refreshAuthToken = () => (dispatch, getState) => {
   dispatch(authRequest());
   const authToken = getState().auth.authToken;
-  return fetch(`${API_BASE_URL}/auth/refresh`, {
+  return fetch(`${API_BASE_URL}/login/refresh`, {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${authToken}`
@@ -104,18 +103,20 @@ export const registerUser = user => dispatch => {
   })
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
-    .then(res => {
-      dispatch(login({email: res.email, password}))
-    })
     .catch(err => {
-      dispatch(authError(err));
       const {reason, message, location} = err;
       if (reason === 'ValidationError') {
         return Promise.reject(
           new SubmissionError({
             [location]: message
           })
-        ).catch(err => dispatch(authError(err)))
+        )
+      }else{
+        return Promise.reject(
+          new SubmissionError({
+            username: message
+          })
+        )
       }
     });
 };

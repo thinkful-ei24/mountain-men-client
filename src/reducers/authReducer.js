@@ -13,7 +13,7 @@ const initialState = {
   error: null
 };
 
-export const authReducer = (state = initialState, action) => {
+export default function authReducer(state = initialState, action) {
   if (action.type === SET_AUTH_TOKEN) {
     // should assign the auth token from setAuthToken to state
     return Object.assign({}, state, {
@@ -26,7 +26,6 @@ export const authReducer = (state = initialState, action) => {
       currentUser: null
     })
   } else if (action.type === AUTH_REQUEST) {
-    console.log('request')
     return Object.assign({}, state, {
       loading: true,
       error: null
@@ -46,4 +45,3 @@ export const authReducer = (state = initialState, action) => {
   return state;
 }
 
-export default authReducer;
