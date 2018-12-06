@@ -18,7 +18,7 @@ export const jobsReducer = (state = initialState, action) => {
     })
   } else if (action.type === FETCH_JOBS_SUCCESS) {
     return Object.assign({}, state, {
-      jobs: [...jobs, action.jobs],
+      jobs: [...this.state.jobs, action.jobs],
       loading: false
     })
   } else if( action.type === FETCH_JOBS_ERROR ) {
