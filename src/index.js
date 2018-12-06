@@ -5,12 +5,14 @@ import {Provider} from 'react-redux';
 import store from './store.js';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Switch } from 'react-router-dom';
 
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-      <App />
+      <Switch>
+        <App />
+      </Switch>
     </BrowserRouter>
   </Provider>,
   document.getElementById('root'));

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import BidComponent from '../components/BidComponent';
+import Job from '../components/JobCard';
 import { Redirect } from 'react-router-dom';
 
 function Dashboard(props) {
@@ -13,7 +13,7 @@ function Dashboard(props) {
     <div>
       <h1>Welcome back, {props.currentUser.firstName} {props.currentUser.lastName}!</h1>
       <ul>
-        <BidComponent name={props.currentUser.firstName}></BidComponent>
+        <Job name={'Bob'}></Job>
       </ul>
     </div>
   )
