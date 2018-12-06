@@ -2,8 +2,11 @@ import React from "react";
 import { reduxForm, Field } from "redux-form";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { registerUser } from "../actions/auth.js";
+import { registerUser, login } from "../actions/auth.js";
+import {required, nonEmpty, matches, length, isTrimmed} from '../validators.js';
 import Input from "./input.js";
+const passwordLength = length({min: 9, max: 72});
+const matchesPassword = matches('password');
 
 export class RegisterForm extends React.Component {
   constructor(props) {
@@ -20,6 +23,14 @@ export class RegisterForm extends React.Component {
     });
   };
 
+  onSubmit(values) {
+    const {email, password, firstName, lastName, phoneNumber, address, type} = values;
+    const user = {email, password, firstName, lastName, phoneNumber, address, type};
+    return this.props
+      .dispatch(registerUser(user))
+      .then(() => this.props.dispatch(login(email, password)));
+  }
+
   render() {
     if (this.props.isLoggedIn) {
       return <Redirect to="/" />;
@@ -31,7 +42,7 @@ export class RegisterForm extends React.Component {
           <form
             className="register-form"
             onSubmit={this.props.handleSubmit(values => {
-              this.props.dispatch(registerUser(values));
+              return this.onSubmit(values);
             })}
           >
             <div>
@@ -41,6 +52,7 @@ export class RegisterForm extends React.Component {
                 component={Input}
                 type="text"
                 placeholder="First Name"
+                validate={[required, nonEmpty, isTrimmed]}
               />
             </div>
             <div>
@@ -50,6 +62,7 @@ export class RegisterForm extends React.Component {
                 component={Input}
                 type="text"
                 placeholder="Last Name"
+                validate={[required, nonEmpty, isTrimmed]}
               />
             </div>
             <div>
@@ -59,6 +72,7 @@ export class RegisterForm extends React.Component {
                 component={Input}
                 type="email"
                 placeholder="Email"
+                validate={[required, nonEmpty, isTrimmed]}
               />
             </div>
             <div>
@@ -68,7 +82,17 @@ export class RegisterForm extends React.Component {
                 component={Input}
                 type="password"
                 placeholder="Password"
+                validate={[required, passwordLength, isTrimmed]}
               />
+            </div>
+            <div>
+                <label htmlFor="passwordConfirm">Confirm password</label>
+                <Field
+                    component={Input}
+                    type="password"
+                    name="passwordConfirm"
+                    validate={[required, nonEmpty, matchesPassword]}
+                />
             </div>
             <div>
               <label>Phone</label>
@@ -88,6 +112,7 @@ export class RegisterForm extends React.Component {
                 component={Input}
                 type="text"
                 placeholder="ex. 123 Main St, Littleton, CO 80120"
+                validate={[required]}
               />
             </div>
             <div>
@@ -110,7 +135,10 @@ export class RegisterForm extends React.Component {
                 onChange={this.setUserRole}
               />
             </div>
-            <button>Submit</button>
+            <button
+              disabled={this.props.pristine || this.props.submitting}>
+              Submit
+            </button>
           </form>
         </div>
       </div>

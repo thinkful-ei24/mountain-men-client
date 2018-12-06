@@ -1,7 +1,8 @@
 import React from "react";
-import { reduxForm, Field } from "redux-form";
+import { reduxForm, Field, focus } from "redux-form";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
+import {required, nonEmpty} from '../validators.js';
 import { login } from "../actions/auth.js";
 
 export class LoginForm extends React.Component {
@@ -24,13 +25,22 @@ export class LoginForm extends React.Component {
       return <Redirect to="/dashboard" />;
     }
 
+    let error;
+    if(this.props.error) {
+      error = (
+        <div className="form-error" aria-live="polite">
+          {this.props.error}
+        </div>
+      );
+    }
+
     return (
       <div id="form-container">
         <div id="login-form">
           <form
             className="login-form"
             onSubmit={this.props.handleSubmit(values => {
-              this.props.dispatch(login(values));
+              return this.props.dispatch(login(values));
             })}
           >
             <div>
@@ -64,7 +74,8 @@ const mapStateToProps = state => ({
 });
 
 const logForm = reduxForm({
-  form: "login"
+  form: "login",
+  onSubmitFail: (errors, dispatch) => dispatch(focus('login', 'email'))
 })(connect(mapStateToProps)(LoginForm));
 
 export default logForm;
