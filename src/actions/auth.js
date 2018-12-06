@@ -102,6 +102,7 @@ export const registerUser = user => dispatch => {
   })
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
+    .then(() => dispatch(login({email, password})))
     .catch(err => {
       const {reason, message, location} = err;
       if (reason === 'ValidationError') {

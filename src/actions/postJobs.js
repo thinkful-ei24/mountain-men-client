@@ -4,11 +4,6 @@ import { API_BASE_URL } from "../config.js";
 import { normalizeResponseErrors } from "./utils.js";
 
 
-export const postJobsAction = (jobs) => ({
-    type: "postJobs",
-    jobs
-  });
-
 
 export const postJobs = job => dispatch => {
   const { title, description, date, id, authToken } = job;
@@ -22,7 +17,6 @@ export const postJobs = job => dispatch => {
   })
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
-    .then(() => dispatch(postJobsAction(job)))
     .catch(err => {
       const { reason, message, location } = err;
       if (reason === "ValidationError") {
