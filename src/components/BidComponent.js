@@ -1,15 +1,16 @@
 import React from 'react';
 import Form from 'redux-form/lib/Form';
 import { Field } from 'redux-form';
+import { connect } from 'react-redux';
 
-export default function BidComponent(props) {
+export function BidComponent(props) {
 
   return (
     <div id='bid-component'>
-        <span id='user-name'>this.state.post.name</span>
+        <span id='user-name'>{props.name}</span>
         <p id='post-desc'>this.state.post.desc</p>
         <img src='this.state.post.name' alt='post pic'></img>
-        <Form>
+        {/* <Form>
         <label>Your Offer:</label>
               <Field
                 name='bid'
@@ -18,7 +19,17 @@ export default function BidComponent(props) {
                 placeholder='$25.00'
               />
               <button type='submit'>Submit Bid</button>
-        </Form>
+        </Form> */}
     </div>
   )
 }
+
+
+const mapStateToProps = (state) => {
+  return {
+    loggedIn: state.auth.currentUser !== null,
+    anything: state,
+  }
+}
+
+export default connect(mapStateToProps)(BidComponent);

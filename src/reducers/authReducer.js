@@ -32,7 +32,7 @@ export default function authReducer(state = initialState, action) {
     })
   } else if (action.type === AUTH_SUCCESS) {
     console.log('success', action.currentUser)
-    return Object.assign(state, {
+    return Object.assign({}, state, {
       currentUser: action.currentUser,
       loading: false
     })

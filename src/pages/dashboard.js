@@ -1,30 +1,23 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {Redirect} from 'react-router-dom';
+import { connect } from 'react-redux';
 import BidComponent from '../components/BidComponent';
-export class Dashboard extends React.Component {
 
-
-  render() {
-    // if(!this.props.loggedIn) {
-    //   return <Redirect to='/' />
-    // }
-  console.log(this.props.loggedIn)
+export function Dashboard(props) {
+  console.log(props)
     return (
-      <main>
+      <div>
         <h1>this is the dahsboard page</h1>
         <ul>
-          {/* <BidComponent></BidComponent> */}
+          <BidComponent name={'Bob'}></BidComponent>
         </ul>
-      </main>
+      </div>
     )
-
-  }
-  }
+}
 
 const mapStateToProps = (state) => {
   return {
-    loggedIn: state.auth.currentUser,
+    loggedIn: state.auth.currentUser !== null,
+    anything: state,
   }
 }
 
