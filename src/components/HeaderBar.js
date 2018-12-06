@@ -13,14 +13,25 @@ export class HeaderBar extends React.Component {
     let logout = () => {
       this.props.dispatch(clearAuth());
       clearAuthToken();
-      console.log(this.props);
     };
     let showNav;
+    let showNavButton;
     if (this.state.click) {
       showNav = <ShowNav />;
     }
     let showButtons;
     if (this.props.loggedIn) {
+      showNavButton = (
+        <li className="show-nav">
+          <button
+            onClick={e => {
+              this.setState({ click: !this.state.click });
+            }}
+          >
+            Show Nav
+          </button>
+        </li>
+      );
       showButtons = (
         <li className="logout">
           <Link to="/">
@@ -56,15 +67,7 @@ export class HeaderBar extends React.Component {
     return (
       <header>
         <ul className="header">
-          <li className="show-nav">
-            <button
-              onClick={e => {
-                this.setState({ click: !this.state.click });
-              }}
-            >
-              Show Nav
-            </button>
-          </li>
+          {showNavButton}
           <li className="logo">
             <Link to="/">
               <h3>Trucks R Us</h3>
