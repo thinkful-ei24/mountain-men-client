@@ -1,4 +1,4 @@
-import {API_BASE_URL}
+import {API_BASE_URL} from '../config';
 
 export const FETCH_JOBS_REQUEST = "FETCH_JOBS_REQUEST";
 export const fetchJobsRequest = () => ({
@@ -23,7 +23,7 @@ export const getUserJobs = () => (dispatch, getState) => {
   return fetch(`${API_BASE_URL}/api/jobs/${userId}`, {
     method: 'GET',
     headers: {
-      'Content-Type: 'application/json',
+      'Content-Type': 'application/json',
     },
   })
     .then(res => res.json())
