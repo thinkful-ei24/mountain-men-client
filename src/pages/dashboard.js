@@ -1,26 +1,24 @@
 import React from 'react';
-import {connect} from 'react-redux';
-
+import { connect } from 'react-redux';
 import BidComponent from '../components/BidComponent';
-export class Dashboard extends React.Component {
 
-
-  render() {
-  console.log(this.state)
+export function Dashboard(props) {
+  console.log(props)
     return (
-      <main>
+      <div>
         <h1>this is the dahsboard page</h1>
         <ul>
-          {/* <BidComponent></BidComponent> */}
+          <BidComponent name={'Bob'}></BidComponent>
         </ul>
-      </main>
+      </div>
     )
+}
 
+const mapStateToProps = (state) => {
+  return {
+    loggedIn: state.auth.currentUser !== null,
+    anything: state,
   }
-  }
-
-const mapStateToProps = state => ({
-  auth: state.auth
-})
+}
 
 export default connect(mapStateToProps)(Dashboard);
