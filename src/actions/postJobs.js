@@ -1,0 +1,42 @@
+import { SubmissionError } from "redux-form";
+
+import { API_BASE_URL } from "../config.js";
+import { normalizeResponseErrors } from "./utils.js";
+
+
+export const postJobsAction = (jobs) => ({
+    type: "postJobs",
+    jobs
+  });
+
+
+export const postJobs = job => dispatch => {
+  const { title, description, date, id, authToken } = job;
+  return fetch(`${API_BASE_URL}/api/jobs/${id}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + authToken
+    },
+    body: JSON.stringify({title, description, date})
+  })
+    .then(res => normalizeResponseErrors(res))
+    .then(res => res.json())
+    .then(() => dispatch(postJobsAction(job)))
+    .catch(err => {
+      const { reason, message, location } = err;
+      if (reason === "ValidationError") {
+        return Promise.reject(
+          new SubmissionError({
+            [location]: message
+          })
+        );
+      } else {
+        return Promise.reject(
+          new SubmissionError({
+            email: message
+          })
+        );
+      }
+    });
+};
