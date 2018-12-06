@@ -8,7 +8,21 @@ function Dashboard(props) {
   if (!props.loggedIn) {
     return <Redirect to="/" />;
   }
-  console.log(props);
+
+  // need to dispatch to get jobs
+  const getJobs = (job) => {
+    // props.dispatch()
+  }
+  // const jobs = props.jobs.map((job, index) => {
+  //   return (
+  //     <Job
+  //       name={job.userId}
+  //       title={job.title}
+  //       desc={job.description}
+  //       image={job.image}
+  //     ></Job>
+  //   )
+  // })
 
   if (props.currentUser.type === "DRIVER") {
     return (
@@ -18,6 +32,7 @@ function Dashboard(props) {
           {props.currentUser.lastName}!
         </h1>
         <ul>
+          {/* {jobs} */}
           <Job name={props.currentUser.firstName} />
         </ul>
       </div>
@@ -41,7 +56,7 @@ function Dashboard(props) {
 const mapStateToProps = state => {
   return {
     loggedIn: state.auth.currentUser !== null,
-    anything: state,
+    // jobs: state.jobs
     currentUser: state.auth.currentUser
   };
 };
