@@ -1,13 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PostJobForm from './PostJobForm';
-import PastJobs from './pastJobs.js';
+import PastJobs from './userPastJobs.js';
+import CurrentJobs from './userCurrentJobs.js';
 
 export function ProfileComponent(props) {
 
   return (
     <div id='profile-component'>
         <PostJobForm />
+        <CurrentJobs />
         <PastJobs />
     </div>
   )
