@@ -7,7 +7,8 @@ import Dashboard from "../pages/dashboard";
 import styled from 'styled-components';
 
 const Landing = styled.div`
-
+  position: relative;
+  top: 50px;
 `;
 
 export function LandingPage(props) {

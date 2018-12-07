@@ -5,7 +5,6 @@ import Dashboard from '../pages/dashboard.js';
 import styled from 'styled-components';
 
 const Main = styled.main`
-  background-color: #04CDFF;
   position: absolute;
   top: 0px;
   bottom: 0px;
@@ -19,8 +18,6 @@ const Button = styled.button`
   margin-top: 15px;
   font-size: 18px;
 `;
-
-
 
 export function LandingMain(props) {
   console.log(props.currentUser);

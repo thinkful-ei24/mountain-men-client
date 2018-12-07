@@ -1,4 +1,5 @@
 body {
+  background-color: #04CDFF;
   margin: 0;
   padding: 0;
   font-family: 'Roboto Condensed', sans-serif;
@@ -34,11 +35,20 @@ input {
   width: 325px;
   font-family: 'Roboto Condensed', sans-serif;
   font-weight: 300;
-  font-size: 24px;
-  margin: 10px;
+  font-size: 32px;
+  margin: 5px;
   padding-left: 5px;
   padding-right: 5px;
   text-align: center;
+  border-radius: 5px;
+  outline: 5px solid none;
+  outline-offset: -5px
+}
+
+input:active,
+input:focus {
+  outline: 5px solid #04CDFF;
+  outline-offset: -5px
 }
 
 button {

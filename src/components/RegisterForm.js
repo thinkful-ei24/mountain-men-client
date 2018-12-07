@@ -5,15 +5,22 @@ import { Redirect } from "react-router-dom";
 import { registerUser, login } from "../actions/auth.js";
 import {required, nonEmpty, matches, length, isTrimmed} from '../validators.js';
 import Input from "./input.js";
+import styled from 'styled-components';
 const passwordLength = length({min: 9, max: 72});
 const matchesPassword = matches('password');
+
+const Button = styled.button`
+  background-color: #ff7f40;
+  color: white;
+  margin-top: 15px;
+`;
 
 export class RegisterForm extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      selectedRole: "driver"
+      selectedRole: ""
     };
   }
 
@@ -114,8 +121,9 @@ export class RegisterForm extends React.Component {
                 validate={[required]}
               />
             </div>
-            <div>
-              <label id="radio-user ">User</label>
+            <div id='radio-selector'>
+              <label id="radio-user"
+                className="fas fa-users">User
               <Field
                 name="type"
                 component={Input}
@@ -123,21 +131,22 @@ export class RegisterForm extends React.Component {
                 value="USER"
                 checked={this.state.selectedRole === "user"}
                 onChange={this.setUserRole}
-              />
-              <label id="radio-driver">Driver</label>
+              /></label>
+              <label id="radio-driver"
+                className="fas fa-truck-pickup">Driver
               <Field
-                name="type"
+                name={"type"}
                 component={Input}
                 type="radio"
                 value="DRIVER"
                 checked={this.state.selectedRole === "driver"}
                 onChange={this.setUserRole}
-              />
+              /></label>
             </div>
-            <button
+            <Button
               disabled={this.props.pristine || this.props.submitting}>
               Submit
-            </button>
+            </Button>
           </form>
         </div>
       </div>
