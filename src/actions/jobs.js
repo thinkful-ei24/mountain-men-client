@@ -17,6 +17,21 @@ export const fetchJobsError = (error) => ({
   error
 });
 
+export const UPDATE_JOBS_REQUEST = "UPDATE_JOBS_REQUEST";
+export const updateJobsRequest = () => ({
+  type: UPDATE_JOBS_REQUEST,
+});
+
+export const UPDATE_JOBS_SUCCESS = "UPDATE_JOBS_SUCCESS";
+export const updateJobsSuccess = () => ({
+  type: UPDATE_JOBS_SUCCESS,
+});
+
+export const UPDATE_JOBS_ERROR = "UPDATE_JOBS_ERROR";
+export const updateJobsError = () => ({
+  type: UPDATE_JOBS_ERROR,
+});
+
 export const getUserJobs = () => (dispatch, getState) => {
   const userId = getState().auth.currentUser.id;
   dispatch(fetchJobsRequest());
@@ -72,3 +87,19 @@ export const getAllJobs = () => (dispatch, getState) => {
       dispatch(fetchJobsError(err))
     })
 };
+
+export const jobCompleted = (id, status) => (dispatch, getState) => {
+  dispatch(updateJobRequest());
+  const authToken = getState().auth.authToken;
+  return fetch(`${API_BASE_URL}/api/jobs/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: "Bearer " + authToken,
+    },
+    body: status
+  })
+    .then(res => res.json())
+    .then(job => dispatch(updateJobSuccess(job)))
+    .catch(err => dispatch(updateJobError(err)))
+}
