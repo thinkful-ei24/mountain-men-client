@@ -89,7 +89,7 @@ export const getAllJobs = () => (dispatch, getState) => {
 };
 
 export const jobCompleted = (id, status) => (dispatch, getState) => {
-  dispatch(updateJobRequest());
+  dispatch(updateJobsRequest());
   const authToken = getState().auth.authToken;
   return fetch(`${API_BASE_URL}/api/jobs/${id}`, {
     method: 'PUT',
@@ -100,6 +100,9 @@ export const jobCompleted = (id, status) => (dispatch, getState) => {
     body: status
   })
     .then(res => res.json())
-    .then(job => dispatch(updateJobSuccess(job)))
-    .catch(err => dispatch(updateJobError(err)))
+    .then(job => {
+      dispatch(updateJobsSuccess(job))
+      dispatch(getUserJobs())
+    })
+    .catch(err => dispatch(updateJobsError(err)))
 }
