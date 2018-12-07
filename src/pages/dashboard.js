@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import Profile from '../components/userProfileComponent';
 import { Redirect } from "react-router-dom";
 import Job from '../components/JobCard';
+import { getAllJobs } from '../actions/jobs';
 
 function Dashboard(props) {
   if (!props.loggedIn) {
@@ -11,18 +12,20 @@ function Dashboard(props) {
 
   // need to dispatch to get jobs
   const getJobs = (job) => {
-    // props.dispatch()
+    props.dispatch(getAllJobs());
+    const jobs = props.driverJobs.map((job, index) => {
+      return (
+        <Job
+          name={job.userId}
+          title={job.title}
+          desc={job.description}
+          image={job.image}
+        ></Job>
+      )
+    })
+    return jobs;
   }
-  // const jobs = props.jobs.map((job, index) => {
-  //   return (
-  //     <Job
-  //       name={job.userId}
-  //       title={job.title}
-  //       desc={job.description}
-  //       image={job.image}
-  //     ></Job>
-  //   )
-  // })
+
 
   if (props.currentUser.type === "DRIVER") {
     return (
@@ -32,7 +35,7 @@ function Dashboard(props) {
           {props.currentUser.lastName}!
         </h1>
         <ul>
-          {/* {jobs} */}
+          {getJobs()}
           <Job name={props.currentUser.firstName} />
         </ul>
       </div>
@@ -56,7 +59,7 @@ function Dashboard(props) {
 const mapStateToProps = state => {
   return {
     loggedIn: state.auth.currentUser !== null,
-    // jobs: state.jobs
+    driverJobs: state.driverJobs,
     currentUser: state.auth.currentUser
   };
 };

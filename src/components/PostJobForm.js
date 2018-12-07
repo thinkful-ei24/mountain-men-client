@@ -11,7 +11,7 @@ export class PostJob extends React.Component {
   }
 
   onSubmit(values) {
-    console.log(this.props);
+    
     values.id = this.props.currentUser.id;
     values.authToken = this.props.authToken;
     return this.props.dispatch(postJobs(values));
