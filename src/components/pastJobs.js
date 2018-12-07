@@ -13,12 +13,15 @@ export class pastJobs extends React.Component {
     console.log('HERE', this.props)
     let listOfJobs = []
     listOfJobs = this.props.jobs.map((job, index) => {
+      if (job.completed) {
       return (
         <li key={index}>
-          Title: {job.title}
-          Description: {job.description}
+          <p>Title: {job.title}</p>
+          <p>Description: {job.description}</p>
         </li>
-      )})
+      )
+      }
+    })
 
   return (
     <section>
