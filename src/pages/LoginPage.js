@@ -1,6 +1,17 @@
 import React from "react";
 import LoginForm from "../components/LoginForm";
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
+
+const LoginContainer = styled.div`
+  position: absolute;
+  margin: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(50, 50, 50, 0.8);
+`;
 
 const BG = styled.div`
   position: absolute;
@@ -9,7 +20,6 @@ const BG = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(50, 50, 50, 0.8);
 `;
 
 const Login = styled.div`
@@ -31,10 +41,12 @@ const Login = styled.div`
 
 export default function LoginPage() {
   return (
-    <BG>
+    <LoginContainer>
+      <BG as={Link} to='/'></BG>
       <Login id='login-page'>
         <LoginForm id="login-form"></LoginForm>
       </Login>
-    </BG>
+    </LoginContainer>
+
   );
 }
