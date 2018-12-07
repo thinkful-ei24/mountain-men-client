@@ -58,6 +58,7 @@ export const getAllJobsError = (error) => ({
 
 export const getAllJobs = () => (dispatch, getState) => {
   dispatch(getAllJobsRequest());
+  console.log('test yo')
   return fetch(`${API_BASE_URL}/api/jobs`, {
     method: 'GET',
     headers: {
