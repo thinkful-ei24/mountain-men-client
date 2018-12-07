@@ -9,25 +9,22 @@ export class Dashboard extends React.Component {
   componentDidMount() {
     //gets all jobs related to a given user
     this.props.dispatch(getAllJobs());
-    
   }
   
   render() {
-    console.log(this.props);
-    console.log(this.props.driverJobs.jobs.jobs);
     // need to dispatch to get jobs
     const getJobs = job => {
       const jobs = this.props.driverJobs.jobs.jobs.map((job, index) => {
         return (
           <Job
-            name={job.userId}
+            name={job.title}
             title={job.title}
             desc={job.description}
             image={job.image}
           />
         );
       });
-      console.log(jobs, "driverJobs");
+      
       return jobs;
     };
 

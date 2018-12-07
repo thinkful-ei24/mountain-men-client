@@ -35,7 +35,7 @@ function JobComponent(props) {
     <JobCard id='job-card'>
       <span id='user-name'>{props.name}</span>
       <p id='job-desc'>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      {props.desc}
       </p>
       <img
         id='job-image'
