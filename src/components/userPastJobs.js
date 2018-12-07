@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {getUserJobs} from '../actions/jobs.js';
+import UserJobCard from './UserJobCard.js';
 
 export class pastJobs extends React.Component {
 
@@ -10,15 +11,11 @@ export class pastJobs extends React.Component {
   }
 
   render() {
-    console.log('HERE', this.props)
     let listOfJobs = []
     listOfJobs = this.props.jobs.map((job, index) => {
       if (job.completed) {
       return (
-        <li key={index}>
-          <p>Title: {job.title}</p>
-          <p>Description: {job.description}</p>
-        </li>
+        <UserJobCard job={job} key={index} />
       )
       }
     })
