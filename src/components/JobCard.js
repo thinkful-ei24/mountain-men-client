@@ -30,6 +30,7 @@ function JobComponent(props) {
       width: 115px;
     }
   `;
+// props.dispatch(getBidById(props.id));
 
   return (
     <JobCard id='job-card'>
@@ -37,6 +38,12 @@ function JobComponent(props) {
       <p id='job-desc'>
       {props.desc}
       </p>
+      <p id='job-date'>
+      {props.date}
+      </p>
+      {/* <p id='job-bids'>
+      There have been {bidsObject.bids.length} bids made.
+      </p> */}
       <img
         id='job-image'
         src='https://images.uline.com/is/image/content/dam/images/Class-Group/c04/g009/guidednav.jpg?$BrowseRHD$&iccEmbed=1&icc=AdobeRGB'

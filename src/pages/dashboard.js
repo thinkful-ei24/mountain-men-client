@@ -9,6 +9,7 @@ export class Dashboard extends React.Component {
   componentDidMount() {
     //gets all jobs related to a given user
     this.props.dispatch(getAllJobs());
+
   }
   
   render() {
@@ -21,10 +22,11 @@ export class Dashboard extends React.Component {
             title={job.title}
             desc={job.description}
             image={job.image}
+            id={job.id}
+            date={job.date}
           />
         );
       });
-      
       return jobs;
     };
 
