@@ -26,7 +26,9 @@ function JobComponent(props) {
       border-radius: 5px;
     }
 
-
+    input {
+      width: 115px;
+    }
   `;
 
   return (

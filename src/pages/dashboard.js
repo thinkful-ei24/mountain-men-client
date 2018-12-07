@@ -35,7 +35,7 @@ function Dashboard(props) {
           {props.currentUser.lastName}!
         </h1>
         <ul>
-          {getJobs()}
+          {getJobs}
           <Job name={props.currentUser.firstName} />
         </ul>
       </div>
