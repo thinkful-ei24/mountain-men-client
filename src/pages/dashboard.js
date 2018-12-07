@@ -4,14 +4,20 @@ import Profile from "../components/userProfileComponent";
 import { Redirect } from "react-router-dom";
 import Job from "../components/JobCard";
 import { getAllJobs } from "../actions/jobs";
+import DriverReviewBids from '../components/DriverBidReview.js';
 
 export class Dashboard extends React.Component {
+  constructor(props){
+    super(props)
+  }
+
+
   componentDidMount() {
     //gets all jobs related to a given user
     this.props.dispatch(getAllJobs());
 
   }
-  
+
   render() {
     // need to dispatch to get jobs
     const getJobs = job => {
@@ -43,6 +49,8 @@ export class Dashboard extends React.Component {
             Welcome back, {this.props.currentUser.firstName}{" "}
             {this.props.currentUser.lastName}!
           </h1>
+          {/* component for reviewing bids */}
+          <DriverReviewBids />
           <ul>
             {jobs}
             <Job name={this.props.currentUser.firstName} />
