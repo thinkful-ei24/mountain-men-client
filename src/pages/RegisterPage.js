@@ -30,16 +30,17 @@ export default function RegisterPage() {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 425px;
+    width: 450px;
     height: 850px;
 
     input{
-      display: inline-block;
       height: 40px;
       font-size: 20px;
     }
 
     label {
+      display: block;
+      margin: 0px;
       color: white;
       font-size: 24px;
     }

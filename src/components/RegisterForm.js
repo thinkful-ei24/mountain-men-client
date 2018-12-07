@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { registerUser, login } from "../actions/auth.js";
 import {required, nonEmpty, matches, length, isTrimmed} from '../validators.js';
-import Input from "./input.js";
 import styled from 'styled-components';
 const passwordLength = length({min: 9, max: 72});
 const matchesPassword = matches('password');
@@ -55,70 +54,77 @@ export class RegisterForm extends React.Component {
               <label>First Name</label>
               <Field
                 name="firstName"
-                component={Input}
+                component="input"
                 type="text"
-                placeholder="First Name"
-                validate={[required, nonEmpty, isTrimmed]}
+                placeholder="John"
+                // validate={[required, nonEmpty, isTrimmed]}
+                required="true"
               />
             </div>
             <div>
               <label>Last Name</label>
               <Field
                 name="lastName"
-                component={Input}
+                component="input"
                 type="text"
-                placeholder="Last Name"
-                validate={[required, nonEmpty, isTrimmed]}
+                placeholder="Doe"
+                // validate={[required, nonEmpty, isTrimmed]}
+                required="true"
               />
             </div>
             <div>
               <label>Email</label>
               <Field
                 name="email"
-                component={Input}
+                component="input"
                 type="email"
-                placeholder="Email"
-                validate={[required, nonEmpty, isTrimmed]}
+                placeholder="JohnDoe@email.com"
+                // validate={[required, nonEmpty, isTrimmed]}
+                required="true"
               />
             </div>
             <div>
               <label>Password</label>
               <Field
                 name="password"
-                component={Input}
+                id="password"
+                component="input"
                 type="password"
-                placeholder="Password"
-                validate={[required, passwordLength, isTrimmed]}
+                placeholder="*******"
+                // validate={[required, passwordLength, isTrimmed]}
+                required="true"
               />
             </div>
             <div>
                 <label htmlFor="passwordConfirm">Confirm password</label>
                 <Field
-                    component={Input}
-                    type="password"
-                    name="passwordConfirm"
-                    validate={[required, nonEmpty, matchesPassword]}
+                  name="passwordConfirm"
+                  component="input"
+                  type="password"
+                  placeholder="*******"
+                  // validate={[required, nonEmpty, matchesPassword]}
+                  required="true"
                 />
             </div>
             <div>
               <label>Phone</label>
               <Field
                 name="phoneNumber"
-                component={Input}
-                // TODO - is there a phone number input?
+                component="input"
                 type="tel"
-                pattern="[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}"
                 placeholder="ex. 303-303-3030"
+                required="true"
               />
             </div>
             <div>
               <label>Address</label>
               <Field
                 name="address"
-                component={Input}
+                component="input"
                 type="text"
                 placeholder="ex. 123 Main St, Littleton, CO 80120"
                 validate={[required]}
+                required="true"
               />
             </div>
             <div id='radio-selector'>
@@ -126,20 +132,21 @@ export class RegisterForm extends React.Component {
                 className="fas fa-users">User
               <Field
                 name="type"
-                component={Input}
+                component="input"
                 type="radio"
                 value="USER"
-                checked={this.state.selectedRole === "user"}
+                checked={this.state.selectedRole === "USER"}
                 onChange={this.setUserRole}
+                required="true"
               /></label>
               <label id="radio-driver"
                 className="fas fa-truck-pickup">Driver
               <Field
-                name={"type"}
-                component={Input}
+                name="type"
+                component="input"
                 type="radio"
                 value="DRIVER"
-                checked={this.state.selectedRole === "driver"}
+                checked={this.state.selectedRole === "DRIVER"}
                 onChange={this.setUserRole}
               /></label>
             </div>

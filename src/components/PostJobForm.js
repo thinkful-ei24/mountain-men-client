@@ -2,7 +2,6 @@ import React from "react";
 import { reduxForm, Field } from "redux-form";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-import Input from "./input.js";
 import { postJobs } from "../actions/postJobs";
 
 export class PostJob extends React.Component {
@@ -11,7 +10,7 @@ export class PostJob extends React.Component {
   }
 
   onSubmit(values) {
-    
+
     values.id = this.props.currentUser.id;
     values.authToken = this.props.authToken;
     return this.props.dispatch(postJobs(values));
@@ -36,7 +35,7 @@ export class PostJob extends React.Component {
               <label>Job Title</label>
               <Field
                 name="title"
-                component={Input}
+                component="input"
                 type="text"
                 placeholder="I.e. I have a couch I need moved"
               />
@@ -45,7 +44,7 @@ export class PostJob extends React.Component {
               <label>Job Description</label>
               <Field
                 name="description"
-                component={Input}
+                component="input"
                 type="text"
                 placeholder="Job Description"
               />
@@ -54,7 +53,7 @@ export class PostJob extends React.Component {
               <label>Date</label>
               <Field
                 name="date"
-                component={Input}
+                component="input"
                 type="date"
                 placeholder="Friday December 14th at 6:00 pm"
               />
