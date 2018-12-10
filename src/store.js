@@ -4,6 +4,7 @@ import thunk from 'redux-thunk';
 import {reducer as formReducer} from 'redux-form';
 import authReducer from './reducers/authReducer';
 import {jobsReducer} from './reducers/jobs.js';
+import {bidsReducer} from './reducers/bidsReducer';
 import {viewReducer} from './reducers/viewReducer';
 
 import {loadAuthToken} from './local-storage';
@@ -17,7 +18,8 @@ const store = createStore(
     form: formReducer,
     auth: authReducer,
     jobs: jobsReducer,
-    view: viewReducer
+    view: viewReducer,
+    bids: bidsReducer
   }),
   applyMiddleware(thunk),
 );
