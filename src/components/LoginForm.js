@@ -58,6 +58,7 @@ export class LoginForm extends React.Component {
                 component="input"
                 type="email"
                 placeholder="Email"
+                required='true'
               />
             </div>
             <div>

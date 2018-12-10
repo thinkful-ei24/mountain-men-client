@@ -5,10 +5,10 @@ import { clearAuth } from "../actions/auth";
 import { clearAuthToken } from "../local-storage";
 import ShowNav from "./ShowNav";
 import "./styles/HeaderBar.css";
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Button = styled.button`
-  background-color: #3DC182;
+  background-color: #3dc182;
   color: white;
   margin-top: 15px;
   font-size: 18px;
@@ -28,31 +28,31 @@ export class HeaderBar extends React.Component {
     }
     let showButtons;
     if (this.props.loggedIn) {
-      showNavButton = (
-        <li className="show-nav">
-          <Button
-            onClick={e => {
-              this.setState({ click: !this.state.click });
-            }}
-          >
-            Show Nav
-          </Button>
-        </li>
-      );
       showButtons = (
-        <li className="logout">
-          <Link to="/">
+        <>
+          <li className="show-nav">
             <Button
-              type="button"
-              onClick={() => {
-                logout();
-                console.log("logout");
+              onClick={e => {
+                this.setState({ click: !this.state.click });
               }}
             >
-              Log out
+              Account
             </Button>
-          </Link>
-        </li>
+          </li>
+          <li className="logout">
+            <Link to="/">
+              <Button
+                type="button"
+                onClick={() => {
+                  logout();
+                  console.log("logout");
+                }}
+              >
+                Log out
+              </Button>
+            </Link>
+          </li>
+        </>
       );
     } else {
       showButtons = (
@@ -76,7 +76,7 @@ export class HeaderBar extends React.Component {
         <ul className="header">
           {showNavButton}
           <li className="logo">
-            <Link to="/">
+            <Link className="link-logo" to="/">
               <h3>Trucks R Us</h3>
             </Link>
           </li>

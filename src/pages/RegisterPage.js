@@ -11,6 +11,7 @@ export default function RegisterPage() {
     left: 0;
     right: 0;
     bottom: 0;
+    overflow:scroll;
     background-color: rgba(50, 50, 50, 0.8);
   `;
 
@@ -24,22 +25,24 @@ export default function RegisterPage() {
   `;
   const Register = styled.div`
   #register-form {
-    padding: 20px;
+    padding: 10px;
     background-color: #364D87;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 425px;
-    height: 850px;
+    position: relative;
+    top: 150px;
+    width: 450px;
+    height: 750px;
+    margin-left: auto;
+    margin-right: auto;
+
 
     input{
-      display: inline-block;
       height: 40px;
       font-size: 20px;
     }
 
     label {
+      display: block;
+      margin: 0px;
       color: white;
       font-size: 24px;
     }

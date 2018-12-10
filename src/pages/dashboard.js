@@ -4,14 +4,19 @@ import Profile from "../components/userProfileComponent";
 import { Redirect } from "react-router-dom";
 import Job from "../components/JobCard";
 import { getAllJobs } from "../actions/jobs";
+import DriverReviewBids from "../components/DriverBidReview.js";
+import DashboardNav from "../components/DashboardNav";
 
 export class Dashboard extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   componentDidMount() {
     //gets all jobs related to a given user
     this.props.dispatch(getAllJobs());
-
   }
-  
+
   render() {
     // need to dispatch to get jobs
     const getJobs = job => {
@@ -36,29 +41,40 @@ export class Dashboard extends React.Component {
       return <Redirect to="/" />;
     }
 
+
     if (this.props.currentUser.type === "DRIVER") {
+      function renderDriverPage(props) {
+        console.log(props);
+        if (props === "currentJobs") {
+          return <DriverReviewBids />;
+        }
+        if (props === "default") {
+          return <ul>{jobs}</ul>;
+        }
+      }
+      console.log(this.props);
       return (
         <div>
+          <DashboardNav type="DRIVER" view={this.props.view} />
           <h1>
             Welcome back, {this.props.currentUser.firstName}{" "}
             {this.props.currentUser.lastName}!
           </h1>
-          <ul>
-            {jobs}
-            <Job name={this.props.currentUser.firstName} />
-          </ul>
+          {renderDriverPage(this.props.view)}
         </div>
       );
     }
     if (this.props.currentUser.type === "USER") {
+      console.log(this.props);
       return (
         <div>
+          <DashboardNav type="USER" view={this.props.view} />
           <h1>
             Welcome back, {this.props.currentUser.firstName}{" "}
             {this.props.currentUser.lastName}!
           </h1>
           <ul>
-            <Profile />
+            <Profile view={this.props.view} />
           </ul>
         </div>
       );
@@ -70,7 +86,8 @@ const mapStateTothis = state => {
   return {
     loggedIn: state.auth.currentUser !== null,
     driverJobs: state,
-    currentUser: state.auth.currentUser
+    currentUser: state.auth.currentUser,
+    view: state.view.view
   };
 };
 
