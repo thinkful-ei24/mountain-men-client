@@ -17,20 +17,14 @@ export const fetchJobsError = (error) => ({
   error
 });
 
-export const UPDATE_JOBS_REQUEST = "UPDATE_JOBS_REQUEST";
-export const updateJobsRequest = () => ({
-  type: UPDATE_JOBS_REQUEST,
-});
+
 
 export const UPDATE_JOBS_SUCCESS = "UPDATE_JOBS_SUCCESS";
 export const updateJobsSuccess = () => ({
   type: UPDATE_JOBS_SUCCESS,
 });
 
-export const UPDATE_JOBS_ERROR = "UPDATE_JOBS_ERROR";
-export const updateJobsError = () => ({
-  type: UPDATE_JOBS_ERROR,
-});
+
 
 export const UPDATE_BID_REQUEST = "UPDATE_BID_REQUEST";
 export const updateBidRequest = () => ({
@@ -104,22 +98,34 @@ export const getAllJobs = () => (dispatch, getState) => {
     })
 };
 
-export const jobCompleted = (id, status) => (dispatch, getState) => {
-  dispatch(updateJobsRequest());
+export const UPDATE_JOBS_REQUEST = "UPDATE_JOBS_COMPLETED";
+export const updateJobsRequest = () => ({
+  type: UPDATE_JOBS_REQUEST
+})
+
+export const UPDATE_JOBS_ERROR = "UPDATE_JOBS_ERROR"
+export const updateJobsError = (error) => ({
+  type: UPDATE_JOBS_ERROR,
+  error
+})
+
+export const makeJobCompleted = (jobId) => (dispatch, getState) => {
+  const userId = getState().auth.currentUser.id
   const authToken = getState().auth.authToken;
-  return fetch(`${API_BASE_URL}/api/jobs/${id}`, {
+  dispatch(updateJobsRequest())
+  fetch(`${API_BASE_URL}/api/jobs/${userId}/${jobId}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: "Bearer " + authToken,
+      authorization: `Bearer ${authToken}`
     },
-    body: status
+    body: JSON.stringify({completed: true})
   })
-    .then(res => res.json())
-    .then(job => {
-      dispatch(updateJobsSuccess(job))
+    .then(result => result.json())
+    .then (jobs => {
       dispatch(getUserJobs())
     })
+
     .catch(err => dispatch(updateJobsError(err)))
 }
 

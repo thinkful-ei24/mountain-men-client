@@ -8,6 +8,7 @@ import {
   UPDATE_BID_REQUEST,
   UPDATE_BID_SUCCESS,
   UPDATE_BID_ERROR,
+
 } from '../actions/jobs.js';
 
 const initialState = {
@@ -38,11 +39,7 @@ export const jobsReducer = (state = initialState, action) => {
       loading: true,
       error: null
     })
-  } else if (action.type === UPDATE_JOBS_SUCCESS) {
-    return Object.assign({}, state, {
-      loading: false
-    })
-  } else if( action.type === UPDATE_JOBS_ERROR ) {
+  } else if (action.type === UPDATE_JOBS_ERROR) {
     return Object.assign({}, state, {
       error: action.error,
       loading: false
