@@ -4,18 +4,17 @@ import Profile from "../components/userProfileComponent";
 import { Redirect } from "react-router-dom";
 import Job from "../components/JobCard";
 import { getAllJobs } from "../actions/jobs";
-import DriverReviewBids from '../components/DriverBidReview.js';
+import DriverReviewBids from "../components/DriverBidReview.js";
+import DashboardNav from "../components/DashboardNav";
 
 export class Dashboard extends React.Component {
-  constructor(props){
-    super(props)
+  constructor(props) {
+    super(props);
   }
-
 
   componentDidMount() {
     //gets all jobs related to a given user
     this.props.dispatch(getAllJobs());
-
   }
 
   render() {
@@ -45,6 +44,7 @@ export class Dashboard extends React.Component {
     if (this.props.currentUser.type === "DRIVER") {
       return (
         <div>
+          <DashboardNav type="DRIVER" />
           <h1>
             Welcome back, {this.props.currentUser.firstName}{" "}
             {this.props.currentUser.lastName}!
@@ -61,6 +61,7 @@ export class Dashboard extends React.Component {
     if (this.props.currentUser.type === "USER") {
       return (
         <div>
+          <DashboardNav type="USER" />
           <h1>
             Welcome back, {this.props.currentUser.firstName}{" "}
             {this.props.currentUser.lastName}!
