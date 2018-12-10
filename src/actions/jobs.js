@@ -26,6 +26,21 @@ export const updateJobsSuccess = () => ({
 
 
 
+export const UPDATE_BID_REQUEST = "UPDATE_BID_REQUEST";
+export const updateBidRequest = () => ({
+  type: UPDATE_BID_REQUEST,
+});
+
+export const UPDATE_BID_SUCCESS = "UPDATE_BID_SUCCESS";
+export const updateBidSuccess = () => ({
+  type: UPDATE_BID_SUCCESS,
+});
+
+export const UPDATE_BID_ERROR = "UPDATE_BID_ERROR";
+export const updateBidError = () => ({
+  type: UPDATE_BID_ERROR,
+});
+
 export const getUserJobs = () => (dispatch, getState) => {
   const userId = getState().auth.currentUser.id;
   dispatch(fetchJobsRequest());
@@ -110,8 +125,30 @@ export const makeJobCompleted = (jobId) => (dispatch, getState) => {
     .then (jobs => {
       dispatch(getUserJobs())
     })
-    .catch(err => {
-      dispatch(updateJobsError(err))
-    })
-};
 
+    .catch(err => dispatch(updateJobsError(err)))
+}
+
+export const makeBid = (id, bidValue) => (dispatch, getState) => {
+  dispatch(updateBidRequest());
+  const authToken = getState().auth.authToken;
+
+  return fetch(`${API_BASE_URL}/api/bids/${id}`, {
+    method: 'POST',
+    headers: {
+      Authorization: "Bearer " + authToken,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      jobId: id,
+      bidAmount: bidValue.bid,
+      bidDescription: 'What is this?',
+    }),
+  })
+  .then(res => res.json())
+  .then(bid => {
+    dispatch(updateBidSuccess(bid))
+    dispatch(getUserJobs())
+  })
+  .catch(err => dispatch(updateBidError(err)));
+}
