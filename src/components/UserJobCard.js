@@ -1,6 +1,8 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {makeJobCompleted} from '../actions/jobs.js';
 
-export default class UserJobCard extends React.Component{
+export class UserJobCard extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
@@ -15,7 +17,7 @@ export default class UserJobCard extends React.Component{
   }
   render() {
     let job = this.props.job;
-    console.log(job)
+    console.log(job.id)
     return (
       <li>
         <h3 onClick={() => this.showHide()}>{job.title}</h3>
@@ -25,11 +27,11 @@ export default class UserJobCard extends React.Component{
             {this.state.expanded && (
               <div>
                 <p>{job.description}</p>
-                <button
+                {!job.completed && <button
                   type="button"
-                  onClick="MAKES A PUT REQUEST TO CHANGE COMPLETED STATUS TO TRUE">
+                  onClick={() => this.props.dispatch(makeJobCompleted(job.id))}>
                   Completed
-                </button>
+                </button>}
                 <button
                   type="button"
                   onClick={() => this.showHide()}>
@@ -40,3 +42,5 @@ export default class UserJobCard extends React.Component{
     )
   }
 }
+
+export default connect()(UserJobCard);
