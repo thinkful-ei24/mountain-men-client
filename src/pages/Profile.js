@@ -26,7 +26,7 @@ export class Profile extends React.Component {
                 name="firstName"
                 component="input"
                 type="text"
-                placeholder="John"
+                value="string"
               />
             </div>
             <div>
@@ -67,6 +67,7 @@ export class Profile extends React.Component {
                 placeholder="ex. 123 Main St, Littleton, CO 80120"
               />
             </div>
+            <button>Update</button>
           </form>
         </div>
       </div>
@@ -81,4 +82,12 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Profile);
+//TODO initialize from state form https://redux-form.com/7.0.2/examples/initializefromstate/
+const updateForm = reduxForm({
+  form: "updateProfile",
+  initialValues: {
+    address: "string"
+  }
+})(connect(mapStateToProps)(Profile));
+
+export default updateForm;
