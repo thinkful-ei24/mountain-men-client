@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {makeJobCompleted} from '../actions/jobs.js';
+import { bidsReducer } from '../reducers/bidsReducer.js';
 
 export class UserJobCard extends React.Component{
   constructor(props) {
@@ -17,7 +18,7 @@ export class UserJobCard extends React.Component{
   }
   render() {
     let job = this.props.job;
-    console.log(job.id)
+    console.log(this.props)
     return (
       <li>
         <h3 onClick={() => this.showHide()}>{job.title}</h3>
@@ -27,6 +28,7 @@ export class UserJobCard extends React.Component{
             {this.state.expanded && (
               <div>
                 <p>{job.description}</p>
+                <p>This job has received {this.props.bids.length} bids.</p>
                 {!job.completed && <button
                   type="button"
                   onClick={() => this.props.dispatch(makeJobCompleted(job.id))}>

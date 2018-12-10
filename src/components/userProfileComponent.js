@@ -7,12 +7,11 @@ import CurrentJobs from './userCurrentJobs.js';
 export function ProfileComponent(props) {
   
   function renderThings() {
-    console.log(props.view);
     if (props.view === "default") {
       return <PostJobForm />;
     }
     if (props.view === "currentJobs") {
-      return <CurrentJobs />;
+      return <CurrentJobs bids={props.bids}/>;
     }
     if (props.view === "pastJobs") {
       return <PastJobs />;
