@@ -142,13 +142,13 @@ export const makeBid = (id, bidValue) => (dispatch, getState) => {
     body: JSON.stringify({
       jobId: id,
       bidAmount: bidValue.bid,
-      bidDescription: 'What is this?',
+      bidDescription: bidValue.desc,
     }),
   })
   .then(res => res.json())
   .then(bid => {
     dispatch(updateBidSuccess(bid))
-    dispatch(getUserJobs())
+    dispatch(getAllJobs())
   })
   .catch(err => dispatch(updateBidError(err)));
 }
