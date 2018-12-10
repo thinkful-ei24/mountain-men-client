@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import UserJobCard from './UserJobCard.js';
+import { getBidsCount } from '../actions/jobs';
 
 export class CurrentJobs extends React.Component{
   constructor(props){
@@ -9,9 +10,10 @@ export class CurrentJobs extends React.Component{
 
   render() {
     let listOfJobs = []
-    listOfJobs = this.props.jobs.map((job, index) => {
+    listOfJobs = this.props.jobs.map(async (job, index) => {
       if (!job.completed) {
-      return (
+        const bidCount = this.props.dispatch(getBidsCount(job.id))
+        return (
         <UserJobCard job={job} key={index} />
       )
       }

@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {makeJobCompleted} from '../actions/jobs.js';
+import {makeJobCompleted, getBidsCount} from '../actions/jobs.js';
 
 export class UserJobCard extends React.Component{
   constructor(props) {
@@ -22,6 +22,7 @@ export class UserJobCard extends React.Component{
       <li>
         <h3 onClick={() => this.showHide()}>{job.title}</h3>
         <p>{job.date}</p>
+        <p>{job.count || 0} bids have been placed</p>
         {/* conditionally render everything below if
             expanded is true */}
             {this.state.expanded && (
