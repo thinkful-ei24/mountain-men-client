@@ -20,7 +20,6 @@ const Button = styled.button`
 `;
 
 export function LandingMain(props) {
-  console.log(props.currentUser);
   if (props.currentUser !== null) {
     return <Redirect to="/dashboard" component={Dashboard} />;
   } else {

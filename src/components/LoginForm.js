@@ -28,9 +28,9 @@ export class LoginForm extends React.Component {
   };
 
   render() {
-    if (this.props.isLoggedIn) {
-      return <Redirect to="/dashboard" />;
-    }
+    // if (this.props.isLoggedIn) {
+    //   return <Redirect to="/dashboard" />;
+    // }
 
     let error;
     if(this.props.error) {
@@ -58,7 +58,8 @@ export class LoginForm extends React.Component {
                 component="input"
                 type="email"
                 placeholder="Email"
-                required='true'
+                validate={[required, nonEmpty]}
+                required={true}
               />
             </div>
             <div>
@@ -68,6 +69,7 @@ export class LoginForm extends React.Component {
                 component="input"
                 type="password"
                 placeholder="Password"
+                validate={[required, nonEmpty]}
               />
             </div>
             <Button>Log in</Button>

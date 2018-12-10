@@ -12,13 +12,8 @@ export class pastJobs extends React.Component {
 
   render() {
     let listOfJobs = []
-    listOfJobs = this.props.jobs.map((job, index) => {
-      if (job.completed) {
-      return (
-        <UserJobCard job={job} key={index} />
-      )
-      }
-    })
+    listOfJobs = this.props.jobs.filter(job => job.completed);
+    listOfJobs = listOfJobs.map((job, index) => <UserJobCard job={job} key={index} />)
 
   return (
     <section>

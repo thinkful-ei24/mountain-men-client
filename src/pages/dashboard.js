@@ -8,9 +8,6 @@ import DriverReviewBids from "../components/DriverBidReview.js";
 import DashboardNav from "../components/DashboardNav";
 
 export class Dashboard extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   componentDidMount() {
     //gets all jobs related to a given user
@@ -44,7 +41,6 @@ export class Dashboard extends React.Component {
 
     if (this.props.currentUser.type === "DRIVER") {
       function renderDriverPage(props) {
-        console.log(props);
         if (props === "currentJobs") {
           return <DriverReviewBids />;
         }
@@ -52,7 +48,6 @@ export class Dashboard extends React.Component {
           return <ul>{jobs}</ul>;
         }
       }
-      console.log(this.props);
       return (
         <div>
           <DashboardNav type="DRIVER" view={this.props.view} />
@@ -65,7 +60,6 @@ export class Dashboard extends React.Component {
       );
     }
     if (this.props.currentUser.type === "USER") {
-      console.log(this.props);
       return (
         <div>
           <DashboardNav type="USER" view={this.props.view} />

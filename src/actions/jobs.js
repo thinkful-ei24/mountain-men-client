@@ -17,21 +17,6 @@ export const fetchJobsError = (error) => ({
   error
 });
 
-export const UPDATE_JOBS_REQUEST = "UPDATE_JOBS_REQUEST";
-export const updateJobsRequest = () => ({
-  type: UPDATE_JOBS_REQUEST,
-});
-
-export const UPDATE_JOBS_SUCCESS = "UPDATE_JOBS_SUCCESS";
-export const updateJobsSuccess = () => ({
-  type: UPDATE_JOBS_SUCCESS,
-});
-
-export const UPDATE_JOBS_ERROR = "UPDATE_JOBS_ERROR";
-export const updateJobsError = () => ({
-  type: UPDATE_JOBS_ERROR,
-});
-
 export const getUserJobs = () => (dispatch, getState) => {
   const userId = getState().auth.currentUser.id;
   dispatch(fetchJobsRequest());
@@ -73,7 +58,6 @@ export const getAllJobsError = (error) => ({
 
 export const getAllJobs = () => (dispatch, getState) => {
   dispatch(getAllJobsRequest());
-  console.log('test yo')
   return fetch(`${API_BASE_URL}/api/jobs`, {
     method: 'GET',
     headers: {
