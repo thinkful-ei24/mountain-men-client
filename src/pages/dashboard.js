@@ -2,20 +2,15 @@ import React from "react";
 import { connect } from "react-redux";
 import Profile from "../components/userProfileComponent";
 import { Redirect } from "react-router-dom";
-import Job from "../components/JobCard";
+import Job from "../components/DriverBid";
 import { getAllJobs } from "../actions/jobs";
 import DriverReviewBids from '../components/DriverBidReview.js';
 
 export class Dashboard extends React.Component {
-  constructor(props){
-    super(props)
-  }
-
 
   componentDidMount() {
     //gets all jobs related to a given user
     this.props.dispatch(getAllJobs());
-
   }
 
   render() {
@@ -53,7 +48,6 @@ export class Dashboard extends React.Component {
           <DriverReviewBids />
           <ul>
             {jobs}
-            <Job name={this.props.currentUser.firstName} />
           </ul>
         </div>
       );

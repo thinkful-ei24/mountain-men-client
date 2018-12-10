@@ -2,6 +2,7 @@ import React from 'react';
 import { reduxForm, Field } from "redux-form";
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+import { makeBid } from '../actions/jobs';
 
 function JobComponent(props) {
 
@@ -48,7 +49,9 @@ function JobComponent(props) {
         id='job-image'
         src='https://images.uline.com/is/image/content/dam/images/Class-Group/c04/g009/guidednav.jpg?$BrowseRHD$&iccEmbed=1&icc=AdobeRGB'
         alt='post pic'></img>
-      <form>
+      <form onSubmit={props.handleSubmit(values => {
+              return props.dispatch(makeBid(props.id, values));
+            })}>
         <label>Your Offer:</label>
         <Field
           name='bid'
