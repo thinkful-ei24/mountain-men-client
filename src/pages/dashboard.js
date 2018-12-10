@@ -41,33 +41,40 @@ export class Dashboard extends React.Component {
       return <Redirect to="/" />;
     }
 
+
     if (this.props.currentUser.type === "DRIVER") {
+      function renderDriverPage(props) {
+        console.log(props);
+        if (props === "currentJobs") {
+          return <DriverReviewBids />;
+        }
+        if (props === "default") {
+          return <ul>{jobs}</ul>;
+        }
+      }
+      console.log(this.props);
       return (
         <div>
-          <DashboardNav type="DRIVER" />
+          <DashboardNav type="DRIVER" view={this.props.view} />
           <h1>
             Welcome back, {this.props.currentUser.firstName}{" "}
             {this.props.currentUser.lastName}!
           </h1>
-          {/* component for reviewing bids */}
-          <DriverReviewBids />
-          <ul>
-            {jobs}
-            <Job name={this.props.currentUser.firstName} />
-          </ul>
+          {renderDriverPage(this.props.view)}
         </div>
       );
     }
     if (this.props.currentUser.type === "USER") {
+      console.log(this.props);
       return (
         <div>
-          <DashboardNav type="USER" />
+          <DashboardNav type="USER" view={this.props.view} />
           <h1>
             Welcome back, {this.props.currentUser.firstName}{" "}
             {this.props.currentUser.lastName}!
           </h1>
           <ul>
-            <Profile />
+            <Profile view={this.props.view} />
           </ul>
         </div>
       );
@@ -79,7 +86,8 @@ const mapStateTothis = state => {
   return {
     loggedIn: state.auth.currentUser !== null,
     driverJobs: state,
-    currentUser: state.auth.currentUser
+    currentUser: state.auth.currentUser,
+    view: state.view.view
   };
 };
 

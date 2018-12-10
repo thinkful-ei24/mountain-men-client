@@ -5,12 +5,22 @@ import PastJobs from './userPastJobs.js';
 import CurrentJobs from './userCurrentJobs.js';
 
 export function ProfileComponent(props) {
-
+  
+  function renderThings() {
+    console.log(props.view);
+    if (props.view === "default") {
+      return <PostJobForm />;
+    }
+    if (props.view === "currentJobs") {
+      return <CurrentJobs />;
+    }
+    if (props.view === "pastJobs") {
+      return <PastJobs />;
+    }
+  }
   return (
     <div id='profile-component'>
-        <PostJobForm />
-        <CurrentJobs />
-        <PastJobs />
+        {renderThings()}
     </div>
   )
 }
