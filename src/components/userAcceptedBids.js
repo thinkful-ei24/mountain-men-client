@@ -15,7 +15,7 @@ export class AcceptedJobs extends React.Component {
     console.log(this.props, "okaythen");
 
     listOfJobs = this.props.jobs.map((job, index) => {
-      if (!job.completed) {
+      if (!job.completed && job.accepted) {
         const bids = this.props.bids.bids.filter(item => {
           console.log(item.jobId, job.id, "ids");
           return item.jobId === job.id;
