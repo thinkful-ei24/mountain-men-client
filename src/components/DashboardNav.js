@@ -26,6 +26,11 @@ export function DashboardNav(props) {
         </li>
         <li>
           <NavButton onClick={() => {
+            props.dispatch(updateView('acceptedJobs'))
+          }}>Accepted Jobs</NavButton>
+        </li>
+        <li>
+          <NavButton onClick={() => {
             props.dispatch(updateView('pastJobs'));
           }}>Transactions</NavButton>
         </li>

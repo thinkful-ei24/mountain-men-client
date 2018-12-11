@@ -142,6 +142,26 @@ export const makeJobCompleted = (jobId) => (dispatch, getState) => {
     .catch(err => dispatch(updateJobsError(err)))
 }
 
+export const makeJobAccepted = (jobId) => (dispatch, getState) => {
+  const userId = getState().auth.currentUser.id
+  const authToken = getState().auth.authToken;
+  dispatch(updateJobsRequest())
+  fetch(`${API_BASE_URL}/api/jobs/${userId}/${jobId}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      authorization: `Bearer ${authToken}`
+    },
+    body: JSON.stringify({accepted: true})
+  })
+    .then(result => result.json())
+    .then (jobs => {
+      dispatch(getUserJobs())
+    })
+
+    .catch(err => dispatch(updateJobsError(err)))
+}
+
 export const makeBid = (id, bidValue) => (dispatch, getState) => {
   dispatch(updateBidRequest());
   const authToken = getState().auth.authToken;

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PostJobForm from './PostJobForm';
 import PastJobs from './userPastJobs.js';
 import CurrentJobs from './userCurrentJobs.js';
+import AcceptedJobs from './userAcceptedBids';
 
 export function ProfileComponent(props) {
 
@@ -16,6 +17,9 @@ export function ProfileComponent(props) {
     }
     if (props.view === "pastJobs") {
       return <PastJobs bids={props.bids} />;
+    }
+    if (props.view === "acceptedJobs") {
+      return <AcceptedJobs bids={props.bids} />;
     }
   }
   return (
