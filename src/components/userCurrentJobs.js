@@ -1,15 +1,7 @@
-<<<<<<< HEAD
-import React from "react";
-import { connect } from "react-redux";
-import UserJobCard from "./UserJobCard.js";
-import { getUserJobs, getAllBids } from "../actions/jobs";
-=======
-
 import React from 'react';
 import {connect} from 'react-redux';
 import UserJobCard from './UserJobCard.js';
-import { getAllJobs, getAllBids, getBidsCount } from "../actions/jobs";
->>>>>>> d2977ea472b56c56f7399859a2a7c0b898d176e7
+import { getUserJobs, getAllBids, getBidsCount } from "../actions/jobs";
 
 export class CurrentJobs extends React.Component{
 
