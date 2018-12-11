@@ -11,7 +11,6 @@ const NavButton = styled.button`
 `;
 
 export function DashboardNav(props) {
-  console.log(props);
   if (props.type === "USER")
     return (
       <FlexNav>
@@ -34,13 +33,14 @@ export function DashboardNav(props) {
           </NavButton>
         </li>
         <li>
-          <NavButton
-            onClick={() => {
-              props.dispatch(updateView("pastJobs"));
-            }}
-          >
-            Transactions
-          </NavButton>
+          <NavButton onClick={() => {
+            props.dispatch(updateView('acceptedJobs'))
+          }}>Accepted Jobs</NavButton>
+        </li>
+        <li>
+          <NavButton onClick={() => {
+            props.dispatch(updateView('pastJobs'));
+          }}>Transactions</NavButton>
         </li>
       </FlexNav>
     );

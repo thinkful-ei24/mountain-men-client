@@ -18,13 +18,10 @@ export const fetchJobsError = (error) => ({
 });
 
 
-
 export const UPDATE_JOBS_SUCCESS = "UPDATE_JOBS_SUCCESS";
 export const updateJobsSuccess = () => ({
   type: UPDATE_JOBS_SUCCESS,
 });
-
-
 
 export const UPDATE_BID_REQUEST = "UPDATE_BID_REQUEST";
 export const updateBidRequest = () => ({
@@ -39,6 +36,23 @@ export const updateBidSuccess = () => ({
 export const UPDATE_BID_ERROR = "UPDATE_BID_ERROR";
 export const updateBidError = () => ({
   type: UPDATE_BID_ERROR,
+});
+
+export const FETCH_BID_COUNT_REQUEST = "FETCH_BID_COUNT_REQUEST";
+export const fetchBidCountRequest = () => ({
+  type: FETCH_BID_COUNT_REQUEST
+});
+
+export const FETCH_BID_COUNT_SUCCESS = "FETCH_BID_COUNT_SUCCESS";
+export const fetchBidCountSuccess = (bids) => ({
+  type: FETCH_BID_COUNT_SUCCESS,
+  bids
+});
+
+export const FETCH_BID_COUNT_ERROR = "FETCH_BID_COUNT_ERROR";
+export const fetchBidCountError = (error) => ({
+  type: FETCH_BID_COUNT_ERROR,
+  error
 });
 
 export const getUserJobs = () => (dispatch, getState) => {
@@ -82,7 +96,6 @@ export const getAllJobsError = (error) => ({
 
 export const getAllJobs = () => (dispatch, getState) => {
   dispatch(getAllJobsRequest());
-  console.log('test yo')
   return fetch(`${API_BASE_URL}/api/jobs`, {
     method: 'GET',
     headers: {
@@ -129,6 +142,26 @@ export const makeJobCompleted = (jobId) => (dispatch, getState) => {
     .catch(err => dispatch(updateJobsError(err)))
 }
 
+export const makeJobAccepted = (jobId) => (dispatch, getState) => {
+  const userId = getState().auth.currentUser.id
+  const authToken = getState().auth.authToken;
+  dispatch(updateJobsRequest())
+  fetch(`${API_BASE_URL}/api/jobs/${userId}/${jobId}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      authorization: `Bearer ${authToken}`
+    },
+    body: JSON.stringify({accepted: true})
+  })
+    .then(result => result.json())
+    .then (jobs => {
+      dispatch(getUserJobs())
+    })
+
+    .catch(err => dispatch(updateJobsError(err)))
+}
+
 export const makeBid = (id, bidValue) => (dispatch, getState) => {
   dispatch(updateBidRequest());
   const authToken = getState().auth.authToken;
@@ -136,13 +169,13 @@ export const makeBid = (id, bidValue) => (dispatch, getState) => {
   return fetch(`${API_BASE_URL}/api/bids/${id}`, {
     method: 'POST',
     headers: {
-      Authorization: "Bearer " + authToken,
       'Content-Type': 'application/json',
+      authorization: `Bearer ${authToken}`
     },
     body: JSON.stringify({
       jobId: id,
       bidAmount: bidValue.bid,
-      bidDescription: 'What is this?',
+      bidDescription: bidValue.desc,
     }),
   })
   .then(res => res.json())
@@ -152,3 +185,58 @@ export const makeBid = (id, bidValue) => (dispatch, getState) => {
   })
   .catch(err => dispatch(updateBidError(err)));
 }
+
+
+export const getBidsCount = (jobId) => (dispatch, getState) => {
+  dispatch(fetchBidCountRequest());
+  const authToken = getState().auth.authToken;
+
+  return fetch(`${API_BASE_URL}/api/bids/${jobId}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      authorization: `Bearer ${authToken}`
+    }
+  })
+  .then(res => res.json())
+  .then(bids => {
+    dispatch(fetchBidCountSuccess(bids))
+    return bids.length;
+  })
+  .then(err => dispatch(fetchBidCountError(err)));
+}
+
+
+export const GET_ALL_BIDS_REQUEST = "FETCH_BIDS_REQUEST";
+export const getAllBidsRequest = () => ({
+  type: GET_ALL_BIDS_REQUEST
+});
+
+export const GET_ALL_BIDS_SUCCESS = "FETCH_BIDS_SUCCESS";
+export const getAllBidsSuccess = (bids) => ({
+  type: GET_ALL_BIDS_SUCCESS,
+  bids
+});
+
+export const GET_ALL_BIDS_ERROR = "FETCH_BIDS_ERROR";
+export const getAllBidsError = (error) => ({
+  type: GET_ALL_BIDS_ERROR,
+  error
+});
+
+export const getAllBids = () => (dispatch, getState) => {
+  dispatch(getAllBidsRequest());
+  return fetch(`${API_BASE_URL}/api/bids`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then(res => res.json())
+    .then(bids => {
+      dispatch(getAllBidsSuccess(bids))
+    })
+    .catch(err => {
+      dispatch(getAllBidsError(err))
+    })
+};

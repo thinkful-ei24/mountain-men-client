@@ -5,19 +5,14 @@ import { Redirect } from "react-router-dom";
 import { postJobs } from "../actions/postJobs";
 
 export class PostJob extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   onSubmit(values) {
-
     values.id = this.props.currentUser.id;
     values.authToken = this.props.authToken;
     return this.props.dispatch(postJobs(values));
   }
 
   render() {
-    console.log(this.props);
     if (!this.props.isLoggedIn) {
       return <Redirect to="/" />;
     }

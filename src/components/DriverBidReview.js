@@ -1,5 +1,4 @@
 import React from 'react';
-import {connect} from 'react-redux';
 import DriverBidCard from './DriverBidCard.js';
 
 export default class DriverReviewBids extends React.Component{

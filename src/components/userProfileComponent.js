@@ -3,19 +3,23 @@ import { connect } from 'react-redux';
 import PostJobForm from './PostJobForm';
 import PastJobs from './userPastJobs.js';
 import CurrentJobs from './userCurrentJobs.js';
+import AcceptedJobs from './userAcceptedBids';
 
 export function ProfileComponent(props) {
-  
+
   function renderThings() {
-    console.log(props.view);
+    console.log(props);
     if (props.view === "default") {
       return <PostJobForm />;
     }
     if (props.view === "currentJobs") {
-      return <CurrentJobs />;
+      return <CurrentJobs bids={props.bids} />;
     }
     if (props.view === "pastJobs") {
-      return <PastJobs />;
+      return <PastJobs bids={props.bids} />;
+    }
+    if (props.view === "acceptedJobs") {
+      return <AcceptedJobs bids={props.bids} />;
     }
   }
   return (

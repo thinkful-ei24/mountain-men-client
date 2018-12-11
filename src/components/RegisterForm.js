@@ -2,7 +2,7 @@ import React from "react";
 import { reduxForm, Field } from "redux-form";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { registerUser, login } from "../actions/auth.js";
+import { registerUser } from "../actions/auth.js";
 import {required, nonEmpty, matches, length, isTrimmed} from '../validators.js';
 import styled from 'styled-components';
 const passwordLength = length({min: 9, max: 72});
@@ -57,7 +57,7 @@ export class RegisterForm extends React.Component {
                 component="input"
                 type="text"
                 placeholder="John"
-                // validate={[required, nonEmpty, isTrimmed]}
+                validate={[required, nonEmpty, isTrimmed]}
                 required="true"
               />
             </div>
@@ -68,7 +68,7 @@ export class RegisterForm extends React.Component {
                 component="input"
                 type="text"
                 placeholder="Doe"
-                // validate={[required, nonEmpty, isTrimmed]}
+                validate={[required, nonEmpty, isTrimmed]}
                 required="true"
               />
             </div>
@@ -79,7 +79,7 @@ export class RegisterForm extends React.Component {
                 component="input"
                 type="email"
                 placeholder="JohnDoe@email.com"
-                // validate={[required, nonEmpty, isTrimmed]}
+                validate={[required, nonEmpty, isTrimmed]}
                 required="true"
               />
             </div>
@@ -91,7 +91,7 @@ export class RegisterForm extends React.Component {
                 component="input"
                 type="password"
                 placeholder="*******"
-                // validate={[required, passwordLength, isTrimmed]}
+                validate={[required, passwordLength, isTrimmed]}
                 required="true"
               />
             </div>
@@ -102,7 +102,7 @@ export class RegisterForm extends React.Component {
                   component="input"
                   type="password"
                   placeholder="*******"
-                  // validate={[required, nonEmpty, matchesPassword]}
+                  validate={[required, nonEmpty, matchesPassword]}
                   required="true"
                 />
             </div>
