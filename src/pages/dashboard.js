@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import Profile from "../components/userProfileComponent";
 import { Redirect } from "react-router-dom";
 import Job from "../components/DriverBid";
-import { getAllJobs } from "../actions/jobs";
+import { getAllJobs, getAllBids } from "../actions/jobs";
 import DriverReviewBids from "../components/DriverBidReview.js";
 import DashboardNav from "../components/DashboardNav";
 
@@ -12,6 +12,7 @@ export class Dashboard extends React.Component {
   componentDidMount() {
     //gets all jobs related to a given user
     this.props.dispatch(getAllJobs());
+    this.props.dispatch(getAllBids());
   }
 
   render() {
@@ -41,7 +42,6 @@ export class Dashboard extends React.Component {
 
     if (this.props.currentUser.type === "DRIVER") {
       function renderDriverPage(props) {
-        console.log(props);
         if (props === "currentJobs") {
           return <DriverReviewBids />;
         }
@@ -49,7 +49,6 @@ export class Dashboard extends React.Component {
           return <ul>{jobs}</ul>;
         }
       }
-      console.log(this.props);
       return (
         <div>
           <DashboardNav type="DRIVER" view={this.props.view} />
@@ -64,7 +63,6 @@ export class Dashboard extends React.Component {
       );
     }
     if (this.props.currentUser.type === "USER") {
-      console.log(this.props);
       return (
         <div>
           <DashboardNav type="USER" view={this.props.view} />
@@ -73,7 +71,7 @@ export class Dashboard extends React.Component {
             {this.props.currentUser.lastName}!
           </h1>
           <ul>
-            <Profile view={this.props.view} />
+            <Profile view={this.props.view} bids={this.props.driverJobs.bids} />
           </ul>
         </div>
       );

@@ -11,7 +11,6 @@ const NavButton = styled.button`
 `;
 
 export function DashboardNav(props) {
-  console.log(props);
   if (props.type === "USER")
     return (
       <FlexNav>

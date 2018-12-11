@@ -17,6 +17,7 @@ export const fetchJobsError = (error) => ({
   error
 });
 
+
 export const UPDATE_JOBS_SUCCESS = "UPDATE_JOBS_SUCCESS";
 export const updateJobsSuccess = () => ({
   type: UPDATE_JOBS_SUCCESS,
@@ -95,7 +96,6 @@ export const getAllJobsError = (error) => ({
 
 export const getAllJobs = () => (dispatch, getState) => {
   dispatch(getAllJobsRequest());
-  console.log('test yo')
   return fetch(`${API_BASE_URL}/api/jobs`, {
     method: 'GET',
     headers: {
@@ -166,6 +166,7 @@ export const makeBid = (id, bidValue) => (dispatch, getState) => {
   .catch(err => dispatch(updateBidError(err)));
 }
 
+
 export const getBidsCount = (jobId) => (dispatch, getState) => {
   dispatch(fetchBidCountRequest());
   const authToken = getState().auth.authToken;
@@ -184,3 +185,38 @@ export const getBidsCount = (jobId) => (dispatch, getState) => {
   })
   .then(err => dispatch(fetchBidCountError(err)));
 }
+
+
+export const GET_ALL_BIDS_REQUEST = "FETCH_BIDS_REQUEST";
+export const getAllBidsRequest = () => ({
+  type: GET_ALL_BIDS_REQUEST
+});
+
+export const GET_ALL_BIDS_SUCCESS = "FETCH_BIDS_SUCCESS";
+export const getAllBidsSuccess = (bids) => ({
+  type: GET_ALL_BIDS_SUCCESS,
+  bids
+});
+
+export const GET_ALL_BIDS_ERROR = "FETCH_BIDS_ERROR";
+export const getAllBidsError = (error) => ({
+  type: GET_ALL_BIDS_ERROR,
+  error
+});
+
+export const getAllBids = () => (dispatch, getState) => {
+  dispatch(getAllBidsRequest());
+  return fetch(`${API_BASE_URL}/api/bids`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then(res => res.json())
+    .then(bids => {
+      dispatch(getAllBidsSuccess(bids))
+    })
+    .catch(err => {
+      dispatch(getAllBidsError(err))
+    })
+};

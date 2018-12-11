@@ -26,7 +26,6 @@ export const jobsReducer = (state = initialState, action) => {
       error: null
     })
   } else if (action.type === FETCH_JOBS_SUCCESS) {
-    console.log('IN REDUCER', action.jobs)
     return Object.assign({}, state, {
       jobs: action.jobs,
       loading: false

@@ -15,14 +15,14 @@ export default class DriverBidCard extends React.Component{
   }
   render() {
     let bid = this.props.bid;
-    {/*
+    /*
     {
       driverId:,
       bid: bidAmount,
       description:,
       driverRating:,
     }
-      */}
+      */
     return (
       <li>
         <h3>Job Title Here</h3>

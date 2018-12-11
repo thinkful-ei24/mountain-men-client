@@ -1,15 +1,20 @@
+
 import React from 'react';
 import {connect} from 'react-redux';
 import UserJobCard from './UserJobCard.js';
-import { getBidsCount } from '../actions/jobs';
+import { getAllJobs, getAllBids, getBidsCount } from "../actions/jobs";
 
 export class CurrentJobs extends React.Component{
-  constructor(props){
-    super(props)
+
+  componentDidMount() {
+    //gets all jobs related to a given user
+    this.props.dispatch(getAllJobs());
+    this.props.dispatch(getAllBids());
   }
 
   render() {
     let listOfJobs = []
+
     listOfJobs = this.props.jobs.map(async (job, index) => {
       if (!job.completed) {
         const bidCount = this.props.dispatch(getBidsCount(job.id))
@@ -19,20 +24,19 @@ export class CurrentJobs extends React.Component{
       }
     })
 
-  return (
-    <section>
-    <h2>Current Jobs</h2>
-    <ul>
-      {listOfJobs}
-    </ul>
-  </section>
-  )
+
+    return (
+      <section>
+        <h2>Current Jobs</h2>
+        <ul>{listOfJobs}</ul>
+      </section>
+    );
   }
 }
 
 const mapStateToProps = state => ({
   user: state.auth.currentUser,
   jobs: state.jobs.jobs
-})
+});
 
-export default connect(mapStateToProps)(CurrentJobs)
+export default connect(mapStateToProps)(CurrentJobs);
