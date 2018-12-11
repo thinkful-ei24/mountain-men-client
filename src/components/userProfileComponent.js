@@ -12,10 +12,10 @@ export function ProfileComponent(props) {
       return <PostJobForm />;
     }
     if (props.view === "currentJobs") {
-      return <CurrentJobs bids={props.bids}/>;
+      return <CurrentJobs bids={props.bids} />;
     }
     if (props.view === "pastJobs") {
-      return <PastJobs />;
+      return <PastJobs bids={props.bids} />;
     }
   }
   return (
