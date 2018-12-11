@@ -63,6 +63,7 @@ export class Dashboard extends React.Component {
       );
     }
     if (this.props.currentUser.type === "USER") {
+      console.log(this.props);
       return (
         <div>
           <DashboardNav type="USER" view={this.props.view} />

@@ -7,6 +7,7 @@ import CurrentJobs from './userCurrentJobs.js';
 export function ProfileComponent(props) {
 
   function renderThings() {
+    console.log(props);
     if (props.view === "default") {
       return <PostJobForm />;
     }

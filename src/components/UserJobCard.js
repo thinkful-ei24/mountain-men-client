@@ -18,6 +18,7 @@ export class UserJobCard extends React.Component{
   }
   render() {
     let job = this.props.job;
+    console.log(this.props);
     return (
       <li>
         <h3 onClick={() => this.showHide()}>{job.title}</h3>

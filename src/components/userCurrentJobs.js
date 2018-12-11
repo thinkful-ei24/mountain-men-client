@@ -1,13 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import UserJobCard from "./UserJobCard.js";
-import { getAllJobs, getAllBids } from "../actions/jobs";
+import { getUserJobs, getAllBids } from "../actions/jobs";
 
 export class CurrentJobs extends React.Component{
 
   componentDidMount() {
     //gets all jobs related to a given user
-    this.props.dispatch(getAllJobs());
+    this.props.dispatch(getUserJobs());
     this.props.dispatch(getAllBids());
   }
 
