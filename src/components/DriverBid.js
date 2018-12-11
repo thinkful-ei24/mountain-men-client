@@ -27,9 +27,30 @@ function JobComponent(props) {
       border-radius: 5px;
     }
 
-    input {
-      width: 115px;
+    #bid-label {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 18px;
+      text-align: center;
+      height: 30px;
+      width: 30px;
+      position: relative;
+      bottom: 13px;
     }
+
+    #bid-input {
+      width: 115px;
+      height: 30px;
+    }
+
+    #desc-input {
+      width: 180px;
+      height: 50px;
+      font-size: 16px;
+    }
+
+
+
   `;
 // props.dispatch(getBidById(props.id));
 
@@ -52,12 +73,20 @@ function JobComponent(props) {
       <form onSubmit={props.handleSubmit(values => {
               return props.dispatch(makeBid(props.id, values));
             })}>
-        <label>Your Offer:</label>
+        <label id='bid-label'>Your Offer</label>
         <Field
           name='bid'
+          id='bid-input'
           component='input'
           type='number'
           placeholder='$25.00'
+        />
+        <Field
+          name='desc'
+          id='desc-input'
+          component='textarea'
+          type='textarea'
+          placeholder='Additional comments'
         />
         <button type='submit'>Submit Bid</button>
       </form>

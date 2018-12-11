@@ -1,7 +1,8 @@
-import React from "react";
-import { connect } from "react-redux";
-import UserJobCard from "./UserJobCard.js";
-import { getAllJobs, getAllBids } from "../actions/jobs";
+
+import React from 'react';
+import {connect} from 'react-redux';
+import UserJobCard from './UserJobCard.js';
+import { getAllJobs, getAllBids, getBidsCount } from "../actions/jobs";
 
 export class CurrentJobs extends React.Component{
 
@@ -13,16 +14,16 @@ export class CurrentJobs extends React.Component{
 
   render() {
     let listOfJobs = []
-    // listOfJobs = this.props.jobs.map((job, index) => {
-    //   if (!job.completed) {
-    //   return (
-    //     <UserJobCard job={job} key={index} />
-    //   )
-    //   }
-    // })
 
-    listOfJobs = this.props.jobs.filter(job => !job.completed);
-    listOfJobs = listOfJobs.map((job, index) => <UserJobCard job={job} key={index} />)
+    listOfJobs = this.props.jobs.map(async (job, index) => {
+      if (!job.completed) {
+        const bidCount = this.props.dispatch(getBidsCount(job.id))
+        return (
+        <UserJobCard job={job} key={index} />
+      )
+      }
+    })
+
 
     return (
       <section>

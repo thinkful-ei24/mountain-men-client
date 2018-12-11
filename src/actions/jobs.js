@@ -23,8 +23,6 @@ export const updateJobsSuccess = () => ({
   type: UPDATE_JOBS_SUCCESS,
 });
 
-
-
 export const UPDATE_BID_REQUEST = "UPDATE_BID_REQUEST";
 export const updateBidRequest = () => ({
   type: UPDATE_BID_REQUEST,
@@ -38,6 +36,23 @@ export const updateBidSuccess = () => ({
 export const UPDATE_BID_ERROR = "UPDATE_BID_ERROR";
 export const updateBidError = () => ({
   type: UPDATE_BID_ERROR,
+});
+
+export const FETCH_BID_COUNT_REQUEST = "FETCH_BID_COUNT_REQUEST";
+export const fetchBidCountRequest = () => ({
+  type: FETCH_BID_COUNT_REQUEST
+});
+
+export const FETCH_BID_COUNT_SUCCESS = "FETCH_BID_COUNT_SUCCESS";
+export const fetchBidCountSuccess = (bids) => ({
+  type: FETCH_BID_COUNT_SUCCESS,
+  bids
+});
+
+export const FETCH_BID_COUNT_ERROR = "FETCH_BID_COUNT_ERROR";
+export const fetchBidCountError = (error) => ({
+  type: FETCH_BID_COUNT_ERROR,
+  error
 });
 
 export const getUserJobs = () => (dispatch, getState) => {
@@ -134,13 +149,13 @@ export const makeBid = (id, bidValue) => (dispatch, getState) => {
   return fetch(`${API_BASE_URL}/api/bids/${id}`, {
     method: 'POST',
     headers: {
-      Authorization: "Bearer " + authToken,
       'Content-Type': 'application/json',
+      authorization: `Bearer ${authToken}`
     },
     body: JSON.stringify({
       jobId: id,
       bidAmount: bidValue.bid,
-      bidDescription: 'What is this?',
+      bidDescription: bidValue.desc,
     }),
   })
   .then(res => res.json())
@@ -149,6 +164,26 @@ export const makeBid = (id, bidValue) => (dispatch, getState) => {
     dispatch(getAllJobs())
   })
   .catch(err => dispatch(updateBidError(err)));
+}
+
+
+export const getBidsCount = (jobId) => (dispatch, getState) => {
+  dispatch(fetchBidCountRequest());
+  const authToken = getState().auth.authToken;
+
+  return fetch(`${API_BASE_URL}/api/bids/${jobId}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      authorization: `Bearer ${authToken}`
+    }
+  })
+  .then(res => res.json())
+  .then(bids => {
+    dispatch(fetchBidCountSuccess(bids))
+    return bids.length;
+  })
+  .then(err => dispatch(fetchBidCountError(err)));
 }
 
 
