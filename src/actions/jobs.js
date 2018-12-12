@@ -142,7 +142,7 @@ export const makeJobCompleted = (jobId) => (dispatch, getState) => {
     .catch(err => dispatch(updateJobsError(err)))
 }
 
-export const makeJobAccepted = (jobId) => (dispatch, getState) => {
+export const makeJobAccepted = (jobId, driverId) => (dispatch, getState) => {
   const userId = getState().auth.currentUser.id
   const authToken = getState().auth.authToken;
   dispatch(updateJobsRequest())
@@ -152,7 +152,7 @@ export const makeJobAccepted = (jobId) => (dispatch, getState) => {
       'Content-Type': 'application/json',
       authorization: `Bearer ${authToken}`
     },
-    body: JSON.stringify({accepted: true})
+    body: JSON.stringify({accepted: true, acceptedUserId: driverId})
   })
     .then(result => result.json())
     .then (jobs => {
@@ -173,8 +173,8 @@ export const makeBid = (id, bidValue) => (dispatch, getState) => {
       authorization: `Bearer ${authToken}`
     },
 
-    // 5c098aa482636a21549f93e5
-    // 5c0eac13f589a01fd0ec45ee
+    // 5c098aa482636a21549f93e5  jobId
+    // 5c0eac13f589a01fd0ec45ee  userId
 
     body: JSON.stringify({
       jobId: id,

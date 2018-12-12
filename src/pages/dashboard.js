@@ -5,6 +5,7 @@ import { Redirect } from "react-router-dom";
 import Job from "../components/DriverBid";
 import { getAllJobs, getAllBids } from "../actions/jobs";
 import DriverReviewBids from "../components/DriverBidReview.js";
+import DriverAcceptedBids from '../components/DriverAcceptedBids'
 import DashboardNav from "../components/DashboardNav";
 
 export class Dashboard extends React.Component {
@@ -42,9 +43,12 @@ export class Dashboard extends React.Component {
 
     if (this.props.currentUser.type === "DRIVER") {
       function renderDriverPage(props) {
+        console.log(props.view);
         if (props.view === "currentJobs") {
-    
           return <DriverReviewBids props={props.driverJobs} dispatch={props.dispatch}/>;
+        }
+        if (props.view ==="pastJobs") {
+          return <DriverAcceptedBids props={props.driverJobs} dispatch={props.dispatch} />;
         }
         if (props.view === "default") {
           return <ul>{jobs}</ul>;

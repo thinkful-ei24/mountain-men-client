@@ -25,7 +25,7 @@ export class UserJobCard extends React.Component {
           <p>Bid amount: {item.bidAmount}</p>
           {!job.accepted && <button
             onClick={() => {
-              this.props.dispatch(makeJobAccepted(job.id));
+              this.props.dispatch(makeJobAccepted(job.id, item.userId));
             }}
           >
             Accept Bid
