@@ -6,6 +6,7 @@ import Job from "../components/DriverBid";
 import { getAllJobs, getAllBids } from "../actions/jobs";
 import DriverReviewBids from "../components/DriverBidReview.js";
 import DriverAcceptedBids from '../components/DriverAcceptedBids'
+import DriverCompletedBids from '../components/DriverCompletedBids';
 import DashboardNav from "../components/DashboardNav";
 
 export class Dashboard extends React.Component {
@@ -49,6 +50,9 @@ export class Dashboard extends React.Component {
         }
         if (props.view ==="pastJobs") {
           return <DriverAcceptedBids props={props.driverJobs} dispatch={props.dispatch} />;
+        }
+        if (props.view ==="completedJobs") {
+          return <DriverCompletedBids props={props.driverJobs} dispatch={props.dispatch} />;
         }
         if (props.view === "default") {
           return <ul>{jobs}</ul>;

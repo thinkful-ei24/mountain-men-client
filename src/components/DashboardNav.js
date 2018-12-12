@@ -62,7 +62,7 @@ export function DashboardNav(props) {
               props.dispatch(updateView("currentJobs"));
             }}
           >
-            Active Posts
+            Active Bids
           </NavButton>
         </li>
         <li>
@@ -71,7 +71,16 @@ export function DashboardNav(props) {
               props.dispatch(updateView("pastJobs"));
             }}
           >
-            Transactions
+            Accepted Bids
+          </NavButton>
+        </li>
+        <li>
+          <NavButton
+            onClick={() => {
+              props.dispatch(updateView("completedJobs"));
+            }}
+          >
+            Completed Jobs
           </NavButton>
         </li>
       </FlexNav>
