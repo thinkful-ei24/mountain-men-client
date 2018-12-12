@@ -1,5 +1,6 @@
 import React from 'react';
 import DriverBidCard from './DriverBidCard.js';
+import BidMap from './BidMap.js';
 
 export default class DriverReviewBids extends React.Component{
   constructor(props){

@@ -4,7 +4,9 @@ import Profile from "../components/userProfileComponent";
 import { Redirect } from "react-router-dom";
 import Job from "../components/DriverBid";
 import { getAllJobs, getAllBids } from "../actions/jobs";
+import {getMapCenter} from '../actions/maps.js';
 import DriverReviewBids from "../components/DriverBidReview.js";
+import MapContainer from '../components/MapContainer.js';
 import DashboardNav from "../components/DashboardNav";
 
 export class Dashboard extends React.Component {
@@ -13,6 +15,9 @@ export class Dashboard extends React.Component {
     //gets all jobs related to a given user
     this.props.dispatch(getAllJobs());
     this.props.dispatch(getAllBids());
+    if (this.props.currentUser) {
+      this.props.dispatch(getMapCenter());
+    }
   }
 
   render() {
@@ -46,7 +51,12 @@ export class Dashboard extends React.Component {
           return <DriverReviewBids />;
         }
         if (props === "default") {
-          return <ul>{jobs}</ul>;
+          return (
+            <main>
+              <MapContainer />
+              <ul>{jobs}</ul>;
+            </main>
+          )
         }
       }
       return (
@@ -84,7 +94,8 @@ const mapStateTothis = state => {
     loggedIn: state.auth.currentUser !== null,
     driverJobs: state,
     currentUser: state.auth.currentUser,
-    view: state.view.view
+    view: state.view.view,
+    mapCenter: state.map.mapCenter
   };
 };
 
