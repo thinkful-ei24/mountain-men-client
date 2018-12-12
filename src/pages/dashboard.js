@@ -38,14 +38,15 @@ export class Dashboard extends React.Component {
     if (!this.props.loggedIn) {
       return <Redirect to="/" />;
     }
-
+    
 
     if (this.props.currentUser.type === "DRIVER") {
       function renderDriverPage(props) {
-        if (props === "currentJobs") {
-          return <DriverReviewBids />;
+        if (props.view === "currentJobs") {
+    
+          return <DriverReviewBids props={props.driverJobs}/>;
         }
-        if (props === "default") {
+        if (props.view === "default") {
           return <ul>{jobs}</ul>;
         }
       }
@@ -57,13 +58,13 @@ export class Dashboard extends React.Component {
             {this.props.currentUser.lastName}!
           </h1>
 
-          {renderDriverPage(this.props.view)}
+          {renderDriverPage(this.props)}
 
         </div>
       );
     }
     if (this.props.currentUser.type === "USER") {
-      console.log(this.props);
+      
       return (
         <div>
           <DashboardNav type="USER" view={this.props.view} />

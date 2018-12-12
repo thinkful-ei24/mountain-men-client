@@ -12,7 +12,7 @@ export class AcceptedJobs extends React.Component {
 
   render() {
     let listOfJobs = [];
-    console.log(this.props, "okaythen");
+    
 
     listOfJobs = this.props.jobs.map((job, index) => {
       if (!job.completed && job.accepted) {
@@ -20,8 +20,7 @@ export class AcceptedJobs extends React.Component {
           console.log(item.jobId, job.id, "ids");
           return item.jobId === job.id;
         });
-        console.log(bids);
-        // const bidCount = this.props.dispatch(getBidsCount(job.id))
+        
         return <UserJobCard job={job} key={index} bids={bids} />;
       }
     });

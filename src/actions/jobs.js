@@ -172,6 +172,10 @@ export const makeBid = (id, bidValue) => (dispatch, getState) => {
       'Content-Type': 'application/json',
       authorization: `Bearer ${authToken}`
     },
+
+    // 5c098aa482636a21549f93e5
+    // 5c0eac13f589a01fd0ec45ee
+
     body: JSON.stringify({
       jobId: id,
       bidAmount: bidValue.bid,

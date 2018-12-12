@@ -1,11 +1,10 @@
-import React from 'react';
+import React from "react";
 import { reduxForm, Field } from "redux-form";
-import { connect } from 'react-redux';
-import styled from 'styled-components';
-import { makeBid } from '../actions/jobs';
+import { connect } from "react-redux";
+import styled from "styled-components";
+import { makeBid } from "../actions/jobs";
 
 function JobComponent(props) {
-
   const JobCard = styled.div`
     margin: 10px;
     padding: 10px;
@@ -14,11 +13,9 @@ function JobComponent(props) {
     border-radius: 5px;
 
     #user-name {
-
     }
 
     #job-desc {
-
     }
 
     #job-image {
@@ -48,58 +45,53 @@ function JobComponent(props) {
       height: 50px;
       font-size: 16px;
     }
-
-
-
   `;
-// props.dispatch(getBidById(props.id));
+  // props.dispatch(getBidById(props.id));
 
   return (
-    <JobCard id='job-card'>
-      <span id='user-name'>{props.name}</span>
-      <p id='job-desc'>
-      {props.desc}
-      </p>
-      <p id='job-date'>
-      {props.date}
-      </p>
+    <JobCard id="job-card">
+      <span id="user-name">{props.name}</span>
+      <p id="job-desc">{props.desc}</p>
+      <p id="job-date">{props.date}</p>
       {/* <p id='job-bids'>
       There have been {bidsObject.bids.length} bids made.
       </p> */}
       <img
-        id='job-image'
-        src='https://images.uline.com/is/image/content/dam/images/Class-Group/c04/g009/guidednav.jpg?$BrowseRHD$&iccEmbed=1&icc=AdobeRGB'
-        alt='post pic'></img>
-      <form onSubmit={props.handleSubmit(values => {
-              return props.dispatch(makeBid(props.id, values));
-            })}>
-        <label id='bid-label'>Your Offer</label>
+        id="job-image"
+        src="https://images.uline.com/is/image/content/dam/images/Class-Group/c04/g009/guidednav.jpg?$BrowseRHD$&iccEmbed=1&icc=AdobeRGB"
+        alt="post pic"
+      />
+      <form
+        onSubmit={props.handleSubmit(values => {
+          // console.log(props);
+          // values.userId = props.auth.currentUser.id;
+          return props.dispatch(makeBid(props.id, values));
+        })}
+      >
+        <label id="bid-label">Your Offer</label>
         <Field
-          name='bid'
-          id='bid-input'
-          component='input'
-          type='number'
-          placeholder='$25.00'
+          name="bid"
+          id="bid-input"
+          component="input"
+          type="number"
+          placeholder="$25.00"
         />
         <Field
-          name='desc'
-          id='desc-input'
-          component='textarea'
-          type='textarea'
-          placeholder='Additional comments'
+          name="desc"
+          id="desc-input"
+          component="textarea"
+          type="textarea"
+          placeholder="Additional comments"
         />
-        <button type='submit'>Submit Bid</button>
+        <button type="submit">Submit Bid</button>
       </form>
     </JobCard>
-  )
+  );
 }
 
-
-const mapStateToProps = (state) => {
-  return {
-
-  }
-}
+const mapStateToProps = state => {
+  return {};
+};
 
 const Job = reduxForm({
   form: "jobBidForm"
