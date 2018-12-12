@@ -44,7 +44,7 @@ export class Dashboard extends React.Component {
       function renderDriverPage(props) {
         if (props.view === "currentJobs") {
     
-          return <DriverReviewBids props={props.driverJobs}/>;
+          return <DriverReviewBids props={props.driverJobs} dispatch={props.dispatch}/>;
         }
         if (props.view === "default") {
           return <ul>{jobs}</ul>;

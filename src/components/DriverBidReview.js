@@ -1,5 +1,6 @@
 import React from "react";
 import DriverBidCard from "./DriverBidCard.js";
+import { getAllBids, getAllJobs } from '../actions/jobs';
 
 export default class DriverReviewBids extends React.Component {
   constructor(props) {
@@ -7,6 +8,12 @@ export default class DriverReviewBids extends React.Component {
     this.state = {
       hidden: true
     };
+  }
+
+  componentDidMount() {
+    //gets all jobs related to a given user
+    this.props.dispatch(getAllJobs());
+    this.props.dispatch(getAllBids());
   }
 
   render() {
