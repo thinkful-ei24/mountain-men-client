@@ -41,7 +41,7 @@ const Login = styled.div`
 
 export default function LoginPage() {
   return (
-    <LoginContainer>
+    <LoginContainer className='animated fadeIn'>
       <BG as={Link} to='/'></BG>
       <Login id='login-page'>
         <LoginForm id="login-form"></LoginForm>

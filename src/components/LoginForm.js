@@ -1,7 +1,6 @@
 import React from "react";
 import { reduxForm, Field, focus } from "redux-form";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
 import {required, nonEmpty} from '../validators.js';
 import { login } from "../actions/auth.js";
 import styled from 'styled-components';

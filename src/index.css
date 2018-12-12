@@ -1,6 +1,19 @@
+/* @media only screen and (max-width: 600px) {
+  body {
+    background-color: #04CDFF;
+    width: 100%;
+  }
+} */
+html {
+  width: 100%;
+}
+
 body {
   background-color: #04CDFF;
   margin: 0;
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 0;
   font-family: 'Roboto Condensed', sans-serif;
   font-weight: 400;
@@ -43,6 +56,10 @@ input {
   border-radius: 5px;
   outline: 5px solid none;
   outline-offset: -5px
+}
+
+input[type='radio'] {
+  width: 20px;
 }
 
 input:active,

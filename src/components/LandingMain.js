@@ -4,12 +4,14 @@ import { connect } from "react-redux";
 import Dashboard from '../pages/dashboard.js';
 import styled from 'styled-components';
 
-const Main = styled.main`
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  right: 0px;
-  left: 0px;
+const Landing = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
 `;
 
 const Button = styled.button`
@@ -19,33 +21,77 @@ const Button = styled.button`
   font-size: 18px;
 `;
 
+const NeedTruck = styled.div`
+  @media only screen and (max-width: 600px) {
+    min-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  align-items: center;
+  background-color: #444a59;
+  width: 450px;
+  min-height: 250px;
+  padding: 50px;
+  margin-top: 20px;
+  margin-left: 400px;
+  margin-right: auto;
+  margin-bottom: 20px;
+
+  border-radius: 3px;
+  box-shadow: 3px 3px 10px 1px black;
+`;
+
+const HaveTruck = styled.div`
+  @media only screen and (max-width: 600px) {
+    min-width: 350px;
+    margin: 0 auto;
+
+  }
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  align-items: center;
+  background-color: #444a59;
+  width: 450px;
+  min-height: 250px;
+  padding: 50px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: 400px;
+  margin-bottom: 20px;
+
+  border-radius: 3px;
+  box-shadow: 3px 3px 10px 1px black;
+`;
+
 export function LandingMain(props) {
   if (props.currentUser !== null) {
     return <Redirect to="/dashboard" component={Dashboard} />;
   } else {
     return (
-      <Main>
-        <div>
+      <Landing>
+        <NeedTruck className='animated fadeInLeft'>
           <h2>Need a Truck?</h2>
           <p>Log in to find a truck and driver to help you with your move</p>
-          {/*TODO make button its own component */}
           <Link to="/login">
-            <Button type="button">Log in</Button>
+            <Button type="button">Get Truck'd!</Button>
           </Link>
-        </div>
-        <div>
+        </NeedTruck>
+        <HaveTruck className='animated fadeInRight'>
           <h2>Have a Truck?</h2>
           <p>
             Looking for some extra chash? Turn your truck into capital and help
             a out a neighbor!
           </p>
-          {/*TODO make button its own component */}
           <Link to="/register">
-            <Button type="button">Register</Button>
+            <Button type="button">Truck Yourself!</Button>
           </Link>
-        </div>
-        <img src="http://cars.typepad.com/.a/6a00d83451b3c669e2014e86ba94f4970d-800wi" alt='truck'/>
-      </Main>
+        </HaveTruck>
+        <img style={{width: '200px'}} src="http://cars.typepad.com/.a/6a00d83451b3c669e2014e86ba94f4970d-800wi" alt='truck'/>
+      </Landing>
     );
   }
 }

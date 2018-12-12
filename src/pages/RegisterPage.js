@@ -55,7 +55,7 @@ export default function RegisterPage() {
 `;
 
   return (
-    <RegisterContainer>
+    <RegisterContainer className='animated fadeIn'>
       <BG as={Link} to='/'></BG>
       <Register id='register-page'>
         <RegisterForm id='register-form'></RegisterForm>

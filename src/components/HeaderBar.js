@@ -7,12 +7,39 @@ import ShowNav from "./ShowNav";
 import "./styles/HeaderBar.css";
 import styled from "styled-components";
 
+import logoImg from '../logo.png';
+
 const Button = styled.button`
   background-color: #3dc182;
   color: white;
-  margin-top: 15px;
+  margin-top: 25px;
   font-size: 18px;
+  width: 100px;
+  height: 30px;
+  font-size: 16px;
 `;
+
+const Title = styled.h3`
+  display: inline;
+  font-family: 'Michroma';
+  color: white;
+`;
+
+const Logo = styled.img`
+  display: inline-block;
+  position: relative;
+  top: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+`
+
+const HeaderB = styled.header`
+  position: sticky;
+  height: 60px;
+  width: 100%;
+  background-color: #444a59;
+`
 export class HeaderBar extends React.Component {
   state = { click: false };
 
@@ -72,18 +99,19 @@ export class HeaderBar extends React.Component {
     }
 
     return (
-      <header>
+      <HeaderB>
         <ul className="header">
           {showNavButton}
           <li className="logo">
             <Link className="link-logo" to="/">
-              <h3>Trucks R Us</h3>
+              <Logo src={logoImg} alt='logo'/>
+              <Title>Truck'd</Title>
             </Link>
           </li>
           {showButtons}
         </ul>
         {showNav}
-      </header>
+      </HeaderB>
     );
   }
 }
