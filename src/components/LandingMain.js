@@ -21,11 +21,49 @@ const Button = styled.button`
   font-size: 18px;
 `;
 
-const NeedTruck = styled.div`
-  @media only screen and (max-width: 600px) {
-    min-width: 350px;
+const NeedTruckContainer = styled.div`
+  @media only screen and (max-width: 800px) {
+    flex-direction: column;
+    width: 400px;
     margin-left: auto;
     margin-right: auto;
+    align-items: center
+  }
+  display: flex;
+  flex-direction: row;
+  align-items: space-between;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+`
+
+const NeedTruckImg = styled.div`
+  @media only screen and (max-width: 800px) {
+    margin: 0 auto;
+  }
+  display: flex;
+  align-items: center;
+  background-color: #444a59;
+  width: 250px;
+  min-height: 250px;
+  padding: 50px;
+  margin-top: 20px;
+  margin-left: 0px;
+  margin-right: auto;
+  margin-bottom: 20px;
+
+  border-radius: 3px;
+  box-shadow: 3px 3px 10px 1px black;
+
+  animation-duration: 1.5s;
+  animation-delay: 1s;
+`;
+
+const NeedTruck = styled.div`
+  @media only screen and (max-width: 800px) {
+    min-width: 350px;
+    margin-left: 0;
+    margin-right: 0;
   }
   display: flex;
   flex-direction: column;
@@ -36,19 +74,61 @@ const NeedTruck = styled.div`
   min-height: 250px;
   padding: 50px;
   margin-top: 20px;
-  margin-left: 400px;
+  /* margin-left: 250px; */
+  margin-left: 10px;
   margin-right: auto;
   margin-bottom: 20px;
 
   border-radius: 3px;
   box-shadow: 3px 3px 10px 1px black;
+
+  animation-duration: 1.5s;
+  animation-delay: 1s;
+`;
+
+const HaveTruckContainer = styled.div`
+  @media only screen and (max-width: 800px) {
+    flex-direction: column;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center
+  }
+  display: flex;
+  flex-direction: row;
+  align-items: space-between;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+`
+
+const HaveTruckImg = styled.div`
+  @media only screen and (max-width: 800px) {
+    margin: 0 auto;
+  }
+  display: flex;
+  align-items: center;
+  background-color: #444a59;
+  width: 250px;
+  min-height: 250px;
+  padding: 50px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: 0px;
+  margin-bottom: 20px;
+
+  border-radius: 3px;
+  box-shadow: 3px 3px 10px 1px black;
+
+  animation-duration: 1.5s;
+  animation-delay: 1s;
 `;
 
 const HaveTruck = styled.div`
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 800px) {
     min-width: 350px;
-    margin: 0 auto;
-
+    margin-left: 0;
+    margin-right: 0;
   }
   display: flex;
   flex-direction: column;
@@ -60,11 +140,14 @@ const HaveTruck = styled.div`
   padding: 50px;
   margin-top: 20px;
   margin-left: auto;
-  margin-right: 400px;
+  margin-right: 10px;
   margin-bottom: 20px;
 
   border-radius: 3px;
   box-shadow: 3px 3px 10px 1px black;
+
+  animation-duration: 1.5s;
+  animation-delay: 1s;
 `;
 
 export function LandingMain(props) {
@@ -73,24 +156,30 @@ export function LandingMain(props) {
   } else {
     return (
       <Landing>
-        <NeedTruck className='animated fadeInLeft'>
-          <h2>Need a Truck?</h2>
-          <p>Log in to find a truck and driver to help you with your move</p>
-          <Link to="/login">
-            <Button type="button">Get Truck'd!</Button>
-          </Link>
-        </NeedTruck>
-        <HaveTruck className='animated fadeInRight'>
-          <h2>Have a Truck?</h2>
-          <p>
-            Looking for some extra chash? Turn your truck into capital and help
-            a out a neighbor!
-          </p>
-          <Link to="/register">
-            <Button type="button">Truck Yourself!</Button>
-          </Link>
-        </HaveTruck>
-        <img style={{width: '200px'}} src="http://cars.typepad.com/.a/6a00d83451b3c669e2014e86ba94f4970d-800wi" alt='truck'/>
+        <NeedTruckContainer>
+          <NeedTruckImg className='animated fadeInUpBig'></NeedTruckImg>
+          <NeedTruck className='animated fadeInLeftBig'>
+            <h2>Need a Truck?</h2>
+            <p>Log in to find a truck and driver to help you with your move</p>
+            <Link to="/login">
+              <Button type="button">Get Truck'd!</Button>
+            </Link>
+          </NeedTruck>
+        </NeedTruckContainer>
+
+        <HaveTruckContainer>
+          <HaveTruck className='animated fadeInRightBig'>
+            <h2>Have a Truck?</h2>
+            <p>
+              Looking for some extra chash? Turn your truck into capital and help
+              a out a neighbor!
+            </p>
+            <Link to="/register">
+              <Button type="button">Truck Yourself!</Button>
+            </Link>
+          </HaveTruck>
+          <HaveTruckImg className='animated fadeInDownBig'></HaveTruckImg>
+        </HaveTruckContainer>
       </Landing>
     );
   }

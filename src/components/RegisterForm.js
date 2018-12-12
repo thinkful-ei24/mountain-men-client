@@ -14,6 +14,32 @@ const Button = styled.button`
   margin-top: 15px;
 `;
 
+const RegisterFormContainer = styled.div`
+  padding: 25px;
+  background-color: #364D87;
+  position: absolute;
+  width: 375px;
+  height: 775px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  zoom: .9;
+
+
+  input{
+    height: 40px;
+    font-size: 20px;
+  }
+
+  label {
+    display: block;
+    margin: 0px;
+    color: white;
+    font-size: 24px;
+  }
+
+`;
+
 export class RegisterForm extends React.Component {
   constructor(props) {
     super(props);
@@ -42,8 +68,7 @@ export class RegisterForm extends React.Component {
     }
 
     return (
-      <div id="form-container">
-        <div id="register-form">
+        <RegisterFormContainer>
           <form
             className="register-form"
             onSubmit={this.props.handleSubmit(values => {
@@ -155,8 +180,7 @@ export class RegisterForm extends React.Component {
               Submit
             </Button>
           </form>
-        </div>
-      </div>
+        </RegisterFormContainer>
     );
   }
 }

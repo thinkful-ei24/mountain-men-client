@@ -11,6 +11,19 @@ const Button = styled.button`
   margin-top: 15px;
 `;
 
+const LoginFormContainer = styled.div`
+  box-shadow: 3px 3px 10px 1px black;
+  padding: 30px;
+  background-color: #364D87;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 425px;
+  height: 350px;
+  zoom: .9;
+`;
+
 export class LoginForm extends React.Component {
   constructor(props) {
     super(props);
@@ -27,9 +40,6 @@ export class LoginForm extends React.Component {
   };
 
   render() {
-    // if (this.props.isLoggedIn) {
-    //   return <Redirect to="/dashboard" />;
-    // }
 
     let error;
     if(this.props.error) {
@@ -41,8 +51,8 @@ export class LoginForm extends React.Component {
     }
 
     return (
-      <div id="form-container">
-        <div id="login-form">
+      <div>
+        <LoginFormContainer>
           <form
             className="login-form"
             onSubmit={this.props.handleSubmit(values => {
@@ -73,7 +83,7 @@ export class LoginForm extends React.Component {
             </div>
             <Button>Log in</Button>
           </form>
-        </div>
+        </LoginFormContainer>
       </div>
     );
   }
