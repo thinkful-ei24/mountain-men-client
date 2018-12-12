@@ -4,10 +4,11 @@ import Profile from "../components/userProfileComponent";
 import { Redirect } from "react-router-dom";
 import Job from "../components/DriverBid";
 import { getAllJobs, getAllBids } from "../actions/jobs";
-import {getMapCenter} from '../actions/maps.js';
+import {getMapCenter, getMarkerCenter} from '../actions/maps.js';
 import DriverReviewBids from "../components/DriverBidReview.js";
 import MapContainer from '../components/MapContainer.js';
 import DashboardNav from "../components/DashboardNav";
+import Geocode from 'react-geocode';
 
 export class Dashboard extends React.Component {
 
@@ -26,12 +27,14 @@ export class Dashboard extends React.Component {
       const jobs = this.props.driverJobs.jobs.jobs.map((job, index) => {
         return (
           <Job
+            key={index}
             name={job.title}
             title={job.title}
             desc={job.description}
             image={job.image}
             id={job.id}
             date={job.date}
+            mapsApiString={job.mapsApiString}
           />
         );
       });
@@ -53,7 +56,7 @@ export class Dashboard extends React.Component {
         if (props === "default") {
           return (
             <main>
-              <MapContainer />
+              <MapContainer jobs={jobs}/>
               <ul>{jobs}</ul>;
             </main>
           )
