@@ -1,8 +1,12 @@
 import React from 'react';
 import {Map, GoogleApiWrapper, Marker, InfoWindow} from 'google-maps-react';
 import {connect} from 'react-redux';
+import Job from '../components/DriverBid.js';
 import BidMap from './BidMap.js';
 import {getMapCenter} from '../actions/maps.js';
+import Geocode from 'react-geocode';
+
+Geocode.setApiKey('AIzaSyDrIU9xfNYMyLfY1hZ9sn4kHL_U86NRNOY')
 
 export class MapContainer extends React.Component {
   constructor(props){
@@ -33,7 +37,7 @@ export class MapContainer extends React.Component {
   }
 
   render() {
-    console.log(this.props.jobs)
+    console.log(this.props)
     if (!this.props.loaded) {
       return <div>loading...</div>
     } else if (this.props.center !== {}) {
@@ -43,13 +47,43 @@ export class MapContainer extends React.Component {
       }
 
 
-    const jobs = this.props.jobs;
-      const markers = jobs.map((job, index) => {
+    const jobs = this.props.jobs
+    const markers = jobs.map((job, index) => {
+      return (
+        <Marker
+          onClick={this.onMarkerClick}
+          key={index}
+          name={job.props.title}
+          title={job.props.title}
+          desc={job.props.description}
+          image={job.props.image}
+          id={job.props.id}
+          date={job.props.date}
+          position={job.props.coordinates}
+        >
+        </Marker>
+      )
+    })
+
+      const infoWindows = jobs.map((job, index) => {
         return (
-          <Marker
-            onClick={this.onMarkerClick}
-            name={job.props.title}
+          <InfoWindow
+            marker={this.state.activeMarker}
+            visible={this.state.showingInfoWindow}
+            onClose={this.windowHasClosed}
           >
+            <div>
+              <Job
+                key={index}
+                name={job.props.title}
+                title={job.props.title}
+                desc={job.props.description}
+                image={job.props.image}
+                id={job.props.id}
+                date={job.props.date}
+              />
+            </div>
+          </InfoWindow>
         )
       })
 
@@ -67,14 +101,17 @@ export class MapContainer extends React.Component {
           name={'current location'}
         >
         </Marker>
-
+        {markers}
         <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
           onClose={this.windowHasClosed}
         >
           <div>
-            <p>Colin's House</p>
+            <h2>{this.state.activeMarker.name}</h2>
+            <p>{this.state.activeMarker.description}</p>
+            <p>bids: </p>
+            <button>view job</button>
           </div>
         </InfoWindow>
       </Map>}
@@ -91,5 +128,5 @@ const mapStateToProps = state => ({
 })
 
 export default connect(mapStateToProps)(GoogleApiWrapper({
-  apiKey: <YOUR API KEY>
+  apiKey: 'AIzaSyDrIU9xfNYMyLfY1hZ9sn4kHL_U86NRNOY'
 })(MapContainer));

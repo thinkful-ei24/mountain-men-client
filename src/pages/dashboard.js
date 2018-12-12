@@ -34,7 +34,7 @@ export class Dashboard extends React.Component {
             image={job.image}
             id={job.id}
             date={job.date}
-            mapsApiString={job.mapsApiString}
+            coordinates={job.location && job.location.coordinates ? job.location.coordinates: {lat: 0, lng: 0}}
           />
         );
       });

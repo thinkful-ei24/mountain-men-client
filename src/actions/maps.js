@@ -1,7 +1,7 @@
 import {API_BASE_URL} from '../config.js';
 import Geocode from 'react-geocode';
 
-Geocode.setApiKey(YOUR API KEY)
+Geocode.setApiKey('AIzaSyDrIU9xfNYMyLfY1hZ9sn4kHL_U86NRNOY')
 
 export const FETCH_COORDINATES_REQUEST = 'FETCH_COORDINATES_REQUEST'
 export const fetchCoordinatesRequest = () => ({
@@ -34,13 +34,4 @@ export const getMapCenter = () => (dispatch, getState) => {
     })
 }
 
-export const getMarkerCenter = (address) => (dispatch) => {
-  Geocode.fromAddress(address)
-    .then(response => {
-      const {lat, lng} = response.results[0].geometry.location;
-      return {lat, lng}
-    })
-    .catch(err => {
-      dispatch(fetchCoordinatesError(err))
-    })
-}
+
