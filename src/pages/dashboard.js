@@ -36,7 +36,7 @@ export class Dashboard extends React.Component {
             image={job.image}
             id={job.id}
             date={job.date}
-            coordinates={job.location && job.location.coordinates ? job.location.coordinates: {lat: 0, lng: 0}}
+            coordinates={job.coordinates ? job.coordinates: {lat: 0, lng: 0}}
             form={job.id}
           />
         );
