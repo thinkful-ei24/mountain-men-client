@@ -2,8 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-export class ShowNav extends React.Component {
-  render() {
+export function ShowNav(props) {
     // if driver
     /**
      * get a jbo
@@ -20,11 +19,16 @@ export class ShowNav extends React.Component {
      * past
      *
      */
-    if (this.props.currentUser.type === "USER") {
+  console.log('showNav props: ', props);
+    if (!props.currentUser) {
+      return (
+        <div />
+      )
+  } else if (props.currentUser.type === "USER") {
       return (
         <div>
-          <h4>{this.props.currentUser.firstName}</h4>
-          <span>{this.props.currentUser.type}</span>
+          <h4>{props.currentUser.firstName}</h4>
+          <span>{props.currentUser.type}</span>
           <ul>
             <Link to="/dashboard">
               <li>Need A Truck?</li>
@@ -38,12 +42,11 @@ export class ShowNav extends React.Component {
           </ul>
         </div>
       );
-    }
-    if (this.props.currentUser.type === "DRIVER") {
+  } else if (props.currentUser.type === "DRIVER") {
       return (
         <div>
-          <h4>{this.props.currentUser.firstName}</h4>
-          <span>{this.props.currentUser.type}</span>
+          <h4>{props.currentUser.firstName}</h4>
+          <span>{props.currentUser.type}</span>
           <ul>
             <Link to="/dashboard">
               <li>Get A Job</li>
@@ -57,7 +60,6 @@ export class ShowNav extends React.Component {
           </ul>
         </div>
       );
-    }
   }
 }
 

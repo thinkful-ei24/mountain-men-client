@@ -15,20 +15,15 @@ export default class DriverBidCard extends React.Component{
   }
   render() {
     let bid = this.props.bid;
-    /*
-    {
-      driverId:,
-      bid: bidAmount,
-      description:,
-      driverRating:,
-    }
-      */
+    console.log(this.props);
     return (
       <li>
-        <h3>Job Title Here</h3>
-        <p>Job Date Here</p>
+        <h3>{this.props.bid.jobTitle}</h3>
+        <p>Job Date: {this.props.bid.jobDate}</p>
+        <p>Description: {this.props.bid.jobDescription}</p>
         <p>Job Location Here</p>
-        <p>${bid.bid}</p>
+        <p>Your Bid: {this.props.bid.bidAmount}</p>
+        <p>Your Description: {this.props.bid.bidDescription}</p>
       </li>
     )
   }

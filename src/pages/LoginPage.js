@@ -1,7 +1,8 @@
 import React from "react";
 import LoginForm from "../components/LoginForm";
 import styled from 'styled-components';
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 
 const LoginContainer = styled.div`
   position: absolute;
@@ -39,7 +40,10 @@ const Login = styled.div`
   }
 `;
 
-export default function LoginPage() {
+export function LoginPage(props) {
+  if (props.loggedIn) {
+    return <Redirect to="/dashboard" />;
+  }
   return (
     <LoginContainer>
       <BG as={Link} to='/'></BG>
@@ -47,6 +51,13 @@ export default function LoginPage() {
         <LoginForm id="login-form"></LoginForm>
       </Login>
     </LoginContainer>
-
   );
 }
+
+const mapStateToProps = state => {
+  return {
+    loggedIn: state.auth.currentUser !== null,
+  };
+};
+
+export default connect(mapStateToProps)(LoginPage);

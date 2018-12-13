@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import UserJobCard from "./UserJobCard.js";
-import { getUserJobs, getAllBids, getBidsCount } from "../actions/jobs";
+import { getUserJobs, getAllBids } from "../actions/jobs";
 
-export class CurrentJobs extends React.Component {
+export class AcceptedJobs extends React.Component {
   componentDidMount() {
     //gets all jobs related to a given user
     this.props.dispatch(getUserJobs());
@@ -12,12 +12,15 @@ export class CurrentJobs extends React.Component {
 
   render() {
     let listOfJobs = [];
+    
 
     listOfJobs = this.props.jobs.map((job, index) => {
-      if (!job.completed && !job.accepted) {
+      if (!job.completed && job.accepted) {
         const bids = this.props.bids.bids.filter(item => {
+          console.log(item.jobId, job.id, "ids");
           return item.jobId === job.id;
         });
+        
         return <UserJobCard job={job} key={index} bids={bids} />;
       }
     });
@@ -37,4 +40,4 @@ const mapStateToProps = state => ({
   jobs: state.jobs.jobs
 });
 
-export default connect(mapStateToProps)(CurrentJobs);
+export default connect(mapStateToProps)(AcceptedJobs);

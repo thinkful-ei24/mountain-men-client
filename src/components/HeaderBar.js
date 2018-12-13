@@ -2,9 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { clearAuth } from "../actions/auth";
+import { updateView } from "../actions/view";
+
 import { clearAuthToken } from "../local-storage";
-import ShowNav from "./ShowNav";
-import "./styles/HeaderBar.css";
+// import ShowNav from "./ShowNav";
 import styled from "styled-components";
 
 const Button = styled.button`
@@ -13,39 +14,53 @@ const Button = styled.button`
   margin-top: 15px;
   font-size: 18px;
 `;
-export class HeaderBar extends React.Component {
-  state = { click: false };
 
+const FlexHeader = styled.ul`
+  margin-top: 0;
+  display: flex;
+  height: 46px;
+  align-items: center;
+  padding: 0 10px;
+`;
+
+const FlexItemRight = styled.li`
+  margin-left: auto;
+`;
+
+const MainLogo = styled.li`
+  text-decoration: none !important;
+  font-size: 2rem;
+  color: black;
+`;
+export class HeaderBar extends React.Component {
   render() {
     let logout = () => {
       this.props.dispatch(clearAuth());
       clearAuthToken();
     };
-    let showNav;
-    let showNavButton;
-    if (this.state.click) {
-      showNav = <ShowNav />;
-    }
+
     let showButtons;
     if (this.props.loggedIn) {
       showButtons = (
         <>
-          <li className="show-nav">
-            <Button
-              onClick={e => {
-                this.setState({ click: !this.state.click });
-              }}
-            >
-              Account
-            </Button>
-          </li>
-          <li className="logout">
+          <FlexItemRight>
+            <Link to="/profile">
+              <Button
+                onClick={() => {
+                  this.props.dispatch(updateView("default"));
+                }}
+              >
+                Profile
+              </Button>
+            </Link>
+          </FlexItemRight>
+
+          <li>
             <Link to="/">
               <Button
                 type="button"
                 onClick={() => {
                   logout();
-                  console.log("logout");
                 }}
               >
                 Log out
@@ -57,11 +72,11 @@ export class HeaderBar extends React.Component {
     } else {
       showButtons = (
         <>
-          <li className="sign-up">
+          <FlexItemRight>
             <Link to="/register">
               <Button>Sign Up</Button>
             </Link>
-          </li>
+          </FlexItemRight>
           <li>
             <Link to="/login">
               <Button>Log In</Button>
@@ -73,16 +88,14 @@ export class HeaderBar extends React.Component {
 
     return (
       <header>
-        <ul className="header">
-          {showNavButton}
-          <li className="logo">
-            <Link className="link-logo" to="/">
+        <FlexHeader>
+          <MainLogo>
+            <Link to="/dashboard">
               <h3>Trucks R Us</h3>
             </Link>
-          </li>
+          </MainLogo>
           {showButtons}
-        </ul>
-        {showNav}
+        </FlexHeader>
       </header>
     );
   }
