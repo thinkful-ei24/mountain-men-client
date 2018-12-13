@@ -71,7 +71,7 @@ export class HeaderBar extends React.Component {
         <ul className="header">
           {showNavButton}
           <li className="logo">
-            <Link className="link-logo" to="/">
+            <Link className="link-logo" to="/dashboard">
               <img id='logo-img' src={logoImg} alt='logo'/>
               <h1 id='title'>Truck'd</h1>
             </Link>

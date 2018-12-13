@@ -31,10 +31,6 @@ export class RegisterForm extends React.Component {
   }
 
   render() {
-    if (this.props.isLoggedIn) {
-      return <Redirect to="/" />;
-    }
-
     return (
         <div id='register-form-container'>
           <form
