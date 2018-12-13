@@ -6,9 +6,6 @@ import ProfileUpdateForm from "../components/ProfileUpdateForm";
 import ProfileInfo from "../components/ProfileInfo";
 
 export function Profile(props) {
-  if (!props.loggedIn) {
-    return <Redirect to="/" />;
-  }
   // if props.view === whatever render form
   if (props.view === "default") {
     return (

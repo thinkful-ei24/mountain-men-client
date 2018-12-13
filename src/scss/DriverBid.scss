@@ -1,0 +1,105 @@
+  /*      */
+/* Imports */
+ /*      */
+ @import 'variables';
+
+
+#job-card {
+  margin: 10px;
+  padding: 10px;
+  width: 250px;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: $color-dark-grey;
+}
+
+#user-name {
+  font-family: $font-content;
+  font-weight: $font-weight-black;
+  font-size: 24px;
+  color: white;
+  margin: 0px;
+}
+
+#job-desc {
+  font-family: $font-content;
+  font-weight: $font-weight-light;
+  font-size: 24px;
+  color: white;
+  margin: 0;
+}
+
+#job-date {
+  font-family: $font-content;
+  font-weight: $font-weight-light;
+  font-size: 16px;
+  color: white;
+  margin: 5px;
+}
+
+#job-image {
+  width: 200px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+#bid-label {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 18px;
+  text-align: center;
+  height: 30px;
+  width: 30px;
+  position: relative;
+  bottom: 10px;
+}
+
+#bid-input {
+  width: 115px;
+  height: 30px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+  background-color: $color-light-grey;
+  box-shadow: none;
+  border: black;
+
+  input:active,
+  input:focus {
+    outline: 5px solid #04CDFF;
+    outline-offset: -5px;
+  }
+
+  &[type="number"]::-webkit-outer-spin-button,
+  &[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &::placeholder{
+    color: rgb(179, 179, 179);
+  }
+}
+
+#desc-input {
+  width: 195px;
+  height: 50px;
+  font-size: 16px;
+  color: white;
+  background-color: $color-light-grey;
+  border: black;
+  border-radius: $border-rad-base;
+
+  resize: none;
+
+  &::placeholder{
+    color: rgb(179, 179, 179);
+  }
+}
+
+#submit-btn {
+  width: 150px;
+  height: 45px;
+
+  font-size: 18px;
+}

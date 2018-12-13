@@ -1,0 +1,43 @@
+/*      */
+/* Imports */
+/*      */
+/*    */
+/* FONTS */
+/*    */
+/* 'Montserrat' */
+/* Black: 900; Used on headers and buttons */
+/* 'Roboto Condensed' */
+/* Regular: 400;  Used on input fields */
+/* Light: 300; Used everwhere else */
+/*     */
+/* COLORS */
+/*     */
+/*        */
+/* Variables */
+/*        */
+/*     */
+/* Mixins */
+/*     */
+#login-btn {
+  background-color: #ff7f40;
+  color: white;
+  margin-top: 15px;
+}
+
+#login-form-container {
+  box-shadow: 3px 3px 10px 1px black;
+  padding: 30px;
+  background-color: #364d87;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 425px;
+  height: 350px;
+  zoom: 0.9;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -weblit-border-radius: 10px;
+}
+
+/*# sourceMappingURL=loginform.css.map */

@@ -2,12 +2,7 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import LandingMain from "../components/LandingMain.js";
-import styled from 'styled-components';
-
-const Landing = styled.div`
-  position: relative;
-  top: 50px;
-`;
+require('../css/landingpage.css');
 
 export function LandingPage(props) {
   if (props.loggedIn) {
@@ -15,9 +10,9 @@ export function LandingPage(props) {
   }
 
   return (
-    <Landing>
+    <div id='landing-container'>
       <LandingMain />
-    </Landing>
+    </div>
   );
 }
 

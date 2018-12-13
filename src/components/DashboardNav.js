@@ -1,89 +1,60 @@
 import React from "react";
-import styled from "styled-components";
-import { updateView } from "../actions/view";
-import { connect } from "react-redux";
-
-const FlexNav = styled.ul`
-  display: flex;
-`;
-const NavButton = styled.button`
-  font-size: 18px;
-`;
+import { updateView } from '../actions/view';
+import {connect} from 'react-redux';
+require('../css/dashboardnav.css');
 
 export function DashboardNav(props) {
   if (props.type === "USER")
     return (
-      <FlexNav>
+      <ul style={{display: 'flex'}}>
         <li>
-          <NavButton
-            onClick={() => {
-              props.dispatch(updateView("default"));
-            }}
-          >
-            Need A Truck?
-          </NavButton>
+          <button onClick={() => {
+            props.dispatch(updateView('default'));
+          }}>Need A Truck?</button>
         </li>
         <li>
-          <NavButton
-            onClick={() => {
-              props.dispatch(updateView("currentJobs"));
-            }}
-          >
-            Active Posts
-          </NavButton>
+          <button onClick={() => {
+            props.dispatch(updateView('currentJobs'))
+          }}>Active Posts</button>
         </li>
         <li>
-          <NavButton onClick={() => {
-            props.dispatch(updateView('acceptedJobs'))
-          }}>Accepted Jobs</NavButton>
-        </li>
-        <li>
-          <NavButton onClick={() => {
+          <button onClick={() => {
             props.dispatch(updateView('pastJobs'));
-          }}>Transactions</NavButton>
+          }}>Transactions</button>
         </li>
-      </FlexNav>
+      </ul>
     );
   if (props.type === "DRIVER")
     return (
-      <FlexNav>
+      <div id='nav-container'>
         <li>
-          <NavButton
+          <button
             onClick={() => {
-              props.dispatch(updateView("default"));
-            }}
-          >
-            Need A Truck>
-          </NavButton>
+              props.dispatch(updateView('default'));
+            }}>Need A Truck></button>
         </li>
         <li>
-          <NavButton
+          <button
             onClick={() => {
-              props.dispatch(updateView("currentJobs"));
-            }}
-          >
-            Active Bids
-          </NavButton>
+              props.dispatch(updateView('currentJobs'));
+          }}>Active Posts</button>
         </li>
         <li>
-          <NavButton
+          <button
             onClick={() => {
-              props.dispatch(updateView("pastJobs"));
-            }}
-          >
-            Accepted Bids
-          </NavButton>
+              props.dispatch(updateView('pastJobs'));
+          }}>Transactions</button>
         </li>
         <li>
-          <NavButton
+          <button
             onClick={() => {
               props.dispatch(updateView("completedJobs"));
             }}
           >
             Completed Jobs
-          </NavButton>
+          </button>
         </li>
-      </FlexNav>
+      </div>
     );
 }
 

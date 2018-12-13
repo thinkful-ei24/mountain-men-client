@@ -1,0 +1,20 @@
+  /*      */
+/* Imports */
+ /*      */
+ @import 'variables';
+
+#nav-container {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  font-size: 18px;
+}
+
+li {
+  list-style: none;
+}

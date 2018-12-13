@@ -4,15 +4,9 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { registerUser } from "../actions/auth.js";
 import {required, nonEmpty, matches, length, isTrimmed} from '../validators.js';
-import styled from 'styled-components';
 const passwordLength = length({min: 9, max: 72});
 const matchesPassword = matches('password');
-
-const Button = styled.button`
-  background-color: #ff7f40;
-  color: white;
-  margin-top: 15px;
-`;
+require('../css/registrationform.css');
 
 export class RegisterForm extends React.Component {
   constructor(props) {
@@ -37,13 +31,8 @@ export class RegisterForm extends React.Component {
   }
 
   render() {
-    if (this.props.isLoggedIn) {
-      return <Redirect to="/" />;
-    }
-
     return (
-      <div id="form-container">
-        <div id="register-form">
+        <div id='register-form-container'>
           <form
             className="register-form"
             onSubmit={this.props.handleSubmit(values => {
@@ -139,13 +128,12 @@ export class RegisterForm extends React.Component {
                 onChange={this.setUserRole}
               /></label>
             </div>
-            <Button
+            <button id='register-btn'
               disabled={this.props.pristine || this.props.submitting}>
               Submit
-            </Button>
+            </button>
           </form>
         </div>
-      </div>
     );
   }
 }

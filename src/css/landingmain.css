@@ -1,0 +1,173 @@
+/*      */
+/* Imports */
+/*      */
+/*    */
+/* FONTS */
+/*    */
+/* 'Montserrat' */
+/* Black: 900; Used on headers and buttons */
+/* 'Roboto Condensed' */
+/* Regular: 400;  Used on input fields */
+/* Light: 300; Used everwhere else */
+/*     */
+/* COLORS */
+/*     */
+/*        */
+/* Variables */
+/*        */
+/*     */
+/* Mixins */
+/*     */
+#landing-section {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+}
+
+.btn {
+  background-color: #3DC182;
+  color: white;
+  margin-top: 15px;
+  font-size: 18px;
+}
+
+#need-truck-container {
+  display: flex;
+  flex-direction: row;
+  align-items: space-between;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media only screen and (max-width: 800px) {
+  #need-truck-container {
+    flex-direction: column;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+  }
+}
+
+#need-truck-img {
+  display: flex;
+  align-items: center;
+  background-color: #444a59;
+  width: 250px;
+  min-height: 250px;
+  padding: 50px;
+  margin-top: 20px;
+  margin-left: 0px;
+  margin-right: auto;
+  margin-bottom: 20px;
+  border-radius: 3px;
+  box-shadow: 3px 3px 10px 1px black;
+  animation-duration: 1.5s;
+  animation-delay: 1.5s;
+}
+@media only screen and (max-width: 800px) {
+  #need-truck-img {
+    margin: 0 auto;
+  }
+}
+
+#need-truck-card {
+  display: flex;
+  z-index: 2;
+  flex-direction: column;
+  align-content: space-between;
+  align-items: center;
+  background-color: #444a59;
+  width: 450px;
+  min-height: 250px;
+  padding: 50px;
+  margin-top: 20px;
+  /* margin-left: 250px; */
+  margin-left: 10px;
+  margin-right: auto;
+  margin-bottom: 20px;
+  border-radius: 3px;
+  box-shadow: 3px 3px 10px 1px black;
+  animation-duration: 1.5s;
+  animation-delay: 0s;
+}
+@media only screen and (max-width: 800px) {
+  #need-truck-card {
+    min-width: 350px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+#have-truck-container {
+  display: flex;
+  flex-direction: row;
+  align-items: space-between;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media only screen and (max-width: 800px) {
+  #have-truck-container {
+    flex-direction: column;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+  }
+}
+
+#have-truck-img {
+  display: flex;
+  z-index: 1;
+  align-items: center;
+  background-color: #444a59;
+  width: 250px;
+  min-height: 250px;
+  padding: 50px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: 0px;
+  margin-bottom: 20px;
+  border-radius: 3px;
+  box-shadow: 3px 3px 10px 1px black;
+  animation-duration: 1.5s;
+  animation-delay: 2s;
+}
+@media only screen and (max-width: 800px) {
+  #have-truck-img {
+    margin: 0 auto;
+  }
+}
+
+#have-truck-card {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  align-items: center;
+  background-color: #444a59;
+  width: 450px;
+  min-height: 250px;
+  padding: 50px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  border-radius: 3px;
+  box-shadow: 3px 3px 10px 1px black;
+  animation-duration: 1.5s;
+  animation-delay: 0.5s;
+}
+@media only screen and (max-width: 800px) {
+  #have-truck-card {
+    min-width: 350px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/*# sourceMappingURL=landingmain.css.map */

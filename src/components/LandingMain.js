@@ -2,50 +2,40 @@ import React from "react";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import Dashboard from '../pages/dashboard.js';
-import styled from 'styled-components';
 
-const Main = styled.main`
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  right: 0px;
-  left: 0px;
-`;
-
-const Button = styled.button`
-  background-color: #3DC182;
-  color: white;
-  margin-top: 15px;
-  font-size: 18px;
-`;
+require('../css/landingmain.css');
 
 export function LandingMain(props) {
   if (props.currentUser !== null) {
     return <Redirect to="/dashboard" component={Dashboard} />;
   } else {
     return (
-      <Main>
-        <div>
-          <h2>Need a Truck?</h2>
-          <p>Log in to find a truck and driver to help you with your move</p>
-          {/*TODO make button its own component */}
-          <Link to="/login">
-            <Button type="button">Log in</Button>
-          </Link>
+      <section id='landing-section'>
+        <div id='need-truck-container'>
+          <div id='need-truck-img' className='truck-img animated fadeInUpBig'></div>
+          <div id='need-truck-card' className='truck-card animated fadeInLeftBig'>
+            <h2>Need a Truck?</h2>
+            <p>Log in to find a truck and driver to help you with your move</p>
+            <Link to="/login">
+              <button className='btn' type="button">Get Truck'd!</button>
+            </Link>
+          </div>
         </div>
-        <div>
-          <h2>Have a Truck?</h2>
-          <p>
-            Looking for some extra chash? Turn your truck into capital and help
-            a out a neighbor!
-          </p>
-          {/*TODO make button its own component */}
-          <Link to="/register">
-            <Button type="button">Register</Button>
-          </Link>
+
+        <div id='have-truck-container'>
+          <div id='have-truck-card' className='truck-card animated fadeInRightBig'>
+            <h2>Have a Truck?</h2>
+            <p>
+              Looking for some extra chash? Turn your truck into capital and help
+              a out a neighbor!
+            </p>
+            <Link to="/register">
+              <button className='btn' type="button">Truck Yourself!</button>
+            </Link>
+          </div>
+          <div id='have-truck-img'  className='truck-img animated fadeInDownBig'></div>
         </div>
-        <img src="http://cars.typepad.com/.a/6a00d83451b3c669e2014e86ba94f4970d-800wi" alt='truck'/>
-      </Main>
+      </section>
     );
   }
 }

@@ -1,16 +1,9 @@
 import React from "react";
 import { reduxForm, Field, focus } from "redux-form";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
 import {required, nonEmpty} from '../validators.js';
 import { login } from "../actions/auth.js";
-import styled from 'styled-components';
-
-const Button = styled.button`
-  background-color: #ff7f40;
-  color: white;
-  margin-top: 15px;
-`;
+require('../css/loginform.css');
 
 export class LoginForm extends React.Component {
   constructor(props) {
@@ -28,9 +21,6 @@ export class LoginForm extends React.Component {
   };
 
   render() {
-    // if (this.props.isLoggedIn) {
-    //   return <Redirect to="/dashboard" />;
-    // }
 
     let error;
     if(this.props.error) {
@@ -42,39 +32,37 @@ export class LoginForm extends React.Component {
     }
 
     return (
-      <div id="form-container">
-        <div id="login-form">
-          <form
-            className="login-form"
-            onSubmit={this.props.handleSubmit(values => {
-              return this.props.dispatch(login(values));
-            })}
-          >
-            <div>
-              {error}
-              <label>Email</label>
-              <Field
-                name="email"
-                component="input"
-                type="email"
-                placeholder="Email"
-                validate={[required, nonEmpty]}
-                required={true}
-              />
-            </div>
-            <div>
-              <label>Password</label>
-              <Field
-                name="password"
-                component="input"
-                type="password"
-                placeholder="Password"
-                validate={[required, nonEmpty]}
-              />
-            </div>
-            <Button>Log in</Button>
-          </form>
-        </div>
+      <div id='login-form-container'>
+        <form
+          className="login-form"
+          onSubmit={this.props.handleSubmit(values => {
+            return this.props.dispatch(login(values));
+          })}
+        >
+          <div>
+            {error}
+            <label>Email</label>
+            <Field
+              name="email"
+              component="input"
+              type="email"
+              placeholder="Email"
+              validate={[required, nonEmpty]}
+              required={true}
+            />
+          </div>
+          <div>
+            <label>Password</label>
+            <Field
+              name="password"
+              component="input"
+              type="password"
+              placeholder="Password"
+              validate={[required, nonEmpty]}
+            />
+          </div>
+          <button id='login-btn'>Log in</button>
+        </form>
       </div>
     );
   }

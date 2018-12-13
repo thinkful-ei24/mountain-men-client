@@ -1,0 +1,37 @@
+/*      */
+/* Imports */
+/*      */
+/*    */
+/* FONTS */
+/*    */
+/* 'Montserrat' */
+/* Black: 900; Used on headers and buttons */
+/* 'Roboto Condensed' */
+/* Regular: 400;  Used on input fields */
+/* Light: 300; Used everwhere else */
+/*     */
+/* COLORS */
+/*     */
+/*        */
+/* Variables */
+/*        */
+/*     */
+/* Mixins */
+/*     */
+#nav-container {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  font-size: 18px;
+}
+
+li {
+  list-style: none;
+}
+
+/*# sourceMappingURL=dashboardnav.css.map */

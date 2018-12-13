@@ -2,69 +2,49 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { clearAuth } from "../actions/auth";
-import { updateView } from "../actions/view";
-
 import { clearAuthToken } from "../local-storage";
-// import ShowNav from "./ShowNav";
-import styled from "styled-components";
+import ShowNav from "./ShowNav";
+import logoImg from '../logo.png';
+require('../css/headerbar.css');
 
-const Button = styled.button`
-  background-color: #3dc182;
-  color: white;
-  margin-top: 15px;
-  font-size: 18px;
-`;
-
-const FlexHeader = styled.ul`
-  margin-top: 0;
-  display: flex;
-  height: 46px;
-  align-items: center;
-  padding: 0 10px;
-`;
-
-const FlexItemRight = styled.li`
-  margin-left: auto;
-`;
-
-const MainLogo = styled.li`
-  text-decoration: none !important;
-  font-size: 2rem;
-  color: black;
-`;
 export class HeaderBar extends React.Component {
+  state = { click: false };
+
   render() {
     let logout = () => {
       this.props.dispatch(clearAuth());
       clearAuthToken();
     };
-
+    let showNav;
+    let showNavButton;
+    if (this.state.click) {
+      showNav = <ShowNav />;
+    }
     let showButtons;
     if (this.props.loggedIn) {
       showButtons = (
         <>
-          <FlexItemRight>
-            <Link to="/profile">
-              <Button
-                onClick={() => {
-                  this.props.dispatch(updateView("default"));
-                }}
-              >
-                Profile
-              </Button>
-            </Link>
-          </FlexItemRight>
-
-          <li>
+          <li className="show-nav">
+            <button className='nav-btn'
+              onClick={e => {
+                this.setState({ click: !this.state.click });
+              }}
+            >
+              Account
+            </button>
+          </li>
+          <li className="logout">
             <Link to="/">
-              <Button
+              <button id='logout-btn'
+                className='nav-btn'
                 type="button"
                 onClick={() => {
                   logout();
+                  console.log("logout");
                 }}
               >
                 Log out
-              </Button>
+              </button>
             </Link>
           </li>
         </>
@@ -72,14 +52,14 @@ export class HeaderBar extends React.Component {
     } else {
       showButtons = (
         <>
-          <FlexItemRight>
+          <li className="sign-up">
             <Link to="/register">
-              <Button>Sign Up</Button>
+              <button className='nav-btn'>Sign Up</button>
             </Link>
-          </FlexItemRight>
+          </li>
           <li>
             <Link to="/login">
-              <Button>Log In</Button>
+              <button className='nav-btn'>Log In</button>
             </Link>
           </li>
         </>
@@ -87,16 +67,19 @@ export class HeaderBar extends React.Component {
     }
 
     return (
-      <header>
-        <FlexHeader>
-          <MainLogo>
-            <Link to="/dashboard">
-              <h3>Trucks R Us</h3>
+      <div id='header-bar'>
+        <ul className="header">
+          {showNavButton}
+          <li className="logo">
+            <Link className="link-logo" to="/dashboard">
+              <img id='logo-img' src={logoImg} alt='logo'/>
+              <h1 id='title'>Truck'd</h1>
             </Link>
-          </MainLogo>
+          </li>
           {showButtons}
-        </FlexHeader>
-      </header>
+        </ul>
+        {showNav}
+      </div>
     );
   }
 }
