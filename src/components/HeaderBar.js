@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { clearAuth } from "../actions/auth";
 import { clearAuthToken } from "../local-storage";
+import { updateView } from "../actions/view";
 import ShowNav from "./ShowNav";
 import logoImg from '../logo.png';
 require('../css/headerbar.css');
@@ -15,23 +16,22 @@ export class HeaderBar extends React.Component {
       this.props.dispatch(clearAuth());
       clearAuthToken();
     };
-    let showNav;
-    let showNavButton;
-    if (this.state.click) {
-      showNav = <ShowNav />;
-    }
+
     let showButtons;
     if (this.props.loggedIn) {
       showButtons = (
         <>
           <li className="show-nav">
-            <button className='nav-btn'
-              onClick={e => {
-                this.setState({ click: !this.state.click });
-              }}
-            >
-              Account
-            </button>
+            <Link to="/profile">
+                <button id='profile-btn'
+                  className='nav-btn'
+                  onClick={() => {
+                    this.props.dispatch(updateView("default"));
+                  }}
+                >
+                  Profile
+                </button>
+              </Link>
           </li>
           <li className="logout">
             <Link to="/">
@@ -40,7 +40,6 @@ export class HeaderBar extends React.Component {
                 type="button"
                 onClick={() => {
                   logout();
-                  console.log("logout");
                 }}
               >
                 Log out
@@ -69,7 +68,6 @@ export class HeaderBar extends React.Component {
     return (
       <div id='header-bar'>
         <ul className="header">
-          {showNavButton}
           <li className="logo">
             <Link className="link-logo" to="/dashboard">
               <img id='logo-img' src={logoImg} alt='logo'/>
@@ -78,7 +76,6 @@ export class HeaderBar extends React.Component {
           </li>
           {showButtons}
         </ul>
-        {showNav}
       </div>
     );
   }
