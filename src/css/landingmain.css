@@ -77,7 +77,6 @@
 
 #need-truck-card {
   display: flex;
-  z-index: 2;
   flex-direction: column;
   align-content: space-between;
   align-items: center;
@@ -123,7 +122,6 @@
 
 #have-truck-img {
   display: flex;
-  z-index: 1;
   align-items: center;
   background-color: #444a59;
   width: 250px;
