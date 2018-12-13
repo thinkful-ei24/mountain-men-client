@@ -3,14 +3,13 @@ import { reduxForm, Field } from "redux-form";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { postJobs } from "../actions/postJobs";
-import { updateView } from '../actions/view';
+import { updateView } from "../actions/view";
 
 export class PostJob extends React.Component {
-
   onSubmit(values) {
     values.id = this.props.currentUser.id;
     values.authToken = this.props.authToken;
-    this.props.dispatch(updateView('currentJobs'));
+    this.props.dispatch(updateView("currentJobs"));
     return this.props.dispatch(postJobs(values));
   }
 
@@ -53,6 +52,42 @@ export class PostJob extends React.Component {
                 component="input"
                 type="date"
                 placeholder="Friday December 14th at 6:00 pm"
+              />
+            </div>
+            <div>
+              <label>Street</label>
+              <Field
+                name="street"
+                component="input"
+                type="text"
+                placeholder="i.e. 123 Main St"
+              />
+            </div>
+            <div>
+              <label>City</label>
+              <Field
+                name="city"
+                component="input"
+                type="text"
+                placeholder="i.e. Los Angeles"
+              />
+            </div>
+            <div>
+              <label>State</label>
+              <Field
+                name="state"
+                component="input"
+                type="text"
+                placeholder="i.e. California"
+              />
+            </div>
+            <div>
+              <label>Zip Code</label>
+              <Field
+                name="zipCode"
+                component="input"
+                type="text"
+                placeholder="i.e. 90005"
               />
             </div>
             <button>Submit</button>
