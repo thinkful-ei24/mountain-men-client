@@ -35,3 +35,35 @@ export const getMapCenter = () => (dispatch, getState) => {
 }
 
 
+///////////////////////ACTION CODE TO GET A SINGLE JOB ///////////////////////////
+// export const FETCH_JOB_REQUEST = 'FETCH_JOB_REQUEST';
+// export const fetchJobRequest = () => ({
+//   type: FETCH_JOB_REQUEST
+// })
+//
+// export const FETCH_JOB_SUCCESS = 'FETCH_JOB_SUCCESS';
+// export const fetchJobSuccess = (job) => ({
+//   type: FETCH_JOB_SUCCESS,
+//   job
+// })
+//
+// export const FETCH_JOB_ERROR = 'FETCH_JOB_ERROR';
+// export const fetchJobError = (error) => ({
+//   type: FETCH_JOB_ERROR,
+//   error
+// })
+//
+// export const viewJobCard = (jobId) => (dispatch, getState) => {
+//   const authToken = getState().auth.authToken
+//   return fetch(`${API_BASE_URL}/api/jobs/${id}`, {
+//     method: 'GET',
+//     header: {
+//       Authorization: `Bearer ${authToken}`,
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify({id: jobId})
+//   })
+//     .then(res => res.json())
+//     .then(job => dispatch(fetchJobSuccess(job)))
+//     .catch(err => dispatch(fetchJobError(job)))
+// }
