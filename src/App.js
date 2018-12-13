@@ -17,7 +17,7 @@ class App extends Component {
         <HeaderBar />
 
         {/* Landing Page */}
-        <Route exact path="/" component={LandingPage} />
+        <Route path="/" component={LandingPage} />
         <Route path="/login" component={LoginPage} />
         <Route path="/register" component={RegisterPage} />
 

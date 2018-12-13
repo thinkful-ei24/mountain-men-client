@@ -1,6 +1,7 @@
 import React from "react";
 import { updateView } from '../actions/view';
 import {connect} from 'react-redux';
+require('../css/dashboardnav.css');
 
 export function DashboardNav(props) {
   if (props.type === "USER")
@@ -25,35 +26,35 @@ export function DashboardNav(props) {
     );
   if (props.type === "DRIVER")
     return (
-      <FlexNav>
+      <div id='nav-container'>
         <li>
-          <button style={{fontSize: '18px'}}
+          <button
             onClick={() => {
               props.dispatch(updateView('default'));
             }}>Need A Truck></button>
         </li>
         <li>
-          <button style={{fontSize: '18px'}}
+          <button
             onClick={() => {
               props.dispatch(updateView('currentJobs'));
           }}>Active Posts</button>
         </li>
         <li>
-          <button style={{fontSize: '18px'}}
+          <button
             onClick={() => {
               props.dispatch(updateView('pastJobs'));
           }}>Transactions</button>
         </li>
         <li>
-          <NavButton
+          <button
             onClick={() => {
               props.dispatch(updateView("completedJobs"));
             }}
           >
             Completed Jobs
-          </NavButton>
+          </button>
         </li>
-      </FlexNav>
+      </div>
     );
 }
 

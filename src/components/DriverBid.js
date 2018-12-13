@@ -2,6 +2,7 @@ import React from "react";
 import { reduxForm, Field } from "redux-form";
 import { connect } from 'react-redux';
 import { makeBid } from '../actions/jobs';
+import { updateView } from '../actions/view';
 
 require('../css/DriverBid.css');
 

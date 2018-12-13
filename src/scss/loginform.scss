@@ -20,4 +20,5 @@
   width: 425px;
   height: 350px;
   zoom: .9;
+  @include border-radius(10px)
 }

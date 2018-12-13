@@ -20,6 +20,7 @@
   transform: translate(-50%, -50%);
   zoom: .9;
   box-shadow: $box-shadow-thick;
+  @include border-radius(10px)
 }
 
 input{

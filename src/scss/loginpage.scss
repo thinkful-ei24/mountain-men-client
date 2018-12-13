@@ -1,0 +1,25 @@
+  /*      */
+/* Imports */
+ /*      */
+ @import 'variables';
+
+ #login-container {
+  position: fixed;
+  margin: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(50, 50, 50, 0.8);
+
+  animation-duration: .5s;
+}
+
+#bg {
+  position: fixed;
+  margin: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
