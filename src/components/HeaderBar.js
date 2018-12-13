@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { clearAuth } from "../actions/auth";
+import { updateView } from "../actions/view";
+
 import { clearAuthToken } from "../local-storage";
 // import ShowNav from "./ShowNav";
 import styled from "styled-components";
@@ -43,7 +45,13 @@ export class HeaderBar extends React.Component {
         <>
           <FlexItemRight>
             <Link to="/profile">
-              <Button>Profile</Button>
+              <Button
+                onClick={() => {
+                  this.props.dispatch(updateView("default"));
+                }}
+              >
+                Profile
+              </Button>
             </Link>
           </FlexItemRight>
 
@@ -53,7 +61,6 @@ export class HeaderBar extends React.Component {
                 type="button"
                 onClick={() => {
                   logout();
-                  console.log("logout");
                 }}
               >
                 Log out
@@ -83,7 +90,7 @@ export class HeaderBar extends React.Component {
       <header>
         <FlexHeader>
           <MainLogo>
-            <Link to="/">
+            <Link to="/dashboard">
               <h3>Trucks R Us</h3>
             </Link>
           </MainLogo>

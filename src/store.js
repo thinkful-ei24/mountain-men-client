@@ -3,6 +3,7 @@ import thunk from "redux-thunk";
 
 import {reducer as formReducer} from 'redux-form';
 import authReducer from './reducers/authReducer';
+import {mapReducer} from './reducers/mapReducer.js';
 import {jobsReducer} from './reducers/jobs.js';
 import {bidsReducer} from './reducers/bidsReducer';
 import {viewReducer} from './reducers/viewReducer';
@@ -20,7 +21,8 @@ const store = createStore(
     jobs: jobsReducer,
     view: viewReducer,
     bids: bidsReducer,
-    user: userReducer
+    user: userReducer,
+    map: mapReducer
   }),
   applyMiddleware(thunk)
 );

@@ -1,35 +1,42 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { reduxForm, Field, focus } from "redux-form";
+import { updateView } from "../actions/view";
 import ProfileUpdateForm from "../components/ProfileUpdateForm";
+import ProfileInfo from "../components/ProfileInfo";
 
-export class Profile extends React.Component {
-  render() {
-    if (!this.props.loggedIn) {
-      return <Redirect to="/" />;
-    }
+export function Profile(props) {
+  if (!props.loggedIn) {
+    return <Redirect to="/" />;
+  }
+  // if props.view === whatever render form
+  if (props.view === "default") {
     return (
-      <div>
-        <h1>
-          {this.props.currentUser.firstName} {this.props.currentUser.lastName}
-        </h1>
-        <p>Type: {this.props.currentUser.type.toLowerCase()}</p>
-        <p>Email: {this.props.currentUser.email}</p>
-        <p>Address: {this.props.currentUser.address}</p>
-        <p>Phone: {this.props.currentUser.phoneNumber}</p>
-        <div>
-          <h1>Update Info</h1>
-          <ProfileUpdateForm />
-        </div>
-      </div>
+      <section>
+        <h1>Profile</h1>
+        <ProfileInfo />
+        <button
+          onClick={() => {
+            props.dispatch(updateView("showForm"));
+          }}
+        >
+          Update Info
+        </button>
+      </section>
+    );
+  }
+  if (props.view === "showForm") {
+    return (
+      <section>
+        <ProfileUpdateForm />
+      </section>
     );
   }
 }
 
 const mapStateToProps = state => {
   return {
-    currentUser: state.auth.currentUser,
+    view: state.view.view,
     loggedIn: state.auth.currentUser !== null
   };
 };

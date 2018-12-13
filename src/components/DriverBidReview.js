@@ -1,5 +1,6 @@
-import React from "react";
-import DriverBidCard from "./DriverBidCard.js";
+import React from 'react';
+import DriverBidCard from './DriverBidCard.js';
+import BidMap from './BidMap.js';
 import { getAllBids, getAllJobs } from '../actions/jobs';
 
 export default class DriverReviewBids extends React.Component {
