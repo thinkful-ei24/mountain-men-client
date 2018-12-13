@@ -1,9 +1,9 @@
 import React from "react";
 import RegisterForm from "../components/RegisterForm";
 import styled from 'styled-components';
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 
-export default function RegisterPage() {
   const RegisterContainer = styled.div`
     position: fixed;
     margin: 0;
@@ -53,7 +53,10 @@ export default function RegisterPage() {
     }
   }
 `;
-
+export function RegisterPage(props) {
+  if (props.loggedIn) {
+    return <Redirect to="/dashboard" />;
+  }
   return (
     <RegisterContainer>
       <BG as={Link} to='/'></BG>
@@ -61,6 +64,13 @@ export default function RegisterPage() {
         <RegisterForm id='register-form'></RegisterForm>
       </Register>
     </RegisterContainer>
-
     );
 }
+
+const mapStateToProps = state => {
+  return {
+    loggedIn: state.auth.currentUser !== null,
+  };
+};
+
+export default connect(mapStateToProps)(RegisterPage);
