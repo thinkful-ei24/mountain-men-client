@@ -2,7 +2,15 @@ import React from "react";
 import { connect } from "react-redux";
 import { reduxForm, Field } from "redux-form";
 import updateProfile from "../actions/updateProfile";
+import { updateView } from "../actions/view";
+import styled from "styled-components";
 
+const ButtonGreen = styled.button`
+  background-color: #3dc182;
+  color: white;
+  margin-top: 15px;
+  font-size: 18px;
+`;
 export class ProfileUpdateForm extends React.Component {
   onSubmit(values) {
     const { email, firstName, lastName, phoneNumber, address, type } = values;
@@ -15,6 +23,8 @@ export class ProfileUpdateForm extends React.Component {
       address,
       type
     };
+    this.props.dispatch(updateView("default"));
+
     return this.props.dispatch(updateProfile(user));
   }
 
@@ -82,7 +92,14 @@ export class ProfileUpdateForm extends React.Component {
             <Field name="type" component="input" type="radio" value="DRIVER" />
           </label>
         </div>
-        <button>Update</button>
+        <button
+          onClick={() => {
+            this.props.dispatch(updateView("default"));
+          }}
+        >
+          Cancel
+        </button>
+        <ButtonGreen disabled={this.props.pristine}>Update</ButtonGreen>
       </form>
     );
   }
