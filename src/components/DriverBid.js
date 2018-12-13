@@ -3,6 +3,7 @@ import { reduxForm, Field } from "redux-form";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import { makeBid } from "../actions/jobs";
+import { updateView } from "../actions/view";
 
 function JobComponent(props) {
   const JobCard = styled.div`
@@ -65,7 +66,8 @@ function JobComponent(props) {
         onSubmit={props.handleSubmit(values => {
           // console.log(props);
           // values.userId = props.auth.currentUser.id;
-          return props.dispatch(makeBid(props.id, values));
+          props.dispatch(makeBid(props.id, values));
+          return props.dispatch(updateView("currentJobs"));
         })}
       >
         <label id="bid-label">Your Offer</label>

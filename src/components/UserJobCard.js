@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { makeJobCompleted, makeJobAccepted } from "../actions/jobs.js";
 import { bidsReducer } from "../reducers/bidsReducer.js";
+import { getUser } from '../actions/getUser';
 
 export class UserJobCard extends React.Component {
   constructor(props) {
@@ -9,6 +10,11 @@ export class UserJobCard extends React.Component {
     this.state = {
       expanded: false
     };
+  }
+
+  componentDidMount() {
+    //gets all jobs related to a given user
+    this.props.dispatch(getUser(this.props.id));
   }
 
   showHide() {
@@ -22,23 +28,27 @@ export class UserJobCard extends React.Component {
     bids = this.props.bids.map(item => {
       return (
         <React.Fragment>
-          <p>Bid amount: {item.bidAmount}</p>
-          {!job.accepted && <button
-            onClick={() => {
-              this.props.dispatch(makeJobAccepted(job.id, item.userId));
-            }}
-          >
-            Accept Bid
-          </button>}
+          <p>Bid amount: ${item.bidAmount}</p>
+          {!job.accepted && (
+            <button
+              onClick={() => {
+                this.props.dispatch(makeJobAccepted(job.id, item.userId));
+              }}
+            >
+              Accept Bid
+            </button>
+          )}
         </React.Fragment>
       );
     });
     return bids;
   }
 
+
   render() {
-    let job = this.props.job;
     console.log(this.props);
+    let job = this.props.job;
+    let winningDriver = this.props.winningDriver.user.user;
     return (
       <li>
         <h3 onClick={() => this.showHide()}>{job.title}</h3>
@@ -49,10 +59,17 @@ export class UserJobCard extends React.Component {
         {this.state.expanded && (
           <div>
             <p>{job.description}</p>
-            {!job.completed && (
+            {!job.completed && !job.accepted && (
               <React.Fragment>
                 <p>This job has received {this.props.bids.length} bids.</p>
                 {this.showBids(job)}
+              </React.Fragment>
+            )}
+            {!job.completed && job.accepted && (
+              <React.Fragment>
+                <p>{winningDriver.firstName} made {this.props.bids.length} bids.</p>
+                {this.showBids(job)}
+                <p>Contact your driver at {winningDriver.phoneNumber} or {winningDriver.email}.</p>
               </React.Fragment>
             )}
 
@@ -90,4 +107,8 @@ export class UserJobCard extends React.Component {
   }
 }
 
-export default connect()(UserJobCard);
+const mapStateToProps = state => ({
+  winningDriver: state
+});
+
+export default connect(mapStateToProps)(UserJobCard);

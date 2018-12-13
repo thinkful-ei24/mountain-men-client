@@ -22,10 +22,14 @@ export class CurrentJobs extends React.Component {
       }
     });
 
-    console.log(listOfJobs);
+    if (listOfJobs.length === 0) {
+      listOfJobs = (
+        <li>Nothing to see here. To make a post, click on 'Need A Truck' above and submit a job.</li>
+      )
+    }
     return (
       <section>
-        <h2>Current Jobs</h2>
+        <h2>Current Job Postings</h2>
         <ul>{listOfJobs}</ul>
       </section>
     );

@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import UserJobCard from "./UserJobCard.js";
 import { getUserJobs, getAllBids } from "../actions/jobs";
+import { getUser } from "../actions/getUser";
 
 export class AcceptedJobs extends React.Component {
   componentDidMount() {
@@ -12,23 +13,29 @@ export class AcceptedJobs extends React.Component {
 
   render() {
     let listOfJobs = [];
-    
-
-    listOfJobs = this.props.jobs.map((job, index) => {
-      if (!job.completed && job.accepted) {
-        const bids = this.props.bids.bids.filter(item => {
-          console.log(item.jobId, job.id, "ids");
-          return item.jobId === job.id;
-        });
-        
-        return <UserJobCard job={job} key={index} bids={bids} />;
-      }
+    listOfJobs = this.props.jobs.filter(item => {
+      return !item.completed && item.accepted;
     });
+    
+    listOfJobs = listOfJobs.map((job, index) => {
+      const bids = this.props.bids.bids.filter(item => {
+        return item.userId === job.acceptedUserId && item.jobId === job.id;
+      });
+      return <UserJobCard job={job} key={index} bids={bids} id={bids[0].userId} />;
+    });
+    
+    if (listOfJobs.length === 0) {
+      listOfJobs = (
+        <li>
+          Nothing here yet. To make a post, click on 'Need A Truck' above and
+          submit a job.
+        </li>
+      );
+    }
 
-    console.log(listOfJobs);
     return (
       <section>
-        <h2>Current Jobs</h2>
+        <h2>Accepted Jobs</h2>
         <ul>{listOfJobs}</ul>
       </section>
     );
@@ -37,7 +44,8 @@ export class AcceptedJobs extends React.Component {
 
 const mapStateToProps = state => ({
   user: state.auth.currentUser,
-  jobs: state.jobs.jobs
+  jobs: state.jobs.jobs,
+  acceptedBids: state
 });
 
 export default connect(mapStateToProps)(AcceptedJobs);

@@ -23,12 +23,16 @@ export default class DriverAcceptedBids extends React.Component {
     driverBids.forEach(item => {
         this.props.props.jobs.jobs.forEach(job => {
           if (job.id === item.jobId && !job.completed && job.acceptedUserId === item.userId) {
+            console.log(this.props);
             item.accepted = job.accepted;
             item.completed = job.completed;
             item.jobDescription = job.description;
             item.jobTitle = job.title;
             item.jobPosterId = job.userId;
             item.jobDate = job.date;
+            item.jobPoster = this.props.props.user.user.firstName;
+            item.jobPosterEmail = this.props.props.user.user.email;
+            item.jobPosterPhoneNumber = this.props.props.user.user.phoneNumber;
           }
         })
       })
@@ -37,8 +41,10 @@ export default class DriverAcceptedBids extends React.Component {
         return item.accepted;
     });
 
+    console.log(this.props);
+
     driverBids = driverBids.map((bid, index) => {
-      return <DriverBidCard bid={bid} key={index} />;
+      return <DriverBidCard bid={bid} key={index} dispatch={this.props.dispatch} />;
     });
     console.log(driverBids);
     return (

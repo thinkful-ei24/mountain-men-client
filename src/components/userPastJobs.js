@@ -10,7 +10,6 @@ export class pastJobs extends React.Component {
   }
 
   render() {
-    console.log(this.props);
 
     let listOfJobs = [];
     listOfJobs = this.props.jobs.map((job, index) => {
@@ -22,6 +21,11 @@ export class pastJobs extends React.Component {
       }
     });
 
+    if (listOfJobs.length === 0) {
+      listOfJobs = (
+        <li>Nothing here yet. To make a post, click on 'Need A Truck' above and submit a job.</li>
+      )
+    }
     return (
       <section>
         <h2>Past Jobs</h2>

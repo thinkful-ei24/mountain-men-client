@@ -3,12 +3,14 @@ import { reduxForm, Field } from "redux-form";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { postJobs } from "../actions/postJobs";
+import { updateView } from '../actions/view';
 
 export class PostJob extends React.Component {
 
   onSubmit(values) {
     values.id = this.props.currentUser.id;
     values.authToken = this.props.authToken;
+    this.props.dispatch(updateView('currentJobs'));
     return this.props.dispatch(postJobs(values));
   }
 
