@@ -1,53 +1,48 @@
 import React from "react";
-import styled from "styled-components";
 import { updateView } from '../actions/view';
 import {connect} from 'react-redux';
-
-const FlexNav = styled.ul`
-  display: flex;
-`;
-const NavButton = styled.button`
-  font-size: 18px;
-`;
 
 export function DashboardNav(props) {
   if (props.type === "USER")
     return (
-      <FlexNav>
+      <ul style={{display: 'flex'}}>
         <li>
-          <NavButton onClick={() => {
+          <button onClick={() => {
             props.dispatch(updateView('default'));
-          }}>Need A Truck?</NavButton>
+          }}>Need A Truck?</button>
         </li>
         <li>
-          <NavButton onClick={() => {
+          <button onClick={() => {
             props.dispatch(updateView('currentJobs'))
-          }}>Active Posts</NavButton>
+          }}>Active Posts</button>
         </li>
         <li>
-          <NavButton onClick={() => {
+          <button onClick={() => {
             props.dispatch(updateView('pastJobs'));
-          }}>Transactions</NavButton>
+          }}>Transactions</button>
         </li>
-      </FlexNav>
+      </ul>
     );
   if (props.type === "DRIVER")
     return (
       <ul>
         <li>
-          <NavButton onClick={() => {
-            props.dispatch(updateView('default'));
-          }}>Need A Truck></NavButton>
+          <button style={{fontSize: '18px'}}
+            onClick={() => {
+              props.dispatch(updateView('default'));
+            }}>Need A Truck></button>
         </li>
         <li>
-          <NavButton onClick={() => {
-            props.dispatch(updateView('currentJobs'));
-          }}>Active Posts</NavButton>
+          <button style={{fontSize: '18px'}}
+            onClick={() => {
+              props.dispatch(updateView('currentJobs'));
+          }}>Active Posts</button>
         </li>
         <li>
-          <NavButton onClick={() => {
-            props.dispatch(updateView('pastJobs'));
-          }}>Transactions</NavButton>
+          <button style={{fontSize: '18px'}}
+            onClick={() => {
+              props.dispatch(updateView('pastJobs'));
+          }}>Transactions</button>
         </li>
       </ul>
     );

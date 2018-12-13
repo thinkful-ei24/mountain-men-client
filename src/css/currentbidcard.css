@@ -1,0 +1,35 @@
+/*      */
+/* Imports */
+/*      */
+/*    */
+/* FONTS */
+/*    */
+/* 'Montserrat' */
+/* Black: 900; Used on headers and buttons */
+/* 'Roboto Condensed' */
+/* Regular: 400;  Used on input fields */
+/* Light: 300; Used everwhere else */
+/*     */
+/* COLORS */
+/*     */
+/*        */
+/* Variables */
+/*        */
+/*     */
+/* Mixins */
+/*     */
+#current-bid-card {
+  margin: 10px;
+  padding: 10px;
+  width: 250px;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+#job-image {
+  width: 200px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+/*# sourceMappingURL=currentbidcard.css.map */

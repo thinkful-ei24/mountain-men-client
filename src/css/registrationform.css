@@ -1,0 +1,51 @@
+/*      */
+/* Imports */
+/*      */
+/*    */
+/* FONTS */
+/*    */
+/* 'Montserrat' */
+/* Black: 900; Used on headers and buttons */
+/* 'Roboto Condensed' */
+/* Regular: 400;  Used on input fields */
+/* Light: 300; Used everwhere else */
+/*     */
+/* COLORS */
+/*     */
+/*        */
+/* Variables */
+/*        */
+/*     */
+/* Mixins */
+/*     */
+#register-btn {
+  background-color: #ff7f40;
+  color: white;
+  margin-top: 15px;
+}
+
+#register-form-container {
+  padding: 25px;
+  background-color: #364d87;
+  position: absolute;
+  width: 375px;
+  height: 775px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  zoom: 0.9;
+  box-shadow: 3px 3px 10px 1px black;
+}
+
+input {
+  height: 40px;
+  font-size: 20px;
+}
+
+label {
+  display: block;
+  margin: 0px;
+  font-size: 24px;
+}
+
+/*# sourceMappingURL=registrationform.css.map */

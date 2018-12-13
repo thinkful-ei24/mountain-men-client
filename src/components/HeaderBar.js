@@ -4,42 +4,9 @@ import { connect } from "react-redux";
 import { clearAuth } from "../actions/auth";
 import { clearAuthToken } from "../local-storage";
 import ShowNav from "./ShowNav";
-import "./styles/HeaderBar.css";
-import styled from "styled-components";
-
 import logoImg from '../logo.png';
+require('../css/headerbar.css');
 
-const Button = styled.button`
-  background-color: #3dc182;
-  color: white;
-  margin-top: 25px;
-  font-size: 18px;
-  width: 100px;
-  height: 30px;
-  font-size: 16px;
-`;
-
-const Title = styled.h3`
-  display: inline;
-  font-family: 'Michroma';
-  color: white;
-`;
-
-const Logo = styled.img`
-  display: inline-block;
-  position: relative;
-  top: 10px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50px;
-`
-
-const HeaderB = styled.header`
-  position: sticky;
-  height: 60px;
-  width: 100%;
-  background-color: #444a59;
-`
 export class HeaderBar extends React.Component {
   state = { click: false };
 
@@ -58,17 +25,18 @@ export class HeaderBar extends React.Component {
       showButtons = (
         <>
           <li className="show-nav">
-            <Button
+            <button className='nav-btn'
               onClick={e => {
                 this.setState({ click: !this.state.click });
               }}
             >
               Account
-            </Button>
+            </button>
           </li>
           <li className="logout">
             <Link to="/">
-              <Button
+              <button id='logout-btn'
+                className='nav-btn'
                 type="button"
                 onClick={() => {
                   logout();
@@ -76,7 +44,7 @@ export class HeaderBar extends React.Component {
                 }}
               >
                 Log out
-              </Button>
+              </button>
             </Link>
           </li>
         </>
@@ -86,12 +54,12 @@ export class HeaderBar extends React.Component {
         <>
           <li className="sign-up">
             <Link to="/register">
-              <Button>Sign Up</Button>
+              <button className='nav-btn'>Sign Up</button>
             </Link>
           </li>
           <li>
             <Link to="/login">
-              <Button>Log In</Button>
+              <button className='nav-btn'>Log In</button>
             </Link>
           </li>
         </>
@@ -99,19 +67,19 @@ export class HeaderBar extends React.Component {
     }
 
     return (
-      <HeaderB>
+      <div id='header-bar'>
         <ul className="header">
           {showNavButton}
           <li className="logo">
             <Link className="link-logo" to="/">
-              <Logo src={logoImg} alt='logo'/>
-              <Title>Truck'd</Title>
+              <img id='logo-img' src={logoImg} alt='logo'/>
+              <h1 id='title'>Truck'd</h1>
             </Link>
           </li>
           {showButtons}
         </ul>
         {showNav}
-      </HeaderB>
+      </div>
     );
   }
 }

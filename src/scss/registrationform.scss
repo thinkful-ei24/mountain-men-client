@@ -1,0 +1,34 @@
+  /*      */
+/* Imports */
+ /*      */
+ @import 'variables';
+
+#register-btn {
+  background-color: $color-light-orange-warning;
+  color: white;
+  margin-top: 15px;
+}
+
+#register-form-container {
+  padding: 25px;
+  background-color: $color-dark-blue;
+  position: absolute;
+  width: 375px;
+  height: 775px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  zoom: .9;
+  box-shadow: $box-shadow-thick;
+}
+
+input{
+  height: 40px;
+  font-size: 20px;
+}
+
+label {
+  display: block;
+  margin: 0px;
+  font-size: 24px;
+}

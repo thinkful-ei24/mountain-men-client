@@ -1,0 +1,71 @@
+  /*      */
+/* Imports */
+ /*      */
+ @import 'variables';
+
+
+#header-bar {
+  position: fixed;
+  z-index: 1000;
+  top: 0px;
+  height: 60px;
+  width: 100%;
+  background-color: #444a59;
+}
+
+.header {
+  margin-top: 0;
+  display: flex;
+  height: 46px;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.link-logo {
+  text-decoration: none;
+  font-size: 2rem;
+  color: black;
+}
+
+#logo-img {
+  display: inline-block;
+  position: relative;
+  top: 12px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.nav-btn {
+  background-color: #3dc182;
+  color: white;
+  margin-top: 25px;
+  font-size: 18px;
+  width: 100px;
+  height: 30px;
+  font-size: 16px;
+
+  &#logout-btn {
+    background-color: $color-light-red-danger;
+  }
+}
+
+#title {
+  display: inline;
+  font-family: 'Michroma';
+  color: white;
+  font-size: 36px;
+}
+
+.sign-up {
+  margin-left: auto;
+}
+
+.show-nav {
+  margin-left: auto;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}

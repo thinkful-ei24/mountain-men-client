@@ -1,0 +1,23 @@
+  /*      */
+/* Imports */
+ /*      */
+ @import 'variables';
+
+#login-btn {
+  background-color: $color-light-orange-warning;
+  color: white;
+  margin-top: 15px;
+}
+
+#login-form-container {
+  box-shadow: $box-shadow-thick;
+  padding: 30px;
+  background-color: $color-dark-blue;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 425px;
+  height: 350px;
+  zoom: .9;
+}
