@@ -25,7 +25,7 @@ export function DashboardNav(props) {
     );
   if (props.type === "DRIVER")
     return (
-      <ul>
+      <FlexNav>
         <li>
           <button style={{fontSize: '18px'}}
             onClick={() => {
@@ -44,7 +44,16 @@ export function DashboardNav(props) {
               props.dispatch(updateView('pastJobs'));
           }}>Transactions</button>
         </li>
-      </ul>
+        <li>
+          <NavButton
+            onClick={() => {
+              props.dispatch(updateView("completedJobs"));
+            }}
+          >
+            Completed Jobs
+          </NavButton>
+        </li>
+      </FlexNav>
     );
 }
 

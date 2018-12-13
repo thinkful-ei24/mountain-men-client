@@ -1,7 +1,8 @@
 import React from "react";
 import RegisterForm from "../components/RegisterForm";
 import styled from 'styled-components';
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 
 
 const RegisterContainer = styled.div`
@@ -36,3 +37,11 @@ export default function RegisterPage() {
     </RegisterContainer>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+    loggedIn: state.auth.currentUser !== null,
+  };
+};
+
+export default connect(mapStateToProps)(RegisterPage);

@@ -1,10 +1,9 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import UserJobCard from './UserJobCard.js';
+import React from "react";
+import { connect } from "react-redux";
+import UserJobCard from "./UserJobCard.js";
 import { getUserJobs, getAllBids, getBidsCount } from "../actions/jobs";
 
-export class CurrentJobs extends React.Component{
-
+export class CurrentJobs extends React.Component {
   componentDidMount() {
     //gets all jobs related to a given user
     this.props.dispatch(getUserJobs());
@@ -12,27 +11,25 @@ export class CurrentJobs extends React.Component{
   }
 
   render() {
-    let listOfJobs = []
-    console.log(this.props, 'okaythen');
+    let listOfJobs = [];
 
     listOfJobs = this.props.jobs.map((job, index) => {
-      if (!job.completed) {
+      if (!job.completed && !job.accepted) {
         const bids = this.props.bids.bids.filter(item => {
-          console.log(item.jobId, job.id, 'ids');
           return item.jobId === job.id;
-        })
-        console.log(bids);
-        // const bidCount = this.props.dispatch(getBidsCount(job.id))
-        return (
-        <UserJobCard job={job} key={index} bids={bids}/>
-      )
+        });
+        return <UserJobCard job={job} key={index} bids={bids} />;
       }
-    })
+    });
 
-    console.log(listOfJobs);
+    if (listOfJobs.length === 0) {
+      listOfJobs = (
+        <li>Nothing to see here. To make a post, click on 'Need A Truck' above and submit a job.</li>
+      )
+    }
     return (
       <section>
-        <h2>Current Jobs</h2>
+        <h2>Current Job Postings</h2>
         <ul>{listOfJobs}</ul>
       </section>
     );

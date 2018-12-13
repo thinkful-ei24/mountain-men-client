@@ -1,6 +1,6 @@
 import jwtDecode from 'jwt-decode';
 import {SubmissionError} from 'redux-form';
-
+import { updateView } from './view';
 import {API_BASE_URL} from '../config.js';
 import {saveAuthToken, clearAuthToken} from '../local-storage.js';
 import {normalizeResponseErrors} from './utils.js';
@@ -58,6 +58,9 @@ export const login = (input) => dispatch => {
     .then(res => res.json())
     .then(({authToken}) => {
       storeAuthInfo(authToken, dispatch)
+    })
+    .then(() => {
+      dispatch(updateView('default'));
     })
     .catch(err => {
       const {status} = err;

@@ -1,14 +1,15 @@
-import { createStore, applyMiddleware, combineReducers } from 'redux';
-import thunk from 'redux-thunk';
+import { createStore, applyMiddleware, combineReducers } from "redux";
+import thunk from "redux-thunk";
 
 import {reducer as formReducer} from 'redux-form';
 import authReducer from './reducers/authReducer';
+import {mapReducer} from './reducers/mapReducer.js';
 import {jobsReducer} from './reducers/jobs.js';
 import {bidsReducer} from './reducers/bidsReducer';
 import {viewReducer} from './reducers/viewReducer';
-
-import {loadAuthToken} from './local-storage';
-import {setAuthToken, refreshAuthToken} from './actions/auth';
+import {userReducer} from './reducers/getUserReducer';
+import { loadAuthToken } from "./local-storage";
+import { setAuthToken, refreshAuthToken } from "./actions/auth";
 
 const mainReducer = (s = null) => s;
 
@@ -19,17 +20,19 @@ const store = createStore(
     auth: authReducer,
     jobs: jobsReducer,
     view: viewReducer,
-    bids: bidsReducer
+    bids: bidsReducer,
+    user: userReducer,
+    map: mapReducer
   }),
-  applyMiddleware(thunk),
+  applyMiddleware(thunk)
 );
 
 // Hydrate the authToken from localStorage if it exist
 const authToken = loadAuthToken();
 if (authToken) {
-    const token = authToken;
-    store.dispatch(setAuthToken(token));
-    store.dispatch(refreshAuthToken());
+  const token = authToken;
+  store.dispatch(setAuthToken(token));
+  store.dispatch(refreshAuthToken());
 }
 
 export default store;

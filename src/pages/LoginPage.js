@@ -1,7 +1,8 @@
 import React from "react";
 import LoginForm from "../components/LoginForm";
 import styled from 'styled-components';
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 
 const LoginContainer = styled.div`
   position: fixed;
@@ -32,3 +33,11 @@ export default function LoginPage() {
     </LoginContainer>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+    loggedIn: state.auth.currentUser !== null,
+  };
+};
+
+export default connect(mapStateToProps)(LoginPage);

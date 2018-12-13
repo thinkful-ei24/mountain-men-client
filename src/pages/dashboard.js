@@ -4,8 +4,13 @@ import Profile from "../components/userProfileComponent";
 import { Redirect } from "react-router-dom";
 import Job from "../components/DriverBid";
 import { getAllJobs, getAllBids } from "../actions/jobs";
+import {getMapCenter, getMarkerCenter} from '../actions/maps.js';
+import MapContainer from '../components/MapContainer.js';
 import DriverReviewBids from "../components/DriverBidReview.js";
+import DriverAcceptedBids from '../components/DriverAcceptedBids'
+import DriverCompletedBids from '../components/DriverCompletedBids';
 import DashboardNav from "../components/DashboardNav";
+import Geocode from 'react-geocode';
 
 export class Dashboard extends React.Component {
 
@@ -13,6 +18,9 @@ export class Dashboard extends React.Component {
     //gets all jobs related to a given user
     this.props.dispatch(getAllJobs());
     this.props.dispatch(getAllBids());
+    if (this.props.currentUser) {
+      this.props.dispatch(getMapCenter());
+    }
   }
 
   render() {
@@ -21,12 +29,15 @@ export class Dashboard extends React.Component {
       const jobs = this.props.driverJobs.jobs.jobs.map((job, index) => {
         return (
           <Job
+            key={index}
             name={job.title}
             title={job.title}
             desc={job.description}
             image={job.image}
             id={job.id}
             date={job.date}
+            coordinates={job.coordinates ? job.coordinates: {lat: 0, lng: 0}}
+            form={job.id}
           />
         );
       });
@@ -42,11 +53,23 @@ export class Dashboard extends React.Component {
 
     if (this.props.currentUser.type === "DRIVER") {
       function renderDriverPage(props) {
-        if (props === "currentJobs") {
-          return <DriverReviewBids />;
+        console.log(props.view);
+        if (props.view === "currentJobs") {
+          return <DriverReviewBids props={props.driverJobs} dispatch={props.dispatch}/>;
         }
-        if (props === "default") {
-          return <ul>{jobs}</ul>;
+        if (props.view ==="pastJobs") {
+          return <DriverAcceptedBids props={props.driverJobs} dispatch={props.dispatch} />;
+        }
+        if (props.view ==="completedJobs") {
+          return <DriverCompletedBids props={props.driverJobs} dispatch={props.dispatch} />;
+        }
+        if (props.view === "default") {
+          return (
+            <main>
+              <MapContainer jobs={jobs}/>
+              {/*<ul>{jobs}</ul>*/}
+            </main>
+          );
         }
       }
       return (
@@ -57,13 +80,13 @@ export class Dashboard extends React.Component {
             {this.props.currentUser.lastName}!
           </h1>
 
-          {renderDriverPage(this.props.view)}
+          {renderDriverPage(this.props)}
 
         </div>
       );
     }
     if (this.props.currentUser.type === "USER") {
-      console.log(this.props);
+
       return (
         <div>
           <DashboardNav type="USER" view={this.props.view} />
@@ -85,7 +108,8 @@ const mapStateTothis = state => {
     loggedIn: state.auth.currentUser !== null,
     driverJobs: state,
     currentUser: state.auth.currentUser,
-    view: state.view.view
+    view: state.view.view,
+    mapCenter: state.map.mapCenter
   };
 };
 
