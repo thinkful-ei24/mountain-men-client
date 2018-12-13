@@ -29,6 +29,8 @@ export class Dashboard extends React.Component {
             image={job.image}
             id={job.id}
             date={job.date}
+            key={index}
+            form={job.id}
           />
         );
       });
@@ -40,7 +42,7 @@ export class Dashboard extends React.Component {
     if (!this.props.loggedIn) {
       return <Redirect to="/" />;
     }
-    
+
 
     if (this.props.currentUser.type === "DRIVER") {
       function renderDriverPage(props) {
@@ -72,7 +74,7 @@ export class Dashboard extends React.Component {
       );
     }
     if (this.props.currentUser.type === "USER") {
-      
+
       return (
         <div>
           <DashboardNav type="USER" view={this.props.view} />
