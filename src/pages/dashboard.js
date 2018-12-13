@@ -57,7 +57,7 @@ export class Dashboard extends React.Component {
           return (
             <main>
               <MapContainer jobs={jobs}/>
-              <ul>{jobs}</ul>;
+              {/*<ul>{jobs}</ul>*/};
             </main>
           )
         }
