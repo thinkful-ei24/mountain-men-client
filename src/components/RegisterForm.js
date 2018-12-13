@@ -116,17 +116,6 @@ export class RegisterForm extends React.Component {
                 required="true"
               />
             </div>
-            <div>
-              <label>Address</label>
-              <Field
-                name="address"
-                component="input"
-                type="text"
-                placeholder="ex. 123 Main St, Littleton, CO 80120"
-                validate={[required]}
-                required="true"
-              />
-            </div>
             <div id='radio-selector'>
               <label id="radio-user"
                 className="fas fa-users">User
