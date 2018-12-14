@@ -95,14 +95,29 @@ export const refreshAuthToken = () => (dispatch, getState) => {
 };
 
 export const registerUser = user => dispatch => {
-  const {password, email} = user
-  console.log(user);
+  const {password, email} = user;
+
+  const reqBody = {
+    email,
+    password,
+    firstName: user.firstName,
+    lastName: user.lastName,
+    phoneNumber: user.phoneNumber,
+    address: {
+      street: user.street,
+      city: user.city,
+      state: user.state,
+      zip: user.zip
+    },
+    type: user.type
+  }
+  console.log(reqBody);
   return fetch(`${API_BASE_URL}/register`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(user)
+    body: JSON.stringify(reqBody)
   })
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())

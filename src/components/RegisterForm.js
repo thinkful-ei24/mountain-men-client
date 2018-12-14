@@ -24,8 +24,8 @@ export class RegisterForm extends React.Component {
   };
 
   onSubmit(values) {
-    const {email, password, firstName, lastName, phoneNumber, address, type} = values;
-    const user = {email, password, firstName, lastName, phoneNumber, address, type};
+    const {email, password, firstName, lastName, phoneNumber, street, city, state, zip, type} = values;
+    const user = {email, password, firstName, lastName, phoneNumber, street, city, state, zip, type};
     return this.props
       .dispatch(registerUser(user))
   }
@@ -102,6 +102,46 @@ export class RegisterForm extends React.Component {
                 component="input"
                 type="tel"
                 placeholder="ex. 303-303-3030"
+                required="true"
+              />
+            </div>
+            <div>
+              <label>Street</label>
+              <Field
+                name="street"
+                component="input"
+                type="string"
+                placeholder="ex. 123 Main St"
+                required="true"
+              />
+            </div>
+            <div>
+              <label>City</label>
+              <Field
+                name="city"
+                component="input"
+                type="string"
+                placeholder="ex. Los Angeles"
+                required="true"
+              />
+            </div>
+            <div>
+              <label>State</label>
+              <Field
+                name="state"
+                component="input"
+                type="string"
+                placeholder="ex. California"
+                required="true"
+              />
+            </div>
+            <div>
+              <label>Zip Code</label>
+              <Field
+                name="zip"
+                component="input"
+                type="string"
+                placeholder="ex. 90002"
                 required="true"
               />
             </div>

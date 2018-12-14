@@ -13,14 +13,17 @@ const ButtonGreen = styled.button`
 `;
 export class ProfileUpdateForm extends React.Component {
   onSubmit(values) {
-    const { email, firstName, lastName, phoneNumber, address, type } = values;
+    const { email, firstName, lastName, phoneNumber, street, city, state, zip, type } = values;
     values.authToken = this.props.authToken;
     const user = {
       email,
       firstName,
       lastName,
       phoneNumber,
-      address,
+      street,
+      city,
+      state,
+      zip,
       type
     };
     this.props.dispatch(updateView("default"));
@@ -74,12 +77,39 @@ export class ProfileUpdateForm extends React.Component {
           />
         </div>
         <div>
-          <label>Address</label>
+          <label>Street</label>
           <Field
-            name="address"
+            name="street"
             component="input"
             type="text"
-            placeholder="ex. 123 Main St, Littleton, CO 80120"
+            placeholder="ex. 123 Main St"
+          />
+        </div>
+        <div>
+          <label>City</label>
+          <Field
+            name="city"
+            component="input"
+            type="text"
+            placeholder="ex. Littleton"
+          />
+        </div>
+        <div>
+          <label>State</label>
+          <Field
+            name="state"
+            component="input"
+            type="text"
+            placeholder="ex. CO"
+          />
+        </div>
+        <div>
+          <label>Zip</label>
+          <Field
+            name="zip"
+            component="input"
+            type="text"
+            placeholder="ex. 80120"
           />
         </div>
         <div id="radio-selector">

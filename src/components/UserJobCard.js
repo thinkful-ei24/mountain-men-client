@@ -16,7 +16,9 @@ export class UserJobCard extends React.Component {
 
   componentDidMount() {
     //gets all jobs related to a given user
-    this.props.dispatch(getUser(this.props.id));
+    if (this.props.id) {
+      this.props.dispatch(getUser(this.props.id));
+    }
   }
 
   showHide() {
@@ -64,8 +66,9 @@ export class UserJobCard extends React.Component {
             <p id='desc'>{job.description}</p>
             {!job.completed && !job.accepted && (
               <React.Fragment>
-                <p id='bids-amount'>This job has received
-                <span id='bid-count'> {this.props.bids.length}</span> bids.</p>
+
+                <p id='bids-amount'>This job has received <span id='bid-count'> {this.props.bids.length}</span> bids.</p>
+                <p>Your budget for this job is ${this.props.job.budget}</p>
                 {this.showBids(job)}
               </React.Fragment>
             )}

@@ -6,15 +6,14 @@ import { normalizeResponseErrors } from "./utils.js";
 
 
 export const postJobs = job => dispatch => {
-  console.log(job);
-  const { title, description, date, street, city, state, zipCode, id, authToken } = job;
+  const { title, description, date, budget, street, city, state, zipCode, id, authToken } = job;
   return fetch(`${API_BASE_URL}/api/jobs/${id}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Authorization: "Bearer " + authToken
     },
-    body: JSON.stringify({title, description, date, street, city, state, zipCode })
+    body: JSON.stringify({title, description, date, budget, street, city, state, zipCode })
   })
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
