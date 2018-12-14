@@ -1,0 +1,51 @@
+/*      */
+/* Imports */
+/*      */
+/*    */
+/* FONTS */
+/*    */
+/* 'Montserrat' */
+/* Black: 900; Used on headers and buttons */
+/* 'Roboto Condensed' */
+/* Regular: 400;  Used on input fields */
+/* Light: 300; Used everwhere else */
+/*     */
+/* COLORS */
+/*     */
+/*        */
+/* Variables */
+/*        */
+/*     */
+/* Mixins */
+/*     */
+.info-item {
+  font-weight: 400;
+  font-size: 32px;
+  margin: 10px;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 400;
+  font-size: 28px;
+}
+
+#prof-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-content: center;
+  background-color: #444a59;
+  margin: 25px;
+  padding: 15px;
+  width: 400px;
+  height: 500px;
+  border: black;
+  border-radius: 5px;
+  box-shadow: 3px 3px 10px 1px black;
+}
+
+.prof-value {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 300;
+  font-size: 22px;
+}
+
+/*# sourceMappingURL=profileinfo.css.map */

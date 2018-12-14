@@ -6,15 +6,15 @@ require('../css/dashboardnav.css');
 export function DashboardNav(props) {
   if (props.type === "USER")
     return (
-      <ul style={{display: 'flex'}}>
+      <ul className='nav-container'>
         <li>
           <button onClick={() => {
-            props.dispatch(updateView('default'));
-          }}>Need A Truck?</button>
+            props.dispatch(updateView('postJob'));
+          }}>Create Post</button>
         </li>
         <li>
           <button onClick={() => {
-            props.dispatch(updateView('currentJobs'))
+            props.dispatch(updateView('default'))
           }}>Active Posts</button>
         </li>
         <li>
@@ -31,7 +31,7 @@ export function DashboardNav(props) {
     );
   if (props.type === "DRIVER")
     return (
-      <div id='nav-container'>
+      <div className='nav-container'>
         <li>
           <button
             onClick={() => {

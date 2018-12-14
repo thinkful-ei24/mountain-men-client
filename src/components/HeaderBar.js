@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { clearAuth } from "../actions/auth";
 import { clearAuthToken } from "../local-storage";
 import { updateView } from "../actions/view";
-import ShowNav from "./ShowNav";
 import logoImg from '../logo.png';
 require('../css/headerbar.css');
 
