@@ -13,15 +13,21 @@ export class CurrentJobs extends React.Component {
   render() {
     let listOfJobs = [];
 
-    listOfJobs = this.props.jobs.map((job, index) => {
+    listOfJobs = this.props.jobs.filter(item => {
+      return !item.completed && !item.accepted;
+    })
+
+    listOfJobs = listOfJobs.map((job, index) => {
       if (!job.completed && !job.accepted) {
+        
         const bids = this.props.bids.bids.filter(item => {
+       
           return item.jobId === job.id;
         });
         return <UserJobCard job={job} key={index} bids={bids} />;
       }
     });
-
+ 
     if (listOfJobs.length === 0) {
       listOfJobs = (
         <li>Nothing to see here. To make a post, click on 'Need A Truck' above and submit a job.</li>

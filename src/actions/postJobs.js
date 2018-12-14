@@ -6,7 +6,6 @@ import { normalizeResponseErrors } from "./utils.js";
 
 
 export const postJobs = job => dispatch => {
-  console.log(job);
   const { title, description, date, street, city, state, zipCode, id, authToken } = job;
   return fetch(`${API_BASE_URL}/api/jobs/${id}`, {
     method: "POST",

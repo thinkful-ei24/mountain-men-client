@@ -9,11 +9,12 @@ export class PostJob extends React.Component {
   onSubmit(values) {
     values.id = this.props.currentUser.id;
     values.authToken = this.props.authToken;
-    this.props.dispatch(updateView("currentJobs"));
-    return this.props.dispatch(postJobs(values));
+    this.props.dispatch(postJobs(values));
+    return this.props.dispatch(updateView("currentJobs"));
   }
 
   render() {
+    console.log(this.props);
     return (
       <div id="form-container">
         <div id="register-form">

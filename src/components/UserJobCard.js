@@ -14,7 +14,9 @@ export class UserJobCard extends React.Component {
 
   componentDidMount() {
     //gets all jobs related to a given user
-    this.props.dispatch(getUser(this.props.id));
+    if (this.props.id) {
+      this.props.dispatch(getUser(this.props.id));
+    }
   }
 
   showHide() {
