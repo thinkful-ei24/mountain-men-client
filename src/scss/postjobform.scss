@@ -1,0 +1,19 @@
+  /*      */
+/* Imports */
+ /*      */
+ @import 'variables';
+
+
+ #register-form {
+   background-color: $color-dark-grey;
+   border: black;
+   border-radius: $border-rad-base;
+   box-shadow: $box-shadow-thick;
+
+   display: flex;
+   justify-content: space-evenly;
+   padding: 15px;
+   width: 400px;
+
+
+ }

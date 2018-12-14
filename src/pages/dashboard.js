@@ -94,7 +94,7 @@ export class Dashboard extends React.Component {
             Welcome back, {this.props.currentUser.firstName}{" "}
             {this.props.currentUser.lastName}!
           </h1>
-          <ul>
+          <ul style={{display: 'flex', justifyContent: 'center'}}>
             <Profile view={this.props.view} bids={this.props.driverJobs.bids} />
           </ul>
         </div>

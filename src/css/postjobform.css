@@ -18,20 +18,15 @@
 /*     */
 /* Mixins */
 /*     */
-.nav-container {
+#register-form {
+  background-color: #444a59;
+  border: black;
+  border-radius: 5px;
+  box-shadow: 3px 3px 10px 1px black;
   display: flex;
-  flex-direction: row;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-evenly;
+  padding: 15px;
+  width: 400px;
 }
 
-button {
-  font-size: 18px;
-}
-
-li {
-  list-style: none;
-}
-
-/*# sourceMappingURL=dashboardnav.css.map */
+/*# sourceMappingURL=postjobform.css.map */

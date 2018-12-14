@@ -8,11 +8,10 @@ import AcceptedJobs from './userAcceptedBids';
 export function ProfileComponent(props) {
 
   function renderThings() {
-    console.log(props);
-    if (props.view === "default") {
+    if (props.view === "postJob") {
       return <PostJobForm />;
     }
-    if (props.view === "currentJobs") {
+    if (props.view === "default") {
       return <CurrentJobs bids={props.bids} />;
     }
     if (props.view === "pastJobs") {

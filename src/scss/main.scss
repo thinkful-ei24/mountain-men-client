@@ -8,10 +8,11 @@ html {
 }
 
 body {
-  background-image: url('http://papers.co/wallpaper/papers.co-aj74-cat-box-blue-illust-animal-art-minimal-36-3840x2400-4k-wallpaper.jpg');
-  background-repeat: none;
-  background-size: 100%;
-  background-color: black;
+  background: url('http://papers.co/wallpaper/papers.co-aj74-cat-box-blue-illust-animal-art-minimal-36-3840x2400-4k-wallpaper.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   margin: 0;
   margin-top: 60px;
   width: 100%;
@@ -20,6 +21,7 @@ body {
   padding: 0;
   font-family: $font-content;
   font-weight: $font-weight-reg;
+  text-shadow: 1px 1px black;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: white;
@@ -67,16 +69,16 @@ input[type='radio'] {
 
 input:active,
 input:focus {
-  outline: 5px solid #04CDFF;
-  outline-offset: -5px;
+  box-shadow: 0 0 3pt 2pt #04CDFF;
 }
 
 button {
-  width: 200px;
-  height: 50px;
+  min-width: 130px;
+  height: 40px;
   font-family: $font-header;
-  font-weight: $font-weight-black;
-  font-size: 28px;
+  font-weight: 500;
+
+  font-size: 20px;
   border: $border-base;
   border-radius: $border-rad-base;
   margin: 10px;

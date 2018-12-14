@@ -1,0 +1,36 @@
+  /*      */
+/* Imports */
+ /*      */
+ @import 'variables';
+
+.info-item {
+  font-weight: 400;
+  font-size: 32px;
+  margin: 10px;
+
+  font-family: $font-content;
+  font-weight: $font-weight-reg;
+  font-size: 28px;
+}
+
+#prof-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-content: center;
+  background-color: $color-dark-grey;
+
+  margin: 25px;
+  padding: 15px;
+  width: 400px;
+  height: 500px;
+  border: black;
+  border-radius: $border-rad-base;
+  box-shadow: $box-shadow-thick;
+}
+
+.prof-value {
+  font-family: $font-content;
+  font-weight: $font-weight-light;
+  font-size: 22px;
+}

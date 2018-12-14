@@ -29,6 +29,11 @@
   color: white;
 }
 
+#budget {
+  font-weight: 900;
+  color: white;
+}
+
 #card {
   display: flex;
   flex-direction: column;
@@ -78,7 +83,7 @@
 }
 
 #accept-btn {
-  background-color: #ff7f40;
+  background-color: #3DC182;
 }
 
 #delete-btn {
