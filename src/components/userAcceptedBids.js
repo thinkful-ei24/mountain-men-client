@@ -21,7 +21,8 @@ export class AcceptedJobs extends React.Component {
       const bids = this.props.bids.bids.filter(item => {
         return item.userId === job.acceptedUserId && item.jobId === job.id;
       });
-      return <UserJobCard job={job} key={index} bids={bids} id={bids[0].userId} />;
+      console.log(bids)
+      return <UserJobCard job={job} key={index} bids={bids} id={bids[0].userId} position={index} />;
     });
     
     if (listOfJobs.length === 0) {

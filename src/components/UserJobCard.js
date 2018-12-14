@@ -52,7 +52,10 @@ export class UserJobCard extends React.Component {
 
   render() {
     let job = this.props.job;
-    let winningDriver = this.props.winningDriver.user.user;
+    let winningDriver = this.props.winningDriver.user.users.filter(item => {
+      return item.id === job.acceptedUserId;
+    });
+    console.log(this.props, winningDriver);
     return (
       <li id='card' className={this.state.expanded ? 'expanded' : null}
         onClick={() => this.showHide()}>
@@ -74,9 +77,9 @@ export class UserJobCard extends React.Component {
             )}
             {!job.completed && job.accepted && (
               <React.Fragment>
-                <p id='winning-bid'>{winningDriver.firstName} made {this.props.bids.length} bids.</p>
+                <p id='winning-bid'>{winningDriver[0].firstName} made {this.props.bids.length} bids.</p>
                 {this.showBids(job)}
-                <p id='contact'>Contact your driver at {winningDriver.phoneNumber} or {winningDriver.email}.</p>
+                <p id='contact'>Contact your driver at {winningDriver[0].phoneNumber} or {winningDriver[0].email}.</p>
               </React.Fragment>
             )}
 

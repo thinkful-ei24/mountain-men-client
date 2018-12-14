@@ -5,7 +5,7 @@ import {
   } from '../actions/getUser';
   
   const initialState = {
-    user: {},
+    users: [],
     loading: false,
     error: null
   }
@@ -19,7 +19,7 @@ import {
     } else if (action.type === GET_USER_SUCCESS) {
         console.log(action);
       return Object.assign({}, state, {
-        user: action.user,
+        users: [...state.users, action.user],
         loading: false
       })
     } else if( action.type === GET_USER_ERROR ) {
