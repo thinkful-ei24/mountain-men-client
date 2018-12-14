@@ -23,7 +23,7 @@ html {
 }
 
 body {
-  background: url("http://papers.co/wallpaper/papers.co-aj74-cat-box-blue-illust-animal-art-minimal-36-3840x2400-4k-wallpaper.jpg") no-repeat center center fixed;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://www.sammobile.com/wp-content/uploads/2017/06/Lake.png") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

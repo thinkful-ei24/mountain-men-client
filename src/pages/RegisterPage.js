@@ -8,7 +8,7 @@ export function RegisterPage() {
   return (
     <div id='registration-container' className='animated fadeIn'>
       <Link to='/'><div id='bg'></div></Link>
-      <RegisterForm id='register-form'></RegisterForm>
+      <RegisterForm style={{display: 'flex', alignContent: 'center'}} id='register-form'></RegisterForm>
     </div>
   );
 }
