@@ -10,6 +10,7 @@ const InfoItem = styled.p`
 
 export class ProfileInfo extends React.Component {
   render() {
+    console.log(this.props);
     return (
       <div>
         <InfoItem>
@@ -25,7 +26,7 @@ export class ProfileInfo extends React.Component {
           Email: <b>{this.props.currentUser.email}</b>
         </InfoItem>
         <InfoItem>
-          Address: <b>{this.props.currentUser.address}</b>
+          Address: <b>{this.props.currentUser.userAddress}</b>
         </InfoItem>
         <InfoItem>
           Phone: <b>{this.props.currentUser.phoneNumber}</b>
