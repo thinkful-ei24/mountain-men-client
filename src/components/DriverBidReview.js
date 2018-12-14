@@ -23,15 +23,18 @@ export default class DriverReviewBids extends React.Component {
     //  return <DriverBidCard bid={bid} key={index} />
     //})
    
-    let jobArray = [];
+    
     //TODO FAKE DATA FOR TESTING PURPOSES PLEASE DELETE AFTER ENDPOINTS ARE WORKING
 
     let driverBids = this.props.props.bids.bids.filter(item => {
       return item.userId === this.props.props.auth.currentUser.id;
     })
-
+    let jobs = this.props.props.jobs.jobs.filter(item => {
+      return !item.completed && !item.accepted;
+    })
+    console.log(jobs);
     driverBids.forEach(item => {
-      this.props.props.jobs.jobs.forEach(job => {
+      jobs.forEach(job => {
         if (job.id === item.jobId && !job.completed && !job.accepted) {
           item.accepted = job.accepted;
           item.completed = job.completed;
@@ -43,19 +46,6 @@ export default class DriverReviewBids extends React.Component {
       })
     })
 
-    // let driverBids = this.props.props.bids.bids.filter(item => {
-    //   if (item.userId === this.props.props.auth.currentUser.id) {
-    //     bidIdArray.push(item.jobId);
-    //     let bidJobId = item.jobId;
-    //     let job = this.props.props.jobs.jobs.filter(job => {
-    //       console.log(job.id === bidJobId);
-    //       return job.id === bidJobId;
-    //     });
-    //     console.log(job);
-    //     return 'hello';
-    //   }
-    // });
-    // console.log(driverBids);
     driverBids = driverBids.map((bid, index) => {
       return <DriverBidCard bid={bid} key={index} dispatch={this.props.dispatch} />;
     });

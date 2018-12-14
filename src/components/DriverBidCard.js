@@ -32,11 +32,13 @@ export default class DriverBidCard extends React.Component {
         <p>Description: {this.props.bid.jobDescription}</p>
         <p>Your Bid: {this.props.bid.bidAmount}</p>
         <p>Your Description: {this.props.bid.bidDescription}</p>
-        <p>
-          {this.props.bid.jobPoster} accepted your bid. You can contact them at{" "}
-          {this.props.bid.jobPosterEmail} or{" "}
-          {this.props.bid.jobPosterPhoneNumber}.
-        </p>
+        {this.props.bid.accepted && !this.props.bid.completed && (
+          <p>
+            {this.props.bid.jobPoster} accepted your bid. You can contact them
+            at {this.props.bid.jobPosterEmail} or{" "}
+            {this.props.bid.jobPosterPhoneNumber}.
+          </p>
+        )}
       </li>
     );
   }
