@@ -8,7 +8,10 @@ html {
 }
 
 body {
-  background-color: $color-background-light-blue;
+  background-image: url('http://papers.co/wallpaper/papers.co-aj74-cat-box-blue-illust-animal-art-minimal-36-3840x2400-4k-wallpaper.jpg');
+  background-repeat: none;
+  background-size: 100%;
+  background-color: black;
   margin: 0;
   margin-top: 60px;
   width: 100%;
@@ -19,6 +22,7 @@ body {
   font-weight: $font-weight-reg;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: white;
 }
 
 h1 {

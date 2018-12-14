@@ -20,8 +20,6 @@ export class MapContainer extends React.Component {
     }
     this.onMarkerClick = this.onMarkerClick.bind(this)
     this.windowHasClosed = this.windowHasClosed.bind(this)
-    this.viewCurrentJob = this.viewCurrentJob.bind(this)
-
   }
 
   onMarkerClick(props, marker, e) {
@@ -62,12 +60,7 @@ export class MapContainer extends React.Component {
     ReactDOM.render(React.Children.only(info), document.getElementById("info-window"));
   }
 
-  viewCurrentJob() {
-    console.log(this.state.activeMarker.id)
-  }
-
   render() {
-    console.log(this.state.currentJob)
     if (!this.props.loaded) {
       return <div>loading...</div>
     } else if (this.props.center !== {}) {
@@ -141,7 +134,7 @@ export class MapContainer extends React.Component {
   }
 
 const mapStateToProps = state => ({
-  center: state.map.mapCenter
+  center: state.auth.currentUser.coords
 })
 
 export default connect(mapStateToProps)(GoogleApiWrapper({

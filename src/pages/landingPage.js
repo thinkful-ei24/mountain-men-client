@@ -5,10 +5,6 @@ import LandingMain from "../components/LandingMain.js";
 require('../css/landingpage.css');
 
 export function LandingPage(props) {
-  if (props.loggedIn) {
-    return <Redirect to="/dashboard" />;
-  }
-
   return (
     <div id='landing-container'>
       <LandingMain />

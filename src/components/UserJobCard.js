@@ -3,7 +3,9 @@ import { connect } from "react-redux";
 import { makeJobCompleted, makeJobAccepted } from "../actions/jobs.js";
 import { bidsReducer } from "../reducers/bidsReducer.js";
 import { getUser } from '../actions/getUser';
+require('../css/userjobcard.css');
 
+var moment = require('moment');
 export class UserJobCard extends React.Component {
   constructor(props) {
     super(props);
@@ -30,9 +32,10 @@ export class UserJobCard extends React.Component {
     bids = this.props.bids.map(item => {
       return (
         <React.Fragment>
-          <p>Bid amount: ${item.bidAmount}</p>
+          <p id='bid-amount'>Bid amount: ${item.bidAmount}</p>
           {!job.accepted && (
-            <button
+            <button id='accept-btn'
+              className='card-btn'
               onClick={() => {
                 this.props.dispatch(makeJobAccepted(job.id, item.userId));
               }}
@@ -48,31 +51,32 @@ export class UserJobCard extends React.Component {
 
 
   render() {
-    console.log(this.props);
     let job = this.props.job;
     let winningDriver = this.props.winningDriver.user.user;
     return (
-      <li>
-        <h3 onClick={() => this.showHide()}>{job.title}</h3>
-        <p>{job.date}</p>
+      <li id='card' className={this.state.expanded ? 'expanded' : null}
+        onClick={() => this.showHide()}>
+        <h3 id='job-title'>{job.title}</h3>
+        <p id='date'>{moment(job.date).format('LLLL')}</p>
         {/* <p>{this.props.count || 0} bids have been placed</p> */}
         {/* conditionally render everything below if
             expanded is true */}
         {this.state.expanded && (
           <div>
-            <p>{job.description}</p>
+            <p id='desc'>{job.description}</p>
             {!job.completed && !job.accepted && (
               <React.Fragment>
-                <p>This job has received {this.props.bids.length} bids.</p>
+
+                <p id='bids-amount'>This job has received <span id='bid-count'> {this.props.bids.length}</span> bids.</p>
                 <p>Your budget for this job is ${this.props.job.budget}</p>
                 {this.showBids(job)}
               </React.Fragment>
             )}
             {!job.completed && job.accepted && (
               <React.Fragment>
-                <p>{winningDriver.firstName} made {this.props.bids.length} bids.</p>
+                <p id='winning-bid'>{winningDriver.firstName} made {this.props.bids.length} bids.</p>
                 {this.showBids(job)}
-                <p>Contact your driver at {winningDriver.phoneNumber} or {winningDriver.email}.</p>
+                <p id='contact'>Contact your driver at {winningDriver.phoneNumber} or {winningDriver.email}.</p>
               </React.Fragment>
             )}
 
@@ -85,7 +89,8 @@ export class UserJobCard extends React.Component {
               </button>
             )} */}
             {!job.completed && job.accepted && (
-              <button
+              <button id='complete-btn'
+                className='card-btn'
                 type="button"
                 onClick={() => this.props.dispatch(makeJobCompleted(job.id))}
               >
@@ -93,14 +98,17 @@ export class UserJobCard extends React.Component {
               </button>
             )}
             {!job.completed && !job.accepted && (
-              <button
+              <button id='delete-btn'
+                className='card-btn'
                 type="button"
                 onClick={() => this.props.dispatch(makeJobCompleted(job.id))}
               >
                 Delete
               </button>
             )}
-            <button type="button" onClick={() => this.showHide()}>
+            <button id='show-btn'
+              className='card-btn'
+              type="button" onClick={() => this.showHide()}>
               Show Less
             </button>
           </div>

@@ -27,6 +27,7 @@ export class Dashboard extends React.Component {
     // need to dispatch to get jobs
     const getJobs = job => {
       const jobs = this.props.driverJobs.jobs.jobs.map((job, index) => {
+        console.log(job)
         return (
           <Job
             key={index}
@@ -36,7 +37,7 @@ export class Dashboard extends React.Component {
             image={job.image}
             id={job.id}
             date={job.date}
-            coordinates={job.coordinates ? job.coordinates: {lat: 0, lng: 0}}
+            coordinates={job.coords ? {lat: job.coords.lat, lng: job.coords.long}: {lat: 0, lng: 0}}
             form={job.id}
           />
         );
@@ -53,7 +54,6 @@ export class Dashboard extends React.Component {
 
     if (this.props.currentUser.type === "DRIVER") {
       function renderDriverPage(props) {
-        console.log(props.view);
         if (props.view === "currentJobs") {
           return <DriverReviewBids props={props.driverJobs} dispatch={props.dispatch}/>;
         }

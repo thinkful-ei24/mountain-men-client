@@ -21,15 +21,18 @@ export const fetchCoordinatesError = (error) => ({
 })
 
 export const getMapCenter = () => (dispatch, getState) => {
-  const address = getState().auth.currentUser.address;
+  const address = getState().auth.currentUser.userAddress;
+  console.log(address)
   dispatch(fetchCoordinatesRequest());
   Geocode.fromAddress(address)
     .then(response => {
       const {lat, lng} = response.results[0].geometry.location;
       const center = {lat, lng}
+      console.log('center', center)
       dispatch(fetchCoordinatesSuccess(center))
     })
     .catch(err => {
+      console.log(err)
       dispatch(fetchCoordinatesError(err))
     })
 }

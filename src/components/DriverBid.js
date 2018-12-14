@@ -3,8 +3,9 @@ import { reduxForm, Field } from "redux-form";
 import { connect } from 'react-redux';
 import { makeBid } from '../actions/jobs';
 import { updateView } from '../actions/view';
-
 require('../css/DriverBid.css');
+
+var moment = require('moment');
 
 function JobComponent(props) {
   return (
@@ -14,7 +15,7 @@ function JobComponent(props) {
         {props.desc}
       </p>
       <p id='job-date'>
-        {props.date}
+        {moment(props.date).format('LLLL')}
       </p>
       {/* <p id='job-bids'>
       There have been {bidsObject.bids.length} bids made.

@@ -1,0 +1,81 @@
+  /*      */
+/* Imports */
+ /*      */
+ @import 'variables';
+
+#bid-amount {
+  color: white;
+  background-color: $color-light-grey;
+  border-radius: $border-rad-base;
+}
+
+#bid-count {
+  font-weight: $font-weight-black;
+  color: white;
+}
+
+#card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-content: center;
+  align-items: center;
+  background-color: $color-dark-grey;
+  width: 400px;
+  height: 90px;
+  padding: 10px;
+
+  border: $border-base;
+  border-radius: $border-rad-base;
+
+  &.expanded {
+    height: 215px;
+  }
+}
+
+#date {
+  font-weight: $font-weight-reg;
+  color: white;
+  margin: 5px;
+}
+
+#desc {
+  color: white;
+  font-weight: $font-weight-light;
+  background-color: $color-light-grey;
+  border-radius: $border-rad-base;
+}
+
+#job-title {
+  font-family: $font-header;
+  font-weight: $font-weight-black;
+  font-size: 20px;
+  margin: 0;
+}
+
+#winning-bid {
+  color: white;
+}
+
+.card-btn {
+  width: 100px;
+  height: 30px;
+  font-size: 14px;
+  margin-bottom: 0px;
+}
+
+#accept-btn {
+  background-color: $color-light-orange-warning;
+}
+
+#complete-btn {
+
+}
+
+#delete-btn {
+  background-color: $color-light-red-danger;
+}
+
+#show-btn {
+  background-color: $color-light-orange-warning;
+}

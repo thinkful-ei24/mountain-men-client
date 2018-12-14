@@ -1,6 +1,7 @@
 import React from "react";
 import { getUser } from "../actions/getUser";
 
+var moment = require('moment');
 export default class DriverBidCard extends React.Component {
   constructor(props) {
     super(props);
@@ -27,7 +28,7 @@ export default class DriverBidCard extends React.Component {
     return (
       <li>
         <h3>{this.props.bid.jobTitle}</h3>
-        <p>Job Date: {this.props.bid.jobDate}</p>
+        <p>Job Date: {moment(this.props.bid.jobDate).format('LLLL')}</p>
         <p>Description: {this.props.bid.jobDescription}</p>
         <p>Your Bid: {this.props.bid.bidAmount}</p>
         <p>Your Description: {this.props.bid.bidDescription}</p>
