@@ -52,6 +52,16 @@ export class PostJob extends React.Component {
               />
             </div>
             <div>
+              <label>Budget</label>
+              <Field
+                name="budget"
+                component="input"
+                type="number"
+                min="10"
+                placeholder="$100"
+              />
+            </div>
+            <div>
               <label>Street</label>
               <Field
                 name="street"

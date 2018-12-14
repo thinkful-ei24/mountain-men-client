@@ -64,6 +64,7 @@ export class UserJobCard extends React.Component {
             {!job.completed && !job.accepted && (
               <React.Fragment>
                 <p>This job has received {this.props.bids.length} bids.</p>
+                <p>Your budget for this job is ${this.props.job.budget}</p>
                 {this.showBids(job)}
               </React.Fragment>
             )}
