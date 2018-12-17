@@ -31,8 +31,8 @@ export const getUser = id => (dispatch, getState) => {
       return res.json();
     })
     .then(user => {
-        console.log(user);
       dispatch(getUserSuccess(user));
+      return user.id;
     })
     .catch(err => {
       dispatch(getUserError(err));

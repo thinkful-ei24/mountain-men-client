@@ -1,6 +1,5 @@
 import React from 'react';
 import DriverBidCard from './DriverBidCard.js';
-import BidMap from './BidMap.js';
 import { getAllBids, getAllJobs } from '../actions/jobs';
 
 export default class DriverReviewBids extends React.Component {
@@ -19,21 +18,18 @@ export default class DriverReviewBids extends React.Component {
 
   render() {
     //should return an array of <li> elements containing all bids made by a driver
-    //let driverBids = this.props.bids.map((bid, index) => {
-    //  return <DriverBidCard bid={bid} key={index} />
-    //})
    
-    
     //TODO FAKE DATA FOR TESTING PURPOSES PLEASE DELETE AFTER ENDPOINTS ARE WORKING
 
     let driverBids = this.props.props.bids.bids.filter(item => {
       return item.userId === this.props.props.auth.currentUser.id;
     })
+
     let jobs = this.props.props.jobs.jobs.filter(item => {
       return !item.completed && !item.accepted;
     })
-    console.log(jobs);
-    driverBids.forEach(item => {
+
+    driverBids.map(item => {
       jobs.forEach(job => {
         if (job.id === item.jobId && !job.completed && !job.accepted) {
           item.accepted = job.accepted;
@@ -46,6 +42,15 @@ export default class DriverReviewBids extends React.Component {
       })
     })
 
+    driverBids = driverBids.filter(item => {
+      return item.jobPosterId;
+    })
+
+    
+    if (jobs.length === 0) {
+      driverBids = [];
+    }
+
     driverBids = driverBids.map((bid, index) => {
       return <DriverBidCard bid={bid} key={index} dispatch={this.props.dispatch} />;
     });
@@ -53,9 +58,6 @@ export default class DriverReviewBids extends React.Component {
     return (
       <section>
         <ul>
-          {/* get all bids
-          render a new component
-            */}
           {driverBids}
         </ul>
       </section>
@@ -63,8 +65,3 @@ export default class DriverReviewBids extends React.Component {
   }
 }
 
-//  const mapStateToProps = state => {
-//    bids: state.bids // expect to get back an array of bids
-//  }
-//
-//  export default connect(mapStateToProps)(DriverReviewBids)
