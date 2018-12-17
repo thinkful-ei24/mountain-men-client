@@ -71,7 +71,7 @@ export class UserJobCard extends React.Component {
               <React.Fragment>
 
                 <p id='bids-amount'>This job has received <span id='bid-count'> {this.props.bids.length}</span> bids.</p>
-                <p >Your budget for this job is <span id='budget'>${this.props.job.budget}</span></p>
+                <p>Your budget for this job is <span id='budget'>${this.props.job.budget}</span></p>
                 {this.showBids(job)}
               </React.Fragment>
             )}

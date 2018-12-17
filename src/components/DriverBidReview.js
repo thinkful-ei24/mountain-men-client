@@ -22,8 +22,8 @@ export default class DriverReviewBids extends React.Component {
     //let driverBids = this.props.bids.map((bid, index) => {
     //  return <DriverBidCard bid={bid} key={index} />
     //})
-   
-    
+
+
     //TODO FAKE DATA FOR TESTING PURPOSES PLEASE DELETE AFTER ENDPOINTS ARE WORKING
 
     let driverBids = this.props.props.bids.bids.filter(item => {
@@ -51,8 +51,8 @@ export default class DriverReviewBids extends React.Component {
     });
 
     return (
-      <section>
-        <ul>
+      <section style={{display: 'flex', justifyContent: 'center'}}>
+        <ul style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', width: '800px'}}>
           {/* get all bids
           render a new component
             */}

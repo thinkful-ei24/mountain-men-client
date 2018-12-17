@@ -47,8 +47,8 @@ export default class DriverAcceptedBids extends React.Component {
       return <DriverBidCard bid={bid} key={index} dispatch={this.props.dispatch} />;
     });
     return (
-      <section>
-        <ul>{driverBids}</ul>
+      <section style={{display: 'flex', justifyContent: 'center'}}>
+        <ul style={{display: 'flex', justifyContent: 'center'}}>{driverBids}</ul>
       </section>
     );
   }

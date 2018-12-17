@@ -48,13 +48,13 @@
   border-radius: 5px;
 }
 #card.expanded {
-  height: 215px;
+  height: 315px;
 }
 
 #date {
   font-weight: 400;
   color: white;
-  margin: 5px;
+  margin: 0;
 }
 
 #desc {
@@ -62,6 +62,7 @@
   font-weight: 300;
   background-color: #52596b;
   border-radius: 5px;
+  margin: 0;
 }
 
 #job-title {
@@ -83,6 +84,7 @@
 }
 
 #accept-btn {
+  position: relative;
   background-color: #3DC182;
 }
 

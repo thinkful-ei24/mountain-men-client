@@ -58,7 +58,7 @@ export class Dashboard extends React.Component {
           return <DriverReviewBids props={props.driverJobs} dispatch={props.dispatch}/>;
         }
         if (props.view ==="pastJobs") {
-          return <DriverAcceptedBids props={props.driverJobs} dispatch={props.dispatch} />;
+          return <DriverAcceptedBids  props={props.driverJobs} dispatch={props.dispatch} />;
         }
         if (props.view ==="completedJobs") {
           return <DriverCompletedBids props={props.driverJobs} dispatch={props.dispatch} />;
