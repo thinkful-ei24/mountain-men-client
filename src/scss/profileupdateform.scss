@@ -9,16 +9,15 @@
   margin-top: 15px;
 }
 
-#register-form-container {
+#update-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   padding: 25px;
-  background-color: $color-light-grey;
+  background-color: $color-dark-blue;
   position: absolute;
-  width: 375px;
-  height: 775px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  zoom: .9;
+
+  margin: 50px;
   box-shadow: $box-shadow-thick;
   @include border-radius(10px)
 }

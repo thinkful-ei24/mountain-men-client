@@ -40,6 +40,7 @@
   flex-direction: row;
   align-items: space-between;
   width: 100%;
+  height: 400px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -67,12 +68,18 @@
   border-radius: 3px;
   box-shadow: 3px 3px 10px 1px black;
   animation-duration: 1.5s;
-  animation-delay: 1.5s;
+  animation-delay: 1s;
 }
 @media only screen and (max-width: 800px) {
   #need-truck-img {
     margin: 0 auto;
   }
+}
+
+#need-img {
+  width: 175%;
+  position: relative;
+  right: 100px;
 }
 
 #need-truck-card {
@@ -107,6 +114,7 @@
   flex-direction: row;
   align-items: space-between;
   width: 100%;
+  height: 400px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -134,12 +142,16 @@
   border-radius: 3px;
   box-shadow: 3px 3px 10px 1px black;
   animation-duration: 1.5s;
-  animation-delay: 2s;
+  animation-delay: 1s;
 }
 @media only screen and (max-width: 800px) {
   #have-truck-img {
     margin: 0 auto;
   }
+}
+
+#have-img {
+  width: 100%;
 }
 
 #have-truck-card {

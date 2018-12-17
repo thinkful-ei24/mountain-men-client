@@ -52,8 +52,11 @@ export default class DriverReviewBids extends React.Component {
     });
 
     return (
-      <section>
-        <ul>
+      <section style={{display: 'flex', justifyContent: 'center'}}>
+        <ul style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', width: '800px'}}>
+          {/* get all bids
+          render a new component
+            */}
           {driverBids}
         </ul>
       </section>

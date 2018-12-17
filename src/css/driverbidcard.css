@@ -1,0 +1,78 @@
+/*      */
+/* Imports */
+/*      */
+/*    */
+/* FONTS */
+/*    */
+/* 'Montserrat' */
+/* Black: 900; Used on headers and buttons */
+/* 'Roboto Condensed' */
+/* Regular: 400;  Used on input fields */
+/* Light: 300; Used everwhere else */
+/*     */
+/* COLORS */
+/*     */
+/*        */
+/* Variables */
+/*        */
+/*     */
+/* Mixins */
+/*     */
+#job-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-content: center;
+  margin: 10px;
+  padding: 10px;
+  width: 250px;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: #444a59;
+}
+
+.card-label {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: white;
+  margin: 0;
+}
+
+#card-title {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  color: white;
+  margin: 10px;
+}
+
+#card-date {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  color: white;
+  margin: 5px;
+}
+
+#card-desc {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  color: white;
+  margin: 5px;
+}
+
+#card-driver-desc {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  color: white;
+  margin: 5px;
+}
+
+#bold-text {
+  font-weight: 900;
+}
+
+/*# sourceMappingURL=driverbidcard.css.map */

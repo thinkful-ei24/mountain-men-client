@@ -50,8 +50,8 @@ export default class DriverAcceptedBids extends React.Component {
       );
     });
     return (
-      <section>
-        <ul>{driverBids}</ul>
+      <section style={{display: 'flex', justifyContent: 'center'}}>
+        <ul style={{display: 'flex', justifyContent: 'center'}}>{driverBids}</ul>
       </section>
     );
   }
