@@ -71,7 +71,6 @@ export class MapContainer extends React.Component {
     const jobs = this.props.jobs.filter(job => {
       return !job.props.accepted;
     })
-    console.log(jobs);
     const markers = jobs.map((job, index) => {
       return (
         <Marker
