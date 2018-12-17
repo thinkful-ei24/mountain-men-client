@@ -59,7 +59,7 @@ const mapStateToProps = state => {
 };
 
 const Job = reduxForm({
-  form: `jobBidForm + ${Job}`
+  form: `jobBidForm`
 })(connect(mapStateToProps)(JobComponent));
 
 export default Job;
