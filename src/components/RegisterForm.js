@@ -1,7 +1,6 @@
 import React from "react";
 import { reduxForm, Field } from "redux-form";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
 import { registerUser } from "../actions/auth.js";
 import {required, nonEmpty, matches, length, isTrimmed} from '../validators.js';
 const passwordLength = length({min: 9, max: 72});

@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import UserJobCard from "./UserJobCard.js";
 import { getUserJobs, getAllBids } from "../actions/jobs";
-import { getUser } from "../actions/getUser";
 
 export class AcceptedJobs extends React.Component {
   componentDidMount() {
@@ -21,7 +20,6 @@ export class AcceptedJobs extends React.Component {
       const bids = this.props.bids.bids.filter(item => {
         return item.userId === job.acceptedUserId && item.jobId === job.id;
       });
-      console.log(bids)
       return <UserJobCard job={job} key={index} bids={bids} id={bids[0].userId} position={index} />;
     });
     
