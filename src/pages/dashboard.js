@@ -26,9 +26,11 @@ export class Dashboard extends React.Component {
     // need to dispatch to get jobs
     const getJobs = job => {
       const jobs = this.props.driverJobs.jobs.jobs.map((job, index) => {
+        console.log(job);
         return (
           <Job
             key={index}
+            accepted={job.accepted}
             name={job.title}
             title={job.title}
             desc={job.description}
