@@ -40,7 +40,6 @@ export default class DriverCompletedBids extends React.Component {
     driverBids = driverBids.map((bid, index) => {
       return <DriverBidCard bid={bid} key={index} dispatch={this.props.dispatch} />;
     });
-    console.log(driverBids);
     return (
       <section style={{display: 'flex', justifyContent: 'center'}}>
         <ul style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', width: '800px'}}>

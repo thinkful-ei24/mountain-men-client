@@ -27,8 +27,6 @@ function JobComponent(props) {
       />
       <form
         onSubmit={props.handleSubmit(values => {
-          // console.log(props);
-          // values.userId = props.auth.currentUser.id;
           props.dispatch(makeBid(props.id, values));
           return props.dispatch(updateView("currentJobs"));
         })}

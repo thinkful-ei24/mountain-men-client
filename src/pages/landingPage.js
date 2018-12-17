@@ -1,5 +1,4 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import LandingMain from "../components/LandingMain.js";
 require('../css/landingpage.css');

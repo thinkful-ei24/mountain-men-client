@@ -19,7 +19,6 @@ export const getUserError = error => ({
 
 export const getUser = id => (dispatch, getState) => {
   dispatch(getUserRequest());
-  console.log(id);
   return fetch(`${API_BASE_URL}/api/profile/${id}`, {
     method: "GET",
     headers: {
@@ -27,11 +26,9 @@ export const getUser = id => (dispatch, getState) => {
     }
   })
     .then(res => {
-      console.log(res);
       return res.json();
     })
     .then(user => {
-        console.log(user);
       dispatch(getUserSuccess(user));
     })
     .catch(err => {

@@ -1,9 +1,9 @@
 import React from "react";
+import { connect } from "react-redux";
 import { getUser } from "../actions/getUser";
 require('../css/driverbidcard.css');
 
-var moment = require('moment');
-export default class DriverBidCard extends React.Component {
+export class DriverBidCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,9 +13,7 @@ export default class DriverBidCard extends React.Component {
 
   componentDidMount() {
     //gets all jobs related to a given user
-    if (this.props.bid.jobPosterId) {
-      this.props.dispatch(getUser(this.props.bid.jobPosterId));
-    }
+    this.props.dispatch(getUser(this.props.bid.jobPosterId));
   }
 
   showHide() {
@@ -25,6 +23,7 @@ export default class DriverBidCard extends React.Component {
   }
   render() {
     let bid = this.props.bid;
+    let user = this.props.jobPoster.user.users[this.props.position];
     return (
       <li id='job-card'>
         <h3 id='card-title'>{this.props.bid.jobTitle}</h3>
@@ -47,3 +46,9 @@ export default class DriverBidCard extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  jobPoster: state
+});
+
+export default connect(mapStateToProps)(DriverBidCard);
