@@ -22,6 +22,8 @@
   color: white;
   background-color: #52596b;
   border-radius: 5px;
+  margin-left: 25px;
+  margin-right: 25px;
 }
 
 #bid-count {
@@ -63,6 +65,8 @@
   background-color: #52596b;
   border-radius: 5px;
   margin: 0;
+  margin-left: 25px;
+  margin-right: 25px;
 }
 
 #job-title {

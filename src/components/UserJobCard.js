@@ -77,7 +77,7 @@ export class UserJobCard extends React.Component {
               <React.Fragment>
                 <p id='winning-bid'>{winningDriver[this.props.position].firstName} made {this.props.bids.length} bids.</p>
                 {this.showBids(job)}
-                <p id='contact'>Contact your driver at {winningDriver[this.props.position].phoneNumber} or {winningDriver[this.props.position].email}.</p>
+                <p id='contact'>Contact your driver at <span id='bold-text'>{winningDriver[this.props.position].phoneNumber}</span> or <span id='bold-text'>{winningDriver[this.props.position].email}</span>.</p>
               </React.Fragment>
             )}
 

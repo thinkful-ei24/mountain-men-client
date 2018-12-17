@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { getUser } from "../actions/getUser";
 require('../css/driverbidcard.css');
 
+const moment = require('moment');
 export class DriverBidCard extends React.Component {
   constructor(props) {
     super(props);
@@ -26,20 +27,20 @@ export class DriverBidCard extends React.Component {
     let user = this.props.jobPoster.user.users[this.props.position];
     return (
       <li id='job-card'>
-        <h3 id='card-title'>{this.props.bid.jobTitle}</h3>
+        <h3 id='card-title'>{bid.jobTitle}</h3>
         <p className='card-label'>Job Date: </p>
-        <p id='card-date'>{moment(this.props.bid.jobDate).format('LLLL')}</p>
+        <p id='card-date'>{moment(bid.jobDate).format('LLLL')}</p>
         <p className='card-label'>Description: </p>
-        <p id='card-desc'>{this.props.bid.jobDescription}</p>
+        <p id='card-desc'>{bid.jobDescription}</p>
         <p className='card-label'>Your Bid: </p>
-        <p id='card-desc'>{this.props.bid.bidAmount}</p>
+        <p id='card-desc'>{bid.bidAmount}</p>
         <p className='card-label'>Your Description: </p>
-        <p id='card-desc'>{this.props.bid.bidDescription}</p>
-        {this.props.bid.accepted && !this.props.bid.completed && (
+        <p id='card-desc'>{bid.bidDescription}</p>
+        {bid.accepted && !bid.completed && (
           <p>
-            {this.props.bid.jobPoster} accepted your bid. You can contact them
-            at <span id ='bold-text'>{this.props.bid.jobPosterEmail}</span> or{" "}
-            <span id ='bold-text'>{this.props.bid.jobPosterPhoneNumber}</span>.
+            {bid.jobPoster} accepted your bid. You can contact them
+            at <span id ='bold-text'>{bid.jobPosterEmail}</span> or{" "}
+            <span id ='bold-text'>{bid.jobPosterPhoneNumber}</span>.
           </p>
         )}
       </li>
