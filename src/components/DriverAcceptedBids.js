@@ -46,7 +46,7 @@ export default class DriverAcceptedBids extends React.Component {
 
     driverBids = driverBids.map((bid, index) => {
       return (
-        <DriverBidCard bid={bid} key={index} dispatch={this.props.dispatch} />
+        <DriverBidCard bid={bid} key={index} dispatch={this.props.dispatch} position={index} />
       );
     });
     return (
