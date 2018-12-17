@@ -10,7 +10,17 @@ const loadUpdatedProfile = user => ({
 });
 
 const updateProfile = user => (dispatch, getState) => {
-  const { email, firstName, lastName, phoneNumber, street, city, state, zip, type } = user;
+  const {
+    email,
+    firstName,
+    lastName,
+    phoneNumber,
+    street,
+    city,
+    state,
+    zip,
+    type
+  } = user;
   const authToken = getState().auth.authToken;
   const userId = getState().auth.currentUser.id;
   return fetch(`${API_BASE_URL}/api/profile/${userId}`, {

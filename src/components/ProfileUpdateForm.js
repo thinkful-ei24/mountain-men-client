@@ -13,7 +13,17 @@ const ButtonGreen = styled.button`
 `;
 export class ProfileUpdateForm extends React.Component {
   onSubmit(values) {
-    const { email, firstName, lastName, phoneNumber, street, city, state, zip, type } = values;
+    const {
+      email,
+      firstName,
+      lastName,
+      phoneNumber,
+      street,
+      city,
+      state,
+      zip,
+      type
+    } = values;
     values.authToken = this.props.authToken;
     const user = {
       email,
@@ -27,7 +37,6 @@ export class ProfileUpdateForm extends React.Component {
       type
     };
     this.props.dispatch(updateView("default"));
-
     return this.props.dispatch(updateProfile(user));
   }
 
@@ -79,7 +88,7 @@ export class ProfileUpdateForm extends React.Component {
         <div>
           <label>Street</label>
           <Field
-            name="street"
+            name="address.street"
             component="input"
             type="text"
             placeholder="ex. 123 Main St"
@@ -88,7 +97,7 @@ export class ProfileUpdateForm extends React.Component {
         <div>
           <label>City</label>
           <Field
-            name="city"
+            name="address.city"
             component="input"
             type="text"
             placeholder="ex. Littleton"
@@ -97,7 +106,7 @@ export class ProfileUpdateForm extends React.Component {
         <div>
           <label>State</label>
           <Field
-            name="state"
+            name="address.state"
             component="input"
             type="text"
             placeholder="ex. CO"
@@ -106,7 +115,7 @@ export class ProfileUpdateForm extends React.Component {
         <div>
           <label>Zip</label>
           <Field
-            name="zip"
+            name="address.zip"
             component="input"
             type="text"
             placeholder="ex. 80120"
@@ -125,6 +134,7 @@ export class ProfileUpdateForm extends React.Component {
         <button
           onClick={() => {
             this.props.dispatch(updateView("default"));
+            console.log(this.props.initialValues);
           }}
         >
           Cancel
