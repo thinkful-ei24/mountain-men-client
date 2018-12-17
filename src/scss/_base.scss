@@ -3,17 +3,31 @@ html {
 }
 
 body {
-  background-color: $color-background-light-blue;
+
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.2)
+    ),
+    url("https://www.sammobile.com/wp-content/uploads/2017/06/Lake.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   margin: 0;
+  margin-top: 60px;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
   padding: 0;
-  font-family: $font-content;
-  font-weight: $font-weight-reg;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 400;
+  text-shadow: 1px 1px black;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: white;
 }
+
 
 h1 {
   font-family: $font-header;
@@ -28,9 +42,9 @@ p {
 label {
   color: white;
   font-family: $font-content;
-  font-weight: $font-weight-light;
+  font-weight: $font-weight-reg;
   font-size: 32px;
-  text-shadow: 2px 2px black;
+  text-shadow: 1px 1px black;
   margin: 10px;
 }
 
@@ -57,21 +71,21 @@ input[type='radio'] {
 
 input:active,
 input:focus {
-  outline: 5px solid #04CDFF;
-  outline-offset: -5px;
+  box-shadow: 0 0 3pt 2pt #04CDFF;
 }
 
 button {
-  width: 200px;
-  height: 50px;
+  min-width: 130px;
+  height: 40px;
   font-family: $font-header;
-  font-weight: $font-weight-black;
-  font-size: 28px;
+  font-weight: 500;
+
+  font-size: 20px;
   border: $border-base;
   border-radius: $border-rad-base;
   margin: 10px;
   box-shadow: 1px 1px 5px 0.5px black;
-  text-shadow: 1px 2px black;
+  text-shadow: 1.25px 1.5px black;
   color: white;
   background-color: $color-green;
 }

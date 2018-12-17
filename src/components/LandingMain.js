@@ -12,7 +12,10 @@ export function LandingMain(props) {
     return (
       <section id='landing-section'>
         <div id='need-truck-container'>
-          <div id='need-truck-img' className='truck-img animated fadeInUpBig'></div>
+          <div id='need-truck-img' className='truck-img animated fadeInUpBig'>
+            <img src={require('../cat.gif')} alt='box img'
+              id='need-img'></img>
+          </div>
           <div id='need-truck-card' className='truck-card animated fadeInLeftBig'>
             <h2>Need a Truck?</h2>
             <p>Log in to find a truck and driver to help you with your move</p>
@@ -33,7 +36,10 @@ export function LandingMain(props) {
               <button className='btn' type="button">Truck Yourself!</button>
             </Link>
           </div>
-          <div id='have-truck-img'  className='truck-img animated fadeInDownBig'></div>
+          <div id='have-truck-img'  className='truck-img animated fadeInDownBig'>
+            <img src={require('../truck-pickup.gif')} alt='truck img'
+              id='have-img'></img>
+          </div>
         </div>
       </section>
     );
