@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import {Map, GoogleApiWrapper, Marker, InfoWindow} from 'google-maps-react';
 import {connect} from 'react-redux';
 import Job from '../components/DriverBid.js';
-import BidMap from './BidMap.js';
-import {getMapCenter} from '../actions/maps.js';
 import Geocode from 'react-geocode';
 
 Geocode.setApiKey('AIzaSyDrIU9xfNYMyLfY1hZ9sn4kHL_U86NRNOY')

@@ -26,7 +26,7 @@ export default class DriverReviewBids extends React.Component {
     })
 
     driverBids.map(item => {
-      jobs.forEach(job => {
+      return jobs.forEach(job => {
         if (job.id === item.jobId && !job.completed && !job.accepted) {
           item.accepted = job.accepted;
           item.completed = job.completed;

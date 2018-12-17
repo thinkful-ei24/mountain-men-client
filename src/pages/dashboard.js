@@ -4,13 +4,12 @@ import Profile from "../components/userProfileComponent";
 import { Redirect } from "react-router-dom";
 import Job from "../components/DriverBid";
 import { getAllJobs, getAllBids } from "../actions/jobs";
-import {getMapCenter, getMarkerCenter} from '../actions/maps.js';
+import {getMapCenter } from '../actions/maps.js';
 import MapContainer from '../components/MapContainer.js';
 import DriverReviewBids from "../components/DriverBidReview.js";
 import DriverAcceptedBids from '../components/DriverAcceptedBids'
 import DriverCompletedBids from '../components/DriverCompletedBids';
 import DashboardNav from "../components/DashboardNav";
-import Geocode from 'react-geocode';
 
 export class Dashboard extends React.Component {
 

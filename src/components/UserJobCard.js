@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { makeJobCompleted, makeJobAccepted } from "../actions/jobs.js";
-import { bidsReducer } from "../reducers/bidsReducer.js";
 import { getUser } from '../actions/getUser';
 require('../css/userjobcard.css');
 
@@ -76,9 +75,9 @@ export class UserJobCard extends React.Component {
             )}
             {!job.completed && job.accepted && (
               <React.Fragment>
-                <p id='winning-bid'>{winningDriver[0].firstName} made {this.props.bids.length} bids.</p>
+                <p id='winning-bid'>{winningDriver[this.props.position].firstName} made {this.props.bids.length} bids.</p>
                 {this.showBids(job)}
-                <p id='contact'>Contact your driver at {winningDriver[0].phoneNumber} or {winningDriver[0].email}.</p>
+                <p id='contact'>Contact your driver at {winningDriver[this.props.position].phoneNumber} or {winningDriver[this.props.position].email}.</p>
               </React.Fragment>
             )}
 
