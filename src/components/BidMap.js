@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {GoogleApiWrapper} from 'google-maps-react';
 
 export default class BidMap extends React.Component {
   componentDidMount() {

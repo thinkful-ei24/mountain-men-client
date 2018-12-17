@@ -12,13 +12,11 @@ import {
   
   export const userReducer = (state = initialState, action) => {
     if (action.type === GET_USER_REQUEST) {
-      console.log('test');
       return Object.assign({}, state, {
         loading: true,
         error: null
       })
     } else if (action.type === GET_USER_SUCCESS) {
-        console.log(action);
       return Object.assign({}, state, {
         users: [...state.users, action.user],
         loading: false

@@ -11,15 +11,11 @@ export default class DriverReviewBids extends React.Component {
   }
 
   componentDidMount() {
-    //gets all jobs related to a given user
     this.props.dispatch(getAllJobs());
     this.props.dispatch(getAllBids());
   }
 
   render() {
-    //should return an array of <li> elements containing all bids made by a driver
-   
-    //TODO FAKE DATA FOR TESTING PURPOSES PLEASE DELETE AFTER ENDPOINTS ARE WORKING
 
     let driverBids = this.props.props.bids.bids.filter(item => {
       return item.userId === this.props.props.auth.currentUser.id;

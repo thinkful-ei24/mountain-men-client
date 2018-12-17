@@ -55,7 +55,6 @@ export class UserJobCard extends React.Component {
     let winningDriver = this.props.winningDriver.user.users.filter(item => {
       return item.id === job.acceptedUserId;
     });
-    console.log(this.props, winningDriver);
     return (
       <li id='card' className={this.state.expanded ? 'expanded' : null}
         onClick={() => this.showHide()}>

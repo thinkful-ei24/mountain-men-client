@@ -73,10 +73,6 @@ export const getUserJobs = () => (dispatch, getState) => {
     })
 };
 
-// api/jobs
-// send authToken in header
-
-
 export const GET_ALL_JOBS_REQUEST = "FETCH_JOBS_REQUEST";
 export const getAllJobsRequest = () => ({
   type: GET_ALL_JOBS_REQUEST
@@ -172,9 +168,6 @@ export const makeBid = (id, bidValue) => (dispatch, getState) => {
       'Content-Type': 'application/json',
       authorization: `Bearer ${authToken}`
     },
-
-    // 5c098aa482636a21549f93e5  jobId
-    // 5c0eac13f589a01fd0ec45ee  userId
 
     body: JSON.stringify({
       jobId: id,

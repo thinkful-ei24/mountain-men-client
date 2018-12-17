@@ -22,10 +22,8 @@ export class DriverBidCard extends React.Component {
     });
   }
   render() {
-    console.log(this.props.bid.jobPosterId);
     let bid = this.props.bid;
     let user = this.props.jobPoster.user.users[0];
-    console.log(user);
     return (
       <li>
         <h3>{bid.jobTitle}</h3>
