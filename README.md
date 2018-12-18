@@ -1,4 +1,4 @@
-# Truck'd <img src='./src/logo.png' style='height: 50px; margin-left:10px;'>
+# Truck'd <img src='./src/logo.png' style='height: 10px; margin-left:10px;'>
 
 ### Description
 
