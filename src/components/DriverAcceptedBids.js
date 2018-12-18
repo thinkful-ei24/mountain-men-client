@@ -1,7 +1,6 @@
 import React from "react";
 import DriverBidCard from "./DriverBidCard.js";
 import { getAllBids, getAllJobs } from "../actions/jobs";
-import { getUser } from '../actions/getUser';
 
 export default class DriverAcceptedBids extends React.Component {
   constructor(props) {

@@ -48,7 +48,6 @@ export class UserJobCard extends React.Component {
     return bids;
   }
 
-
   render() {
     let job = this.props.job;
     let winningDriver = this.props.winningDriver.user.users.filter(item => {
@@ -57,10 +56,9 @@ export class UserJobCard extends React.Component {
   
     let date = new Date(job.date);
     date.setHours(25);
-    console.log(date);
 
     return (
-      <li id='card' className={this.state.expanded ? 'expanded' : null}
+      <li id='card' key={this.props.index} className={this.state.expanded ? 'expanded' : null}
         onClick={() => this.showHide()}>
         <h3 id='job-title'>{job.title}</h3>
         <p id='date'>{moment(date).format('MMM Do YYYY')}</p>
