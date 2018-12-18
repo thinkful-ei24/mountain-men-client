@@ -1,0 +1,63 @@
+  /*      */
+/* Imports */
+ /*      */
+ @import 'variables';
+
+#job-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-content: center;
+  margin: 10px;
+  padding: 10px;
+  width: 250px;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: $color-dark-grey;
+}
+
+.card-label {
+  font-family: $font-content;
+  font-weight: $font-weight-reg;
+  font-size: 18px;
+  color: white;
+  margin: 0;
+}
+
+#card-title {
+  font-family: $font-content;
+  font-weight: $font-weight-black;
+  font-size: 24px;
+  color: white;
+  margin: 10px;
+}
+
+#card-date {
+  font-family: $font-content;
+  font-weight: $font-weight-light;
+  font-size: 16px;
+  color: white;
+  margin: 5px;
+}
+
+#card-desc {
+  font-family: $font-content;
+  font-weight: $font-weight-light;
+  font-size: 16px;
+  color: white;
+  margin: 5px;
+}
+#card-bid {
+
+}
+#card-driver-desc {
+  font-family: $font-content;
+  font-weight: $font-weight-light;
+  font-size: 16px;
+  color: white;
+  margin: 5px;
+}
+
+#bold-text {
+  font-weight: $font-weight-black;
+}
