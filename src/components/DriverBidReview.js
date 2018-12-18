@@ -11,6 +11,8 @@ export default class DriverReviewBids extends React.Component {
   }
 
   componentDidMount() {
+    this.props.props.bids.bids = [];
+    this.props.props.jobs.jobs = [];
     this.props.dispatch(getAllJobs());
     this.props.dispatch(getAllBids());
   }
