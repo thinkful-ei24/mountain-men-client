@@ -28,11 +28,13 @@
 }
 
 #logo-img {
+  @media screen and (max-width: 800px){
+    width: 6vw;
+  }
   display: inline-block;
   position: relative;
   top: 12px;
-  width: 50px;
-  height: 50px;
+  width: 48px;
   border-radius: 50%;
 }
 
@@ -50,13 +52,15 @@
 }
 
 #title {
-  @media screen and (max-width: 600px){
-    font-size: 28px;
+  @media screen and (max-width: 800px){
+    font-size: 5vw;
   }
   display: inline;
   font-family: "Michroma";
   color: white;
   font-size: 36px;
+  position: relative;
+  top: 1px;
 }
 
 .sign-up {
@@ -66,10 +70,3 @@
 .show-nav {
   margin-left: auto;
 }
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-/*# sourceMappingURL=headerbar.css.map */

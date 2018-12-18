@@ -1,9 +1,13 @@
 html {
   margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0px;
 }
 
 body {
-
   background:
     linear-gradient(
       rgba(0, 0, 0, 0.5),
@@ -36,6 +40,10 @@ h1 {
 p {
   font-family: $font-content;
   font-weight: $font-weight-light;
+}
+
+ul {
+  padding: 0px;
 }
 
 li {

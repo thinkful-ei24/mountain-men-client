@@ -1,0 +1,65 @@
+  /*      */
+/* Imports */
+ /*      */
+ @import 'variables';
+
+.footer {
+  @media screen and (max-width: 800px) {
+    position: static;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin-top: 400px;
+  }
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  height: 130px;
+  background-color: $color-dark-grey;
+  margin-top: 0px;
+  padding-left: 15px;
+  padding-right: 15px;
+  position: static;
+  left: 50px;
+  bottom: 0
+}
+
+.footer-name {
+  display: inline;
+  font-size: 16px;
+  margin: 0;
+  align-self: flex-end;
+}
+
+.icon-gh {
+  display: inline;
+  color: white;
+  font-size: 20px;
+  margin: 3px;
+}
+
+.branding {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.contacts {
+  @media screen and (max-width: 800px) {
+    width: 300px;
+  }
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+}
+
+#mm-logo-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+#mm-name {
+  font-family: 'Aleo', serif;
+}

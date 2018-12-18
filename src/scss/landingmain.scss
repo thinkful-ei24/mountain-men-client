@@ -4,13 +4,19 @@
  @import 'variables';
 
 #landing-section {
+  @media screen and (max-width: 800px) {
+    height: 1200px;
+  }
   display: flex;
+  justify-content: space-evenly;
   flex-direction: column;
-  align-content: space-between;
+  align-content: center;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 150px;
   color: white;
+  height: 850px;
 }
 
 .btn {
@@ -23,7 +29,7 @@
 #need-truck-container {
   @media only screen and (max-width: 800px) {
     flex-direction: column;
-    width: 400px;
+    width: 300px;
     margin-left: auto;
     margin-right: auto;
     align-items: center
@@ -33,8 +39,8 @@
   align-items: space-between;
   width: 100%;
   height: 400px;
-  margin-left: auto;
-  margin-right: auto;
+  // margin-left: auto;
+  // margin-right: auto;
 }
 
 #need-truck-img {
@@ -67,20 +73,17 @@
 
 #need-truck-card {
   @media only screen and (max-width: 800px) {
-    min-width: 350px;
-    margin-left: 0;
-    margin-right: 0;
+    margin: 20px auto;
   }
   display: flex;
   flex-direction: column;
   align-content: space-between;
   align-items: center;
   background-color: #444a59;
-  width: 450px;
+  max-width: 450px;
   min-height: 250px;
   padding: 50px;
   margin-top: 20px;
-  /* margin-left: 250px; */
   margin-left: 10px;
   margin-right: auto;
   margin-bottom: 20px;
@@ -96,6 +99,7 @@
   @media only screen and (max-width: 800px) {
     flex-direction: column;
     width: 400px;
+    margin-top: 275px;
     margin-left: auto;
     margin-right: auto;
     align-items: center
@@ -107,6 +111,7 @@
   height: 400px;
   margin-left: auto;
   margin-right: auto;
+
 }
 
 #have-truck-img {
@@ -137,16 +142,14 @@
 
 #have-truck-card {
   @media only screen and (max-width: 800px) {
-    min-width: 350px;
-    margin-left: 0;
-    margin-right: 0;
+    margin: 20px auto;
   }
   display: flex;
   flex-direction: column;
   align-content: space-between;
   align-items: center;
   background-color: #444a59;
-  width: 450px;
+  max-width: 450px;
   min-height: 250px;
   padding: 50px;
   margin-top: 20px;
