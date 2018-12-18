@@ -45,6 +45,12 @@ export default class DriverAcceptedBids extends React.Component {
       return item.accepted;
     });
 
+    if (driverBids.length === 0) {
+      driverBids = (
+        <li>Nothing here yet. Click on Find Work above to find and bid on jobs.</li>
+      )
+    }
+
     driverBids = driverBids.map((bid, index) => {
       return (
         <DriverBidCard bid={bid} key={index} dispatch={this.props.dispatch} position={index} />
