@@ -1,8 +1,9 @@
-# Truck'd <img src='./src/logo.png' style='height: 50px; margin-left:10px;'>
+# Truck'd <img src='./src/logo.png' style='height: 10px; margin-left:10px;'>
 
 ### Description
 
 Truck'd is a service for connecting people who need to move with people who own a truck.
+https://mountain-men-truckd.herokuapp.com/
 
 ### v1 Features
 
