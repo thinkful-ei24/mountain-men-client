@@ -22,6 +22,7 @@ export class DriverBidCard extends React.Component {
       expanded: !this.state.expanded
     });
   }
+
   render() {
     let bid = this.props.bid;
     let user = this.props.jobPoster.user.users[this.props.position];
@@ -36,11 +37,11 @@ export class DriverBidCard extends React.Component {
         <p id='card-desc'>{bid.bidAmount}</p>
         <p className='card-label'>Your Description: </p>
         <p id='card-desc'>{bid.bidDescription}</p>
-        {bid.accepted && !bid.completed && (
+        {bid.accepted && !bid.completed && user && (
           <p>
-            {bid.jobPoster} accepted your bid. You can contact them
-            at <span id ='bold-text'>{bid.jobPosterEmail}</span> or{" "}
-            <span id ='bold-text'>{bid.jobPosterPhoneNumber}</span>.
+            {user.firstName} accepted your bid. You can contact them
+            at <span id ='bold-text'>{user.email}</span> or{" "}
+            <span id ='bold-text'>{user.phoneNumber}</span>.
           </p>
         )}
       </li>
