@@ -8,7 +8,14 @@ require('../css/profileupdateform.css')
 
 export class ProfileUpdateForm extends React.Component {
   onSubmit(values) {
-    const { email, firstName, lastName, phoneNumber, street, city, state, zip, type } = values;
+    const {
+      email,
+      firstName,
+      lastName,
+      phoneNumber,
+      type,
+      address: { street, city, state, zip }
+    } = values;
     values.authToken = this.props.authToken;
     const user = {
       email,
@@ -22,7 +29,7 @@ export class ProfileUpdateForm extends React.Component {
       type
     };
     this.props.dispatch(updateView("default"));
-
+    console.log(user);
     return this.props.dispatch(updateProfile(user));
   }
 
@@ -66,28 +73,28 @@ export class ProfileUpdateForm extends React.Component {
           />
           <label>Street</label>
           <Field
-            name="street"
+            name="address.street"
             component="input"
             type="text"
             placeholder="ex. 123 Main St"
           />
           <label>City</label>
           <Field
-            name="city"
+            name="address.city"
             component="input"
             type="text"
             placeholder="ex. Littleton"
           />
           <label>State</label>
           <Field
-            name="state"
+            name="address.state"
             component="input"
             type="text"
             placeholder="ex. CO"
           />
           <label>Zip</label>
           <Field
-            name="zip"
+            name="address.zip"
             component="input"
             type="text"
             placeholder="ex. 80120"
@@ -105,6 +112,7 @@ export class ProfileUpdateForm extends React.Component {
         <button
           onClick={() => {
             this.props.dispatch(updateView("default"));
+            console.log(this.props.initialValues);
           }}
         >
           Cancel

@@ -3,14 +3,13 @@ import { connect } from "react-redux";
 import { updateView } from "../actions/view";
 import ProfileUpdateForm from "../components/ProfileUpdateForm";
 import ProfileInfo from "../components/ProfileInfo";
-require('../css/profile.css');
+require("../css/profile.css");
 
 export function Profile(props) {
-  // if props.view === whatever render form
   if (props.view === "default") {
     return (
-      <section id='profile-section'>
-        <h1 id='page-title'>Profile</h1>
+      <section id="profile-section">
+        <h1 id="page-title">Profile</h1>
         <ProfileInfo />
         <button
           onClick={() => {
@@ -34,7 +33,8 @@ export function Profile(props) {
 const mapStateToProps = state => {
   return {
     view: state.view.view,
-    loggedIn: state.auth.currentUser !== null
+    loggedIn: state.auth.currentUser !== null,
+    currentUser: state.auth.currentUser
   };
 };
 
