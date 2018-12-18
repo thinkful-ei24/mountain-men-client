@@ -47,7 +47,6 @@ const updateProfile = user => (dispatch, getState) => {
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
     .then(res => {
-      console.log(res);
       dispatch(loadUpdatedProfile(res));
     })
 

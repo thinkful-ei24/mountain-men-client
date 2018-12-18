@@ -13,7 +13,6 @@ export class PostJob extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div id="register-form">
         <form

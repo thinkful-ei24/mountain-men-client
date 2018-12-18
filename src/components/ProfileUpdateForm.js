@@ -3,14 +3,9 @@ import { connect } from "react-redux";
 import { reduxForm, Field } from "redux-form";
 import updateProfile from "../actions/updateProfile";
 import { updateView } from "../actions/view";
-import styled from "styled-components";
+require('../css/profileupdateform.css')
 
-const ButtonGreen = styled.button`
-  background-color: #3dc182;
-  color: white;
-  margin-top: 15px;
-  font-size: 18px;
-`;
+
 export class ProfileUpdateForm extends React.Component {
   onSubmit(values) {
     const {
@@ -45,7 +40,7 @@ export class ProfileUpdateForm extends React.Component {
           return this.onSubmit(values);
         })}
       >
-        <div>
+        <div id='update-form-container'>
           <label>First Name</label>
           <Field
             name="firstName"
@@ -53,8 +48,6 @@ export class ProfileUpdateForm extends React.Component {
             type="text"
             value="string"
           />
-        </div>
-        <div>
           <label>Last Name</label>
           <Field
             name="lastName"
@@ -62,8 +55,6 @@ export class ProfileUpdateForm extends React.Component {
             type="text"
             placeholder="Doe"
           />
-        </div>
-        <div>
           <label>Email</label>
           <Field
             name="email"
@@ -72,8 +63,6 @@ export class ProfileUpdateForm extends React.Component {
             placeholder="JohnDoe@email.com"
             required="true"
           />
-        </div>
-        <div>
           <label>Phone</label>
           <Field
             name="phoneNumber"
@@ -82,8 +71,6 @@ export class ProfileUpdateForm extends React.Component {
             placeholder="ex. 303-303-3030"
             required="true"
           />
-        </div>
-        <div>
           <label>Street</label>
           <Field
             name="address.street"
@@ -91,8 +78,6 @@ export class ProfileUpdateForm extends React.Component {
             type="text"
             placeholder="ex. 123 Main St"
           />
-        </div>
-        <div>
           <label>City</label>
           <Field
             name="address.city"
@@ -100,8 +85,6 @@ export class ProfileUpdateForm extends React.Component {
             type="text"
             placeholder="ex. Littleton"
           />
-        </div>
-        <div>
           <label>State</label>
           <Field
             name="address.state"
@@ -109,8 +92,6 @@ export class ProfileUpdateForm extends React.Component {
             type="text"
             placeholder="ex. CO"
           />
-        </div>
-        <div>
           <label>Zip</label>
           <Field
             name="address.zip"
@@ -118,7 +99,6 @@ export class ProfileUpdateForm extends React.Component {
             type="text"
             placeholder="ex. 80120"
           />
-        </div>
         <div id="radio-selector">
           <label id="radio-user" className="fas fa-users">
             User
@@ -137,7 +117,8 @@ export class ProfileUpdateForm extends React.Component {
         >
           Cancel
         </button>
-        <ButtonGreen disabled={this.props.pristine}>Update</ButtonGreen>
+        <button disabled={this.props.pristine}>Update</button>
+        </div>
       </form>
     );
   }

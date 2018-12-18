@@ -112,8 +112,9 @@ export const registerUser = user => dispatch => {
       zip: user.zip
     },
     type: user.type
+
   };
-  console.log(reqBody);
+
   return fetch(`${API_BASE_URL}/register`, {
     method: "POST",
     headers: {

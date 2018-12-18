@@ -19,7 +19,7 @@ export default class DriverCompletedBids extends React.Component {
     let driverBids = this.props.props.bids.bids.filter(item => {
       return item.userId === this.props.props.auth.currentUser.id;
     });
-    
+
     driverBids.forEach(item => {
         this.props.props.jobs.jobs.forEach(job => {
           if (job.id === item.jobId && job.completed && job.acceptedUserId === item.userId) {
@@ -40,10 +40,11 @@ export default class DriverCompletedBids extends React.Component {
     driverBids = driverBids.map((bid, index) => {
       return <DriverBidCard bid={bid} key={index} dispatch={this.props.dispatch} />;
     });
-    console.log(driverBids);
     return (
-      <section>
-        <ul>{driverBids}</ul>
+      <section style={{display: 'flex', justifyContent: 'center'}}>
+        <ul style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', width: '800px'}}>
+          {driverBids}
+        </ul>
       </section>
     );
   }

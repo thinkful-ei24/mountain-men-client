@@ -17,7 +17,6 @@ import {
         error: null
       })
     } else if (action.type === GET_ALL_BIDS_SUCCESS) {
-        console.log(action);
       return Object.assign({}, state, {
         bids: action.bids,
         loading: false

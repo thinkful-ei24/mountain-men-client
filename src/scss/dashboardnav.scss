@@ -9,6 +9,18 @@
   text-align: center;
   justify-content: center;
   align-items: center;
+
+    position: relative;
+    z-index: 2;
+    margin-top: -1px;
+
+    background-color: $color-dark-grey;
+    border: black;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+
+    box-shadow: 2.5px 2.5px 3px black;
+
 }
 
 button {

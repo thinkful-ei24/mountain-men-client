@@ -23,7 +23,7 @@ export function Profile(props) {
   }
   if (props.view === "showForm") {
     return (
-      <section>
+      <section id='profile-section'>
         <ProfileUpdateForm />
       </section>
     );

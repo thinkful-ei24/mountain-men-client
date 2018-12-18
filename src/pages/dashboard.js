@@ -4,13 +4,12 @@ import Profile from "../components/userProfileComponent";
 import { Redirect } from "react-router-dom";
 import Job from "../components/DriverBid";
 import { getAllJobs, getAllBids } from "../actions/jobs";
-import {getMapCenter, getMarkerCenter} from '../actions/maps.js';
+import {getMapCenter } from '../actions/maps.js';
 import MapContainer from '../components/MapContainer.js';
 import DriverReviewBids from "../components/DriverBidReview.js";
 import DriverAcceptedBids from '../components/DriverAcceptedBids'
 import DriverCompletedBids from '../components/DriverCompletedBids';
 import DashboardNav from "../components/DashboardNav";
-import Geocode from 'react-geocode';
 
 export class Dashboard extends React.Component {
 
@@ -27,10 +26,10 @@ export class Dashboard extends React.Component {
     // need to dispatch to get jobs
     const getJobs = job => {
       const jobs = this.props.driverJobs.jobs.jobs.map((job, index) => {
-        console.log(job)
         return (
           <Job
             key={index}
+            accepted={job.accepted}
             name={job.title}
             title={job.title}
             desc={job.description}
@@ -58,7 +57,7 @@ export class Dashboard extends React.Component {
           return <DriverReviewBids props={props.driverJobs} dispatch={props.dispatch}/>;
         }
         if (props.view ==="pastJobs") {
-          return <DriverAcceptedBids props={props.driverJobs} dispatch={props.dispatch} />;
+          return <DriverAcceptedBids  props={props.driverJobs} dispatch={props.dispatch} />;
         }
         if (props.view ==="completedJobs") {
           return <DriverCompletedBids props={props.driverJobs} dispatch={props.dispatch} />;

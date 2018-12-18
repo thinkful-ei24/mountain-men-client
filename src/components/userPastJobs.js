@@ -11,14 +11,15 @@ export class pastJobs extends React.Component {
 
   render() {
 
-    let listOfJobs = [];
-    listOfJobs = this.props.jobs.map((job, index) => {
-      if (job.completed) {
+    let listOfJobs = this.props.jobs.filter(item => {
+      return item.completed;
+    });
+
+    listOfJobs = listOfJobs.map((job, index) => {
         const bids = this.props.bids.bids.filter(item => {
           return item.jobId === job.id;
         });
         return <UserJobCard job={job} key={index} bids={bids} />;
-      }
     });
 
     if (listOfJobs.length === 0) {

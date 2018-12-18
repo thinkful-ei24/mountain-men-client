@@ -7,6 +7,8 @@
   color: white;
   background-color: $color-light-grey;
   border-radius: $border-rad-base;
+  margin-left: 25px;
+  margin-right: 25px;
 }
 
 #bid-count {
@@ -34,14 +36,14 @@
   border-radius: $border-rad-base;
 
   &.expanded {
-    height: 215px;
+    height: 315px;
   }
 }
 
 #date {
   font-weight: $font-weight-reg;
   color: white;
-  margin: 5px;
+  margin: 0;
 }
 
 #desc {
@@ -49,6 +51,9 @@
   font-weight: $font-weight-light;
   background-color: $color-light-grey;
   border-radius: $border-rad-base;
+  margin: 0;
+  margin-left: 25px;
+  margin-right: 25px;
 }
 
 #job-title {
@@ -70,6 +75,7 @@
 }
 
 #accept-btn {
+  position: relative;
   background-color: $color-green;
 }
 

@@ -3,7 +3,6 @@ import {
   FETCH_COORDINATES_SUCCESS,
   FETCH_COORDINATES_ERROR
 } from '../actions/maps.js';
-import Geocode from "react-geocode";
 
 
 const initialState = {

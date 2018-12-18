@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { makeJobCompleted, makeJobAccepted } from "../actions/jobs.js";
-import { bidsReducer } from "../reducers/bidsReducer.js";
 import { getUser } from '../actions/getUser';
 require('../css/userjobcard.css');
 
@@ -55,7 +54,6 @@ export class UserJobCard extends React.Component {
     let winningDriver = this.props.winningDriver.user.users.filter(item => {
       return item.id === job.acceptedUserId;
     });
-    console.log(this.props, winningDriver);
     return (
       <li id='card' className={this.state.expanded ? 'expanded' : null}
         onClick={() => this.showHide()}>
@@ -71,15 +69,15 @@ export class UserJobCard extends React.Component {
               <React.Fragment>
 
                 <p id='bids-amount'>This job has received <span id='bid-count'> {this.props.bids.length}</span> bids.</p>
-                <p >Your budget for this job is <span id='budget'>${this.props.job.budget}</span></p>
+                <p>Your budget for this job is <span id='budget'>${this.props.job.budget}</span></p>
                 {this.showBids(job)}
               </React.Fragment>
             )}
             {!job.completed && job.accepted && (
               <React.Fragment>
-                <p id='winning-bid'>{winningDriver[0].firstName} made {this.props.bids.length} bids.</p>
+                <p id='winning-bid'>{winningDriver[this.props.position].firstName} made {this.props.bids.length} bids.</p>
                 {this.showBids(job)}
-                <p id='contact'>Contact your driver at {winningDriver[0].phoneNumber} or {winningDriver[0].email}.</p>
+                <p id='contact'>Contact your driver at <span id='bold-text'>{winningDriver[this.props.position].phoneNumber}</span> or <span id='bold-text'>{winningDriver[this.props.position].email}</span>.</p>
               </React.Fragment>
             )}
 
