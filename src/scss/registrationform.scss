@@ -10,17 +10,25 @@
 }
 
 #register-form-container {
+  @media screen and (max-width: 600px) {
+    margin-top: 60vh;
+  }
+
+  display: flex;
+  justify-content: center;
+  align-self: center;
   padding: 25px;
   background-color: $color-light-grey;
-  position: absolute;
   width: 375px;
-  height: 775px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  height: 930px;
   zoom: .9;
   box-shadow: $box-shadow-thick;
-  @include border-radius(10px)
+  @include border-radius(10px);
+  position: relative;
+  margin-top: 20vh;
+  padding-top: -55vh;
+  margin-bottom: 50px;
+  z-index: 50;
 }
 
 input{

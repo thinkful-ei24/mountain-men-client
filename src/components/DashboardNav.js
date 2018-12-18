@@ -8,24 +8,24 @@ export function DashboardNav(props) {
     return (
       <ul className='nav-container'>
         <li>
-          <button onClick={() => {
+          <h1 className='nav-link' onClick={() => {
             props.dispatch(updateView('postJob'));
-          }}>Create Post</button>
+          }}>Create Post</h1>
         </li>
         <li>
-          <button onClick={() => {
+          <h1 className='nav-link' onClick={() => {
             props.dispatch(updateView('default'))
-          }}>Active Posts</button>
+          }}>Active Posts</h1>
         </li>
         <li>
-          <button onClick={() => {
+          <h1 className='nav-link' onClick={() => {
             props.dispatch(updateView('acceptedJobs'));
-          }}>Accepted Jobs</button>
+          }}>Accepted Jobs</h1>
         </li>
         <li>
-          <button onClick={() => {
+          <h1 className='nav-link' onClick={() => {
             props.dispatch(updateView('pastJobs'));
-          }}>Completed Jobs</button>
+          }}>Completed Jobs</h1>
         </li>
       </ul>
     );
@@ -33,31 +33,31 @@ export function DashboardNav(props) {
     return (
       <div className='nav-container'>
         <li>
-          <button
+          <h1 className='nav-link'
             onClick={() => {
               props.dispatch(updateView('default'));
-            }}>Need A Truck></button>
+            }}>Need A Truck</h1>
         </li>
         <li>
-          <button
+          <h1 className='nav-link'
             onClick={() => {
               props.dispatch(updateView('currentJobs'));
-          }}>Active Posts</button>
+          }}>Active Posts</h1>
         </li>
         <li>
-          <button
+          <h1 className='nav-link'
             onClick={() => {
               props.dispatch(updateView('pastJobs'));
-          }}>Transactions</button>
+          }}>Transactions</h1>
         </li>
         <li>
-          <button
+          <h1 className='nav-link'
             onClick={() => {
               props.dispatch(updateView("completedJobs"));
             }}
           >
             Completed Jobs
-          </button>
+          </h1>
         </li>
       </div>
     );

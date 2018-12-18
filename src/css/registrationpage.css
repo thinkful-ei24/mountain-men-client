@@ -19,6 +19,8 @@
 /* Mixins */
 /*     */
 #registration-container {
+  display: flex;
+  justify-content: center;
   position: fixed;
   margin: 0;
   top: 0;
