@@ -7,7 +7,7 @@ require('../css/DriverBid.css');
 
 var moment = require('moment');
 
-function JobComponent(props) {
+export function JobComponent(props) {
   return (
     <div id='job-card'>
       <span id='user-name'>{props.name}</span>
