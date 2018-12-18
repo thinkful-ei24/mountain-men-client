@@ -71,6 +71,11 @@
   color: white;
   font-size: 36px;
 }
+@media screen and (max-width: 600px) {
+  #title {
+    font-size: 28px;
+  }
+}
 
 .sign-up {
   margin-left: auto;
