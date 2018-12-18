@@ -18,11 +18,8 @@ export class ProfileUpdateForm extends React.Component {
       firstName,
       lastName,
       phoneNumber,
-      street,
-      city,
-      state,
-      zip,
-      type
+      type,
+      address: { street, city, state, zip }
     } = values;
     values.authToken = this.props.authToken;
     const user = {
@@ -37,6 +34,7 @@ export class ProfileUpdateForm extends React.Component {
       type
     };
     this.props.dispatch(updateView("default"));
+    console.log(user);
     return this.props.dispatch(updateProfile(user));
   }
 

@@ -21,6 +21,7 @@ const updateProfile = user => (dispatch, getState) => {
     zip,
     type
   } = user;
+
   const authToken = getState().auth.authToken;
   const userId = getState().auth.currentUser.id;
   return fetch(`${API_BASE_URL}/api/profile/${userId}`, {
@@ -35,10 +36,10 @@ const updateProfile = user => (dispatch, getState) => {
       lastName,
       phoneNumber,
       address: {
-        street,
-        city,
-        state,
-        zip
+        street: street,
+        city: city,
+        state: state,
+        zip: zip
       },
       type
     })
