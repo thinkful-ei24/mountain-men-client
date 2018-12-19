@@ -47,7 +47,6 @@ export function LandingMain(props) {
           </div>
         </div>
       </section>
-      <Footer />
       </div>
     );
   }

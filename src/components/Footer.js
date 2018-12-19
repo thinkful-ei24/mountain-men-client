@@ -32,12 +32,12 @@ export default function Footer() {
             <i className="icon-gh fab fa-github"></i>
           </a>
           <a target="_blank" rel="noopener noreferrer"
-            href="https://www.linkedin.com/in/aaron-whitehead-a2a94785/">
+            href="https://www.linkedin.com/in/alexgutes/">
             <i className="icon-gh fab fa-linkedin"></i>
           </a>
           <a target="_blank" rel="noopener noreferrer"
-            href="https://github.com/WhiteheadAaron">
-            <i className="icon-gh fas fa-at"></i>
+            href="https://alexgut.es">
+            <i className="icon-gh fab fa-earlybirds"></i>
           </a>
         </p>
         <p className="footer-name">

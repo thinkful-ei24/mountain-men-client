@@ -68,7 +68,6 @@ export class Dashboard extends React.Component {
           return (
             <main>
               <MapContainer jobs={jobs}/>
-              <Footer />
             </main>
           );
         }
@@ -84,7 +83,6 @@ export class Dashboard extends React.Component {
 
             {renderDriverPage(this.props)}
           </div>
-          <Footer />
         </div>
       );
     }

@@ -24,7 +24,7 @@ html {
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: 0px;
 }
 
 body {
@@ -44,8 +44,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: white;
-  position: relative;
-  bottom: 0;
 }
 
 h1 {
@@ -100,7 +98,9 @@ input[type=radio] {
 
 input:active,
 input:focus {
-  box-shadow: 0 0 3pt 2pt #04CDFF;
+  outline: none;
+  border: none;
+  box-shadow: 0 0 5pt 5pt #04CDFF;
 }
 
 button {
@@ -122,6 +122,17 @@ button:disabled {
   background: #52596b;
   color: #444a59;
   cursor: not-allowed;
+}
+
+button:active,
+button:focus {
+  outline: none;
+  border: none;
+  box-shadow: 0 0 5px 5px #04CDFF;
+}
+
+button.gm-ui-hover-effect {
+  width: 10px;
 }
 
 /*# sourceMappingURL=main.css.map */

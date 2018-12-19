@@ -29,8 +29,8 @@
   flex-direction: column;
   justify-content: space-evenly;
   padding: 25px;
-  background-color: #364d87;
-  position: absolute;
+  background-color: #52596b;
+  zoom: 0.8;
   margin: 50px;
   box-shadow: 3px 3px 10px 1px black;
   border-radius: 10px;

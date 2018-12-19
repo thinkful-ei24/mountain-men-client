@@ -1,11 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Redirect } from 'react-router-dom';
 import { updateView } from "../actions/view";
 import ProfileUpdateForm from "../components/ProfileUpdateForm";
 import ProfileInfo from "../components/ProfileInfo";
 require("../css/profile.css");
 
 export function Profile(props) {
+  if (props.currentUser === null) {
+    return <Redirect to="/" />;
+  }
   if (props.view === "default") {
     return (
       <section id="profile-section">

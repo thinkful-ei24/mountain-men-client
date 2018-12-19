@@ -82,7 +82,9 @@ input[type='radio'] {
 
 input:active,
 input:focus {
-  box-shadow: 0 0 3pt 2pt #04CDFF;
+  outline: none;
+  border: none;
+  box-shadow: 0 0 5pt 5pt #04CDFF;
 }
 
 button {
@@ -105,4 +107,15 @@ button:disabled {
   background: $color-light-grey;
   color: $color-dark-grey;
   cursor: not-allowed;
+}
+
+button:active,
+button:focus {
+  outline: none;
+  border: none;
+  box-shadow: 0 0 5px 5px #04CDFF;
+}
+
+button.gm-ui-hover-effect {
+  width: 10px;
 }
