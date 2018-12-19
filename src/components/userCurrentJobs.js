@@ -6,8 +6,8 @@ import { getUserJobs, getAllBids } from "../actions/jobs";
 export class CurrentJobs extends React.Component {
   componentDidMount() {
     //gets all jobs related to a given user
-    this.props.dispatch(getUserJobs());
     this.props.dispatch(getAllBids());
+    this.props.dispatch(getUserJobs());
   }
 
   render() {
@@ -28,7 +28,7 @@ export class CurrentJobs extends React.Component {
     if (listOfJobs.length === 0) {
       listOfJobs = (
         <li>
-          Nothing to see here. To make a post, click on 'Need A Truck' above and
+          Nothing to see here. To make a post, click on 'Create Post' above and
           submit a job.
         </li>
       );

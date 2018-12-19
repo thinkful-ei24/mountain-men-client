@@ -8,6 +8,10 @@ require('../css/DriverBid.css');
 var moment = require('moment');
 
 export function JobComponent(props) {
+
+  let date = new Date(props.date);
+  date.setHours(25);
+
   return (
     <div id='job-card'>
       <span id='user-name'>{props.name}</span>
@@ -15,16 +19,14 @@ export function JobComponent(props) {
         {props.desc}
       </p>
       <p id='job-date'>
-        {moment(props.date).format('LLLL')}
+        {moment(date).format('MMM Do YYYY')}
+      </p>
+      <p id='job-budget'>
+        This poster has a budget of ${props.budget}
       </p>
       {/* <p id='job-bids'>
       There have been {bidsObject.bids.length} bids made.
       </p> */}
-      <img
-        id="job-image"
-        src="https://images.uline.com/is/image/content/dam/images/Class-Group/c04/g009/guidednav.jpg?$BrowseRHD$&iccEmbed=1&icc=AdobeRGB"
-        alt="post pic"
-      />
       <form
         onSubmit={props.handleSubmit(values => {
           props.dispatch(makeBid(props.id, values));

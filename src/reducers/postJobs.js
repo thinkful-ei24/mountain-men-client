@@ -4,7 +4,7 @@ const initialState = {
   userJobs: []
 };
 
-export const jobsReducer = (state = initialState, action) => {
+export const postJobsReducer = (state = initialState, action) => {
   if (action.type === postJobs) {
     return Object.assign({}, state, {
       userJobs: [...state.userJobs, action.jobs]
