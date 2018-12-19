@@ -28,8 +28,9 @@
   margin-top: 0px;
   padding-left: 15px;
   padding-right: 15px;
-  position: static;
-  left: 50px;
+  position: absolute;
+  left: 0px;
+  right: 0px;
   bottom: 0;
 }
 @media screen and (max-width: 800px) {
