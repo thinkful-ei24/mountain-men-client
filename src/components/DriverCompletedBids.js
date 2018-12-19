@@ -11,6 +11,8 @@ export default class DriverCompletedBids extends React.Component {
   }
 
   componentDidMount() {
+    this.props.props.bids.bids = [];
+    this.props.props.jobs.jobs = [];
     this.props.dispatch(getAllJobs());
     this.props.dispatch(getAllBids());
   }
@@ -40,6 +42,13 @@ export default class DriverCompletedBids extends React.Component {
     driverBids = driverBids.map((bid, index) => {
       return <DriverBidCard bid={bid} key={index} dispatch={this.props.dispatch} />;
     });
+
+    if (driverBids.length === 0) {
+      driverBids = (
+        <li>Nothing here yet. Click on Find Work above to find a bid on jobs.</li>
+      )
+    }
+
     return (
       <section style={{display: 'flex', justifyContent: 'center'}}>
         <ul style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', width: '800px'}}>

@@ -3,7 +3,7 @@ import { reduxForm, Field } from "redux-form";
 import { connect } from "react-redux";
 import { registerUser } from "../actions/auth.js";
 import {required, nonEmpty, matches, length, isTrimmed} from '../validators.js';
-const passwordLength = length({min: 9, max: 72});
+const passwordLength = length({min: 6, max: 72});
 const matchesPassword = matches('password');
 require('../css/registrationform.css');
 
@@ -34,9 +34,7 @@ export class RegisterForm extends React.Component {
         <div id='register-form-container'>
           <form
             className="register-form"
-            onSubmit={this.props.handleSubmit(values => {
-              return this.onSubmit(values);
-            })}
+            onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}
           >
             <div>
               <label>First Name</label>
