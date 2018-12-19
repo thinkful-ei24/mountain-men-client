@@ -38,7 +38,7 @@ export function DashboardNav(props) {
           <h1 className='nav-link'
             onClick={() => {
               props.dispatch(updateView('default'));
-            }}>Need A Truck</h1>
+            }}>Find a Job</h1>
         </li>
         <li>
           <h1 className='nav-link'

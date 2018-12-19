@@ -8,6 +8,7 @@ import {jobsReducer} from './reducers/jobs.js';
 import {bidsReducer} from './reducers/bidsReducer';
 import {viewReducer} from './reducers/viewReducer';
 import {userReducer} from './reducers/getUserReducer';
+import {postJobsReducer} from './reducers/postJobs';
 import { loadAuthToken } from "./local-storage";
 import { setAuthToken, refreshAuthToken } from "./actions/auth";
 
@@ -23,7 +24,8 @@ const store = createStore(
     view: viewReducer,
     bids: bidsReducer,
     user: userReducer,
-    map: mapReducer
+    map: mapReducer,
+    postJobs: postJobsReducer
   }),
   composeEnhancers(applyMiddleware(thunk))
 );

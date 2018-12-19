@@ -26,7 +26,7 @@ export class AcceptedJobs extends React.Component {
     if (listOfJobs.length === 0) {
       listOfJobs = (
         <li>
-          Nothing here yet. To make a post, click on 'Need A Truck' above and
+          Nothing here yet. To make a post, click on 'Create Post' above and
           submit a job.
         </li>
       );
