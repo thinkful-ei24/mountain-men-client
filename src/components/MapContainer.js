@@ -1,9 +1,12 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { Map, GoogleApiWrapper, Marker, InfoWindow } from "google-maps-react";
-import { connect } from "react-redux";
-import Job from "../components/DriverBid.js";
-import Geocode from "react-geocode";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {Map, GoogleApiWrapper, Marker, InfoWindow} from 'google-maps-react';
+import {connect} from 'react-redux';
+import {getAllBids} from '../actions/jobs.js';
+import Job from '../components/DriverBid.js';
+import Geocode from 'react-geocode';
+import '../scss/infoWindow.scss';
+
 
 Geocode.setApiKey("AIzaSyDrIU9xfNYMyLfY1hZ9sn4kHL_U86NRNOY");
 
@@ -18,6 +21,11 @@ export class MapContainer extends React.Component {
     };
     this.onMarkerClick = this.onMarkerClick.bind(this);
     this.windowHasClosed = this.windowHasClosed.bind(this);
+
+  }
+
+  componentDidMount() {
+    this.props.dispatch(getAllBids());
   }
 
   onMarkerClick(props, marker, e) {
@@ -40,28 +48,33 @@ export class MapContainer extends React.Component {
   //in order to have functionality inside of the InfoWindow
   onInfoWindowOpen(props, e) {
 
+    let bidCount = this.props.bids.filter(bid => {
+      return bid.jobId === this.state.activeMarker.id
+    })
+
     const info = (
-      <div>
+      <div className="info">
         <h2>{this.state.activeMarker.name}</h2>
         <p>{this.state.activeMarker.description}</p>
-        <p>{this.state.activeMarker.id}</p>
-        <p>bids: </p>
+        <p>bids: {bidCount.length}</p>
         <button
-          onClick={e =>
+          className="bid-button"
+          onClick={e => {
+            this.windowHasClosed();
             this.setState({
               currentJob: this.props.jobs.find(job => {
-                return job.props.id === this.state.activeMarker.id;
-              })
+                return job.props.id === this.state.activeMarker.id
             })
-          }
-        >
-          Bid
-        </button>
-      </div>
+          })
+        }}
+        >bid
+      </button>
+    </div>
     );
     ReactDOM.render(
       React.Children.only(info),
       document.getElementById("info-window")
+
     );
   }
 
@@ -70,9 +83,10 @@ export class MapContainer extends React.Component {
       return <div>loading...</div>;
     } else if (this.props.center !== {}) {
       const style = {
-        width: "70%",
-        height: "100vh"
-      };
+        width: '100%',
+        height: '70vh'
+      }
+
 
       const jobs = this.props.jobs.filter(job => {
         return !job.props.accepted && !job.props.completed;
@@ -94,20 +108,33 @@ export class MapContainer extends React.Component {
       });
 
       return (
-        <main>
-          <div style={style}>
-            {this.props.center !== {} && (
-              <Map
-                google={this.props.google}
-                style={style}
-                zoom={12}
-                initialCenter={this.props.center}
-              >
-                {/*<Marker
+
+        <Marker
           onClick={this.onMarkerClick}
-          name={'current location'}
+          key={index}
+          name={job.props.title}
+          title={job.props.title}
+          description={job.props.description}
+          image={job.props.image}
+          id={job.props.id}
+          date={job.props.date}
+          position={job.props.coordinates}
         >
-      </Marker>*/}
+        </Marker>
+      )
+    })
+
+    return (
+      <main>
+      <div style={style}>
+        {this.props.center !== {} &&
+          <Map
+          google={this.props.google}
+          style={style}
+          zoom={12}
+          initialCenter={this.props.center}
+      >
+
                 {markers}
                 <InfoWindow
                   marker={this.state.activeMarker}
@@ -143,8 +170,11 @@ export class MapContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  center: state.auth.currentUser.coords
-});
+
+  center: state.auth.currentUser.coords,
+  bids: state.bids.bids
+})
+
 
 export default connect(mapStateToProps)(
   GoogleApiWrapper({
