@@ -2,8 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Map, GoogleApiWrapper, Marker, InfoWindow} from 'google-maps-react';
 import {connect} from 'react-redux';
+import {getAllBids} from '../actions/jobs.js';
 import Job from '../components/DriverBid.js';
 import Geocode from 'react-geocode';
+import '../scss/infoWindow.scss';
 
 Geocode.setApiKey('AIzaSyDrIU9xfNYMyLfY1hZ9sn4kHL_U86NRNOY')
 
@@ -14,10 +16,14 @@ export class MapContainer extends React.Component {
       showingInfoWindow: false,
       activeMarker: {},
       selectedPlace: {},
-      currentJob: {}
+      currentJob: {},
     }
     this.onMarkerClick = this.onMarkerClick.bind(this)
     this.windowHasClosed = this.windowHasClosed.bind(this)
+  }
+
+  componentDidMount() {
+    this.props.dispatch(getAllBids());
   }
 
   onMarkerClick(props, marker, e) {
@@ -39,18 +45,24 @@ export class MapContainer extends React.Component {
   //all html elements that require a callback function must be written here
   //in order to have functionality inside of the InfoWindow
   onInfoWindowOpen(props, e) {
+    let bidCount = this.props.bids.filter(bid => {
+      return bid.jobId === this.state.activeMarker.id
+    })
     const info = (
-      <div>
+      <div className="info">
         <h2>{this.state.activeMarker.name}</h2>
         <p>{this.state.activeMarker.description}</p>
-        <p>{this.state.activeMarker.id}</p>
-        <p>bids: </p>
+        <p>bids: {bidCount.length}</p>
         <button
-          onClick={e => this.setState({
-            currentJob: this.props.jobs.find(job => {
-              return job.props.id === this.state.activeMarker.id
+          className="bid-button"
+          onClick={e => {
+            this.windowHasClosed();
+            this.setState({
+              currentJob: this.props.jobs.find(job => {
+                return job.props.id === this.state.activeMarker.id
             })
-          })}
+          })
+        }}
         >bid
       </button>
     </div>
@@ -63,8 +75,8 @@ export class MapContainer extends React.Component {
       return <div>loading...</div>
     } else if (this.props.center !== {}) {
       const style = {
-        width: '70%',
-        height: '100vh'
+        width: '100%',
+        height: '70vh'
       }
 
 
@@ -78,7 +90,7 @@ export class MapContainer extends React.Component {
           key={index}
           name={job.props.title}
           title={job.props.title}
-          desc={job.props.description}
+          description={job.props.description}
           image={job.props.image}
           id={job.props.id}
           date={job.props.date}
@@ -134,7 +146,8 @@ export class MapContainer extends React.Component {
   }
 
 const mapStateToProps = state => ({
-  center: state.auth.currentUser.coords
+  center: state.auth.currentUser.coords,
+  bids: state.bids.bids
 })
 
 export default connect(mapStateToProps)(GoogleApiWrapper({
