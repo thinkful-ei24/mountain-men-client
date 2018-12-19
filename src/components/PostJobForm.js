@@ -9,7 +9,7 @@ export class PostJob extends React.Component {
     values.id = this.props.currentUser.id;
     values.authToken = this.props.authToken;
     this.props.dispatch(postJobs(values));
-    this.props.dispatch(updateView("acceptedJobs"));
+    this.props.dispatch(updateView("postSuccess"));
   }
 
   render() {

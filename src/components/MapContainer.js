@@ -39,7 +39,7 @@ export class MapContainer extends React.Component {
   //all html elements that require a callback function must be written here
   //in order to have functionality inside of the InfoWindow
   onInfoWindowOpen(props, e) {
-    console.log(this.state);
+
     const info = (
       <div>
         <h2>{this.state.activeMarker.name}</h2>
@@ -66,7 +66,6 @@ export class MapContainer extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     if (!this.props.loaded) {
       return <div>loading...</div>;
     } else if (this.props.center !== {}) {
@@ -76,7 +75,7 @@ export class MapContainer extends React.Component {
       };
 
       const jobs = this.props.jobs.filter(job => {
-        return !job.props.accepted;
+        return !job.props.accepted && !job.props.completed;
       });
       const markers = jobs.map((job, index) => {
         return (

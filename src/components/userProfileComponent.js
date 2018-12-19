@@ -20,6 +20,9 @@ export function ProfileComponent(props) {
     if (props.view === "acceptedJobs") {
       return <AcceptedJobs bids={props.bids} />;
     }
+    if (props.view === "postSuccess") {
+      return <h3>Thank you! You have made your post successfully.</h3>
+    }
   }
   return (
     <div id='profile-component'>
