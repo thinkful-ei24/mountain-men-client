@@ -3,7 +3,7 @@ import { reduxForm, Field } from "redux-form";
 import { connect } from "react-redux";
 import { registerUser } from "../actions/auth.js";
 import {required, nonEmpty, matches, length, isTrimmed} from '../validators.js';
-const passwordLength = length({min: 9, max: 72});
+const passwordLength = length({min: 6, max: 72});
 const matchesPassword = matches('password');
 require('../css/registrationform.css');
 
