@@ -24,7 +24,7 @@ html {
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: 0px;
 }
 
 body {
@@ -44,8 +44,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: white;
-  position: relative;
-  bottom: 0;
 }
 
 h1 {
