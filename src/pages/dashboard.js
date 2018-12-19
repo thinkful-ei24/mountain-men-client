@@ -10,6 +10,8 @@ import DriverReviewBids from "../components/DriverBidReview.js";
 import DriverAcceptedBids from '../components/DriverAcceptedBids'
 import DriverCompletedBids from '../components/DriverCompletedBids';
 import DashboardNav from "../components/DashboardNav";
+import Footer from '../components/Footer';
+require('../css/dashboard.css');
 
 export class Dashboard extends React.Component {
 
@@ -66,7 +68,7 @@ export class Dashboard extends React.Component {
           return (
             <main>
               <MapContainer jobs={jobs}/>
-              {/*<ul>{jobs}</ul>*/}
+              <Footer />
             </main>
           );
         }
@@ -74,13 +76,15 @@ export class Dashboard extends React.Component {
       return (
         <div>
           <DashboardNav type="DRIVER" view={this.props.view} />
-          <h1>
-            Welcome back, {this.props.currentUser.firstName}{" "}
-            {this.props.currentUser.lastName}!
-          </h1>
+          <div className="dashboard-content">
+            <h1>
+              Welcome back, {this.props.currentUser.firstName}{" "}
+              {this.props.currentUser.lastName}!
+            </h1>
 
-          {renderDriverPage(this.props)}
-
+            {renderDriverPage(this.props)}
+          </div>
+          <Footer />
         </div>
       );
     }
@@ -89,13 +93,16 @@ export class Dashboard extends React.Component {
       return (
         <div>
           <DashboardNav type="USER" view={this.props.view} />
-          <h1>
-            Welcome back, {this.props.currentUser.firstName}{" "}
-            {this.props.currentUser.lastName}!
-          </h1>
-          <ul style={{display: 'flex', justifyContent: 'center'}}>
-            <Profile view={this.props.view} bids={this.props.driverJobs.bids} />
-          </ul>
+          <div className="dashboard-content">
+            <h1>
+              Welcome back, {this.props.currentUser.firstName}{" "}
+              {this.props.currentUser.lastName}!
+            </h1>
+            <ul style={{display: 'flex', justifyContent: 'center'}}>
+              <Profile view={this.props.view} bids={this.props.driverJobs.bids} />
+            </ul>
+          </div>
+
         </div>
       );
     }

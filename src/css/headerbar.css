@@ -46,9 +46,13 @@
   display: inline-block;
   position: relative;
   top: 12px;
-  width: 50px;
-  height: 50px;
+  width: 48px;
   border-radius: 50%;
+}
+@media screen and (max-width: 800px) {
+  #logo-img {
+    width: 6vw;
+  }
 }
 
 .nav-btn {
@@ -70,6 +74,13 @@
   font-family: "Michroma";
   color: white;
   font-size: 36px;
+  position: relative;
+  top: 1px;
+}
+@media screen and (max-width: 800px) {
+  #title {
+    font-size: 5vw;
+  }
 }
 
 .sign-up {
@@ -79,12 +90,5 @@
 .show-nav {
   margin-left: auto;
 }
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-/*# sourceMappingURL=headerbar.css.map */
 
 /*# sourceMappingURL=headerbar.css.map */

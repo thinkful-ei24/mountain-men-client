@@ -8,32 +8,26 @@ export function DashboardNav(props) {
     return (
       <ul className='nav-container'>
         <li>
-          <button
-            className="create-post"
-            onClick={() => {
+
+          <h1 className='nav-link' onClick={() => {
             props.dispatch(updateView('postJob'));
-          }}>Create Post</button>
+          }}>Create Post</h1>
         </li>
         <li>
-          <button
-            className="active-posts"
-            onClick={() => {
+
+          <h1 className='nav-link' onClick={() => {
             props.dispatch(updateView('default'))
-          }}>Active Posts</button>
+          }}>Active Posts</h1>
         </li>
         <li>
-          <button
-            className="accepted-jobs"
-            onClick={() => {
+          <h1 className='nav-link' onClick={() => {
             props.dispatch(updateView('acceptedJobs'));
-          }}>Accepted Jobs</button>
+          }}>Accepted Jobs</h1>
         </li>
         <li>
-          <button
-            className="completed-jobs"
-            onClick={() => {
+          <h1 className='nav-link' onClick={() => {
             props.dispatch(updateView('pastJobs'));
-          }}>Completed Jobs</button>
+          }}>Completed Jobs</h1>
         </li>
       </ul>
     );
@@ -41,35 +35,31 @@ export function DashboardNav(props) {
     return (
       <div className='nav-container'>
         <li>
-          <button
-            className="need-a-truck"
+          <h1 className='nav-link'
             onClick={() => {
               props.dispatch(updateView('default'));
-            }}>Need A Truck</button>
+            }}>Need A Truck</h1>
         </li>
         <li>
-          <button
-            className="active-posts"
+          <h1 className='nav-link'
             onClick={() => {
               props.dispatch(updateView('currentJobs'));
-          }}>Active Posts</button>
+          }}>Active Posts</h1>
         </li>
         <li>
-          <button
-            className="transactions"
+          <h1 className='nav-link'
             onClick={() => {
               props.dispatch(updateView('pastJobs'));
-          }}>Transactions</button>
+          }}>Transactions</h1>
         </li>
         <li>
-          <button
-            className="completed-jobs"
+          <h1 className='nav-link'
             onClick={() => {
               props.dispatch(updateView("completedJobs"));
             }}
           >
             Completed Jobs
-          </button>
+          </h1>
         </li>
       </div>
     );

@@ -2,6 +2,7 @@ import React from "react";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import Dashboard from '../pages/dashboard.js';
+import Footer from '../components/Footer';
 
 require('../css/landingmain.css');
 
@@ -10,6 +11,7 @@ export function LandingMain(props) {
     return <Redirect to="/dashboard" component={Dashboard} />;
   } else {
     return (
+      <div>
       <section id='landing-section'>
         <div id='need-truck-container'>
           <div id='need-truck-img' className='truck-img animated fadeInUpBig'>
@@ -45,6 +47,8 @@ export function LandingMain(props) {
           </div>
         </div>
       </section>
+      <Footer />
+      </div>
     );
   }
 }

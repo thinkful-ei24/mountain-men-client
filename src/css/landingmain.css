@@ -20,12 +20,20 @@
 /*     */
 #landing-section {
   display: flex;
+  justify-content: space-evenly;
   flex-direction: column;
-  align-content: space-between;
+  align-content: center;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 150px;
   color: white;
+  height: 850px;
+}
+@media screen and (max-width: 800px) {
+  #landing-section {
+    height: 1200px;
+  }
 }
 
 .btn {
@@ -41,13 +49,11 @@
   align-items: space-between;
   width: 100%;
   height: 400px;
-  margin-left: auto;
-  margin-right: auto;
 }
 @media only screen and (max-width: 800px) {
   #need-truck-container {
     flex-direction: column;
-    width: 400px;
+    width: 300px;
     margin-left: auto;
     margin-right: auto;
     align-items: center;
@@ -88,11 +94,10 @@
   align-content: space-between;
   align-items: center;
   background-color: #444a59;
-  width: 450px;
+  max-width: 450px;
   min-height: 250px;
   padding: 50px;
   margin-top: 20px;
-  /* margin-left: 250px; */
   margin-left: 10px;
   margin-right: auto;
   margin-bottom: 20px;
@@ -103,9 +108,7 @@
 }
 @media only screen and (max-width: 800px) {
   #need-truck-card {
-    min-width: 350px;
-    margin-left: 0;
-    margin-right: 0;
+    margin: 20px auto;
   }
 }
 
@@ -122,6 +125,7 @@
   #have-truck-container {
     flex-direction: column;
     width: 400px;
+    margin-top: 275px;
     margin-left: auto;
     margin-right: auto;
     align-items: center;
@@ -160,7 +164,7 @@
   align-content: space-between;
   align-items: center;
   background-color: #444a59;
-  width: 450px;
+  max-width: 450px;
   min-height: 250px;
   padding: 50px;
   margin-top: 20px;
@@ -174,9 +178,7 @@
 }
 @media only screen and (max-width: 800px) {
   #have-truck-card {
-    min-width: 350px;
-    margin-left: 0;
-    margin-right: 0;
+    margin: 20px auto;
   }
 }
 

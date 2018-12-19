@@ -9,7 +9,7 @@ import "./App.css";
 import { Route, withRouter } from "react-router-dom";
 import Dashboard from "./pages/dashboard.js";
 import Profile from "./pages/Profile.js";
-
+import Footer from './components/Footer.js';
 class App extends Component {
   render() {
     return (
@@ -24,7 +24,9 @@ class App extends Component {
         {/* Dashboards */}
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/profile" component={Profile} />
+        {/* <Footer /> */}
       </div>
+
     );
   }
 }

@@ -20,6 +20,11 @@
 /*     */
 html {
   margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 body {
@@ -36,10 +41,11 @@ body {
   padding: 0;
   font-family: "Roboto Condensed", sans-serif;
   font-weight: 400;
-  text-shadow: 1px 1px black;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: white;
+  position: relative;
+  bottom: 0;
 }
 
 h1 {
@@ -50,6 +56,14 @@ h1 {
 p {
   font-family: "Roboto Condensed", sans-serif;
   font-weight: 300;
+}
+
+ul {
+  padding: 0px;
+}
+
+li {
+  list-style: none;
 }
 
 label {

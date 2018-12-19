@@ -10,23 +10,35 @@
   justify-content: center;
   align-items: center;
 
-    position: relative;
-    z-index: 2;
-    margin-top: -1px;
+  position: fixed;
+  padding: 10px;
+  right: 20%;
+  left: 20%;
+  z-index: 2;
+  margin-top: -1px;
+  background-color: $color-dark-grey;
+  border: black;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 
-    background-color: $color-dark-grey;
-    border: black;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+  box-shadow: 2.5px 2.5px 3px black;
 
-    box-shadow: 2.5px 2.5px 3px black;
+}
 
+.nav-link {
+  font-size: 14px;
+  margin: 5px;
+}
+
+.nav-link:hover {
+  cursor: pointer;
+}
+
+.nav-link::before,
+.nav-link::after {
+  content: ' | '
 }
 
 button {
   font-size: 18px;
-}
-
-li {
-  list-style: none;
 }

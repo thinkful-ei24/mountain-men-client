@@ -25,19 +25,28 @@
 }
 
 #register-form-container {
+  display: flex;
+  justify-content: center;
+  align-self: center;
   padding: 25px;
   background-color: #52596b;
-  position: absolute;
   width: 375px;
-  height: 775px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  height: 930px;
   zoom: 0.9;
   box-shadow: 3px 3px 10px 1px black;
   border-radius: 10px;
   -moz-border-radius: 10px;
   -weblit-border-radius: 10px;
+  position: relative;
+  margin-top: 20vh;
+  padding-top: -55vh;
+  margin-bottom: 50px;
+  z-index: 50;
+}
+@media screen and (max-width: 600px) {
+  #register-form-container {
+    margin-top: 60vh;
+  }
 }
 
 input {
