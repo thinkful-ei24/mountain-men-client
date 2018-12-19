@@ -64,16 +64,16 @@ export class MapContainer extends React.Component {
             this.setState({
               currentJob: this.props.jobs.find(job => {
                 return job.props.id === this.state.activeMarker.id
+              })
             })
-          })
-        }}
+          }}
         >bid
       </button>
     </div>
-    );
-    ReactDOM.render(
-      React.Children.only(info),
-      document.getElementById("info-window")
+  );
+  ReactDOM.render(
+    React.Children.only(info),
+    document.getElementById("info-window")
 
     );
   }
@@ -81,93 +81,76 @@ export class MapContainer extends React.Component {
   render() {
     if (!this.props.loaded) {
       return <div>loading...</div>;
-    } else if (this.props.center !== {}) {
-      const style = {
-        width: '100%',
-        height: '70vh'
-      }
+      } else if (this.props.center !== {}) {
+        const style = {
+          width: '100%',
+          height: '70vh'
+        }
 
 
-      const jobs = this.props.jobs.filter(job => {
-        return !job.props.accepted && !job.props.completed;
-      });
-      const markers = jobs.map((job, index) => {
-        return (
-          <Marker
-            onClick={this.onMarkerClick}
-            key={index}
-            name={job.props.title}
-            title={job.props.title}
-            desc={job.props.description}
-            image={job.props.image}
-            id={job.props.id}
-            date={job.props.date}
-            position={job.props.coordinates}
-          />
-        );
-      });
+        const jobs = this.props.jobs.filter(job => {
+          return !job.props.accepted && !job.props.completed;
+        });
+        const markers = jobs.map((job, index) => {
+          return (
+            <Marker
+              onClick={this.onMarkerClick}
+              key={index}
+              name={job.props.title}
+              title={job.props.title}
+              desc={job.props.description}
+              image={job.props.image}
+              id={job.props.id}
+              date={job.props.date}
+              position={job.props.coordinates}>
+            </Marker>
+        )
+      })
 
       return (
+        <main>
+          <div style={style}>
+            {this.props.center !== {} &&
+            <Map
+              google={this.props.google}
+              style={style}
+              zoom={12}
+              initialCenter={this.props.center}
+            >
 
-        <Marker
-          onClick={this.onMarkerClick}
-          key={index}
-          name={job.props.title}
-          title={job.props.title}
-          description={job.props.description}
-          image={job.props.image}
-          id={job.props.id}
-          date={job.props.date}
-          position={job.props.coordinates}
-        >
-        </Marker>
-      )
-    })
-
-    return (
-      <main>
-      <div style={style}>
-        {this.props.center !== {} &&
-          <Map
-          google={this.props.google}
-          style={style}
-          zoom={12}
-          initialCenter={this.props.center}
-      >
-
-                {markers}
-                <InfoWindow
-                  marker={this.state.activeMarker}
-                  visible={this.state.showingInfoWindow}
-                  onOpen={e => {
-                    this.onInfoWindowOpen(this.props, e);
-                  }}
-                  onClose={this.windowHasClosed}
-                >
-                  <div id="info-window" />
-                </InfoWindow>
-              </Map>
-            )}
-            {/*<BidMap google={this.props.google} />*/}
-          </div>
-          {this.state.currentJob.props && (
-            <section>
-              <Job
-                name={this.state.currentJob.props.name}
-                title={this.state.currentJob.props.title}
-                desc={this.state.currentJob.props.desc}
-                image={this.state.currentJob.props.image}
-                id={this.state.currentJob.props.id}
-                date={this.state.currentJob.props.date}
-                budget={this.state.currentJob.props.budget}
-              />
-            </section>
-          )}
-        </main>
+            {markers}
+            <InfoWindow
+              marker={this.state.activeMarker}
+              visible={this.state.showingInfoWindow}
+              onOpen={e => {
+                this.onInfoWindowOpen(this.props, e);
+              }}
+              onClose={this.windowHasClosed}
+            >
+             <div id="info-window" />
+            </InfoWindow>
+          </Map>
+      }
+      {/*<BidMap google={this.props.google} />*/}
+    </div>
+    {this.state.currentJob.props && (
+      <section>
+        <Job
+          name={this.state.currentJob.props.name}
+          title={this.state.currentJob.props.title}
+          desc={this.state.currentJob.props.desc}
+          image={this.state.currentJob.props.image}
+          id={this.state.currentJob.props.id}
+          date={this.state.currentJob.props.date}
+          budget={this.state.currentJob.props.budget}
+        />
+      </section>
+  )}
+</main>
       );
     }
-  }
-}
+    }
+    }
 
 const mapStateToProps = state => ({
 
