@@ -8,22 +8,30 @@ export function DashboardNav(props) {
     return (
       <ul className='nav-container'>
         <li>
-          <button onClick={() => {
+          <button
+            className="create-post"
+            onClick={() => {
             props.dispatch(updateView('postJob'));
           }}>Create Post</button>
         </li>
         <li>
-          <button onClick={() => {
+          <button
+            className="active-posts"
+            onClick={() => {
             props.dispatch(updateView('default'))
           }}>Active Posts</button>
         </li>
         <li>
-          <button onClick={() => {
+          <button
+            className="accepted-jobs"
+            onClick={() => {
             props.dispatch(updateView('acceptedJobs'));
           }}>Accepted Jobs</button>
         </li>
         <li>
-          <button onClick={() => {
+          <button
+            className="completed-jobs"
+            onClick={() => {
             props.dispatch(updateView('pastJobs'));
           }}>Completed Jobs</button>
         </li>
@@ -34,24 +42,28 @@ export function DashboardNav(props) {
       <div className='nav-container'>
         <li>
           <button
+            className="need-a-truck"
             onClick={() => {
               props.dispatch(updateView('default'));
-            }}>Need A Truck></button>
+            }}>Need A Truck</button>
         </li>
         <li>
           <button
+            className="active-posts"
             onClick={() => {
               props.dispatch(updateView('currentJobs'));
           }}>Active Posts</button>
         </li>
         <li>
           <button
+            className="transactions"
             onClick={() => {
               props.dispatch(updateView('pastJobs'));
           }}>Transactions</button>
         </li>
         <li>
           <button
+            className="completed-jobs"
             onClick={() => {
               props.dispatch(updateView("completedJobs"));
             }}

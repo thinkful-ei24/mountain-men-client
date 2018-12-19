@@ -27,7 +27,7 @@ export class DriverBidCard extends React.Component {
     let bid = this.props.bid;
     let user = this.props.jobPoster.user.users[this.props.position];
     return (
-      <li id='job-card'>
+      <li className='job-card'>
         <h3 id='card-title'>{bid.jobTitle}</h3>
         <p className='card-label'>Job Date: </p>
         <p id='card-date'>{moment(bid.jobDate).format('LLLL')}</p>

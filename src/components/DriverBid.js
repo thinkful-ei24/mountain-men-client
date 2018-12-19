@@ -7,7 +7,7 @@ require('../css/DriverBid.css');
 
 var moment = require('moment');
 
-function JobComponent(props) {
+export function JobComponent(props) {
   return (
     <div id='job-card'>
       <span id='user-name'>{props.name}</span>
@@ -57,7 +57,7 @@ const mapStateToProps = state => {
 };
 
 const Job = reduxForm({
-  form: `jobBidForm + ${Job}`
+  form: `jobBidForm`
 })(connect(mapStateToProps)(JobComponent));
 
 export default Job;
