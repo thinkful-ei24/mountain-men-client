@@ -1,5 +1,6 @@
 # Truck'd 
-<img src='./src/logo.png' style='height: 10px; margin-left:10px;'>
+![logo](https://user-images.githubusercontent.com/34469795/50239083-65c9d700-037e-11e9-9fbc-5fef01bf680e.png)
+
 
 ### Description
 
