@@ -8,11 +8,13 @@ export function DashboardNav(props) {
     return (
       <ul className='nav-container'>
         <li>
+
           <h1 className='nav-link' onClick={() => {
             props.dispatch(updateView('postJob'));
           }}>Create Post</h1>
         </li>
         <li>
+
           <h1 className='nav-link' onClick={() => {
             props.dispatch(updateView('default'))
           }}>Active Posts</h1>
