@@ -34,9 +34,7 @@ export class RegisterForm extends React.Component {
         <div id='register-form-container'>
           <form
             className="register-form"
-            onSubmit={this.props.handleSubmit(values => {
-              return this.onSubmit(values);
-            })}
+            onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}
           >
             <div>
               <label>First Name</label>
@@ -46,7 +44,7 @@ export class RegisterForm extends React.Component {
                 type="text"
                 placeholder="John"
                 validate={[required, nonEmpty, isTrimmed]}
-                required="true"
+                required={true}
               />
             </div>
             <div>
@@ -57,7 +55,7 @@ export class RegisterForm extends React.Component {
                 type="text"
                 placeholder="Doe"
                 validate={[required, nonEmpty, isTrimmed]}
-                required="true"
+                required={true}
               />
             </div>
             <div>
@@ -68,7 +66,7 @@ export class RegisterForm extends React.Component {
                 type="email"
                 placeholder="JohnDoe@email.com"
                 validate={[required, nonEmpty, isTrimmed]}
-                required="true"
+                required={true}
               />
             </div>
             <div>
@@ -80,7 +78,7 @@ export class RegisterForm extends React.Component {
                 type="password"
                 placeholder="*******"
                 validate={[required, passwordLength, isTrimmed]}
-                required="true"
+                required={true}
               />
             </div>
             <div>
@@ -91,7 +89,7 @@ export class RegisterForm extends React.Component {
                   type="password"
                   placeholder="*******"
                   validate={[required, nonEmpty, matchesPassword]}
-                  required="true"
+                  required={true}
                 />
             </div>
             <div>
@@ -101,7 +99,7 @@ export class RegisterForm extends React.Component {
                 component="input"
                 type="tel"
                 placeholder="ex. 303-303-3030"
-                required="true"
+                required={true}
               />
             </div>
             <div>
@@ -111,7 +109,7 @@ export class RegisterForm extends React.Component {
                 component="input"
                 type="string"
                 placeholder="ex. 123 Main St"
-                required="true"
+                required={true}
               />
             </div>
             <div>
@@ -121,7 +119,7 @@ export class RegisterForm extends React.Component {
                 component="input"
                 type="string"
                 placeholder="ex. Los Angeles"
-                required="true"
+                required={true}
               />
             </div>
             <div>
@@ -131,7 +129,7 @@ export class RegisterForm extends React.Component {
                 component="input"
                 type="string"
                 placeholder="ex. California"
-                required="true"
+                required={true}
               />
             </div>
             <div>
@@ -141,7 +139,7 @@ export class RegisterForm extends React.Component {
                 component="input"
                 type="string"
                 placeholder="ex. 90002"
-                required="true"
+                required={true}
               />
             </div>
             <div id='radio-selector'>
@@ -154,7 +152,7 @@ export class RegisterForm extends React.Component {
                 value="USER"
                 checked={this.state.selectedRole === "USER"}
                 onChange={this.setUserRole}
-                required="true"
+                required={true}
               /></label>
               <label id="radio-driver"
                 className="fas fa-truck-pickup">Driver
