@@ -26,11 +26,15 @@ export class DriverBidCard extends React.Component {
   render() {
     let bid = this.props.bid;
     let user = this.props.jobPoster.user.users[this.props.position];
+
+    let date = new Date(bid.jobDate);
+    date.setHours(25);
+
     return (
       <li className='job-card'>
         <h3 id='card-title'>{bid.jobTitle}</h3>
         <p className='card-label'>Job Date: </p>
-        <p id='card-date'>{moment(bid.jobDate).format('LLLL')}</p>
+        <p id='card-date'>{moment(date).format('MMM Do YYYY')}</p>
         <p className='card-label'>Description: </p>
         <p id='card-desc'>{bid.jobDescription}</p>
         <p className='card-label'>Your Bid: </p>

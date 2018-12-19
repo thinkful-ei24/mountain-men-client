@@ -54,7 +54,7 @@ export default class DriverAcceptedBids extends React.Component {
 
     if (driverBids.length === 0) {
       driverBids = (
-        <li>Nothing here yet. Click on Find Work above to find and bid on jobs.</li>
+        <li>Nothing here yet. Click on 'Find a Job' above to find and bid on jobs.</li>
       )
     }
 
