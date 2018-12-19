@@ -35,6 +35,7 @@ export class Dashboard extends React.Component {
             name={job.title}
             title={job.title}
             desc={job.description}
+            budget={job.budget}
             image={job.image}
             id={job.id}
             date={job.date}

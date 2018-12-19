@@ -134,7 +134,6 @@ export const makeJobCompleted = (jobId) => (dispatch, getState) => {
     .then (jobs => {
       dispatch(getUserJobs())
     })
-
     .catch(err => dispatch(updateJobsError(err)))
 }
 
@@ -154,7 +153,6 @@ export const makeJobAccepted = (jobId, driverId) => (dispatch, getState) => {
     .then (jobs => {
       dispatch(getUserJobs())
     })
-
     .catch(err => dispatch(updateJobsError(err)))
 }
 
