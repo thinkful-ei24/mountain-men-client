@@ -26,7 +26,7 @@ export class HeaderBar extends React.Component {
               this.props.dispatch(updateView("default"));
             }}
           >
-            <i class="fas fa-home"></i>
+            <i className="fas fa-home"></i>
 
           </button>
         </Link>
@@ -41,7 +41,7 @@ export class HeaderBar extends React.Component {
               this.props.dispatch(updateView("default"));
             }}
           >
-            <i class="fas fa-user-circle"></i>
+            <i className="fas fa-user-circle"></i>
           </button>
         </Link>
       );
@@ -62,7 +62,7 @@ export class HeaderBar extends React.Component {
                   logout();
                 }}
               >
-                <i class="fas fa-sign-out-alt"></i>
+                <i className="fas fa-sign-out-alt"></i>
               </button>
             </Link>
           </li>
@@ -73,12 +73,12 @@ export class HeaderBar extends React.Component {
         <>
           <li className="sign-up">
             <Link to="/register">
-              <button class='nav-btn'><i class="fas fa-user-plus"></i></button>
+              <button className='nav-btn'><i className="fas fa-user-plus"></i></button>
             </Link>
           </li>
           <li>
             <Link to="/login">
-              <button class='nav-btn'><i class="fas fa-sign-in-alt"></i></button>
+              <button className='nav-btn'><i className="fas fa-sign-in-alt"></i></button>
             </Link>
           </li>
         </>

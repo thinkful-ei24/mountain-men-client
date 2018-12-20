@@ -28,9 +28,9 @@ export class UserJobCard extends React.Component {
 
   showBids(job) {
     let bids = [];
-    bids = this.props.bids.map(item => {
+    bids = this.props.bids.map((item, index) => {
       return (
-        <div className="job-bid-info">
+        <div className="job-bid-info" key={index}>
           <p id='bid-amount'>Bid amount: ${item.bidAmount}</p>
           {!job.accepted && (
             <button id='accept-btn'
