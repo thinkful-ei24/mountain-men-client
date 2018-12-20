@@ -53,16 +53,16 @@ export class UserJobCard extends React.Component {
     let winningDriver = this.props.winningDriver.user.users.filter(item => {
       return item.id === job.acceptedUserId;
     });
-  
+
     let date = new Date(job.date);
     date.setHours(25);
 
     return (
       <li id='card' key={this.props.index} className={this.state.expanded ? 'expanded' : null}
-        onClick={() => this.showHide()}>
-        <h3 id='job-title'>{job.title}</h3>
+        >
+        <h3 onClick={() => this.showHide()} id='job-title'>{job.title}</h3>
         <p id='date'>{moment(date).format('MMM Do YYYY')}</p>
-        
+
         {this.state.expanded && (
           <div>
             <p id='desc'>{job.description}</p>
