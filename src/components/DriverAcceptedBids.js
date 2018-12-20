@@ -23,16 +23,12 @@ export default class DriverAcceptedBids extends React.Component {
     });
 
     let jobs = this.props.props.jobs.jobs.filter(item => {
-      return item.accepted;
+      return item.accepted && !item.completed;
     });
 
     driverBids.forEach(item => {
       jobs.forEach(job => {
-        if (
-          job.id === item.jobId &&
-          !job.completed &&
-          job.acceptedUserId === item.userId
-        ) {
+        if (job.id === item.jobId && job.acceptedUserId === item.userId) {
           item.accepted = job.accepted;
           item.completed = job.completed;
           item.jobDescription = job.description;
