@@ -18,18 +18,23 @@
 /*     */
 /* Mixins */
 /*     */
-#job-card {
+<<<<<<< HEAD
+/* #job-card {
+=======
+.job-card {
+>>>>>>> e6fe092576ee83686f3e0982d24fad53894673dd
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-content: center;
   margin: 10px;
   padding: 10px;
-  width: 250px;
+  width: 90%;
+  height: 40%;
   border: 2px solid black;
   border-radius: 5px;
   background-color: #444a59;
-}
+} */
 
 .card-label {
   font-family: "Roboto Condensed", sans-serif;
@@ -75,4 +80,76 @@
   font-weight: 900;
 }
 
+.map-main-container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  width: 80%;
+  height: 68vh;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2px;
+}
+
+@media only screen and (max-width: 900px) {
+  .map-main-container {
+    width: 95%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .map-main-container {
+    flex-direction: column;
+  }
+
+  /* #job-card {
+    padding: 0px;
+    width: 90%;
+    height: 40vh;
+  } */
+  
+  .card-label {
+    font-size: 16px;
+    margin: 0;
+  }
+  
+  #card-title {
+    font-size: 21px;
+    margin: 0;
+  }
+  
+  #card-date {
+    font-size: 16px;
+  }
+  
+  #card-desc {
+    font-size: 15px;
+    margin: 0;
+  }
+  
+  #card-driver-desc {
+    font-size: 15px;
+    margin: 0;
+  }
+  
+  #bold-text {
+    font-weight: 900;
+    margin: 0;
+  }
+}
+
 /*# sourceMappingURL=driverbidcard.css.map */
+@media only screen and (max-width: 489px) {
+  .map-main-container {
+    height: 65vh;
+    margin-top: 4vh;
+  }
+}
+
+@media only screen and (max-width: 334px) {
+  .map-main-container {
+    height: 58vh;
+    margin-top: 10vh;
+  }
+}

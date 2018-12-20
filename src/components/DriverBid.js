@@ -24,9 +24,6 @@ export function JobComponent(props) {
       <p id='job-budget'>
         This poster has a budget of ${props.budget}
       </p>
-      {/* <p id='job-bids'>
-      There have been {bidsObject.bids.length} bids made.
-      </p> */}
       <form
         onSubmit={props.handleSubmit(values => {
           props.dispatch(makeBid(props.id, values));
@@ -39,7 +36,8 @@ export function JobComponent(props) {
           id="bid-input"
           component="input"
           type="number"
-          placeholder="$25.00"
+          placeholder="Bid Amount"
+          required={true}
         />
         <Field
           name="desc"
@@ -47,6 +45,7 @@ export function JobComponent(props) {
           component="textarea"
           type="textarea"
           placeholder="Additional comments"
+          required={true}
         />
         <button id='submit-btn' type='submit'>Submit Bid</button>
       </form>

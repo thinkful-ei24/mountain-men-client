@@ -30,7 +30,7 @@ export class UserJobCard extends React.Component {
     let bids = [];
     bids = this.props.bids.map(item => {
       return (
-        <React.Fragment>
+        <div className="job-bid-info">
           <p id='bid-amount'>Bid amount: ${item.bidAmount}</p>
           {!job.accepted && (
             <button id='accept-btn'
@@ -42,7 +42,7 @@ export class UserJobCard extends React.Component {
               Accept Bid
             </button>
           )}
-        </React.Fragment>
+        </div>
       );
     });
     return bids;
