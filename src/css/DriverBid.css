@@ -112,7 +112,7 @@
 }
 
 /*# sourceMappingURL=DriverBid.css.map */
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1000px) {
   #job-card {
     width: 90%;
     height: 24vh;
@@ -260,7 +260,7 @@
     margin-top: 10px;
     margin-bottom: 0;
     width: 92%;
-    height: 18vh;
+    height: 27vh;
   }
 
   #user-name {
