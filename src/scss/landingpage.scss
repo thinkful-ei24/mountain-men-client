@@ -4,9 +4,6 @@
  @import 'variables';
 
 #landing-container {
-  @media screen and (max-width: 800px) {
-    padding-bottom: 600px;
-  }
   position: relative;
   top: 50px;
 }

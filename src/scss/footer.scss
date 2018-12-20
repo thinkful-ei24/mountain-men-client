@@ -4,11 +4,8 @@
  @import 'variables';
 
 .footer {
-  @media screen and (max-width: 800px) {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    left: 0;
+  @media screen and (max-width: 800px){
+    display: none;
   }
   display: flex;
   justify-content: space-between;
@@ -19,7 +16,7 @@
   margin-top: 0px;
   padding-left: 15px;
   padding-right: 15px;
-  position: static;
+  position: relative;
   left: 0;
   right: 0;
   bottom: 0;

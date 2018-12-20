@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../scss/landingpage.scss","../scss/_variables.scss"],"names":[],"mappings":"AAAE;AACF;AACC;ACFC;AACF;AACC;AAED;AACA;AAEA;AACA;AACA;AAUE;AACF;AACC;AAcC;AACF;AACC;AAMC;AACF;AACC;ADxCD;EAIE;EACA;;AAJA;EADF;IAEI","file":"landingpage.css"}
+{"version":3,"sourceRoot":"","sources":["../scss/landingpage.scss","../scss/_variables.scss"],"names":[],"mappings":"AAAE;AACF;AACC;ACFC;AACF;AACC;AAED;AACA;AAEA;AACA;AACA;AAUE;AACF;AACC;AAcC;AACF;AACC;AAMC;AACF;AACC;ADxCD;EACE;EACA","file":"landingpage.css"}

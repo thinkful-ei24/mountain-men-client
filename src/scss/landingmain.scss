@@ -4,6 +4,9 @@
  @import 'variables';
 
 #landing-section {
+  @media screen and (max-width: 800px) {
+
+  }
   display: flex;
   box-sizing: border-box;
   justify-content: space-evenly;
