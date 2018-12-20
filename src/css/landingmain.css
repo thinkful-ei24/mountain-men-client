@@ -20,20 +20,16 @@
 /*     */
 #landing-section {
   display: flex;
+  box-sizing: border-box;
   justify-content: space-evenly;
   flex-direction: column;
   align-content: center;
-  max-width: 800px;
+  max-width: 750px;
+  max-height: 750px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 150px;
   color: white;
-  height: 850px;
-}
-@media screen and (max-width: 800px) {
-  #landing-section {
-    height: 1200px;
-  }
 }
 
 .btn {
@@ -45,15 +41,37 @@
 
 #need-truck-container {
   display: flex;
+  box-sizing: border-box;
   flex-direction: row;
   align-items: space-between;
   width: 100%;
-  height: 400px;
+  height: 100%;
+  max-width: 800px;
+  max-height: 400px;
 }
 @media only screen and (max-width: 800px) {
   #need-truck-container {
     flex-direction: column;
-    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+  }
+}
+
+#have-truck-container {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: row;
+  align-items: space-between;
+  width: 100%;
+  height: 100%;
+  max-width: 800px;
+  max-height: 400px;
+}
+@media only screen and (max-width: 800px) {
+  #have-truck-container {
+    flex-direction: column;
+    margin-top: 600px;
     margin-left: auto;
     margin-right: auto;
     align-items: center;
@@ -62,10 +80,11 @@
 
 #need-truck-img {
   display: flex;
+  box-sizing: border-box;
   align-items: center;
   background-color: #444a59;
-  width: 250px;
-  min-height: 250px;
+  max-width: 325px;
+  min-height: 325px;
   padding: 50px;
   margin-top: 20px;
   margin-left: 0px;
@@ -82,62 +101,13 @@
   }
 }
 
-#need-img {
-  width: 175%;
-  position: relative;
-  right: 100px;
-}
-
-#need-truck-card {
-  display: flex;
-  flex-direction: column;
-  align-content: space-between;
-  align-items: center;
-  background-color: #444a59;
-  max-width: 450px;
-  min-height: 250px;
-  padding: 50px;
-  margin-top: 20px;
-  margin-left: 10px;
-  margin-right: auto;
-  margin-bottom: 20px;
-  border-radius: 3px;
-  box-shadow: 3px 3px 10px 1px black;
-  animation-duration: 1.5s;
-  animation-delay: 0s;
-}
-@media only screen and (max-width: 800px) {
-  #need-truck-card {
-    margin: 20px auto;
-  }
-}
-
-#have-truck-container {
-  display: flex;
-  flex-direction: row;
-  align-items: space-between;
-  width: 100%;
-  height: 400px;
-  margin-left: auto;
-  margin-right: auto;
-}
-@media only screen and (max-width: 800px) {
-  #have-truck-container {
-    flex-direction: column;
-    width: 400px;
-    margin-top: 275px;
-    margin-left: auto;
-    margin-right: auto;
-    align-items: center;
-  }
-}
-
 #have-truck-img {
   display: flex;
+  box-sizing: border-box;
   align-items: center;
   background-color: #444a59;
-  width: 250px;
-  min-height: 250px;
+  max-width: 325px;
+  min-height: 325px;
   padding: 50px;
   margin-top: 20px;
   margin-left: auto;
@@ -154,18 +124,40 @@
   }
 }
 
-#have-img {
-  width: 100%;
-}
-
-#have-truck-card {
+#need-truck-card {
   display: flex;
+  box-sizing: border-box;
   flex-direction: column;
   align-content: space-between;
   align-items: center;
   background-color: #444a59;
   max-width: 450px;
-  min-height: 250px;
+  min-height: 325px;
+  padding: 50px;
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: auto;
+  margin-bottom: 20px;
+  border-radius: 3px;
+  box-shadow: 3px 3px 10px 1px black;
+  animation-duration: 1.5s;
+  animation-delay: 0s;
+}
+@media only screen and (max-width: 800px) {
+  #need-truck-card {
+    margin: 20px auto;
+  }
+}
+
+#have-truck-card {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  align-content: space-between;
+  align-items: center;
+  background-color: #444a59;
+  max-width: 450px;
+  min-height: 325px;
   padding: 50px;
   margin-top: 20px;
   margin-left: auto;
@@ -178,8 +170,18 @@
 }
 @media only screen and (max-width: 800px) {
   #have-truck-card {
-    margin: 20px auto;
+    margin: 30px auto;
   }
+}
+
+#need-img {
+  width: 175%;
+  position: relative;
+  right: 100px;
+}
+
+#have-img {
+  width: 100%;
 }
 
 /*# sourceMappingURL=landingmain.css.map */

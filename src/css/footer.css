@@ -28,17 +28,18 @@
   margin-top: 0px;
   padding-left: 15px;
   padding-right: 15px;
-  position: static;
-  left: 50px;
+  position: fixed;
+  left: 0;
+  right: 0;
   bottom: 0;
+  box-shadow: 3px 3px 10px 1px black;
 }
 @media screen and (max-width: 800px) {
   .footer {
-    position: static;
+    position: fixed;
     bottom: 0;
     right: 0;
     left: 0;
-    margin-top: 400px;
   }
 }
 

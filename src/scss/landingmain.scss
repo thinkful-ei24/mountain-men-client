@@ -4,19 +4,17 @@
  @import 'variables';
 
 #landing-section {
-  @media screen and (max-width: 800px) {
-    height: 1200px;
-  }
   display: flex;
+  box-sizing: border-box;
   justify-content: space-evenly;
   flex-direction: column;
   align-content: center;
-  max-width: 800px;
+  max-width: 750px;
+  max-height: 750px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 150px;
   color: white;
-  height: 850px;
 }
 
 .btn {
@@ -29,18 +27,36 @@
 #need-truck-container {
   @media only screen and (max-width: 800px) {
     flex-direction: column;
-    width: 300px;
     margin-left: auto;
     margin-right: auto;
     align-items: center
   }
   display: flex;
+  box-sizing: border-box;
   flex-direction: row;
   align-items: space-between;
   width: 100%;
-  height: 400px;
-  // margin-left: auto;
-  // margin-right: auto;
+  height: 100%;
+  max-width: 800px;
+  max-height: 400px;
+}
+
+#have-truck-container {
+  @media only screen and (max-width: 800px) {
+    flex-direction: column;
+    margin-top: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center
+  }
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: row;
+  align-items: space-between;
+  width: 100%;
+  height: 100%;
+  max-width: 800px;
+  max-height: 400px;
 }
 
 #need-truck-img {
@@ -48,10 +64,11 @@
     margin: 0 auto;
   }
   display: flex;
+  box-sizing: border-box;
   align-items: center;
   background-color: #444a59;
-  width: 250px;
-  min-height: 250px;
+  max-width: 325px;
+  min-height: 325px;
   padding: 50px;
   margin-top: 20px;
   margin-left: 0px;
@@ -65,64 +82,16 @@
   animation-delay: 1s;
 }
 
-#need-img {
-  width: 175%;
-  position: relative;
-  right: 100px;
-}
-
-#need-truck-card {
-  @media only screen and (max-width: 800px) {
-    margin: 20px auto;
-  }
-  display: flex;
-  flex-direction: column;
-  align-content: space-between;
-  align-items: center;
-  background-color: #444a59;
-  max-width: 450px;
-  min-height: 250px;
-  padding: 50px;
-  margin-top: 20px;
-  margin-left: 10px;
-  margin-right: auto;
-  margin-bottom: 20px;
-
-  border-radius: 3px;
-  box-shadow: 3px 3px 10px 1px black;
-
-  animation-duration: 1.5s;
-  animation-delay: 0s;
-}
-
-#have-truck-container {
-  @media only screen and (max-width: 800px) {
-    flex-direction: column;
-    width: 400px;
-    margin-top: 275px;
-    margin-left: auto;
-    margin-right: auto;
-    align-items: center
-  }
-  display: flex;
-  flex-direction: row;
-  align-items: space-between;
-  width: 100%;
-  height: 400px;
-  margin-left: auto;
-  margin-right: auto;
-
-}
-
 #have-truck-img {
   @media only screen and (max-width: 800px) {
     margin: 0 auto;
   }
   display: flex;
+  box-sizing: border-box;
   align-items: center;
   background-color: #444a59;
-  width: 250px;
-  min-height: 250px;
+  max-width: 325px;
+  min-height: 325px;
   padding: 50px;
   margin-top: 20px;
   margin-left: auto;
@@ -136,21 +105,43 @@
   animation-delay: 1s;
 }
 
-#have-img {
-  width: 100%;
-}
-
-#have-truck-card {
+#need-truck-card {
   @media only screen and (max-width: 800px) {
     margin: 20px auto;
   }
   display: flex;
+  box-sizing: border-box;
   flex-direction: column;
   align-content: space-between;
   align-items: center;
   background-color: #444a59;
   max-width: 450px;
-  min-height: 250px;
+  min-height: 325px;
+  padding: 50px;
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: auto;
+  margin-bottom: 20px;
+
+  border-radius: 3px;
+  box-shadow: 3px 3px 10px 1px black;
+
+  animation-duration: 1.5s;
+  animation-delay: 0s;
+}
+
+#have-truck-card {
+  @media only screen and (max-width: 800px) {
+    margin: 30px auto;
+  }
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  align-content: space-between;
+  align-items: center;
+  background-color: #444a59;
+  max-width: 450px;
+  min-height: 325px;
   padding: 50px;
   margin-top: 20px;
   margin-left: auto;
@@ -162,4 +153,14 @@
 
   animation-duration: 1.5s;
   animation-delay: 0.5s;
+}
+
+#need-img {
+  width: 175%;
+  position: relative;
+  right: 100px;
+}
+
+#have-img {
+  width: 100%;
 }

@@ -14,9 +14,8 @@
   flex-direction: column;
   justify-content: space-evenly;
   padding: 25px;
-  background-color: $color-dark-blue;
-  position: absolute;
-
+  background-color: $color-light-grey;
+  zoom: .8;
   margin: 50px;
   box-shadow: $box-shadow-thick;
   @include border-radius(10px)

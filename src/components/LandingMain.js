@@ -7,9 +7,6 @@ import Footer from '../components/Footer';
 require('../css/landingmain.css');
 
 export function LandingMain(props) {
-  if (props.currentUser !== null) {
-    return <Redirect to="/dashboard" component={Dashboard} />;
-  } else {
     return (
       <div>
       <section id='landing-section'>
@@ -47,10 +44,9 @@ export function LandingMain(props) {
           </div>
         </div>
       </section>
-      <Footer />
       </div>
     );
-  }
+
 }
 
 const mapStateToProps = state => ({

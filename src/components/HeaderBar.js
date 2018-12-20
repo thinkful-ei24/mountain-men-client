@@ -38,7 +38,6 @@ export class HeaderBar extends React.Component {
             className="nav-btn"
             onClick={() => {
               this.props.dispatch(updateView("default"));
-              console.log(this.props.location);
             }}
           >
             Profile

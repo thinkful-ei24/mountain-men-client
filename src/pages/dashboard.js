@@ -10,7 +10,6 @@ import DriverReviewBids from "../components/DriverBidReview.js";
 import DriverAcceptedBids from '../components/DriverAcceptedBids'
 import DriverCompletedBids from '../components/DriverCompletedBids';
 import DashboardNav from "../components/DashboardNav";
-import Footer from '../components/Footer';
 require('../css/dashboard.css');
 
 export class Dashboard extends React.Component {
@@ -67,10 +66,9 @@ export class Dashboard extends React.Component {
         }
         if (props.view === "default") {
           return (
-            <main>
+
               <MapContainer jobs={jobs}/>
-              <Footer />
-            </main>
+
           );
         }
       }
@@ -82,10 +80,8 @@ export class Dashboard extends React.Component {
               Welcome back, {this.props.currentUser.firstName}{" "}
               {this.props.currentUser.lastName}!
             </h1>
-
             {renderDriverPage(this.props)}
           </div>
-          <Footer />
         </div>
       );
     }
