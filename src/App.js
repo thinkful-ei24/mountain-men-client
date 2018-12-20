@@ -24,7 +24,8 @@ class App extends Component {
         {/* Dashboards */}
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/profile" component={Profile} />
-        {/* <Footer /> */}
+
+        <Footer />
       </div>
 
     );
