@@ -45,3 +45,5 @@ If you own a truck you can easily find jobs and make some extra cash.
 - QA Lead [Sean Phelan](https://github.com/phelan97)
 - Design Lead- UI [Shane Lupton](https://github.com/slupton89)
 - UX and Marketing Lead [Alex Gutierrez](https://github.com/alexgutes)
+
+Follow us on [Twitter](https://twitter.com/getTruckd)
