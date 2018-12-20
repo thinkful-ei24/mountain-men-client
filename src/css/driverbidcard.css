@@ -20,6 +20,7 @@
 /*     */
 .job-card {
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
   align-content: center;
   align-items: center;
@@ -32,7 +33,7 @@
   background-color: #444a59;
 }
 
- .card-label {
+.card-label {
   font-family: "Roboto Condensed", sans-serif;
   font-weight: 400;
   font-size: 18px;
@@ -75,19 +76,16 @@
 }
 
 .map-main-container {
-  height: 60vh;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
   width: 80%;
+  height: 58vh;
   margin-left: auto;
   margin-right: auto;
-  display: flex;
-  justify-content: space-between;
-}
-
-@media only screen and (max-width: 1000px) {
-  .map-main-container {
-    flex-direction: column;
-    height: 75vh;
-  }
+  position: relative;
+  top: -10px;
 }
 
 /*# sourceMappingURL=driverbidcard.css.map */
@@ -96,9 +94,10 @@
     height: 65vh;
   }
 }
-
 @media only screen and (max-width: 334px) {
   .map-main-container {
-    height: 70vh;
+    height: 49vh;
   }
 }
+
+/*# sourceMappingURL=driverbidcard.css.map */
