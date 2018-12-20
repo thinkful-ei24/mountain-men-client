@@ -19,86 +19,86 @@
 /* Mixins */
 /*     */
 .job-card {
-  display: flex;
-  justify-content: space-evenly;
-  align-content: center;
-  align-items: center;
-  margin: 10px;
-  padding: 10px;
-  width: 100%;
-  max-width: 300px;
-  border: 2px solid black;
-  border-radius: 5px;
-  background-color: #444a59;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    width: 100%;
+    max-width: 300px;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: #444a59;
 }
 
- .card-label {
-  font-family: "Roboto Condensed", sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  color: white;
-  margin: 0;
+.card-label {
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: white;
+    margin: 0;
 }
 
 #card-title {
-  font-family: "Roboto Condensed", sans-serif;
-  font-weight: 900;
-  font-size: 24px;
-  color: white;
-  margin: 10px;
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: 900;
+    font-size: 24px;
+    color: white;
+    margin: 10px;
 }
 
 #card-date {
-  font-family: "Roboto Condensed", sans-serif;
-  font-weight: 300;
-  font-size: 16px;
-  color: white;
-  margin: 15px;
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: white;
+    margin: 15px;
 }
 
 #card-desc {
-  background-color: #52596b;
-  border-radius: 5px;
-  margin-left: 75px;
-  margin-right: 75px;
-  max-height: 200px;
-  margin: 15px;
-  padding: 10px;
-  width: 100%;
-  max-width: 225px;
-  word-wrap: break-word;
-  overflow: scroll;
+    background-color: #52596b;
+    border-radius: 5px;
+    margin-left: 75px;
+    margin-right: 75px;
+    max-height: 200px;
+    margin: 15px;
+    padding: 10px;
+    width: 100%;
+    max-width: 225px;
+    word-wrap: break-word;
+    overflow: scroll;
 }
 
 #card-bid {
-  margin: 15px;
+    margin: 15px;
 }
 
 .map-main-container {
-  height: 60vh;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  justify-content: space-between;
+    height: 80vh;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
 }
 
 @media only screen and (max-width: 1000px) {
-  .map-main-container {
-    flex-direction: column;
-    height: 75vh;
-  }
+    .map-main-container {
+        flex-direction: column;
+        height: 75vh;
+    }
 }
 
 /*# sourceMappingURL=driverbidcard.css.map */
 @media only screen and (max-width: 489px) {
-  .map-main-container {
-    height: 65vh;
-  }
+    .map-main-container {
+        height: 70vh;
+    }
 }
 
 @media only screen and (max-width: 334px) {
-  .map-main-container {
-    height: 70vh;
-  }
+    .map-main-container {
+        height: 70vh;
+    }
 }
