@@ -18,23 +18,20 @@
 /*     */
 /* Mixins */
 /*     */
-<<<<<<< HEAD
-/* #job-card {
-=======
 .job-card {
->>>>>>> e6fe092576ee83686f3e0982d24fad53894673dd
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-content: center;
+  align-items: center;
   margin: 10px;
   padding: 10px;
-  width: 90%;
-  height: 40%;
+  width: 100%;
+  max-width: 300px;
   border: 2px solid black;
   border-radius: 5px;
   background-color: #444a59;
-} */
+}
 
 .card-label {
   font-family: "Roboto Condensed", sans-serif;
@@ -57,27 +54,25 @@
   font-weight: 300;
   font-size: 16px;
   color: white;
-  margin: 5px;
+  margin: 15px;
 }
 
 #card-desc {
-  font-family: "Roboto Condensed", sans-serif;
-  font-weight: 300;
-  font-size: 16px;
-  color: white;
-  margin: 5px;
+  background-color: #52596b;
+  border-radius: 5px;
+  margin-left: 75px;
+  margin-right: 75px;
+  max-height: 200px;
+  margin: 15px;
+  padding: 10px;
+  width: 100%;
+  max-width: 225px;
+  word-wrap: break-word;
+  overflow: scroll;
 }
 
-#card-driver-desc {
-  font-family: "Roboto Condensed", sans-serif;
-  font-weight: 300;
-  font-size: 16px;
-  color: white;
-  margin: 5px;
-}
-
-#bold-text {
-  font-weight: 900;
+#card-bid {
+  margin: 15px;
 }
 
 .map-main-container {
@@ -86,70 +81,23 @@
   text-align: center;
   align-items: center;
   width: 80%;
-  height: 68vh;
+  height: 58vh;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 2px;
-}
-
-@media only screen and (max-width: 900px) {
-  .map-main-container {
-    width: 95%;
-  }
-}
-
-@media only screen and (max-width: 800px) {
-  .map-main-container {
-    flex-direction: column;
-  }
-
-  /* #job-card {
-    padding: 0px;
-    width: 90%;
-    height: 40vh;
-  } */
-  
-  .card-label {
-    font-size: 16px;
-    margin: 0;
-  }
-  
-  #card-title {
-    font-size: 21px;
-    margin: 0;
-  }
-  
-  #card-date {
-    font-size: 16px;
-  }
-  
-  #card-desc {
-    font-size: 15px;
-    margin: 0;
-  }
-  
-  #card-driver-desc {
-    font-size: 15px;
-    margin: 0;
-  }
-  
-  #bold-text {
-    font-weight: 900;
-    margin: 0;
-  }
+  position: relative;
+  top: -10px;
 }
 
 /*# sourceMappingURL=driverbidcard.css.map */
 @media only screen and (max-width: 489px) {
   .map-main-container {
     height: 65vh;
-    margin-top: 4vh;
+  }
+}
+@media only screen and (max-width: 334px) {
+  .map-main-container {
+    height: 49vh;
   }
 }
 
-@media only screen and (max-width: 334px) {
-  .map-main-container {
-    height: 58vh;
-    margin-top: 10vh;
-  }
-}
+/*# sourceMappingURL=driverbidcard.css.map */

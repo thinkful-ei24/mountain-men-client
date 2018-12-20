@@ -24,7 +24,6 @@ body {
   margin-left: auto;
   margin-right: auto;
   padding: 0;
-  padding-bottom: 130px;
   font-family: "Roboto Condensed", sans-serif;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
@@ -93,7 +92,6 @@ button {
   height: 40px;
   font-family: $font-header;
   font-weight: 500;
-
   font-size: 20px;
   border: $border-base;
   border-radius: $border-rad-base;
@@ -102,6 +100,7 @@ button {
   text-shadow: 1.25px 1.5px black;
   color: white;
   background-color: $color-green;
+  cursor: pointer;
 }
 
 button:disabled {

@@ -38,7 +38,7 @@ export class DriverBidCard extends React.Component {
         <p className='card-label'>Description: </p>
         <p id='card-desc'>{bid.jobDescription}</p>
         <p className='card-label'>Your Bid: </p>
-        <p id='card-desc'>{bid.bidAmount}</p>
+        <p id='card-bid'>{bid.bidAmount}</p>
         <p className='card-label'>Your Description: </p>
         <p id='card-desc'>{bid.bidDescription}</p>
         {bid.accepted && !bid.completed && user && (

@@ -7,30 +7,31 @@ export function DashboardNav(props) {
   if (props.type === "USER")
     return (
       <ul className='nav-container'>
-        <li>
+        <li className="nav-link">
 
           <h1 className='nav-link' onClick={() => {
             props.dispatch(updateView('postJob'));
           }}>Create Post</h1>
         </li>
-        <li>
+        <li className="nav-link">
 
           <h1 className='nav-link' onClick={() => {
             props.dispatch(updateView('default'))
           }}>Active Posts</h1>
         </li>
-        <li>
+        <li className="nav-link">
           <h1 className='nav-link' onClick={() => {
             props.dispatch(updateView('acceptedJobs'));
           }}>Accepted Jobs</h1>
         </li>
-        <li>
+        <li className="nav-link">
           <h1 className='nav-link' onClick={() => {
             props.dispatch(updateView('pastJobs'));
           }}>Completed Jobs</h1>
         </li>
       </ul>
     );
+
   if (props.type === "DRIVER")
     return (
       <div className='nav-container'>

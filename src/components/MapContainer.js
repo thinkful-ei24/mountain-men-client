@@ -94,7 +94,6 @@ export class MapContainer extends React.Component {
           return !job.props.accepted && !job.props.completed;
         });
         const markers = jobs.map((job, index) => {
-          console.log(job.props)
           return (
             <Marker
               onClick={this.onMarkerClick}
