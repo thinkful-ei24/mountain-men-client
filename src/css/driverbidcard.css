@@ -146,7 +146,7 @@
 
 @media only screen and (max-width: 334px) {
   .map-main-container {
-    height: 60vh;
+    height: 20vh;
     border: solid black 3px;
   }
 }
