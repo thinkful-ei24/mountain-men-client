@@ -39,9 +39,8 @@ export default class DriverAcceptedBids extends React.Component {
     });
 
     driverBids = driverBids.filter(item => {
-      return item.accepted;
+      return item.accepted && !item.completed;
     });
-
     driverBids = driverBids.map((bid, index) => {
       return (
         <DriverBidCard
