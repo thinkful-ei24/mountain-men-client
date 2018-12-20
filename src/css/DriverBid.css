@@ -211,8 +211,10 @@
   #job-card {
     margin-left: auto;
     margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 0;
     width: 92%;
-    height: 18vh;
+    height: 20vh;
   }
 
   #user-name {
@@ -254,7 +256,8 @@
   }
  
   #submit-btn {
-    height: 25px;
+    height: 20px;
+    font-size: 14px;
   }
 
   #job-budget {

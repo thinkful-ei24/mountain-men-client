@@ -18,11 +18,7 @@
 /*     */
 /* Mixins */
 /*     */
-<<<<<<< HEAD
-/* #job-card {
-=======
 .job-card {
->>>>>>> e6fe092576ee83686f3e0982d24fad53894673dd
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -86,10 +82,11 @@
   text-align: center;
   align-items: center;
   width: 80%;
-  height: 68vh;
+  height: 65vh;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 2px;
+  position: relative;
+  top: -10px;
 }
 
 @media only screen and (max-width: 900px) {
@@ -101,6 +98,7 @@
 @media only screen and (max-width: 800px) {
   .map-main-container {
     flex-direction: column;
+    height: 64vh;
   }
 
   /* #job-card {
@@ -142,14 +140,13 @@
 /*# sourceMappingURL=driverbidcard.css.map */
 @media only screen and (max-width: 489px) {
   .map-main-container {
-    height: 65vh;
-    margin-top: 4vh;
+    height: 60vh;
   }
 }
 
 @media only screen and (max-width: 334px) {
   .map-main-container {
-    height: 58vh;
-    margin-top: 10vh;
+    height: 60vh;
+    border: solid black 3px;
   }
 }
