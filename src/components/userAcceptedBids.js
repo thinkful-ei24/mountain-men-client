@@ -15,14 +15,14 @@ export class AcceptedJobs extends React.Component {
     listOfJobs = this.props.jobs.filter(item => {
       return !item.completed && item.accepted;
     });
-    
+
     listOfJobs = listOfJobs.map((job, index) => {
       const bids = this.props.bids.bids.filter(item => {
         return item.userId === job.acceptedUserId && item.jobId === job.id;
       });
       return <UserJobCard job={job} key={index} bids={bids} id={bids[0].userId} position={index} />;
     });
-    
+
     if (listOfJobs.length === 0) {
       listOfJobs = (
         <li>

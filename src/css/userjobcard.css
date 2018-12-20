@@ -50,7 +50,7 @@
   border-radius: 5px;
 }
 #card.expanded {
-  height: 315px;
+  height: auto;
 }
 
 #date {
@@ -90,6 +90,7 @@
 #accept-btn {
   position: relative;
   background-color: #3DC182;
+  margin-bottom: 10px;
 }
 
 #delete-btn {
@@ -98,6 +99,13 @@
 
 #show-btn {
   background-color: #ff7f40;
+}
+
+.job-bid-info {
+  background-color: #52596b;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 /*# sourceMappingURL=userjobcard.css.map */
