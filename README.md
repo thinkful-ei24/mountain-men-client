@@ -10,13 +10,13 @@
 
 Renting a moving truck a big hassle and often expensive. With Truck'd you can save time and money by connecting with someone who already owns a truck.
 
-If you own a truck, you can easily help people out and make some extra money at the same time.
+If you own a truck you can easily find jobs and make some extra cash.
 
 ## Features
 
 - [x] **Google Maps Integration**: Easily view users and drivers around you with a live map.
 
-## Extended Features
+### Next Features
 
 - [ ] **Notification System**: Seeing notifications for all things including when drivers accept bids or are on their way.
 
@@ -30,11 +30,11 @@ If you own a truck, you can easily help people out and make some extra money at 
 - [Snazzy Maps](https://snazzymaps.com/)
 - [Sass](https://sass-lang.com/)
 
-- [Node](https://github.com/nodejs/node)
-- [Express](https://github.com/expressjs/express)
-- [Passport](http://www.passportjs.org/)
-- [MongoDB](https://github.com/mongodb/mongo)
-- [Mongoose](https://github.com/Automattic/mongoose)
+* [Node](https://github.com/nodejs/node)
+* [Express](https://github.com/expressjs/express)
+* [Passport](http://www.passportjs.org/)
+* [MongoDB](https://github.com/mongodb/mongo)
+* [Mongoose](https://github.com/Automattic/mongoose)
 
 [Server repo](https://github.com/thinkful-ei24/mountain-men-server)
 
