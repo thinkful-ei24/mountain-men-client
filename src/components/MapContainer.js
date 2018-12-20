@@ -80,12 +80,14 @@ export class MapContainer extends React.Component {
 
   render() {
     if (!this.props.loaded) {
-      return <div>loading...</div>;
+      return <div className="loading-div">loading...</div>;
       } else if (this.props.center !== {}) {
         const style = {
-          width: '100%',
-          height: '70vh'
+          position: 'relative',
+          width: '80%',
+          height: '68vh'
         }
+
 
 
         const jobs = this.props.jobs.filter(job => {
@@ -109,14 +111,151 @@ export class MapContainer extends React.Component {
       })
 
       return (
-        <main>
-          <div style={style}>
+        <main className="map-main-container">
+          <div className="map-container" style={style}>
             {this.props.center !== {} &&
             <Map
               google={this.props.google}
               style={style}
               zoom={12}
               initialCenter={this.props.center}
+              styles={[
+                {
+                  "featureType": "landscape",
+                  "elementType": "geometry",
+                  "stylers": [
+                    {
+                      "saturation": "-100"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "poi",
+                  "elementType": "labels",
+                  "stylers": [
+                    {
+                      "visibility": "off"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "poi",
+                  "elementType": "labels.text.stroke",
+                  "stylers": [
+                    {
+                      "visibility": "off"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "road",
+                  "elementType": "labels.text",
+                  "stylers": [
+                    {
+                      "color": "#545454"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "road",
+                  "elementType": "labels.text.stroke",
+                  "stylers": [
+                    {
+                      "visibility": "off"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "road.highway",
+                  "elementType": "geometry.fill",
+                  "stylers": [
+                    {
+                      "saturation": "-87"
+                    },
+                    {
+                      "lightness": "-40"
+                    },
+                    {
+                      "color": "#ffffff"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "road.highway",
+                  "elementType": "geometry.stroke",
+                  "stylers": [
+                    {
+                      "visibility": "off"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "road.highway.controlled_access",
+                  "elementType": "geometry.fill",
+                  "stylers": [
+                    {
+                      "color": "#f0f0f0"
+                    },
+                    {
+                      "saturation": "-22"
+                    },
+                    {
+                      "lightness": "-16"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "road.highway.controlled_access",
+                  "elementType": "geometry.stroke",
+                  "stylers": [
+                    {
+                      "visibility": "off"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "road.highway.controlled_access",
+                  "elementType": "labels.icon",
+                  "stylers": [
+                    {
+                      "visibility": "on"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "road.arterial",
+                  "elementType": "geometry.stroke",
+                  "stylers": [
+                    {
+                      "visibility": "off"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "road.local",
+                  "elementType": "geometry.stroke",
+                  "stylers": [
+                    {
+                      "visibility": "off"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "water",
+                  "elementType": "geometry.fill",
+                  "stylers": [
+                    {
+                      "saturation": "-52"
+                    },
+                    {
+                      "hue": "#00e4ff"
+                    },
+                    {
+                      "lightness": "-16"
+                    }
+                  ]
+                }
+              ]}
             >
 
             {markers}
