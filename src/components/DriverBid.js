@@ -40,6 +40,7 @@ export function JobComponent(props) {
           component="input"
           type="number"
           placeholder="$25.00"
+          required={true}
         />
         <Field
           name="desc"
@@ -47,6 +48,7 @@ export function JobComponent(props) {
           component="textarea"
           type="textarea"
           placeholder="Additional comments"
+          required={true}
         />
         <button id='submit-btn' type='submit'>Submit Bid</button>
       </form>
