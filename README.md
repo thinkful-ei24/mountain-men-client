@@ -15,7 +15,7 @@
 
 ## Tech Stack
 
-### Team
+## Team
 
 - Design Lead- UI [Shane Lupton](https://github.com/slupton89)
 - Project Manager [Aaron Whitehead](https://github.com/WhiteheadAaron)
