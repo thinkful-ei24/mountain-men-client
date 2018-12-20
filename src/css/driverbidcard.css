@@ -73,18 +73,18 @@
 
 #card-bid {
   margin: 15px;
+
 }
 
 /*# sourceMappingURL=driverbidcard.css.map */
 @media only screen and (max-width: 489px) {
   .map-main-container {
-    height: 60vh;
+    height: 65vh;
   }
 }
 
 @media only screen and (max-width: 334px) {
   .map-main-container {
-    height: 20vh;
-    border: solid black 3px;
+    height: 49vh;
   }
 }
