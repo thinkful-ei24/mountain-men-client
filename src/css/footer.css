@@ -28,7 +28,7 @@
   margin-top: 0px;
   padding-left: 15px;
   padding-right: 15px;
-  position: static;
+  position: relative;
   left: 0;
   right: 0;
   bottom: 0;
@@ -37,10 +37,7 @@
 }
 @media screen and (max-width: 800px) {
   .footer {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    left: 0;
+    display: none;
   }
 }
 
