@@ -11,6 +11,7 @@
   margin-right: 25px;
 }
 
+
 #bid-count {
   font-weight: $font-weight-black;
   color: white;
@@ -36,7 +37,7 @@
   border-radius: $border-rad-base;
 
   &.expanded {
-    height: 315px;
+    height: auto;
   }
 }
 
@@ -77,6 +78,7 @@
 #accept-btn {
   position: relative;
   background-color: $color-green;
+  margin-bottom: 10px;
 }
 
 #complete-btn {
@@ -89,4 +91,11 @@
 
 #show-btn {
   background-color: $color-light-orange-warning;
+}
+
+.job-bid-info {
+    background-color: $color-light-grey;
+    border-radius: $border-rad-base;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
