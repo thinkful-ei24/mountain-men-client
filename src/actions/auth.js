@@ -112,8 +112,11 @@ export const registerUser = user => dispatch => {
       zip: user.zip
     },
     type: user.type
-
   };
+
+  if (reqBody.address.zip.length !== 5 || reqBody.address.zip < 0 || reqBody.address.zip > 99999) {
+    alert(`We're trying to find your address. If it takes more than a few seconds, double check that you entered a valid USA zip code.`)
+  }
 
   return fetch(`${API_BASE_URL}/register`, {
     method: "POST",
