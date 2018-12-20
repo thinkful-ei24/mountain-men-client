@@ -117,6 +117,7 @@ button {
   text-shadow: 1.25px 1.5px black;
   color: white;
   background-color: #3DC182;
+  cursor: pointer;
 }
 
 button:disabled {
