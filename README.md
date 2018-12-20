@@ -27,6 +27,8 @@ If you own a truck you can easily find jobs and make some extra cash.
 - [Redux](https://github.com/reduxjs/react-redux)
 - [Redux Form](https://github.com/erikras/redux-form)
 - [Google Maps API](https://developers.google.com/maps/documentation/)
+- [Google Maps Geocoding API](https://developers.google.com/maps/documentation/geocoding/start)
+- [Google Maps React](https://github.com/fullstackreact/google-maps-react/blob/master/README.md)
 - [Snazzy Maps](https://snazzymaps.com/)
 - [Sass](https://sass-lang.com/)
 
