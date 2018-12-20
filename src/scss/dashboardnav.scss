@@ -4,6 +4,7 @@
  @import 'variables';
 
 .nav-container {
+
   @media only screen and (max-width: 800px) {
     right: 0;
     left: 0;
@@ -27,11 +28,50 @@
 
   box-shadow: 2.5px 2.5px 3px black;
 
+  @media only screen and (max-width: 600px) {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-around;
+      padding: 0;
+  }
+
+  @media only screen and (max-width: 480px) {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-around;
+      padding: 0;
+
+  }
+
+  @media only screen and (max-width: 414px) {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-around;
+      padding: 0;
+  }
 }
 
 .nav-link {
   font-size: 14px;
   margin: 5px;
+
+  @media only screen and (max-width: 600px) {
+      display: flex;
+      width: 150px;
+  }
+  
+  @media only screen and (max-width: 480px) {
+      display: flex;
+      width: 220px;
+  }
+  
+  @media only screen and (max-width: 414px) {
+      display: flex;
+      width: 150px;
+  }
 }
 
 .nav-link:hover {

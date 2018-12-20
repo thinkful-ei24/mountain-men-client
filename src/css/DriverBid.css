@@ -38,7 +38,15 @@
 #job-desc {
   font-family: "Roboto Condensed", sans-serif;
   font-weight: 300;
-  font-size: 24px;
+  font-size: 22px;
+  color: white;
+  margin: 0;
+}
+
+#job-budget {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 300;
+  font-size: 22px;
   color: white;
   margin: 0;
 }
@@ -46,7 +54,7 @@
 #job-date {
   font-family: "Roboto Condensed", sans-serif;
   font-weight: 300;
-  font-size: 16px;
+  font-size: 22px;
   color: white;
   margin: 5px;
 }
@@ -112,3 +120,148 @@
 }
 
 /*# sourceMappingURL=DriverBid.css.map */
+
+
+@media only screen and (max-width: 800px) {
+  #job-card {
+    width: 90%;
+    height: 26vh;
+  }
+  
+  #job-date {
+    margin: 0px;
+  }
+  
+  #bid-label {
+    height: 30px;
+    width: auto;
+    position: relative;
+    bottom: 20px;
+  }
+  
+  #bid-input {
+    width: 115px;
+    height: 30px;
+    margin-left: 20px;
+    margin-bottom: 0px;
+    position: relative;
+    bottom: 20px;
+  }
+  
+  #desc-input {
+    width: 195px;
+    height: 50px;
+    font-size: 16px;
+  }
+ 
+  #submit-btn {
+    position: relative;
+    bottom: 15px;
+    height: 35px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  #job-card {
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    height: 25vh;
+  }
+
+  #user-name {
+    font-size: 18px;
+  }
+  
+  #job-date {
+    margin: 0px;
+    font-size: 16px;
+  }
+  
+  #bid-label {
+    font-size: 16px;
+    height: 30px;
+    width: auto;
+    position: relative;
+    bottom: 20px;
+  }
+  
+  #bid-input {
+    font-size: 16px;
+    width: 115px;
+    height: 30px;
+    margin-left: 20px;
+    margin-bottom: 0px;
+    position: relative;
+    bottom: 20px;
+  }
+  
+  #desc-input {
+    width: 195px;
+    height: 50px;
+    font-size: 16px;
+  }
+ 
+  #submit-btn {
+    height: 35px;
+  }
+}
+
+@media only screen and (max-width: 458px) {
+  #job-card {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 0;
+    width: 92%;
+    height: 20vh;
+  }
+
+  #user-name {
+    font-size: 16px;
+  }
+  
+  #job-date {
+    margin: 0px;
+    font-size: 14px;
+  }
+
+  #job-desc {
+    font-size: 14px;
+  }
+  
+  #bid-label {
+    display: none;
+    font-size: 14px;
+    height: 30px;
+    width: auto;
+    position: relative;
+    bottom: 20px;
+  }
+  
+  #bid-input {
+    font-size: 14px;
+    width: 90px;
+    height: 20px;
+    margin-left: 20px;
+    margin-bottom: 7px;
+    position: relative;
+    bottom: 13px;
+  }
+  
+  #desc-input {
+    width: 150px;
+    height: 30px;
+    font-size: 14px;
+  }
+ 
+  #submit-btn {
+    height: 20px;
+    font-size: 14px;
+  }
+
+  #job-budget {
+    font-size: 14px;
+  }
+  
+}
