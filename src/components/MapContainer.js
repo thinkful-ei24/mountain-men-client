@@ -80,9 +80,10 @@ export class MapContainer extends React.Component {
 
   render() {
     if (!this.props.loaded) {
-      return <div>loading...</div>;
+      return <div className="loading-div">loading...</div>;
       } else if (this.props.center !== {}) {
         const style = {
+          position: 'relative',
           width: '80%',
           height: '68vh'
         }
@@ -110,8 +111,8 @@ export class MapContainer extends React.Component {
       })
 
       return (
-        <main>
-          <div style={style}>
+        <main className="map-main-container">
+          <div className="map-container" style={style}>
             {this.props.center !== {} &&
             <Map
               google={this.props.google}
