@@ -2,6 +2,7 @@ import React from "react";
 import { reduxForm, Field } from "redux-form";
 import { connect } from "react-redux";
 import { registerUser } from "../actions/auth.js";
+import input from './input';
 import {required, nonEmpty, matches, length, isTrimmed} from '../validators.js';
 const passwordLength = length({min: 6, max: 72});
 const matchesPassword = matches('password');
@@ -40,7 +41,7 @@ export class RegisterForm extends React.Component {
               <label>First Name</label>
               <Field
                 name="firstName"
-                component="input"
+                component={input}
                 type="text"
                 placeholder="John"
                 validate={[required, nonEmpty, isTrimmed]}
@@ -51,7 +52,7 @@ export class RegisterForm extends React.Component {
               <label>Last Name</label>
               <Field
                 name="lastName"
-                component="input"
+                component={input}
                 type="text"
                 placeholder="Doe"
                 validate={[required, nonEmpty, isTrimmed]}
@@ -62,7 +63,7 @@ export class RegisterForm extends React.Component {
               <label>Email</label>
               <Field
                 name="email"
-                component="input"
+                component={input}
                 type="email"
                 placeholder="JohnDoe@email.com"
                 validate={[required, nonEmpty, isTrimmed]}
@@ -74,7 +75,7 @@ export class RegisterForm extends React.Component {
               <Field
                 name="password"
                 id="password"
-                component="input"
+                component={input}
                 type="password"
                 placeholder="*******"
                 validate={[required, passwordLength, isTrimmed]}
@@ -85,7 +86,7 @@ export class RegisterForm extends React.Component {
                 <label htmlFor="passwordConfirm">Confirm password</label>
                 <Field
                   name="passwordConfirm"
-                  component="input"
+                  component={input}
                   type="password"
                   placeholder="*******"
                   validate={[required, nonEmpty, matchesPassword]}
@@ -96,7 +97,7 @@ export class RegisterForm extends React.Component {
               <label>Phone</label>
               <Field
                 name="phoneNumber"
-                component="input"
+                component={input}
                 type="tel"
                 placeholder="ex. 303-303-3030"
                 required={true}
@@ -106,7 +107,7 @@ export class RegisterForm extends React.Component {
               <label>Street</label>
               <Field
                 name="street"
-                component="input"
+                component={input}
                 type="string"
                 placeholder="ex. 123 Main St"
                 required={true}
@@ -116,7 +117,7 @@ export class RegisterForm extends React.Component {
               <label>City</label>
               <Field
                 name="city"
-                component="input"
+                component={input}
                 type="string"
                 placeholder="ex. Los Angeles"
                 required={true}
@@ -126,7 +127,7 @@ export class RegisterForm extends React.Component {
               <label>State</label>
               <Field
                 name="state"
-                component="input"
+                component={input}
                 type="string"
                 placeholder="ex. California"
                 required={true}
@@ -136,7 +137,7 @@ export class RegisterForm extends React.Component {
               <label>Zip Code</label>
               <Field
                 name="zip"
-                component="input"
+                component={input}
                 type="string"
                 placeholder="ex. 90002"
                 required={true}
@@ -147,7 +148,7 @@ export class RegisterForm extends React.Component {
                 className="fas fa-users">User
               <Field
                 name="type"
-                component="input"
+                component={input}
                 type="radio"
                 value="USER"
                 checked={this.state.selectedRole === "USER"}
@@ -158,7 +159,7 @@ export class RegisterForm extends React.Component {
                 className="fas fa-truck-pickup">Driver
               <Field
                 name="type"
-                component="input"
+                component={input}
                 type="radio"
                 value="DRIVER"
                 checked={this.state.selectedRole === "DRIVER"}
