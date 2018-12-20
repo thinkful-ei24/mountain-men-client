@@ -82,7 +82,7 @@
   text-align: center;
   align-items: center;
   width: 80%;
-  height: 65vh;
+  height: 58vh;
   margin-left: auto;
   margin-right: auto;
   position: relative;
@@ -98,7 +98,8 @@
 @media only screen and (max-width: 800px) {
   .map-main-container {
     flex-direction: column;
-    height: 64vh;
+    height: 50vh;
+    border: solid black 3px;
   }
 
   /* #job-card {
@@ -115,6 +116,7 @@
   #card-title {
     font-size: 21px;
     margin: 0;
+
   }
   
   #card-date {
@@ -140,13 +142,12 @@
 /*# sourceMappingURL=driverbidcard.css.map */
 @media only screen and (max-width: 489px) {
   .map-main-container {
-    height: 60vh;
+    height: 65vh;
   }
 }
 
 @media only screen and (max-width: 334px) {
   .map-main-container {
-    height: 20vh;
-    border: solid black 3px;
+    height: 49vh;
   }
 }

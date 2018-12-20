@@ -22,6 +22,7 @@
   margin: 10px;
   padding: 10px;
   width: 250px;
+  height: auto;
   border: 2px solid black;
   border-radius: 5px;
   background-color: #444a59;
@@ -100,6 +101,7 @@
 }
 
 #desc-input {
+  display: block;
   width: 195px;
   height: 50px;
   font-size: 16px;
@@ -108,6 +110,8 @@
   border: black;
   border-radius: 5px;
   resize: none;
+  margin-left: auto;
+  margin-right: auto;
 }
 #desc-input::placeholder {
   color: #b3b3b3;
@@ -125,7 +129,7 @@
 @media only screen and (max-width: 800px) {
   #job-card {
     width: 90%;
-    height: 26vh;
+    height: 24vh;
   }
   
   #job-date {
@@ -152,6 +156,7 @@
     width: 195px;
     height: 50px;
     font-size: 16px;
+    display: inline-block;
   }
  
   #submit-btn {
@@ -211,7 +216,7 @@
   #job-card {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 5px;
+    margin-top: 15px;
     margin-bottom: 0;
     width: 92%;
     height: 20vh;
@@ -262,6 +267,68 @@
 
   #job-budget {
     font-size: 14px;
+  }
+  
+}
+
+
+@media only screen and (max-width: 430px) {
+  #job-card {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 0;
+    width: 92%;
+    height: 18vh;
+  }
+
+  #user-name {
+    font-size: 15px;
+    position: relative;
+    top: -10px;
+  }
+  
+  #job-date {
+    margin: 0px;
+    font-size: 13px;
+    position: relative;
+    top: -10px;
+  }
+
+  #job-desc {
+    font-size: 13px;
+    position: relative;
+    top: -10px;
+  }
+  
+  #bid-input {
+    font-size: 13px;
+    width: 90px;
+    height: 20px;
+    margin-left: 20px;
+    margin-bottom: 7px;
+    position: relative;
+    bottom: 18px;
+  }
+  
+  #desc-input {
+    width: 150px;
+    height: 20px;
+    font-size: 13px;
+    position: relative;
+    top: -10px;
+  }
+ 
+  #submit-btn {
+    height: 20px;
+    font-size: 13px;
+    top: -30px;
+  }
+
+  #job-budget {
+    font-size: 13px;
+    position: relative;
+    top: -10px;
   }
   
 }
