@@ -84,8 +84,8 @@ export class MapContainer extends React.Component {
       } else if (this.props.center !== {}) {
         const style = {
           position: 'relative',
-          width: '80%',
-          height: '68vh'
+          width: '100%',
+          height: '100%'
         }
 
 

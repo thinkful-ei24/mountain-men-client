@@ -23,9 +23,9 @@
   top: 50px;
 }
 @media screen and (max-width: 800px) {
-  #landing-container {
+  /* #landing-container {
     padding-bottom: 600px;
-  }
+  } */
 }
 
 /*# sourceMappingURL=landingpage.css.map */

@@ -4,16 +4,15 @@ import Profile from "../components/userProfileComponent";
 import { Redirect } from "react-router-dom";
 import Job from "../components/DriverBid";
 import { getAllJobs, getAllBids } from "../actions/jobs";
-import {getMapCenter } from '../actions/maps.js';
-import MapContainer from '../components/MapContainer.js';
+import { getMapCenter } from "../actions/maps.js";
+import MapContainer from "../components/MapContainer.js";
 import DriverReviewBids from "../components/DriverBidReview.js";
-import DriverAcceptedBids from '../components/DriverAcceptedBids'
-import DriverCompletedBids from '../components/DriverCompletedBids';
+import DriverAcceptedBids from "../components/DriverAcceptedBids";
+import DriverCompletedBids from "../components/DriverCompletedBids";
 import DashboardNav from "../components/DashboardNav";
-require('../css/dashboard.css');
+require("../css/dashboard.css");
 
 export class Dashboard extends React.Component {
-
   componentDidMount() {
     //gets all jobs related to a given user
     this.props.dispatch(getAllJobs());
@@ -27,18 +26,23 @@ export class Dashboard extends React.Component {
     // need to dispatch to get jobs
     const getJobs = job => {
       const jobs = this.props.driverJobs.jobs.jobs.map((job, index) => {
+        console.log(job);
         return (
           <Job
             key={index}
             accepted={job.accepted}
             name={job.title}
             title={job.title}
-            description={job.description}
+            desc={job.description}
             budget={job.budget}
             image={job.image}
             id={job.id}
             date={job.date}
-            coordinates={job.coords ? {lat: job.coords.lat, lng: job.coords.long}: {lat: 0, lng: 0}}
+            coordinates={
+              job.coords
+                ? { lat: job.coords.lat, lng: job.coords.long }
+                : { lat: 0, lng: 0 }
+            }
             form={job.id}
           />
         );
@@ -52,41 +56,56 @@ export class Dashboard extends React.Component {
       return <Redirect to="/" />;
     }
 
-
     if (this.props.currentUser.type === "DRIVER") {
       function renderDriverPage(props) {
         if (props.view === "currentJobs") {
-          return <DriverReviewBids props={props.driverJobs} dispatch={props.dispatch}/>;
-        }
-        if (props.view ==="pastJobs") {
-          return <DriverAcceptedBids  props={props.driverJobs} dispatch={props.dispatch} />;
-        }
-        if (props.view ==="completedJobs") {
-          return <DriverCompletedBids props={props.driverJobs} dispatch={props.dispatch} />;
-        }
-        if (props.view === "default") {
           return (
-
-              <MapContainer jobs={jobs}/>
-
+            <DriverReviewBids
+              props={props.driverJobs}
+              dispatch={props.dispatch}
+            />
           );
         }
+        if (props.view === "pastJobs") {
+          return (
+            <DriverAcceptedBids
+              props={props.driverJobs}
+              dispatch={props.dispatch}
+            />
+          );
+        }
+        if (props.view === "completedJobs") {
+          return (
+            <DriverCompletedBids
+              props={props.driverJobs}
+              dispatch={props.dispatch}
+            />
+          );
+        }
+        if (props.view === "default") {
+          return <MapContainer jobs={jobs} />;
+        }
+      }
+      let welcome = '';
+      if (this.props.view !== "default") {
+        welcome = (
+          <h1>
+            Welcome back, {this.props.currentUser.firstName}{" "}
+            {this.props.currentUser.lastName}!
+          </h1>
+        );
       }
       return (
         <div>
           <DashboardNav type="DRIVER" view={this.props.view} />
           <div className="dashboard-content">
-            <h1>
-              Welcome back, {this.props.currentUser.firstName}{" "}
-              {this.props.currentUser.lastName}!
-            </h1>
+            {welcome}
             {renderDriverPage(this.props)}
           </div>
         </div>
       );
     }
     if (this.props.currentUser.type === "USER") {
-
       return (
         <div>
           <DashboardNav type="USER" view={this.props.view} />
@@ -95,11 +114,13 @@ export class Dashboard extends React.Component {
               Welcome back, {this.props.currentUser.firstName}{" "}
               {this.props.currentUser.lastName}!
             </h1>
-            <ul style={{display: 'flex', justifyContent: 'center'}}>
-              <Profile view={this.props.view} bids={this.props.driverJobs.bids} />
+            <ul style={{ display: "flex", justifyContent: "center" }}>
+              <Profile
+                view={this.props.view}
+                bids={this.props.driverJobs.bids}
+              />
             </ul>
           </div>
-
         </div>
       );
     }
