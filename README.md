@@ -8,17 +8,20 @@
 
 ## Why
 
-Renting a moving truck a big hassle and often expensive. With Truck'd you can save time and money by connecting with someone who already owns a truck.
+Renting a moving truck is a big hassle and often expensive. With Truck'd you can save time and money by connecting with someone who already owns a truck.
 
 If you own a truck you can easily find jobs and make some extra cash.
 
 ## Features
 
+- [x] **Request A Truck**: Users can request a truck by posting a truck for nearby drivers to view.
+- [x] **Bid On Jobs**: Truck owners can view job requests and bid on the ones they want
 - [x] **Google Maps Integration**: Easily view users and drivers around you with a live map.
 
 ### Next Features
 
 - [ ] **Notification System**: Seeing notifications for all things including when drivers accept bids or are on their way.
+- [ ] **Map Clustering**: Group multiple jobs on the map in the same location together allowing the user or driver to view multiple items easier.
 
 ## Tech Stack
 
@@ -27,6 +30,8 @@ If you own a truck you can easily find jobs and make some extra cash.
 - [Redux](https://github.com/reduxjs/react-redux)
 - [Redux Form](https://github.com/erikras/redux-form)
 - [Google Maps API](https://developers.google.com/maps/documentation/)
+- [Google Maps Geocoding API](https://developers.google.com/maps/documentation/geocoding/start)
+- [Google Maps React](https://github.com/fullstackreact/google-maps-react/blob/master/README.md)
 - [Snazzy Maps](https://snazzymaps.com/)
 - [Sass](https://sass-lang.com/)
 
