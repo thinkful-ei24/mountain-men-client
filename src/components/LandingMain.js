@@ -1,8 +1,6 @@
 import React from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import Dashboard from '../pages/dashboard.js';
-import Footer from '../components/Footer';
 
 require('../css/landingmain.css');
 
