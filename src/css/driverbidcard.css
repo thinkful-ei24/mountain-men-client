@@ -31,7 +31,7 @@
   border: 2px solid black;
   border-radius: 5px;
   background-color: #444a59;
-} */
+}
 
 .card-label {
   font-family: "Roboto Condensed", sans-serif;
@@ -73,7 +73,19 @@
 
 #card-bid {
   margin: 15px;
+}
 
+.map-main-container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  width: 80%;
+  height: 58vh;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  top: -10px;
 }
 
 /*# sourceMappingURL=driverbidcard.css.map */
@@ -82,9 +94,10 @@
     height: 65vh;
   }
 }
-
 @media only screen and (max-width: 334px) {
   .map-main-container {
     height: 49vh;
   }
 }
+
+/*# sourceMappingURL=driverbidcard.css.map */

@@ -43,9 +43,12 @@
   color: white;
   margin-top: 25px;
   font-size: 18px;
-  width: 100px;
-  height: 30px;
+  min-width: 30px;
+  height: 40px;
+  width: 40px;
   font-size: 16px;
+  border-radius: 50%;
+  border: none;
 }
 .nav-btn#logout-btn {
   background-color: #ee322c;
@@ -69,4 +72,8 @@
 
 .show-nav {
   margin-left: auto;
+}
+
+.fas {
+  font-size: 24px;
 }
