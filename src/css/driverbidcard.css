@@ -18,7 +18,11 @@
 /*     */
 /* Mixins */
 /*     */
+<<<<<<< HEAD
 /* #job-card {
+=======
+.job-card {
+>>>>>>> e6fe092576ee83686f3e0982d24fad53894673dd
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

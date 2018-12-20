@@ -37,13 +37,15 @@ export function JobComponent(props) {
           component="input"
           type="number"
           placeholder="Bid Amount"
+          required={true}
         />
         <Field
           name="desc"
           id="desc-input"
           component="textarea"
           type="textarea"
-          placeholder="Additional Comments"
+          placeholder="Additional comments"
+          required={true}
         />
         <button id='submit-btn' type='submit'>Submit Bid</button>
       </form>
