@@ -89,7 +89,7 @@ export function LandingMain(props) {
               <i className="icon-gh fab fa-linkedin"></i>
             </a>
             <a target="_blank" rel="noopener noreferrer"
-              href="https://github.com/WhiteheadAaron">
+              href="https://github.com/rupp-colin">
               <i className="icon-gh fas fa-at"></i>
             </a>
           </p>
