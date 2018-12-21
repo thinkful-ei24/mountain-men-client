@@ -12,5 +12,15 @@
  }
 
  #info-window {
-    width: 300px;
+     @media only screen and(max-width: 320px) {
+         width: 100px;
+     }
+ }
+
+
+
+ #info-window button.bid-button {
+     @media only screen and(max-width: 320px) {
+        min-width: 60px !important;
+    }
  }
