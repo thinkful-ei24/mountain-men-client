@@ -77,6 +77,7 @@
   background-color: #52596b;
   box-shadow: none;
   border: black;
+  color: white;
 }
 #bid-input input:active,
 #bid-input input:focus {
@@ -112,7 +113,7 @@
 }
 
 /*# sourceMappingURL=DriverBid.css.map */
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 800px) {
   #job-card {
     width: 90%;
     height: 24vh;
@@ -260,7 +261,7 @@
     margin-top: 10px;
     margin-bottom: 0;
     width: 92%;
-    height: 27vh;
+    height: 18vh;
   }
 
   #user-name {
