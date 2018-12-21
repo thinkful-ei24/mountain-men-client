@@ -41,7 +41,7 @@ export function ProfileInfo(props) {
       </div>
     );
   }
-  return '';
+  return <h1>There was a problem. Try again.</h1>;
 }
 const mapStateToProps = state => {
   return {
