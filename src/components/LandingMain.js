@@ -55,12 +55,12 @@ export function LandingMain(props) {
               <i className="icon-gh fab fa-github"></i>
             </a>
             <a target="_blank" rel="noopener noreferrer"
-              href="https://github.com/WhiteheadAaron">
+              href="https://www.linkedin.com/in/aaron-whitehead-a2a94785/">
               <i className="icon-gh fab fa-linkedin"></i>
             </a>
             <a target="_blank" rel="noopener noreferrer"
               href="https://github.com/WhiteheadAaron">
-              <i className="icon-gh  fas fa-at"></i>
+              <i className="icon-gh  fas fa-cat"></i>
             </a>
           </p>
           <p className="contact-name">
@@ -90,7 +90,7 @@ export function LandingMain(props) {
             </a>
             <a target="_blank" rel="noopener noreferrer"
               href="https://github.com/rupp-colin">
-              <i className="icon-gh fas fa-at"></i>
+              <i class="icon-gh fas fa-terminal"></i>
             </a>
           </p>
           <p className="contact-name">
