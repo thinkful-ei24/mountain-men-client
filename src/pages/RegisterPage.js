@@ -1,10 +1,13 @@
 import React from "react";
 import RegisterForm from "../components/RegisterForm";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 require('../css/registrationpage.css');
 
-export function RegisterPage() {
+export function RegisterPage(props) {
+  if(props.loggedIn) {
+    return <Redirect to='/dashboard'></Redirect>
+  }
   return (
     <div id='registration-container' className='animated fadeIn'>
       <Link to='/'><div id='bg'></div></Link>

@@ -29,7 +29,7 @@ export class DriverBidCard extends React.Component {
 
     console.log(this.props);
 
-    let date = new Date(bid.jobDate);
+    let date = new Date(bid.date);
     date.setHours(25);
 
     return (

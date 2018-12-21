@@ -20,6 +20,7 @@
 /*     */
 .job-card {
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
     align-content: center;
     align-items: center;
@@ -67,7 +68,6 @@
     width: 100%;
     max-width: 225px;
     word-wrap: break-word;
-    overflow: scroll;
 }
 
 #card-bid {
@@ -96,9 +96,10 @@
         height: 70vh;
     }
 }
-
 @media only screen and (max-width: 334px) {
     .map-main-container {
         height: 70vh;
     }
 }
+
+/*# sourceMappingURL=driverbidcard.css.map */
