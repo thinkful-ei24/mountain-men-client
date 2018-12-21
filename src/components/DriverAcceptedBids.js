@@ -34,7 +34,7 @@ export default class DriverAcceptedBids extends React.Component {
           item.jobDescription = job.description;
           item.jobTitle = job.title;
           item.jobPosterId = job.userId;
-          item.date = job.date;
+          item.jobDate = job.date;
         }
       });
     });

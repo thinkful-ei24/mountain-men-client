@@ -84,6 +84,9 @@ export class Dashboard extends React.Component {
         if (props.view === "default") {
           return <MapContainer jobs={jobs} />;
         }
+        if (props.view === "bidPosted") {
+          return <h2>Thank you! Your bid has been posted.</h2>
+        }
       }
       let welcome = '';
       if (this.props.view !== "default") {

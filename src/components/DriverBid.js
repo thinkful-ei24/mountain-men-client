@@ -27,7 +27,7 @@ export function JobComponent(props) {
       <form
         onSubmit={props.handleSubmit(values => {
           props.dispatch(makeBid(props.id, values));
-          return props.dispatch(updateView("currentJobs"));
+          return props.dispatch(updateView("bidPosted"));
         })}
       >
         <label id="bid-label">Your Offer</label>
