@@ -5,7 +5,8 @@
 
 #landing-section {
   @media screen and (max-width: 800px) {
-
+    margin-bottom: 50px;
+    padding-top: 100px;
   }
   display: flex;
   box-sizing: border-box;
@@ -16,7 +17,8 @@
   max-height: 750px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 150px;
+  margin-top: 125px;
+  margin-bottom: 350px;
   color: white;
 }
 
@@ -32,6 +34,8 @@
     flex-direction: column;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 75px;
+    margin-top: 0px;
     align-items: center
   }
   display: flex;
@@ -42,6 +46,7 @@
   height: 100%;
   max-width: 800px;
   max-height: 400px;
+  margin-bottom: 350px;
 }
 
 #have-truck-container {
@@ -60,6 +65,7 @@
   height: 100%;
   max-width: 800px;
   max-height: 400px;
+  margin-bottom: 300px;
 }
 
 #need-truck-img {
@@ -101,6 +107,7 @@
   margin-right: 0px;
   margin-bottom: 20px;
 
+
   border-radius: 3px;
   box-shadow: 3px 3px 10px 1px black;
 
@@ -111,6 +118,7 @@
 #need-truck-card {
   @media only screen and (max-width: 800px) {
     margin: 20px auto;
+    width: 90%;
   }
   display: flex;
   box-sizing: border-box;
@@ -136,6 +144,7 @@
 #have-truck-card {
   @media only screen and (max-width: 800px) {
     margin: 30px auto;
+    width: 90%;
   }
   display: flex;
   box-sizing: border-box;
@@ -166,4 +175,67 @@
 
 #have-img {
   width: 100%;
+}
+
+.brand-section {
+  @media screen and (max-width: 800px) {
+    display: none;
+  }
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: #444a59;
+  padding: 50px;
+  margin-top: 70px;
+  height: 100%;
+  min-height: 150px;
+
+  border-radius: 3px;
+  box-shadow: 3px 3px 10px 1px black;
+
+  animation-duration: 1.5s;
+  animation-delay: 1s;
+}
+
+#mm {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.contacts {
+  @media screen and (max-width: 800px) {
+    width: 300px;
+  }
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+}
+
+.contact-name {
+  display: inline;
+  font-size: 16px;
+  margin: 0;
+  align-self: flex-end;
+}
+
+.icon-gh {
+  display: inline;
+  color: white;
+  font-size: 20px;
+  margin: 3px;
+}
+
+#mm-logo-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+#mm-name {
+  font-family: 'Aleo', serif;
 }

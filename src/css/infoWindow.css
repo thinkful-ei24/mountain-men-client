@@ -11,8 +11,16 @@
   min-width: 38px;
 }
 
-#info-window {
-  width: 300px;
+@media only screen and (max-width: 320px) {
+  #info-window {
+    width: 100px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  #info-window button.bid-button {
+    min-width: 60px !important;
+  }
 }
 
 /*# sourceMappingURL=infoWindow.css.map */
