@@ -19,28 +19,28 @@
 /* Mixins */
 /*     */
 #login-btn {
-  background-color: #ff7f40;
-  color: white;
-  margin-top: 15px;
+    background-color: #ff7f40;
+    color: white;
+    margin-top: 15px;
 }
 
 #login-form-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  box-shadow: 3px 3px 10px 1px black;
-  padding: 15px;
-  background-color: #52596b;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 425px;
-  height: 300px;
-  zoom: 0.9;
-  border-radius: 10px;
-  -moz-border-radius: 10px;
-  -weblit-border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    box-shadow: 3px 3px 10px 1px black;
+    padding: 15px;
+    background-color: #52596b;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 425px;
+    height: 380px;
+    zoom: 0.9;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -weblit-border-radius: 10px;
 }
 
 /*# sourceMappingURL=loginform.css.map */

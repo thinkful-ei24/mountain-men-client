@@ -3,6 +3,7 @@ import { reduxForm, Field, focus } from "redux-form";
 import { connect } from "react-redux";
 import {required, nonEmpty} from '../validators.js';
 import { login } from "../actions/auth.js";
+import Logo from '../logo.png';
 require('../css/loginform.css');
 
 export class LoginForm extends React.Component {
@@ -29,6 +30,11 @@ export class LoginForm extends React.Component {
           {this.props.error}
         </div>
       );
+    }
+
+    const logoStyle = {
+      width: '50px',
+      borderRadius: '25px',
     }
 
     return (
@@ -63,6 +69,11 @@ export class LoginForm extends React.Component {
           </div>
           <button id='login-btn'>Log in</button>
         </form>
+        <div>
+          <p id="demo-email">Demo email: demo_user@test.test</p>
+          <p id="demo-password">password: password123</p>
+          <img src={Logo} style={logoStyle} alt="Truck'd logo"/>
+        </div>
       </div>
     );
   }
