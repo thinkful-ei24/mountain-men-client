@@ -45,7 +45,7 @@ export function LandingMain(props) {
       <div className="brand-section">
         <div id="mm">
           <img id="mm-logo-img" src={logoImg} alt="logo" />
-          <h1 id="mm-name">Mountain Men</h1>
+          <h1 id="mm-name">Team Mountain Men</h1>
         </div>
         <div className="contacts">
           <p className="contact-name">
@@ -90,7 +90,7 @@ export function LandingMain(props) {
             </a>
             <a target="_blank" rel="noopener noreferrer"
               href="https://github.com/rupp-colin">
-              <i class="icon-gh fas fa-terminal"></i>
+              <i className="icon-gh fas fa-terminal"></i>
             </a>
           </p>
           <p className="contact-name">
