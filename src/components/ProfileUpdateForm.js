@@ -112,7 +112,6 @@ export class ProfileUpdateForm extends React.Component {
         <button
           onClick={() => {
             this.props.dispatch(updateView("default"));
-            console.log(this.props.initialValues);
           }}
         >
           Cancel

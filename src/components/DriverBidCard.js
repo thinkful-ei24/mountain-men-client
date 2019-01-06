@@ -26,8 +26,8 @@ export class DriverBidCard extends React.Component {
   render() {
     let bid = this.props.bid;
     let user = this.props.jobPoster.user.users[this.props.position];
-    console.log(this.props);
-    let date = new Date(bid.jobDate);
+
+    let date = new Date(bid.date);
     date.setHours(25);
 
     return (
