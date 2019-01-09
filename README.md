@@ -43,6 +43,47 @@ If you own a truck you can easily find jobs and make some extra cash.
 
 [Server repo](https://github.com/thinkful-ei24/mountain-men-server)
 
+## API
+
+```
+/api
+.
+├── /auth
+│   └── POST
+│       ├── /login
+│       └── /refresh
+├── /bids
+│   └── GET /
+│   |   ├── /:id
+│   |   └── /:jobId
+│   └── POST
+│       └── /:id
+│   └── PUT
+|       └── /:id
+├── /jobs
+│   └── GET
+│       ├── /
+│       ├── /:id
+│       ├── /notifications/:id
+│       ├── /popcorn/:id
+│       └── /profilePicture/:id
+│   └── PUT
+│       ├── /ignore/:id
+│       ├── /ignore/nevermind/:id
+│       ├── /location/:id
+│       ├── /notifications/time/:id
+│       └── /popcorn
+│   └── POST
+│       └── /:id
+│   └── PUT
+|       └── /:userId/:jobId
+├── /profile
+│   └── GET
+│       └── /:id
+│   └── PUT
+│       └── /:id
+
+```
 ## Team
 
 - Project Manager [Aaron Whitehead](https://github.com/WhiteheadAaron)
